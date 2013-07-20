@@ -1,3 +1,5 @@
+config.assets.initialize_on_precompile = false
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -60,5 +62,3 @@ module Filialen
     config.assets.version = '1.0'
   end
 end
-
-config.assets.initialize_on_precompile = false
