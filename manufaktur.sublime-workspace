@@ -1,0 +1,280 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sess",
+				"sessions_path"
+			],
+			[
+				"gravatar",
+				"gravatar_url"
+			],
+			[
+				"H",
+				"HelveticaNeue-Light"
+			],
+			[
+				"San",
+				"sans-serif"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 267.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/michaelfeihstel/Library/Application Support/Steam/SteamApps/common/Half-Life 2/hl2/cfg/start.cfg",
+		"/Applications/Resonance.app/Contents/Resources/drive_c/Program Files/GOG.com/Resonance/acsetup.cfg",
+		"/Developer/rails/projects/filialen/app/controllers/home_controller.rb",
+		"/Developer/rails/projects/filialen/app/assets/stylesheets/foundation_and_overrides.scss",
+		"/Developer/rails/projects/filialen/app/views/layouts/_header.html.erb",
+		"/Developer/rails/projects/filialen/app/views/products/index.html.erb",
+		"/Developer/rails/projects/filialen/app/assets/stylesheets/custom.scss",
+		"/Developer/rails/projects/filialen/db/migrate/20130608173051_add_price_to_products.rb",
+		"/Developer/rails/projects/filialen/db/migrate/20130608173909_change_products.rb",
+		"/Developer/rails/projects/filialen/app/models/product.rb",
+		"/Developer/rails/projects/filialen/app/views/brands/show.html.erb",
+		"/Developer/rails/projects/filialen/app/views/brands/_form.html.erb",
+		"/Developer/rails/projects/filialen/app/views/brands/index.html.erb",
+		"/Developer/rails/projects/filialen/config/routes.rb",
+		"/Developer/rails/projects/filialen/app/views/layouts/application.html.erb",
+		"/Developer/rails/projects/filialen/app/views/layouts/_footer.html.erb",
+		"/Developer/rails/projects/filialen/app/controllers/products_controller.rb",
+		"/Developer/rails/projects/filialen/app/models/brand.rb",
+		"/Developer/rails/projects/filialen/db/migrate/20130606165605_create_brands.rb",
+		"/Developer/rails/projects/filialen/Gemfile",
+		"/Developer/rails/projects/filialen/Gemfile.lock",
+		"/Developer/rails/projects/filialen/app/assets/stylesheets/application.css",
+		"/Developer/angular.js/guides/angular-phonecat/app/phones/phones.json",
+		"/Developer/rails/projects/sample_app/spec/requests/authentication_pages_spec.rb",
+		"/Developer/rails/projects/sample_app/app/controllers/sessions_controller.rb",
+		"/Developer/rails/projects/sample_app/app/helpers/sessions_helper.rb",
+		"/Developer/rails/projects/sample_app/spec/support/utilities.rb",
+		"/Developer/rails/projects/sample_app/features/step_definitions/authentication_steps.rb",
+		"/Developer/rails/projects/sample_app/features/signing_in.feature",
+		"/Developer/rails/projects/sample_app/app/models/user.rb",
+		"/Developer/rails/projects/sample_app/Gemfile",
+		"/Developer/rails/projects/sample_app/app/views/layouts/_header.html.erb",
+		"/Developer/rails/projects/sample_app/app/controllers/users_controller.rb",
+		"/Developer/rails/projects/sample_app/spec/requests/user_pages_spec.rb",
+		"/Users/michaelfeihstel/Desktop/rtmpdump/livewebarte1.1.sh",
+		"/Developer/rails/projects/sample_app/app/controllers/application_controller.rb",
+		"/Developer/rails/projects/sample_app/spec/models/user_spec.rb",
+		"/Developer/rails/projects/sample_app/db/migrate/20130209130134_add_remember_token_to_users.rb",
+		"/Developer/rails/projects/sample_app/app/assets/javascripts/application.js",
+		"/Volumes/System/userdata/advancedsettings.xml",
+		"/Developer/rails/projects/sample_app/db/schema.rb",
+		"/Developer/rails/projects/sample_app/config/routes.rb",
+		"/Developer/rails/projects/sample_app/app/views/sessions/new.html.erb",
+		"/Developer/rails/projects/sample_app/app/views/users/new.html.erb",
+		"/Developer/rails/projects/sample_app/app/views/layouts/application.html.erb",
+		"/Developer/rails/projects/sample_app/app/views/users/show.html.erb",
+		"/Developer/rails/projects/sample_app/app/helpers/users_helper.rb",
+		"/Developer/rails/projects/sample_app/app/assets/stylesheets/custom.css.scss",
+		"/Developer/rails/projects/sample_app/app/views/shared/_error_messages.html.erb",
+		"/Developer/rails/projects/sample_app/config/environments/production.rb",
+		"/Users/michaelfeihstel/Library/Application Support/Sublime Text 2/Packages/User/rails",
+		"/Developer/rails/projects/sample_app/spec/factories.rb",
+		"/Developer/rails/projects/sample_app/config/environments/test.rb",
+		"/Users/michaelfeihstel/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Developer/rails/projects/sample_app/.git/COMMIT_EDITMSG",
+		"/Developer/rails/projects/sample_app/Gemfile.lock",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/single-okay-portfolio.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/archive-okay-portfolio.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/style.css",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/header.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/metroplayer.css",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/metroplayer.js",
+		"/other/feihstel.com/plugins/metroplayer/metroplayer/css/metroplayer.css",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/library.json",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/header 2.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/style_light.css",
+		"/other/feihstel.com/themes/themeforest-3762978-brick-creative-ajax-wordpress-theme/brick/footer.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/reloads.js",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/custom.js",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/jquery.imagesloaded.min.js",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/load.smartajax.js",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/theme-options.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/theme-style.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/bgstretcher.js",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/smartajax.js",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/page.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/index.php",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/shortcodes_light.css",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/template-portfolios.php",
+		"/Users/michaelfeihstel/Downloads/PaperRift.bowtie/index.htm",
+		"/Applications/Windows Phone.app/Contents/Resources/transcoder",
+		"/Applications/Windows Phone.app/Contents/Frameworks/libmtp.dylib",
+		"/Applications/Windows Phone.app/Contents/Info.plist",
+		"/Users/michaelfeihstel/Library/Preferences/com.apple.iTunes.plist",
+		"/Users/michaelfeihstel/Music/iTunes/iTunes Music Library.xml",
+		"/private/var/folders/2m/6kfsmb654mgd3dv6jsrrct2m0000gn/T/fz3temp-1/comments.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"active",
+			"row",
+			".row",
+			"block-post",
+			"none",
+			"title",
+			"playlist",
+			"progress",
+			"track-info",
+			"next",
+			"playlist",
+			"cssse",
+			"metroplayer",
+			"basedir",
+			"+",
+			"'",
+			"jplayer",
+			"png",
+			"height",
+			"light",
+			"bglight",
+			"miso",
+			"alis:1",
+			"library",
+			"Location",
+			"fn",
+			"cite",
+			"entry-title",
+			"tabs"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"gemfile",
+				"Gemfile"
+			],
+			[
+				"user_spe",
+				"spec/models/user_spec.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true
+}
