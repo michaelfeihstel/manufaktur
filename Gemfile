@@ -8,7 +8,10 @@ gem 'activeadmin'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# HEROKU
 gem 'pg'
+gem 'taps'
+
 
 group :development do
 	gem 'sqlite3'
