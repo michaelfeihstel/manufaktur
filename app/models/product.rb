@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  sku        :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  price      :decimal(8, 2)
+#  vat        :decimal(, )
+#  color_text :string(255)
+#
+
 class Product < ActiveRecord::Base
   
 
@@ -8,7 +22,10 @@ class Product < ActiveRecord::Base
 
 
   def default_image
-  	@default_image = Product.product_images.where(:default => true)
-	@default_image.first
+  	if self.product_images.empty?
+  		"No image yet"
+  	else
+  		self.product_images.first.url
+	end
   end
 end

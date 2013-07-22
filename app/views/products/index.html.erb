@@ -34,7 +34,7 @@
 
             <% @products.each do |p| %>
               <div class="large-4 small-6 columns">
-                <p><img src="" alt="product_picture_goes_here"></p>
+                <%= p.default_image %>
  
                 <div class="panel">
                   <h5><%= p.name %></h5><span class="label"><%= p.color_text %></span>
