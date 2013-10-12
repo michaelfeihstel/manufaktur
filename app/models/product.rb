@@ -28,4 +28,5 @@ class Product < ActiveRecord::Base
   		self.product_images.first.url
 	end
   end
+  
 end
