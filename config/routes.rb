@@ -9,7 +9,7 @@ Filialen::Application.routes.draw do
 
   get "home/index"
 
-  match "/products" => "product#index"
+  get "/products" => "product#index"
 
   root :to => "home#index"
 

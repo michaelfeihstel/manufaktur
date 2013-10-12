@@ -13,7 +13,7 @@
 class ProductImage < ActiveRecord::Base
   belongs_to :product
 
-  attr_accessible :product_id, :url, :default
+  # attr_accessible :product_id, :url, :default
 
 
   scope :featured, where(:default => true)
