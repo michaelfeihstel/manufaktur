@@ -21,17 +21,16 @@ end
 # in production environments by default.
 
 # ASSETS
-gem 'anjlab-bootstrap-rails',
-	:require => 'bootstrap-rails',
-	:github => 'anjlab/bootstrap-rails'
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier'
+gem 'compass'
+gem 'foundation-rails'
 
 #
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'meta_search'
+gem 'nested_form'
 
 group :test, :development do
 	gem "rspec-rails"

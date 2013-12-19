@@ -1,84 +1,97 @@
-
-
 <!-- End Navigation -->
 
-<!-- Sub Navigation -->
+<!-- Header -->
 
-  <dl class="sub-nav">
-    <dt>Filter:</dt>
-    <dd class="active"><a href="#">All</a></dd>
-    <dd><a href="#">Active</a></dd>
-    <dd><a href="#">Pending</a></dd>
-    <dd><a href="#">Suspended</a></dd>
-  </dl>
+<% content_for :title_bar do %>
+  <div class="row">
+    <div class="large-9 small-9 columns">
+      <h1>Artikel</h1>
+    </div>
+    <div class="large-3 small-3 columns">
+      <ul class="inline-list right">
+        <li>
+          <h2><%= link_to '', new_product_path, class: "ion-ios7-plus-outline toolbar" %></h2>
+        </li>
+        <li>
+          <h2><%= link_to '', new_product_path, class: "ion-ios7-search toolbar" %></h2>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+
+<!-- End Header -->
 
 <!-- Side Bar -->
 
-  <div class="large-4 small-12 columns">
-
-    <img src="http://placehold.it/500x500&text=Logo">
-
-    <div class="hide-for-small panel">
-      <h3>Header</h3>
-      <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
-      </h5>
-    </div>
-
-    <a href="#">
-    <div class="panel callout radius">
-      <h6>99&nbsp; items in your cart</h6>
-    </div>
-    </a>
-
-  </div>
+<%= render "products/shared/sidebar" %>
 
 <!-- End Side Bar -->
 
 
-<!-- Thumbnails -->
+<!-- MAIN CONTENT -->
 
-  <div class="large-8 columns">
+<% content_for :main_content do %>
+  
+  <div class="large-10 medium-10 columns">
+    
+
+    <!-- Quick Filter -->
+
+    <%= render "products/shared/quickfilter" %>
+
+    <!-- End Quickfilter -->
+
+
+    <!-- Thumbnails -->
+
     <div class="row">
-
       <% @products.each do |p| %>
-        <div class="large-4 small-6 columns">
+        <div class="large-4 medium-4 small-12 columns">
           <%= image_tag p.default_image %>
 
           <div class="panel">
-            <h5><%= p.name %></h5><span class="label"><%= p.color_text %></span>
+            <h5><%= link_to p.name, product_path(p) %></h5>
+            <span class="label"><%= p.color_text %></span>
             <h6 class="subheader"><%= number_to_currency(p.price, unit:"€ ") %></h6>
           </div>
         </div>
       <% end %>
+    </div>
 
-<!-- End Thumbnails -->
+    <!-- End Thumbnails -->
 
 
-<!-- Managed By -->
+    <!-- Managed By -->
 
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="panel">
-        <div class="row">
+    <div class="row">
+      <div class="large-12 medium-12 columns">
+        <div class="panel">
+          <div class="row">
 
-          <div class="large-2 small-6 columns">
-            <img src="http://placehold.it/300x300&text=Site Owner">
+            <div class="large-2 medium-2 small-6 columns">
+              <img src="http://placehold.it/300x300&text=Site Owner">
+            </div>
+
+            <div class="large-10 medium-10 small-6 columns">
+              <strong>This Site Is Managed By<hr/></strong>
+
+              Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
+            </div>
+
           </div>
-
-          <div class="large-10 small-6 columns">
-            <strong>This Site Is Managed By<hr/></strong>
-
-            Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
-          </div>
-
         </div>
       </div>
     </div>
 
 <!-- End Managed By -->
 
-</div>
-</div>
+
+  </div>
+
+<% end %>
+
 </div>
 
 

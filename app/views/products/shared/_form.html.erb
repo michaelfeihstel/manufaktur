@@ -1,0 +1,79 @@
+<div class="small-12 medium-10 large-10 columns">
+	<div class="row">
+		<p class="section-label">Formular</p>
+	</div>
+
+	<div class="row">
+		<%= form_for :product, url: products_path do |p| %>
+			<% if @product.errors.any? %>
+			  <div id="error_explanation">
+			    <h4><%= pluralize(@product.errors.count, "error") %> prohibited
+			      this post from being saved:</h4>
+			    <ul>
+			    <% @product.errors.full_messages.each do |msg| %>
+			      <div data-alert class="alert-box alert">
+			      	<li><%= msg %></li>
+			      </div>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+			
+			<div class="large-6 medium-6 small-12 columns">
+
+				<fieldset>
+					<legend>Allgemein</legend>
+				  <p>
+				    <%= p.label :name %>
+				    <%= p.text_field :name, :placeholder => "z.B. Adagio W" %>
+				  </p>
+				 
+				  <p>
+				    <%= p.label :sku, "Artikelnummer" %>
+				    <%= p.text_field :sku, :placeholder => "z.B. GLS100AAS" %>
+				  </p>
+
+				  <p>
+				    <%= p.label :color_text, "Farbe" %>
+				    <%= p.text_field :color_text, :placeholder => "z.B. Anthrazit/Schwarz" %>
+				  </p>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Preis</legend>
+				  <p>
+				    <%= p.label :price, "Preis zzgl. MwSt." %>
+				    <div class="row collapse">
+				    	<div class="small-10 columns">
+				    		<%= p.number_field :price, :placeholder => "z.B. 200", :step => "10" %>
+				    	</div>
+							<div class="small-2 columns">
+					    	<span class="postfix">€</span>
+					    </div>
+				    </div>
+				  </p>
+
+				  <p>
+				    <%= p.label :vat, "MwSt." %>
+				    <%= p.number_field :vat, :step => "0.01" %>
+				  </p>
+				</fieldset>
+
+			</div>
+
+			<div class="small-12 medium-6 large-6 columns">
+				<fieldset>
+					<legend>Bilder</legend>
+				</fieldset>
+			</div>
+			
+			<div class="small-12 mediuzm-12 large-12 columns">
+		  <p>
+		  	<%= link_to 'Zurück', products_path, class: "button secondary float_left" %>
+		    <%= p.submit "Speichern", class: "button float_right" %>
+		  </p>
+		  </div>
+
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+<%= nested_form_for @variation_set, url: variation_sets_path do |f| %>
+
+	<% if @variation_set.errors.any? %>
+	  <div id="error_explanation">
+	    <h4>
+	    	<%= pluralize(@variation_set.errors.count, "error") %> prohibited this post from being saved:
+	    </h4>
+	    <ul>
+		    <% @variation_set.errors.full_messages.each do |msg| %>
+		      <div data-alert class="alert-box alert">
+		      	<li><%= msg %></li>
+		      </div>
+		    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<div class="large-6 medium-6 small-12 columns">
+		<fieldset>
+			<legend>Gruppe</legend>
+		  <p>
+		    <%= f.label :name %>
+		    <%= f.text_field :name, :placeholder => "z.B. US Herren" %>
+		  </p>
+		 
+		  <p>
+		    <%= f.label :type, "Art" %>
+		    <%= f.text_field :type, :placeholder => "z.B. Gröpßensystem" %>
+		  </p>
+		</fieldset>
+	</div>
+
+	<div class="large-6 medium-6 small-12 columns">
+		<fieldset>
+			<legend>Attribute</legend>
+			<%= f.fields_for :variations %>
+			<%= f.link_to_add "Add", :variations, class: "tiny button" %>
+		</fieldset>
+	</div>
+	
+	<div class="small-12 mediuzm-12 large-12 columns">
+	  <p>
+	  	<%= link_to 'Zurück', variation_sets_path, class: "button secondary float_left" %>
+	    <%= f.submit "Speichern", class: "button float_right" %>
+	  </p>
+  </div>
+
+<% end %>

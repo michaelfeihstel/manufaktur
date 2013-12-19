@@ -1,11 +1,36 @@
 /*----- GENERAL ----- */
 
 .content {
-	margin-top: 30px;
+	
 }
 
+.titlebar {
+	background-color: #E5DDCB;
+}
 
-/*----- LABELS ----- */
+.side-nav {
+	padding-top: 0em;
+	text-transform: uppercase;
+}
+
+input {
+	box-shadow: none
+}
+
+.sidebar-fixed {
+	background-color: #b74e3c;
+	color: #fff;
+	position: fixed;
+	height: 100%
+}
+
+.error_explaination {
+	
+}
+
+.toolbar {
+	line-height: 1.8em;
+}
 
 .float_left {
 	float: left;
@@ -13,4 +38,35 @@
 
 .float_right {
 	float: right;
+}
+
+/*----- DEBUG ----- */
+
+.columns,
+.row {
+	border: 0px solid #ccc
+}
+
+
+/*----- Typography ----- */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+.section-label {
+	color: #aaa;
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 1em;
+	font-weight: 100;
+	margin-bottom: 0.3em;
+
+}
+
+/*----- LABELS ----- */
+
+.label {
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-weight: 100;
+	text-transform: uppercase;
 }

@@ -1,0 +1,49 @@
+<!-- End Navigation -->
+
+<!-- Header -->
+
+<% content_for :title_bar do %>
+  <div class="row">
+    <div class="large-9 small-9 columns">
+      <h1>Attribute</h1>
+    </div>
+    <div class="large-3 small-3 columns">
+      <ul class="inline-list right">
+        <li>
+          <h2><%= link_to '', new_product_path, class: "ion-ios7-plus-outline toolbar" %></h2>
+        </li>
+        <li>
+          <h2><%= link_to '', new_product_path, class: "ion-ios7-search toolbar" %></h2>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<!-- Side Bar -->
+
+<%= render "products/shared/sidebar" %>
+
+<!-- End Side Bar -->
+
+<% content_for :main_content do %>
+  
+  <div class="large-10 medium-10 columns">
+
+    <% @variation_sets.each do |vs| %>
+      <div class="row">
+        <div class="columns">
+          <h3><%= vs.name %></h3>
+          <ul class="inline-list">
+            <% vs.variations.each do |v| %>
+              <li><span class="label radius"><%= v.name %></li>
+            <% end %>
+          </ul>
+          <%= button_to "remove", variation_set_path(:variation_set), method: :delete, confirm: "Are you sure?", class: "tiny button alert" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+<% end %>

@@ -5,11 +5,11 @@ Filialen::Application.routes.draw do
 
   resources :brands
   resources :products
+  resources :variations
+  resources :variation_sets
 
 
   get "home/index"
-
-  get "/products" => "product#index"
 
   root :to => "home#index"
 

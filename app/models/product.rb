@@ -17,6 +17,9 @@ class Product < ActiveRecord::Base
 
   has_many :product_images, :dependent => :destroy
 
+  validates	:name,	presence: true
+  validates	:sku,		presence: true
+
 
   # accepts_nested_attributes_for :product_images
 

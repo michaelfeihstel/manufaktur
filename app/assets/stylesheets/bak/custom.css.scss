@@ -1,0 +1,58 @@
+/*----- GENERAL ----- */
+
+.content {
+	
+}
+
+.titlebar {
+	background-color: #E5DDCB;
+}
+
+.side-nav {
+	padding-top: 0em;
+	text-transform: uppercase;
+}
+
+input {
+	box-shadow: none
+}
+
+.sidebar-fixed {
+	background-color: #b74e3c;
+	color: #fff;
+	position: fixed;
+	height: 100%
+}
+
+.error_explaination {
+	
+}
+
+.toolbar {
+	line-height: 1.8em;
+}
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+/*----- DEBUG ----- */
+
+.columns,
+.row {
+	border: 1px solid #ccc
+}
+
+
+/*----- Typography ----- */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+
+/*----- LABELS ----- */

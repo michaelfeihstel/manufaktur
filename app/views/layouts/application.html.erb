@@ -12,10 +12,12 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Lunge Manufaktur" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <script type="text/javascript" src="//use.typekit.net/vyp8igb.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <%= csrf_meta_tags %>
   </head>
 
@@ -24,8 +26,16 @@
 
         <%= render "layouts/header" %>
 
-        <%= yield %>
+        <%= yield :title_bar %>
         
+        <div class="row">
+
+          <%= yield :sidebar %>
+
+          <%= yield :main_content %>
+        
+        </div>
+
         <%= render "layouts/footer" %>
 
       </div>
