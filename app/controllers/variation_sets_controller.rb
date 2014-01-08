@@ -10,14 +10,24 @@ class VariationSetsController < ApplicationController
 	end
 
 
-
-
 	def show
 		@variation_set = VariationSet.find(params[:id])
 	end
 
 
+	def edit
+		@variation_set = VariationSet.find(params[:id])
+	end
 
+
+	def update
+		@variation_set = VariationSet.find(params[:id])
+		if @variation_set.update_attributes(variation_set_params)
+			redirect_to variation_sets_path, notice: "Variationen aktualisiert."
+		else
+			render action: :edit
+		end
+	end
 
 
 	def new

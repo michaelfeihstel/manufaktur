@@ -22,7 +22,7 @@
 
 <!-- Side Bar -->
 
-<%= render "products/shared/sidebar" %>
+<%= render "products/sidebar" %>
 
 <!-- End Side Bar -->
 
@@ -30,16 +30,20 @@
   
   <div class="large-10 medium-10 columns">
 
-    <% @variation_sets.each do |vs| %>
+    <% @variation_sets.each do |variation_set| %>
       <div class="row">
         <div class="columns">
-          <h3><%= vs.name %></h3>
+          <h3><%= variation_set.name %></h3>
           <ul class="inline-list">
-            <% vs.variations.each do |v| %>
-              <li><span class="label radius"><%= v.name %></li>
+            <% variation_set.variations.each do |variation| %>
+              <li><span class="label radius"><%= variation.name %></li>
             <% end %>
           </ul>
-          <%= button_to "remove", variation_set_path(:variation_set), method: :delete, confirm: "Are you sure?", class: "tiny button alert" %>
+          <ul class="inline-list">
+            <li><%= link_to "Anzeigen", variation_set, class: "tiny button" %></lI>
+            <li><%= link_to "Bearbeiten", edit_variation_set_path(variation_set), class: "tiny button" %></lI>
+            <li><%= button_to "Löschen", variation_set, method: :delete, confirm: "Are you sure?", class: "tiny button alert" %></li>
+          </ul>
         </div>
       </div>
     <% end %>

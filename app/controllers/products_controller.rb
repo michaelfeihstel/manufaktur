@@ -16,9 +16,25 @@ class ProductsController < ApplicationController
 	end
 
 
+	def edit
+		@product = Product.find(params[:id])
+	end
+
+
+	def update
+		@product = Product.find(params[:id])
+		if @product.update_attributes(product_params)
+			redirect_to products_path, notice: "Artikel aktualisiert."
+		else
+			render action: :edit
+		end
+	end
+
+
 
 	def new
 		@product = Product.new
+		@product.product_images.build
 	end
 
 
@@ -44,7 +60,13 @@ class ProductsController < ApplicationController
 			:sku,
 			:color_text,
 			:price,
-			:vat
+			:vat,
+			product_images_attributes: [
+				:id,
+				:product_id,
+				:image,
+				:_destroy
+			]
 		)
 	end
 end

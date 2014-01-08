@@ -2,19 +2,30 @@
 #
 # Table name: product_images
 #
-#  id         :integer          not null, primary key
-#  url        :string(255)
-#  product_id :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  default    :boolean
+#  id                 :integer          not null, primary key
+#  url_old            :string(255)
+#  product_id         :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  default            :boolean
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
 #
 
 class ProductImage < ActiveRecord::Base
   belongs_to :product
 
-  # attr_accessible :product_id, :url, :default
+  has_attached_file :image,
+  	:styles => {
+  		thumb: '100x100>',
+  		medium: '400x400>',
+  		large: '1200x1200>'
+  	}
+
 
 
   scope :featured, where(:default => true)
+
 end

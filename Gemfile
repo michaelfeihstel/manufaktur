@@ -5,9 +5,8 @@ ruby '2.0.0'
 gem 'rails', '~> 4.0.0'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'annotate', ">=2.5.0"
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'paperclip', "~> 3.0"
+gem 'aws-sdk'
 
 # HEROKU
 gem 'pg'

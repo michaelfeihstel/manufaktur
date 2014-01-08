@@ -25,7 +25,7 @@
 
 <!-- Side Bar -->
 
-<%= render "products/shared/sidebar" %>
+<%= render "products/sidebar" %>
 
 <!-- End Side Bar -->
 
@@ -39,7 +39,7 @@
 
     <!-- Quick Filter -->
 
-    <%= render "products/shared/quickfilter" %>
+    <%= render "products/quickfilter" %>
 
     <!-- End Quickfilter -->
 
@@ -49,7 +49,7 @@
     <div class="row">
       <% @products.each do |p| %>
         <div class="large-4 medium-4 small-12 columns">
-          <%= image_tag p.default_image %>
+          <%= link_to (image_tag p.default_image), product_path(p) %>
 
           <div class="panel">
             <h5><%= link_to p.name, product_path(p) %></h5>

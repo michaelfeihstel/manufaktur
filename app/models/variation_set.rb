@@ -10,6 +10,10 @@
 #
 
 class VariationSet < ActiveRecord::Base
+	
 	has_many :variations, dependent: :destroy
+	has_many :products
+
 	accepts_nested_attributes_for :variations, :allow_destroy => true
+
 end

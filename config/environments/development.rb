@@ -27,4 +27,15 @@ Filialen::Application.configure do
 
   # Eager loading
   config.eager_load = false
+
+  # Paperclip
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => YAML.load_file("#{Rails.root}/config/s3.yml"),
+    :s3_host_name => "s3-eu-west-1.amazonaws.com",
+    :s3_endpoint => "s3-eu-west-1.amazonaws.com",
+    :path => "#{Rails.env}/:class/:attachment/:id/:basename_:style.:extension"
+  }
 end
