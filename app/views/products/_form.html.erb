@@ -34,7 +34,7 @@
 
 		  <p>
 		    <%= f.label :variation_set_id, "Größensystem" %>
-		    <%= collection_select(:product, :variation_set_id, VariationSet.all, :id, :name) %>
+		    <%= f.collection_select(:variation_set_id, VariationSet.all, :id, :name) %>
 		  </p>
 		</fieldset>
 		

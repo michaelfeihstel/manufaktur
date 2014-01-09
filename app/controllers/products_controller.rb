@@ -61,6 +61,7 @@ class ProductsController < ApplicationController
 			:color_text,
 			:price,
 			:vat,
+			:variation_set_id,
 			product_images_attributes: [
 				:id,
 				:product_id,
