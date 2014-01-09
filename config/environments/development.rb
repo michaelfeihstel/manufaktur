@@ -33,6 +33,7 @@ Filialen::Application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
+    :bucket => "lunge",
     :s3_credentials => YAML.load_file("#{Rails.root}/config/s3.yml"),
     :s3_host_name => "s3-eu-west-1.amazonaws.com",
     :s3_endpoint => "s3-eu-west-1.amazonaws.com",
