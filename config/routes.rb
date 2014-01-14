@@ -7,6 +7,8 @@ Filialen::Application.routes.draw do
   resources :products
   resources :variations
   resources :variation_sets
+  resources :contacts
+  resources :addresses
 
 
   get "home/index"

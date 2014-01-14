@@ -1,0 +1,8 @@
+<a href="#" data-dropdown="items" data-options="is_hover:true">
+	<%= @product.name %>
+</a>
+<ul id="items" class="f-dropdown" data-dropdown-content>
+	<% Product.all.sort_by{|e| e[:name]}.each do |p| %>
+	  <li><%= link_to p.name + " (" + p.sku + ")", product_path(p) %></li>
+  <% end %>
+</ul>

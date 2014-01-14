@@ -1,22 +1,28 @@
-<!-- End Navigation -->
+<% @section = "Artikel" %>
 
 <!-- Header -->
 
+<% content_for :breadcrumbs do %>
+	<div class="row">
+		<div class="small-12 columns">
+			<ul class="breadcrumbs">
+				<li><%= link_to "Home", "/" %></li>
+				<li><%= render "/layouts/breadcrumbs/sections" %></li>
+				<li>Artikel hinzufügen</li>			
+			</ul>
+		</div>
+	</div>
+<% end %>
+
 <% content_for :title_bar do %>
 	<div class="row">
-	  <div class="large-12 columns">
-	    <h1>Artikel hinzufügen</h1>
+	  <div class="small-12 columns">
+	    <h1 class="page-heading">Artikel hinzufügen</h1>
 	  </div>
 	</div>
 <% end %>
 
 <!-- End Header -->
-
-<!-- Side Bar -->
-
-<%= render "products/sidebar" %>
-
-<!-- End Side Bar -->
 
 <!-- MAIN CONTENT -->
 

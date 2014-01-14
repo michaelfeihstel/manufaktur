@@ -22,7 +22,8 @@ class ProductImage < ActiveRecord::Base
   		thumb: '100x100>',
   		medium: '400x400>',
   		large: '1200x1200>'
-  	}
+  	},
+  	:default_url => "http://placehold.it/500&text=Nothing+here"
 
 
 

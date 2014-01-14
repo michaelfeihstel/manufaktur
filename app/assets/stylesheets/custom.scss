@@ -1,8 +1,7 @@
-/*----- GENERAL ----- */
+$primary-color: #da274b;
+$body-bg: #f6f4f1;
 
-.content {
-	
-}
+/*----- GENERAL ----- */
 
 .titlebar {
 	background-color: #E5DDCB;
@@ -14,14 +13,14 @@
 }
 
 input {
-	box-shadow: none
+	box-shadow: none;
 }
 
 .sidebar-fixed {
 	background-color: #b74e3c;
 	color: #fff;
 	position: fixed;
-	height: 100%
+	height: 100%;
 }
 
 .error_explaination {
@@ -40,11 +39,42 @@ input {
 	float: right;
 }
 
+
+
+
+
+/*----- SIDEBAR ----- */
+
+.fixed-sidebar {
+	background-color: $primary-color;
+	color: #fff;
+	padding: 1em;
+	box-sizing: border-box;
+	min-height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	min-width: 100px;
+}
+
+.side-nav li.active {
+	font-weight: 700;
+}
+
+
+
+/*----- BREADCRUMBS ----- */
+
+.breadcrumbs {
+	margin-bottom: 0;
+	border-bottom: 1px solid darken($body-bg, 10%);
+}
+
 /*----- DEBUG ----- */
 
 .columns,
 .row {
-	border: 0px solid #ccc
+	border: 0px solid #ccc;
 }
 
 
@@ -54,13 +84,17 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 
+.page-heading {
+	margin: 1em 0;
+	font-weight: 700;
+}
+
 .section-label {
 	color: #aaa;
 	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-size: 1em;
 	font-weight: 100;
 	margin-bottom: 0.3em;
-
 }
 
 /*----- LABELS ----- */

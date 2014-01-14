@@ -24,10 +24,10 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :product_images, :allow_destroy => true
 
   def default_image
-  	if self.product_images.empty?
-  		"No image yet"
-  	else
-  		self.product_images.first.image.url(:medium)
+    if self.product_images.empty?
+      "http://placehold.it/350&text=Nothing+here"
+    else
+      self.product_images.first.image.url(:medium)
     end
   end
   

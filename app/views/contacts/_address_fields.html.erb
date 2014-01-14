@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="small-12 columns">
+		<%= f.label :description, "Bezeichnung" %>
+		<%= f.text_field :description %>
+		<hr>
+		<%= f.label :name, "Name" %>
+		<%= f.text_field :name %>
+
+		<%= f.label :street, "Straße" %>
+		<%= f.text_field :street %>
+
+		<%= f.label :house_number, "Hausnummer" %>
+		<%= f.text_field :house_number %>
+
+		<%= f.label :zip, "Postleitzahl"  %>
+		<%= f.text_field :zip %>
+
+		<%= f.label :city, "Stadt" %>
+		<%= f.text_field :city %>
+
+		<%= f.label :country, "Land" %>
+		<%= f.text_field :country %>
+
+		<%= f.link_to_remove "Remove", class: "tiny button alert" %>
+	</div>
+</div>

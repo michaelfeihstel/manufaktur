@@ -23,22 +23,25 @@
 
   <body>
     
+    <div class="row">
 
-        <%= render "layouts/header" %>
-
-        <%= yield :title_bar %>
-        
-        <div class="row">
-
-          <%= yield :sidebar %>
-
-          <%= yield :main_content %>
-        
+      <div class="row show-for-small-only">
+        <div class="small-12 columns">
+          Small Screen Nav goes here...later.
         </div>
-
-        <%= render "layouts/footer" %>
-
       </div>
+
+      <div class="small-12 medium-2 large-2 columns fixed-sidebar show-for-medium-up">
+        <%= render "layouts/sidebar" %>
+      </div>
+
+      <div class="small-12 medium-10 large-10 columns">
+        <%= yield :breadcrumbs %>
+        <%= yield :title_bar %>
+        <%= yield :main_content %>
+        <%= render "layouts/footer" %>
+      </div>
+
     </div>
 
     

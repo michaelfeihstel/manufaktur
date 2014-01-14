@@ -34,16 +34,7 @@ $row-width: rem-calc(1300);
 // $column-gutter: rem-calc(30);
 // $total-columns: 12;
 
-// We use these to control various global styles
-$body-bg: #f6f4f1;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $body-font-weight: normal;
-// $body-font-style: normal;
 
-$header-font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-$header-font-color: #333;
-$header-font-weight: 100;
 
 // We use this to control font-smoothing
 // $font-smoothing: antialiased;
@@ -54,10 +45,22 @@ $header-font-weight: 100;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #4F5263;
-// $secondary-color: #e7e7e7;
+$primary-color: #da284b;
+// $primary-color: #4F5263;
+$secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
+
+// We use these to control various global styles
+$body-bg: #f6f4f1;
+// $body-font-color: #222;
+$body-font-family: "Europa", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $body-font-weight: normal;
+// $body-font-style: normal;
+
+$header-font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$header-font-color: $primary-color;
+$header-font-weight: 100;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -175,15 +178,15 @@ $large-range: (48.063em, 90em);
 // $include-html-nav-classes: $include-html-classes;
 
 // We use this to set the background color for the breadcrumb container.
-// $crumb-bg: lighten($secondary-color, 5%);
+$crumb-bg: $body-bg;
 
 // We use these to set the padding around the breadcrumbs.
-// $crumb-padding: rem-calc(9 14 9);
+$crumb-padding: rem-calc(9 0 9);
 // $crumb-side-padding: rem-calc(12);
 
 // We use these to control border styles.
 // $crumb-function-factor: 10%;
-// $crumb-border-size: 1px;
+$crumb-border-size: 0px;
 // $crumb-border-style: solid;
 // $crumb-border-color: darken($crumb-bg, $crumb-function-factor);
 // $crumb-radius: $global-radius;
@@ -197,7 +200,7 @@ $large-range: (48.063em, 90em);
 // $crumb-link-decor: underline;
 
 // We use these to control the slash between breadcrumbs
-// $crumb-slash-color: #aaa;
+// $crumb-slash-color: lighten($primary-color, 20%);
 // $crumb-slash: "/";
 
 // Button Groups
@@ -248,17 +251,17 @@ $large-range: (48.063em, 90em);
 // $f-dropdown-margin-top: 2px;
 
 // We use this to control the background color
-// $f-dropdown-bg: #fff;
+$f-dropdown-bg: lighten($body-bg, 10%);
 
 // We use this to set the border styles for dropdowns.
 // $f-dropdown-border-style: solid;
-// $f-dropdown-border-width: 1px;
+$f-dropdown-border-width: 1px;
 // $f-dropdown-border-color: darken(#fff, 20%);
 
 // We use these to style the triangle pip.
-// $f-dropdown-triangle-size: 6px;
+$f-dropdown-triangle-size: 10px;
 // $f-dropdown-triangle-color: #fff;
-// $f-dropdown-triangle-side-offset: 10px;
+$f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
@@ -332,7 +335,7 @@ $large-range: (48.063em, 90em);
 // $form-label-pointer: pointer;
 // $form-label-font-size: rem-calc(14);
 // $form-label-font-weight: normal;
-// $form-label-font-color: lighten(#000, 30%);
+// $form-label-font-color: lighten($primary-color, 30%);
 // $form-label-bottom-margin: rem-calc(8);
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
@@ -752,8 +755,8 @@ $panel-border-style: none;
 // $side-nav-list-margin: rem-calc(0 0 7 0);
 
 // We use these to control link styles.
-// $side-nav-link-color: $primary-color;
-// $side-nav-link-color-active: lighten(#000, 30%);
+$side-nav-link-color: $secondary-color;
+// $side-nav-link-color-active: darken($secondary-color, 30%);
 // $side-nav-font-size: rem-calc(14);
 // $side-nav-font-weight: normal;
 // $side-nav-font-family: $body-font-family;
