@@ -1,7 +1,8 @@
 class ContactsController < ApplicationController
 
 	def index
-		@contacts = Contact.all
+		@search = Contact.search(params[:q])
+		@contacts = @search.result(distinct: true)
 		@section = "Kontakte"
 
 		respond_to do |format|

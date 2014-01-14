@@ -1,0 +1,16 @@
+<a href="#" class="ion-ios7-search toolbar ion-big" data-dropdown="search_form"></a>
+<div id="search_form" data-dropdown-content class="f-dropdown content">
+  <%= search_form_for @search do |f| %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name_cont %>
+    <%= f.label "Straße" %>
+    <%= f.text_field :addresses_street_cont %>
+    <%= f.label "Postleitzahl" %>
+    <%= f.text_field :addresses_zip_cont %>
+    <%= f.label "Stadt" %>
+    <%= f.text_field :addresses_city_cont %>
+    <%= f.label "Land" %>
+    <%= f.text_field :addresses_country_cont %>
+    <%= f.submit "Suchen", class: "button right" %>
+  <% end %>
+</div>

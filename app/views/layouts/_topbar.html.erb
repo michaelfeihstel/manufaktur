@@ -1,0 +1,33 @@
+<nav class="top-bar fixed" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Lunge Manufaktur</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menü</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="left">
+
+      <li class="has-dropdown">
+        <%= link_to "Kontakte", contacts_path %>
+        <ul class="dropdown">
+          <li><%= link_to "Alle Kontakte", contacts_path %></li>
+          <li><%= link_to "Händler", contacts_path %></li>
+          <li><%= link_to "Mitarbeiter", contacts_path %></li>
+          <li><%= link_to "Neuen Kontakt erstellen", new_contact_path %></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <%= link_to "Artikel", products_path %>
+        <ul class="dropdown">
+          <li><%= link_to "Alle Artikel", products_path %></li>
+          <li><%= link_to "Neuen Artikel erstellen", new_product_path %></li>
+        </ul>
+      </li>
+
+    </ul>
+  </section>
+</nav>

@@ -6,6 +6,7 @@ gem 'rails', '~> 4.0.0'
 gem 'annotate', ">=2.5.0"
 gem 'paperclip', "~> 3.0"
 gem 'aws-sdk'
+gem 'ransack'
 
 # HEROKU
 gem 'pg'
