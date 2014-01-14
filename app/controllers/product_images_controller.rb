@@ -1,2 +1,2 @@
-class ProductImagesController < InheritedResources::Base
+class ProductImagesController < ApplicationController
 end
