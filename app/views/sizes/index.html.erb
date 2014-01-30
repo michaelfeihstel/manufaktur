@@ -1,0 +1,75 @@
+<% @section = "Produkte" %>
+
+<!-- HEADER -->
+
+<% content_for :breadcrumbs do %>
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="breadcrumbs">
+        <li><%= link_to "Home", "/" %></li>
+        <li><%= render "/layouts/breadcrumbs/sections" %></li>
+        <li>Größensysteme</li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :title_bar do %>
+  <div class="row">
+    <div class="small-12 columns">
+      <h1 class="page-heading">Größensysteme</h1>
+    </div>
+  </div>
+<% end %>
+
+<!-- End Header -->
+
+<!-- MAIN CONTENT -->
+
+<% content_for :main_content do %>
+
+  <!-- Size Items -->
+    
+  <% @sizes.each do |s| %>
+    <div class="row">
+      <div class="small-12 columns">
+        <h3><%= link_to s.name, edit_size_path(s) %></h3>
+        <ul class="inline-list">
+          <li><%= s.g1 %></li>
+          <li><%= s.g1h %></li>
+          <li><%= s.g2 %></li>
+          <li><%= s.g2h %></li>
+          <li><%= s.g3 %></li>
+          <li><%= s.g3h %></li>
+          <li><%= s.g4 %></li>
+          <li><%= s.g4h %></li>
+          <li><%= s.g5 %></li>
+          <li><%= s.g5h %></li>
+          <li><%= s.g6 %></li>
+          <li><%= s.g6h %></li>
+          <li><%= s.g7 %></li>
+          <li><%= s.g7h %></li>
+          <li><%= s.g8 %></li>
+          <li><%= s.g8h %></li>
+          <li><%= s.g9 %></li>
+          <li><%= s.g9h %></li>
+          <li><%= s.g10 %></li>
+          <li><%= s.g10h %></li>
+          <li><%= s.g11 %></li>
+          <li><%= s.g11h %></li>
+          <li><%= s.g12 %></li>
+          <li><%= s.g12h %></li>
+          <li><%= s.g13 %></li>
+          <li><%= s.g13h %></li>
+          <li><%= s.g14 %></li>
+          <li><%= s.g14h %></li>
+          <li><%= s.g15 %></li>
+          <li><%= s.g16 %></li>
+        </ul>   
+      </div>
+    </div>
+  <% end %>
+
+    <!-- End Contact Items -->
+
+<% end %>

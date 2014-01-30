@@ -5,6 +5,7 @@ Filialen::Application.routes.draw do
 
   resources :brands
   resources :products
+  resources :sizes
   resources :variations
   resources :variation_sets
   resources :contacts

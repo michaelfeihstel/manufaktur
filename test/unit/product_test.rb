@@ -11,6 +11,7 @@
 #  vat              :decimal(, )
 #  color_text       :string(255)
 #  variation_set_id :integer
+#  size_id          :integer
 #
 
 require 'test_helper'

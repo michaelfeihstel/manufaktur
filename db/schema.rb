@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114110219) do
+ActiveRecord::Schema.define(version: 20140125121610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,43 @@ ActiveRecord::Schema.define(version: 20140114110219) do
     t.decimal  "vat"
     t.string   "color_text"
     t.integer  "variation_set_id"
+    t.integer  "size_id"
+  end
+
+  create_table "sizes", force: true do |t|
+    t.string   "name"
+    t.string   "g1"
+    t.string   "g1h"
+    t.string   "g2"
+    t.string   "g2h"
+    t.string   "g3"
+    t.string   "g3h"
+    t.string   "g4"
+    t.string   "g4h"
+    t.string   "g5"
+    t.string   "g5h"
+    t.string   "g6"
+    t.string   "g6h"
+    t.string   "g7"
+    t.string   "g7h"
+    t.string   "g8"
+    t.string   "g8h"
+    t.string   "g9"
+    t.string   "g9h"
+    t.string   "g10"
+    t.string   "g10h"
+    t.string   "g11"
+    t.string   "g11h"
+    t.string   "g12"
+    t.string   "g12h"
+    t.string   "g13"
+    t.string   "g13h"
+    t.string   "g14"
+    t.string   "g14h"
+    t.string   "g15"
+    t.string   "g16"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "variation_sets", force: true do |t|

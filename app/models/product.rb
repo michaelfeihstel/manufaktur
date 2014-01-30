@@ -11,11 +11,13 @@
 #  vat              :decimal(, )
 #  color_text       :string(255)
 #  variation_set_id :integer
+#  size_id          :integer
 #
 
 class Product < ActiveRecord::Base
   
   has_many :product_images, :dependent => :destroy
+  belongs_to :size
   belongs_to :variation_set
 
   validates	:name,	presence: true

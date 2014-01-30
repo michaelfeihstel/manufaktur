@@ -1,0 +1,65 @@
+<div class="row">
+	<%= nested_form_for @size do |f| %>
+
+		<% if @size.errors.any? %>
+		  <div id="error_explanation">
+		    <h4><%= pluralize(@size.errors.count, "error") %> haben das Speichern dieses Größensystems verhindert:</h4>
+		    <ul>
+		    <% @contact.errors.full_messages.each do |msg| %>
+		      <div data-alert class="alert-box alert">
+		      	<li><%= msg %></li>
+		      </div>
+		    <% end %>
+		    </ul>
+		  </div>
+		<% end %>
+
+		<div class="small-12 columns">
+			<fieldset>
+				<legend>Bezeichnung</legend>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</fieldset>
+		
+			<fieldset>
+				<legend>Größen</legend>
+				<%= f.text_field :g1, placeholder: "US 1" %>
+				<%= f.text_field :g1h, placeholder: "US 1,5" %>
+				<%= f.text_field :g2, placeholder: "US 2" %>
+				<%= f.text_field :g2h, placeholder: "US 2,5" %>
+				<%= f.text_field :g3, placeholder: "US 3" %>
+				<%= f.text_field :g3h, placeholder: "US 3,5" %>
+				<%= f.text_field :g4, placeholder: "US 4" %>
+				<%= f.text_field :g4h, placeholder: "US 4,5" %>
+				<%= f.text_field :g5, placeholder: "US 5" %>
+				<%= f.text_field :g5h, placeholder: "US 5,5" %>
+				<%= f.text_field :g6, placeholder: "US 6" %>
+				<%= f.text_field :g6h, placeholder: "US 6,5" %>
+				<%= f.text_field :g7, placeholder: "US 7" %>
+				<%= f.text_field :g7h, placeholder: "US 7,5" %>
+				<%= f.text_field :g8, placeholder: "US 8" %>
+				<%= f.text_field :g8h, placeholder: "US 8,5" %>
+				<%= f.text_field :g9, placeholder: "US 9" %>
+				<%= f.text_field :g9h, placeholder: "US 9,5" %>
+				<%= f.text_field :g10, placeholder: "US 10" %>
+				<%= f.text_field :g10h, placeholder: "US 10,5" %>
+				<%= f.text_field :g11, placeholder: "US 11" %>
+				<%= f.text_field :g11h, placeholder: "US 11,5" %>
+				<%= f.text_field :g12, placeholder: "US 12" %>
+				<%= f.text_field :g12h, placeholder: "US 12,5" %>
+				<%= f.text_field :g13, placeholder: "US 13" %>
+				<%= f.text_field :g13h, placeholder: "US 13,5" %>
+				<%= f.text_field :g14, placeholder: "US 14" %>
+				<%= f.text_field :g14h, placeholder: "US 14,5" %>
+				<%= f.text_field :g15, placeholder: "US 15" %>
+				<%= f.text_field :g16, placeholder: "US 16" %>
+			</fieldset>
+
+		  <p>
+		  	<%= link_to 'Zurück', sizes_path, class: "button secondary float_left" %>
+		    <%= f.submit "Speichern", class: "button float_right" %>
+		  </p>
+	  </div>
+
+	<% end %>
+</div>
