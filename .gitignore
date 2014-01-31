@@ -20,3 +20,8 @@
 
 # ignore s3 credentials
 /config/s3.yml
+
+
+# Sublime Text Project files
+/manufaktur.sublime-project
+/manufaktur.sublime-workspace
