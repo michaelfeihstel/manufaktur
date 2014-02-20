@@ -1,0 +1,57 @@
+<% @section = "Aufträge" %>
+
+<!-- HEADER -->
+
+<% content_for :breadcrumbs do %>
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="breadcrumbs">
+        <li><%= link_to "Home", "/" %></li>
+        <li><%= render "/layouts/breadcrumbs/sections" %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :title_bar do %>
+  <div class="row">
+    <div class="large-9 small-9 columns">
+      <h1 class="page-heading">Aufträge</h1>
+    </div>
+    <div class="large-3 small-12 columns">
+      <ul class="inline-list right">
+        <li>
+          <%= render "orders/search" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<!-- End Header -->
+
+<!-- MAIN CONTENT -->
+
+<% content_for :main_content do %>
+  
+    <!-- Order Items -->
+  
+    <% @orders.each do |o| %>
+      <div class="row">
+        <div class="small-12 columns">
+          <h3><%= link_to o.contact.name, order_path(o) %></h3>
+          <div class="row">
+            <div class="small-12 columns">
+              <% o.line_items.each do |li| %>
+                <span class="label"><%= li.quantity_badge %></span>
+              <% end %>
+            </div>
+          </div>
+          <hr>    
+        </div>
+      </div>
+    <% end %>
+
+    <!-- End Order Items -->
+
+<% end %>

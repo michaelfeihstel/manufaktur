@@ -5,8 +5,8 @@
 #  id                 :integer          not null, primary key
 #  url_old            :string(255)
 #  product_id         :integer
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  created_at         :datetime
+#  updated_at         :datetime
 #  default            :boolean
 #  image_file_name    :string(255)
 #  image_content_type :string(255)

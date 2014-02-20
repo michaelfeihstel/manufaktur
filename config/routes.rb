@@ -10,9 +10,12 @@ Filialen::Application.routes.draw do
   resources :variation_sets
   resources :contacts
   resources :addresses
+  resources :orders
 
 
   get "home/index"
+
+  get 'orders/update_addresses_select', :as => 'update_addresses'
 
   root :to => "home#index"
 

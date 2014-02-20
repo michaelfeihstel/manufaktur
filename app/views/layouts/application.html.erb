@@ -2,7 +2,8 @@
 <!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en" ng-app> <!--<![endif]-->
   <head>
   	<meta charset="utf-8" />
 
@@ -22,28 +23,19 @@
   </head>
 
   <body>
-    <div class="row ">
 
-      <div class="show-for-small-only">
-        <%= render "layouts/topbar" %>
-      </div>
-    
-      <div class="small-12 medium-2 large-2 columns fixed-sidebar show-for-medium-up">
-        <%= render "layouts/sidebar" %>
-      </div>
-      
-      <div class="small-12 medium-10 large-10 columns">
+    <%= render "layouts/header" %>
+
+    <div class="row ">
+      <div class="small-12 columns">
         <%= yield :breadcrumbs %>
         <%= yield :title_bar %>
         <%= yield :main_content %>
         <%= render "layouts/footer" %>
       </div>
-
     </div>
-
     
     <%= javascript_include_tag "application" %>
-
     
   </body>
 </html>

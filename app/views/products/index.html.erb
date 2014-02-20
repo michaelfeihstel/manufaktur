@@ -37,56 +37,26 @@
 <!-- MAIN CONTENT -->
 
 <% content_for :main_content do %>
-  
-    <!-- Quick Filter -->
 
-    <%= render "products/quickfilter" %>
+  <%= render "products/search" %>
 
-    <!-- End Quickfilter -->
+  <!-- ITEMS -->
 
+  <div class="row">
+    <% @products.each do |p| %>
+      <div class="large-4 medium-4 small-12 columns">
+        <%= link_to (image_tag p.default_image), product_path(p) %>
 
-    <!-- Thumbnails -->
-
-    <div class="row">
-      <% @products.each do |p| %>
-        <div class="large-4 medium-4 small-12 columns">
-          <%= link_to (image_tag p.default_image), product_path(p) %>
-
-          <div class="panel">
-            <h5><%= link_to p.name, product_path(p) %></h5>
-            <span class="label"><%= p.color_text %></span>
-            <h6 class="subheader"><%= number_to_currency(p.price, unit:"€ ") %></h6>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <!-- End Thumbnails -->
-
-
-    <!-- Managed By -->
-
-    <div class="row">
-      <div class="large-12 medium-12 columns">
         <div class="panel">
-          <div class="row">
-
-            <div class="large-2 medium-2 small-6 columns">
-              <img src="http://placehold.it/300x300&text=Site Owner">
-            </div>
-
-            <div class="large-10 medium-10 small-6 columns">
-              <strong>This Site Is Managed By<hr/></strong>
-
-              Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
-            </div>
-
-          </div>
+          <h5><%= link_to p.name, product_path(p) %></h5>
+          <span class="label"><%= p.color_text %></span>
+          <h6 class="subheader"><%= number_to_currency(p.price, unit:"€ ") %></h6>
         </div>
       </div>
-    </div>
+    <% end %>
+  </div>
 
-<!-- End Managed By -->
+  <!-- END ITEMS -->
 
 <% end %>
 

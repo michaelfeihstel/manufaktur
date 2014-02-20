@@ -1,16 +1,27 @@
-<a href="#" class="ion-ios7-search toolbar ion-big" data-dropdown="search_form"></a>
-<div id="search_form" data-dropdown-content class="f-dropdown content">
-  <%= search_form_for @search do |f| %>
-    <%= f.label "Name" %>
-    <%= f.text_field :name_cont %>
-    <%= f.label "Straße" %>
-    <%= f.text_field :addresses_street_cont %>
-    <%= f.label "Postleitzahl" %>
-    <%= f.text_field :addresses_zip_cont %>
-    <%= f.label "Stadt" %>
-    <%= f.text_field :addresses_city_cont %>
-    <%= f.label "Land" %>
-    <%= f.text_field :addresses_country_cont %>
-    <%= f.submit "Suchen", class: "button right" %>
-  <% end %>
+<div class="row">
+  <div class="small-12 columns">
+
+    <div class="panel searchbar">
+
+      <%= search_form_for @search do |f| %>
+
+        <div class="searchbar-form">
+          <ul class="inline-list">
+            <li><%= f.text_field :name_cont, class: "searchbar-input", placeholder: "Name" %></li>
+            <li><%= f.text_field :addresses_street_cont, class: "searchbar-input", placeholder: "Straße" %></li>
+            <li><%= f.text_field :addresses_zip_cont, size: 5, class: "searchbar-input", placeholder: "PLZ" %></li>
+            <li><%= f.text_field :addresses_city_cont, class: "searchbar-input", placeholder: "Stadt" %></li>
+            <li><%= f.text_field :addresses_country_cont, class: "searchbar-input", placeholder: "Land" %></li>
+          </ul>
+        </div>
+
+        <div class="searchbar-actions">
+          <button type="submit" class="ion-ios7-search-strong ion-big"></button>
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
 </div>

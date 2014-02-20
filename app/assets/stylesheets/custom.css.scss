@@ -1,5 +1,46 @@
-$primary-color: #da274b;
+$primary-color: #4682B4;
+$secondary-color: #f3f3f3;
 $body-bg: #f6f4f1;
+
+/* ----- SEARCH BAR ----- */
+
+.searchbar {
+	background-color: $secondary-color;
+	padding: 1em;
+	position: relative;
+	margin-bottom: 3rem;
+}
+
+.searchbar-label {
+
+}
+
+.searchbar-actions button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 0px;
+}
+
+input.searchbar-input {
+	background: none;
+	border: none;
+	border-bottom: 2px solid darken($secondary-color, 10%);
+	margin: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+input.searchbar-input:hover,
+input.searchbar-input:focus {
+	background: none;
+	border-bottom: 2px solid $primary-color;
+}
+
+.searchbar ul.inline-list {
+	margin-bottom: 0;
+}
 
 
 /*----- GENERAL ----- */
@@ -8,10 +49,6 @@ $body-bg: #f6f4f1;
 	background-color: #E5DDCB;
 }
 
-.side-nav {
-	padding-top: 0em;
-	text-transform: uppercase;
-}
 
 input {
 	box-shadow: none;
@@ -41,14 +78,62 @@ input {
 }
 
 
-/*----- CONTENT ----- */
 
-.content {
-	margin-left: 100px;
+
+
+
+/*----- TYPOGRAPHY ----- */
+
+body {
+	background-color: #F5FFFA;
+	font-family: "Europa"
 }
 
 
+/* ----- ORDERS ----- */
+
+.size-row li {
+	margin-left: -2px;
+}
+
+.size-row li input[type="text"] {
+	background: none;
+	border: 2px solid #ddd;
+	border-top: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	height: 1.6rem;
+}
+
+.size-row li input[type="text"]:hover,
+.size-row li input[type="text"]:focus {
+	border-bottom: 2px solid #4682B4;
+}
+
+.size-input,
+.size-label {
+	text-align: center;
+}
+
+.size-label {
+	font-size: 0.8em;
+	color: #999;
+}
+
+.size-input {
+	border: 1px solid #ddd;
+	border-top: none;
+	background: none;
+}
+
+
+
+
+
 /*----- SIDEBAR ----- */
+.side-nav li a:hover {
+	color: lighten($primary-color, 10%);
+}
 
 .fixed-sidebar {
 	background-color: $primary-color;
@@ -68,12 +153,19 @@ input {
 
 
 
+
+
 /*----- BREADCRUMBS ----- */
 
 .breadcrumbs {
 	margin-bottom: 0;
 	border-bottom: 1px solid darken($body-bg, 10%);
 }
+
+
+
+
+
 
 /*----- DEBUG ----- */
 
@@ -109,3 +201,18 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
 	text-transform: uppercase;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+

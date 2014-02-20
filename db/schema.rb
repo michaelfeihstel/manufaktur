@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125121610) do
+ActiveRecord::Schema.define(version: 20140203123656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,76 @@ ActiveRecord::Schema.define(version: 20140125121610) do
   create_table "contacts", force: true do |t|
     t.string "name"
   end
+
+  create_table "line_items", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.text     "comment"
+    t.integer  "g1"
+    t.integer  "g1h"
+    t.integer  "g2"
+    t.integer  "g2h"
+    t.integer  "g3"
+    t.integer  "g3h"
+    t.integer  "g4"
+    t.integer  "g4h"
+    t.integer  "g5"
+    t.integer  "g5h"
+    t.integer  "g6"
+    t.integer  "g6h"
+    t.integer  "g7"
+    t.integer  "g7h"
+    t.integer  "g8"
+    t.integer  "g8h"
+    t.integer  "g9"
+    t.integer  "g9h"
+    t.integer  "g10"
+    t.integer  "g10h"
+    t.integer  "g11"
+    t.integer  "g11h"
+    t.integer  "g12"
+    t.integer  "g12h"
+    t.integer  "g13"
+    t.integer  "g13h"
+    t.integer  "g14"
+    t.integer  "g14h"
+    t.integer  "g15"
+    t.integer  "g16"
+    t.decimal  "vat"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.date     "date_delivery"
+    t.date     "date_invoice"
+    t.date     "date_completed"
+    t.integer  "contact_id"
+    t.integer  "billing_address_id"
+    t.integer  "delivery_address_id"
+    t.string   "billing_name"
+    t.string   "billing_street"
+    t.string   "blling_house_number"
+    t.string   "billing_zip"
+    t.string   "billing_city"
+    t.string   "billing_country"
+    t.string   "delivery_name"
+    t.string   "delivery_street"
+    t.string   "delivery_house_number"
+    t.string   "delivery_city"
+    t.string   "delivery_zip"
+    t.string   "delivery_country"
+    t.string   "delivery_iso"
+    t.boolean  "webshop?"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["contact_id"], name: "index_orders_on_contact_id", using: :btree
 
   create_table "product_images", force: true do |t|
     t.string   "url_old"

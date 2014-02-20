@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="small-12 columns">
+
+    <div class="panel searchbar">
+
+      <%= search_form_for @search do |f| %>
+
+        <div class="searchbar-form">
+          <ul class="inline-list">
+            <li><%= f.text_field :sku_cont, class: "searchbar-input", placeholder: "Artikelnummer" %></li>
+            <li><%= f.text_field :name_cont, class: "searchbar-input", placeholder: "Bezeichnung" %></li>
+            <li><%= f.text_field :color_text_cont, class: "searchbar-input", placeholder: "Farbe" %></li>
+          </ul>
+        </div>
+
+        <div class="searchbar-actions">
+          <%= f.submit "Suchen", class: "tiny button" %>
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+</div>

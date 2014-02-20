@@ -1,47 +1,67 @@
 <!-- Navigation -->
 <div class="fixed">
   <nav class="top-bar" data-topbar>
+
     <ul class="title-area">
-      <!-- Title Area -->
       <li class="name">
-        <h1><a href="#">Lunge Manufaktur</a></h1>
+        <h1><%= link_to "Lunge Manufaktur", "/" %></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
     </ul>
 
     <section class="top-bar-section">
-      <!-- Right Nav Section -->
       <ul class="right">
+
         <li class="divider"></li>
+
         <li class="has-dropdown">
-          <a href="<%= products_path %>">Sortiment</a>
+          <%= link_to "Kontakte", contacts_path %>
           <ul class="dropdown">
             <li><label>Bearbeiten</label></li>
-            <li><a href="<%= products_path %>">Artikel</a></li>
-            <li><a href="<%= brands_path %>">Marken</a></li>
-            <li><a href="#">Filialen</a></li>
-            <li class="divider"></li>
-            <li><label>Section Name</label></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li class="divider"></li>
-            <li><a href="#">See all &rarr;</a></li>
+            <li><%= link_to "Kontakte", contacts_path %></li>
+            <li><%= link_to "Briefe", "#" %></li>
           </ul>
         </li>
+
         <li class="divider"></li>
-        <li><a href="#">Main Item 2</a></li>
-        <li class="divider"></li>
+
         <li class="has-dropdown">
-          <a href="#">Main Item 3</a>
+          <%= link_to "Aufträge", orders_path, class: "disabled" %>
           <ul class="dropdown">
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li><a href="#">Dropdown Option</a></li>
-            <li class="divider"></li>
-            <li><a href="#">See all &rarr;</a></li>
+            <li><%= link_to "Aufträge", "#" %></li>
+          </ul> 
+        </li>
+
+        <li class="divider"></li>
+
+        <li class="has-dropdown">
+          <%= link_to "Artikel", products_path %>
+          <ul class="dropdown">
+            <li><%= link_to "Artikel", products_path %></li>
+            <li><%= link_to "Inventuren", "#" %></li>
+            <li><%= link_to "Größensysteme", sizes_path %></li>
           </ul>
         </li>
+
+        <li class="divider"></li>
+
+        <li class="has-dropdown">
+          <%= link_to "Produktion", "#" %>
+          <ul class="dropdown">
+            <li><%= link_to "Produktion", "#" %></li>
+            <li><%= link_to "Arbeitsschritte", "#" %></li>
+            <li class="has-dropdown">
+              <%= link_to "Material", "#" %>
+              <ul class="dropdown">
+                <li><%= link_to "Materialien", "#" %></li>
+                <li><%= link_to "Eingang", "#" %></li>
+                <li><%= link_to "Ausgang", "#" %></li>
+                <li><%= link_to "Inventur", "#" %></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
       </ul>
     </section>
   </nav>

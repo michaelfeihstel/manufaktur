@@ -1,11 +1,35 @@
-<p align="center"><%= image_tag "logo.png" %></p>
+<div class="ui thin vertical inverted labeled icon sidebar menu">
 
-<hr>
+	<div class="item">
+		<p align="center"><%= image_tag "logo.png" %></p>
+	</div>
 
-<p class="section-label">Menü</p>
-<ul class="side-nav">
-  <li><%= link_to "Kontakte", contacts_path %></li>
-  <li><a href="#">Aufträge</a></li>
-  <li><%= link_to "Produkte", products_path %></li>
-  <li><a href="#">Produktion</a></li>
-</ul>
+  <div class="item">
+    <div class="ui input"><input type="text" placeholder="Search..."></div>
+  </div>
+  <a class="item">
+  	Home
+  </a>
+  <div class="item">
+    Kontakte
+    <div class="menu">
+      <%= link_to "Kontakte", contacts_path, class: "item" %>
+      <%= link_to "Briefe", contacts_path, class: "item" %>
+      <a class="item">Remove</a>
+    </div>
+  </div>
+  <a class="item">
+    <i class="grid layout icon"></i> Browse
+  </a>
+  <a class="item">
+    <i class="mail icon"></i> Messages
+  </a>
+  <div class="ui dropdown item">
+    More <i class="dropdown icon"></i>
+    <div class="menu">
+      <a class="item">Edit Profile</a>
+      <a class="item">Choose Language</a>
+      <a class="item">Account Settings</a>
+    </div>
+  </div>
+</div>

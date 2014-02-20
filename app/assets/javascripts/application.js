@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require ractive.min
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+// $(function(){ $(document).foundation(); });
+
+$(document).foundation();

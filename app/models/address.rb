@@ -16,5 +16,11 @@
 class Address < ActiveRecord::Base
   
   belongs_to :contact
+
+
+
+  def full_address(hide_name)
+  	(hide_name == 1 ? "" : self.name + " / ") + self.street + " " + self.house_number + " / " + self.zip + " " + self.city + " / " + self.country
+  end
   
 end

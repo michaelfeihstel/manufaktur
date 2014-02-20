@@ -43,10 +43,13 @@ class ContactsController < ApplicationController
 	def update
 		@contact = Contact.find(params[:id])
 
-		if @contact.update_attributes(contact_params)
-			redirect_to contacts_path, notice: "Kontakt aktualisiert."
-		else
-			render 'edit'
+		respond_to do |format|
+
+			if @contact.update_attributes(contact_params)
+				redirect_to contacts_path, notice: "Kontakt aktualisiert."
+			else
+				render 'edit'
+			end
 		end
 	end
 

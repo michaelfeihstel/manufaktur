@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 
 	def index
-		@products = Product.all
+		@search = Product.search(params[:q])
+		@products = @search.result(distinct: true)
 
 		respond_to do |format|
   		format.html # index.html.erb

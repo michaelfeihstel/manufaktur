@@ -45,14 +45,16 @@ $row-width: rem-calc(1300);
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #da284b;
+// $primary-color: #da284b;
+$primary-color: #4682B4;
 // $primary-color: #4F5263;
-$secondary-color: #e7e7e7;
+$secondary-color: #F3F3F3;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 
 // We use these to control various global styles
-$body-bg: #f6f4f1;
+// $body-bg: #f6f4f1;
+$body-bg: #F5FFFA;
 // $body-font-color: #222;
 $body-font-family: "Europa", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -251,25 +253,25 @@ $f-dropdown-max-width: 300px;
 // $f-dropdown-margin-top: 2px;
 
 // We use this to control the background color
-$f-dropdown-bg: lighten($body-bg, 10%);
+$f-dropdown-bg: $primary-color;
 
 // We use this to set the border styles for dropdowns.
-// $f-dropdown-border-style: solid;
+$f-dropdown-border-style: none;
 $f-dropdown-border-width: 1px;
 // $f-dropdown-border-color: darken(#fff, 20%);
 
 // We use these to style the triangle pip.
 $f-dropdown-triangle-size: 10px;
-// $f-dropdown-triangle-color: #fff;
+$f-dropdown-triangle-color: $f-dropdown-bg;
 $f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
-// $f-dropdown-font-color: #555;
+$f-dropdown-font-color: $body-bg;
 // $f-dropdown-font-size: rem-calc(14);
 // $f-dropdown-list-padding: rem-calc(5, 10);
 // $f-dropdown-line-height: rem-calc(18);
-// $f-dropdown-list-hover-bg: #eeeeee  ;
+$f-dropdown-list-hover-bg: lighten($primary-color, 10%)  ;
 // $dropdown-mobile-default-float: 0;
 
 // We use this to control the styles for when the dropdown has custom content.
@@ -343,12 +345,12 @@ $f-dropdown-triangle-side-offset: 10px;
 // $input-bg-color: #fff;
 // $input-focus-bg-color: darken(#fff, 2%);
 // $input-border-color: darken(#fff, 20%);
-// $input-focus-border-color: darken(#fff, 40%);
+$input-focus-border-color: $primary-color;
 // $input-border-style: solid;
-// $input-border-width: 1px;
+$input-border-width: 2px;
 // $input-disabled-bg: #ddd;
-// $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-// $input-include-glowing-effect: true;
+$input-box-shadow: none;
+$input-include-glowing-effect: false;
 
 // We use these to style the fieldset border and spacing.
 // $fieldset-border-style: solid;
@@ -617,7 +619,7 @@ $label-font-weight: 100;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-$panel-bg: darken($body-bg, 5%);
+$panel-bg: $secondary-color;
 $panel-border-style: none;
 // $panel-border-size: 1px;
 
@@ -755,7 +757,7 @@ $panel-border-style: none;
 // $side-nav-list-margin: rem-calc(0 0 7 0);
 
 // We use these to control link styles.
-$side-nav-link-color: $secondary-color;
+// $side-nav-link-color: $primary-color;
 // $side-nav-link-color-active: darken($secondary-color, 30%);
 // $side-nav-font-size: rem-calc(14);
 // $side-nav-font-weight: normal;
