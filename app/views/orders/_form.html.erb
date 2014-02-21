@@ -65,9 +65,15 @@
 
 	<div class="row">
 		<div class="small-12 columns">
-			<h3>Schuhe</h3>
-			<%= f.fields_for :line_items %>
-			<%= f.link_to_add "+", :line_items, class: "tiny button" %>
+
+			<div class="panel">
+
+				<h3>Schuhe</h3>
+				<%= f.fields_for :line_items %>
+				<%= f.link_to_add "+", :line_items, class: "tiny button" %>
+
+			</div>
+
 		</div>
 	</div>
 

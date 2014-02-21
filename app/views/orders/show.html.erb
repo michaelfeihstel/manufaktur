@@ -16,7 +16,7 @@
 <% content_for :title_bar do %>
   <div class="row">
     <div class="large-9 small-9 columns">
-      <h1 class="page-heading"><%= @order.id %></h1>
+      <h1 class="page-heading"><%= "Auftrag #{@order.id}" %></h1>
     </div>
     <div class="large-3 small-3 columns">
       <ul class="inline-list right">
@@ -36,13 +36,14 @@
   
   <div class="row">
 
-    <div class="small-12 medium-8 large-8 columns">
+    <div class="small-12 medium-9 large-9 columns">
       <div class="panel">
 
         <div class="row">
           <div class="small-12 columns">
             <h4>Händler</h4>
             <h2><%= @order.contact.name %></h2>
+            <hr>
           </div>
         </div>
 
@@ -51,13 +52,20 @@
           <div class="small-12 medium-6 large-6 columns">
             <p>
               <label>Rechnungsanschrift</label>
-              <%= @order.billing_address.name %>
+              <%= @order.try(:billing_address).try(:name) || "-" %><br>
+              <%= @order.try(:billing_address).try(:street) %> <%= @order.try(:billing_address).try(:house_number) %></br>
+              <%= @order.try(:billing_address).try(:zip) %> <%= @order.try(:billing_address).try(:city) %></br>
+              <%= @order.try(:billing_address).try(:country) %>
             </p>
           </div>
 
           <div class="small-12 medium-6 large-6 columns">
             <p>
               <label>Lieferanschrift</label>
+              <%= @order.try(:delivery_address).try(:name) || "-" %><br>
+              <%= @order.try(:delivery_address).try(:street) %> <%= @order.try(:delivery_address).try(:house_number) %></br>
+              <%= @order.try(:delivery_address).try(:zip) %> <%= @order.try(:delivery_address).try(:city) %></br>
+              <%= @order.try(:delivery_address).try(:country) %>
             </p>
           </div>
 
@@ -66,7 +74,7 @@
       </div>
     </div>
 
-    <div class="small-12 medium-4 large-4 columns">
+    <div class="small-12 medium-3 large-3 columns">
       <div class="panel">
         <h4>Status</h4>
         <label>Liefertermin</label>
@@ -77,11 +85,12 @@
   </div>
 
   <div class="row">
-    <div class="small-12 columns">
-      <ul class="inline-list right">
-        <li><%= link_to "Löschen", @order, confirm: "Wirklich löschen?", method: :delete, class: "button alert" %></li>
-        <li><%= link_to "Bearbeiten", edit_order_path, class: "button" %></li>
-      </ul>
+    <div class="small-12 medium-3 large-3 columns">
+      <%= link_to "Zurück", orders_path, class: "button secondary expand" %>
+    </div>
+    <div class="small-12 medium-3 large-3 columns right">
+      <%= link_to "Bearbeiten", edit_order_path, class: "button expand" %>
+      <%= link_to "Löschen", @order, confirm: "Wirklich löschen?", method: :delete, class: "button alert expand" %>
     </div>
   </div>
 

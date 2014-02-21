@@ -1,76 +1,103 @@
 <div class="row">
-	<%= nested_form_for @product, :html => { :multipart => true } do |f| %>
+	<div class="small-12 columns">
 
-		<% if @product.errors.any? %>
-		  <div id="error_explanation">
-		    <h4><%= pluralize(@product.errors.count, "error") %> prohibited
-		      this post from being saved:</h4>
-		    <ul>
-		    <% @product.errors.full_messages.each do |msg| %>
-		      <div data-alert class="alert-box alert">
-		      	<li><%= msg %></li>
-		      </div>
-		    <% end %>
-		    </ul>
+		<%= nested_form_for @product, :html => { :multipart => true } do |f| %>
+
+			<div class="row">
+				<div class="small-12 columns">
+
+					<% if @product.errors.any? %>
+					  <div id="error_explanation">
+					    <h4><%= pluralize(@product.errors.count, "error") %> prohibited
+					      this post from being saved:</h4>
+					    <ul>
+					    <% @product.errors.full_messages.each do |msg| %>
+					      <div data-alert class="alert-box alert">
+					      	<li><%= msg %></li>
+					      </div>
+					    <% end %>
+					    </ul>
+					  </div>
+					<% end %>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-12 medium-9 large-9 columns">
+					<div class="panel">
+
+						<h4>Allgemein</h4>
+					  <p>
+					    <%= f.label :name %>
+					    <%= f.text_field :name, :placeholder => "z.B. Adagio W" %>
+					  </p>
+					 
+					  <p>
+					    <%= f.label :sku, "Artikelnummer" %>
+					    <%= f.text_field :sku, :placeholder => "z.B. GLS100AAS" %>
+					  </p>
+
+					  <p>
+					    <%= f.label :color_text, "Farbe" %>
+					    <%= f.text_field :color_text, :placeholder => "z.B. Anthrazit/Schwarz" %>
+					  </p>
+
+					  <p>
+					    <%= f.label :variation_set_id, "Größensystem" %>
+					    <%= f.collection_select(:size_id, Size.all, :id, :name) %>
+					  </p>
+
+					</div>
+
+					<div class="panel">
+
+						<h4>Preis</h4>
+				    <%= f.label :price, "Preis zzgl. MwSt." %>
+				    <div class="row collapse">
+				    	<div class="small-10 columns">
+				    		<%= f.text_field :price, :placeholder => "z.B. 200", :step => "10" %>
+				    	</div>
+							<div class="small-2 columns">
+					    	<span class="postfix">€</span>
+					    </div>
+				    </div>
+
+					  <p>
+					    <%= f.label :vat, "MwSt." %>
+					    <%= f.number_field :vat, :step => "0.01" %>
+					  </p>
+
+				  </div>
+				</div>
+			
+
+				<div class="small-12 medium-3 large-3 columns">
+					<div class="panel">
+
+						<h4>Bilder</h4>
+						<%= f.fields_for :product_images %>
+						<%= f.link_to_add "Add", :product_images, class: "tiny button" %>
+
+					</div>
+				</div>
+			</div>
+			
+		<div class="row">
+			<div class="small-12 medium-3 large-3 columns">
+
+				<%= link_to 'Zurück', products_path, class: "button secondary expand" %>
+
 		  </div>
+
+		  <div class="small-12 medium-3 large-3 right columns">
+
+		  	<%= f.submit "Speichern", class: "button expand" %>
+
+		  </div>
+		</div>
+
 		<% end %>
-		
-		<div class="large-6 medium-6 small-12 columns">
 
-			<h4>Allgemein</h4>
-		  <p>
-		    <%= f.label :name %>
-		    <%= f.text_field :name, :placeholder => "z.B. Adagio W" %>
-		  </p>
-		 
-		  <p>
-		    <%= f.label :sku, "Artikelnummer" %>
-		    <%= f.text_field :sku, :placeholder => "z.B. GLS100AAS" %>
-		  </p>
-
-		  <p>
-		    <%= f.label :color_text, "Farbe" %>
-		    <%= f.text_field :color_text, :placeholder => "z.B. Anthrazit/Schwarz" %>
-		  </p>
-
-		  <p>
-		    <%= f.label :variation_set_id, "Größensystem" %>
-		    <%= f.collection_select(:size_id, Size.all, :id, :name) %>
-		  </p>
-
-			
-			<h4>Preis</h4>
-		  <p>
-		    <%= f.label :price, "Preis zzgl. MwSt." %>
-		    <div class="row collapse">
-		    	<div class="small-10 columns">
-		    		<%= f.number_field :price, :placeholder => "z.B. 200", :step => "10" %>
-		    	</div>
-					<div class="small-2 columns">
-			    	<span class="postfix">€</span>
-			    </div>
-		    </div>
-		  </p>
-
-		  <p>
-		    <%= f.label :vat, "MwSt." %>
-		    <%= f.number_field :vat, :step => "0.01" %>
-		  </p>
-			
-		</div>
-
-		<div class="small-12 medium-6 large-6 columns">
-			<h4>Bilder</h4>
-			<%= f.fields_for :product_images %>
-			<%= f.link_to_add "Add", :product_images, class: "tiny button" %>
-		</div>
-		
-		<div class="small-12 medium-12 large-12 columns">
-	  <p>
-	  	<%= link_to 'Zurück', products_path, class: "button secondary float_left" %>
-	    <%= f.submit "Speichern", class: "button float_right" %>
-	  </p>
-	  </div>
-
-	<% end %>
+	</div>
 </div>

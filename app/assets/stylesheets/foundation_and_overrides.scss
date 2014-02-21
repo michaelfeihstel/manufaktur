@@ -336,14 +336,14 @@ $f-dropdown-list-hover-bg: lighten($primary-color, 10%)  ;
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
 // $form-label-font-size: rem-calc(14);
-// $form-label-font-weight: normal;
-// $form-label-font-color: lighten($primary-color, 30%);
+$form-label-font-weight: 300;
+$form-label-font-color: lighten(#333, 40%);
 // $form-label-bottom-margin: rem-calc(8);
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
-// $input-font-size: rem-calc(14);
+$input-font-size: rem-calc(16);
 // $input-bg-color: #fff;
-// $input-focus-bg-color: darken(#fff, 2%);
+$input-focus-bg-color: transparent;
 // $input-border-color: darken(#fff, 20%);
 $input-focus-border-color: $primary-color;
 // $input-border-style: solid;
@@ -387,7 +387,7 @@ $legend-bg: $body-bg;
 // $glowing-effect-color: $input-focus-border-color;
 
 // Select variables
-// $select-bg-color: #fafafa  ;
+$select-bg-color: transparent;
 
 // Inline Lists
 

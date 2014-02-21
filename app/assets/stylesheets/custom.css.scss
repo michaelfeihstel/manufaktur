@@ -23,19 +23,47 @@ $body-bg: #f6f4f1;
 	margin: 0px;
 }
 
-input.searchbar-input {
-	background: none;
+@mixin input {
 	border: none;
-	border-bottom: 2px solid darken($secondary-color, 10%);
+	border-bottom: 1px solid darken($secondary-color, 10%);
 	margin: 0;
 	padding-left: 0;
 	padding-right: 0;
 }
 
-input.searchbar-input:hover,
-input.searchbar-input:focus {
+input,
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+	@include input;
 	background: none;
-	border-bottom: 2px solid $primary-color;
+}
+
+select {
+	@include input;
+	background-color: transparent;
+}
+
+input:hover,
+input:focus {
+	background: none;
+	border-bottom: 1px solid $primary-color;
+}
+
+select:hover,
+select:focus {
+	background-color: transparent;
 }
 
 .searchbar ul.inline-list {
@@ -98,7 +126,7 @@ body {
 
 .size-row li input[type="text"] {
 	background: none;
-	border: 2px solid #ddd;
+	border: 1px solid #ddd;
 	border-top: none;
 	box-shadow: none;
 	-webkit-box-shadow: none;
@@ -107,7 +135,7 @@ body {
 
 .size-row li input[type="text"]:hover,
 .size-row li input[type="text"]:focus {
-	border-bottom: 2px solid #4682B4;
+	border-bottom: 1px solid #4682B4;
 }
 
 .size-input,
@@ -206,7 +234,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+/*----- Line Items ----- */
 
+.total {
+	text-align: right
+}
 
 
 
