@@ -76,8 +76,7 @@ $header-font-weight: 100;
 // Media Query Ranges
 // $small-range: (0em, 48em);
 // $medium-range: (40.063em, 64em);
-$medium-range: (0em, 1em);
-$large-range: (48.063em, 90em);
+// $large-range: (48.063em, 90em);
 // $xlarge-range: (90.063em, 120em);
 // $xxlarge-range: (120.063em);
 
@@ -333,21 +332,45 @@ $f-dropdown-list-hover-bg: lighten($primary-color, 10%)  ;
 // We use this to set the base for lots of form spacing and positioning styles
 // $form-spacing: rem-calc(16);
 
-// We use these to style the labels in different ways
+/* 5.0.1
+
+																																			// We use these to style the labels in different ways
+																																			// $form-label-pointer: pointer;
+																																			// $form-label-font-size: rem-calc(14);
+																																			$form-label-font-weight: 300;
+																																			$form-label-font-color: lighten(#333, 40%);
+																																			// $form-label-bottom-margin: rem-calc(8);
+																																			// $input-font-family: inherit;
+																																			// $input-font-color: rgba(0,0,0,0.75);
+																																			$input-font-size: rem-calc(16);
+																																			// $input-bg-color: #fff;
+																																			$input-focus-bg-color: transparent;
+																																			// $input-border-color: darken(#fff, 20%);
+																																			$input-focus-border-color: $primary-color;
+																																			// $input-border-style: solid;
+																																			$input-border-width: 1px;
+																																			// $input-disabled-bg: #ddd;
+																																			$input-box-shadow: none;
+																																			$input-include-glowing-effect: false;
+
+*/
+
 // $form-label-pointer: pointer;
 // $form-label-font-size: rem-calc(14);
 $form-label-font-weight: 300;
-$form-label-font-color: lighten(#333, 40%);
-// $form-label-bottom-margin: rem-calc(8);
+// $form-label-line-height: 1.5;
+$form-label-font-color: scale-color(#333, $lightness: 30%);
+// $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
 $input-font-size: rem-calc(16);
-// $input-bg-color: #fff;
+$input-bg-color: transparent;
 $input-focus-bg-color: transparent;
-// $input-border-color: darken(#fff, 20%);
+// $input-border-color: scale-color(#fff, $lightness: -20%);
 $input-focus-border-color: $primary-color;
 // $input-border-style: solid;
-$input-border-width: 2px;
+$input-border-width: 1px;
+// $input-border-radius: $global-radius;
 // $input-disabled-bg: #ddd;
 $input-box-shadow: none;
 $input-include-glowing-effect: false;
@@ -387,7 +410,7 @@ $legend-bg: $body-bg;
 // $glowing-effect-color: $input-focus-border-color;
 
 // Select variables
-$select-bg-color: transparent;
+// $select-bg-color: #fafafa;
 
 // Inline Lists
 
@@ -759,7 +782,7 @@ $panel-border-style: none;
 // We use these to control link styles.
 // $side-nav-link-color: $primary-color;
 // $side-nav-link-color-active: darken($secondary-color, 30%);
-// $side-nav-font-size: rem-calc(14);
+$side-nav-font-size: rem-calc(16);
 // $side-nav-font-weight: normal;
 // $side-nav-font-family: $body-font-family;
 // $side-nav-active-font-family: $side-nav-font-family;

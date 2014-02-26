@@ -39,7 +39,7 @@
     <% @orders.each do |o| %>
       <div class="row">
         <div class="small-12 columns">
-          <h3><%= link_to o.contact.name, order_path(o) %></h3>
+          <h3><%= link_to o.contact.name, order_path(o) %> <small><%= o.subtitle %></small></h3>
           <div class="row">
             <div class="small-12 columns">
               <% o.line_items.each do |li| %>

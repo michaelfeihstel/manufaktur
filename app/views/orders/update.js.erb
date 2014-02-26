@@ -1,2 +1,2 @@
-$('#order_billing_address_id').html('<%= select_tag :contact_id, options_for_select(@order.contact.addresses.limit(1).collect{|a| [a.name, a.id]}) %>');
-$('h3.total').html('<%= @order.line_items.first.quantity %>')
+$('#select_addresses').html("<%= escape_javascript(render 'orders/select_addresses') %>");
+$('.total').html('<%= @order.line_items.first.quantity %>')

@@ -28,10 +28,23 @@
 #
 
 class Order < ActiveRecord::Base
+
+  # RELATIONS
   belongs_to :contact
   belongs_to :billing_address, foreign_key: "billing_address_id", class_name: "Address"
   belongs_to :delivery_address, foreign_key: "delivery_address_id", class_name: "Address"
   has_many :line_items, :dependent => :destroy
-
   accepts_nested_attributes_for :line_items, :allow_destroy => true
+
+  # VALIDATIONS
+
+  # SCOPES
+  
+  # METHODS
+  def subtitle
+  	if self.delivery_address_id != self.billing_address_id
+  		( "<i class='ion-ios7-redo'></i>" + self.delivery_address.full_address(0) ).html_safe
+  	end
+  end
+
 end

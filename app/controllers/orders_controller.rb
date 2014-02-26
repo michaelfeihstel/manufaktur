@@ -36,6 +36,13 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
+		@addresses = Address.where(contact_id: @order.contact_id)
+	end
+
+	def select_contact
+		respond_to do |format|
+	   format.js 
+	  end
 	end
 
 

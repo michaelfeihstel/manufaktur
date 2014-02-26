@@ -1,0 +1,4 @@
+<p>
+  <%= f.label :delivery_address_id, "Lieferanschrift" %>	
+  <%= f.collection_select(:delivery_address_id, Address.where(contact_id: @order.contact_id), :id, :name) %>
+</p>

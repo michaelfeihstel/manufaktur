@@ -159,8 +159,13 @@ body {
 
 
 /*----- SIDEBAR ----- */
+
 .side-nav li a:hover {
 	color: lighten($primary-color, 10%);
+}
+
+li {
+	list-style: none;
 }
 
 .fixed-sidebar {

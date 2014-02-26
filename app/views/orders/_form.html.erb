@@ -31,19 +31,8 @@
 				  <%= f.label :contact_id, "Händler" %>
 				  <%= f.collection_select(:contact_id, Contact.order(:name), :id, :name, class: "submittable") %>
 				</p>
-				<div class="row">
-					<div class="small-12 medium-6 large-6 columns">
-						<p>
-					    <%= f.label :billing_address_id, "Rechnungsanschrift" %>	
-					    <%= f.collection_select(:billing_address_id, Address.where(contact_id: @order.contact_id), :id, :name, prompt: "Rechnungsanschrift auswählen...") %>
-					  </p>
-					</div>
-					<div class="small-12 medium-6 large-6 columns">
-						<p>
-					    <%= f.label :delivery_address_id, "Lieferanschrift" %>	
-					    <%= f.collection_select(:delivery_address_id, Address.where(contact_id: @order.contact_id), :id, :name) %>
-					  </p>
-					</div>
+				<div class="row" id="select_addresses">
+					<%= render "orders/select_addresses", :f => f %>
 				</div>
 		  </div>
 		</div>
