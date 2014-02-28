@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
 		@order = Order.new(order_params)
 
 		if @order.save
-			redirect_to @order
+			redirect_to @order, flash[:success] = "Auftrag #{@order.id} wurde erstellt"
 		else
 			render "new"
 		end
@@ -45,13 +45,26 @@ class OrdersController < ApplicationController
 		respond_to do |format|
 
 			if @order.update_attributes(order_params)
-				format.html { redirect_to edit_order_path, notice: "Auftrag aktualisiert." }
+				format.html do
+					redirect_to edit_order_path
+					flash[:success] = "Auftrag #{@order.id} wurde bearbeitet"
+				end
+
 				format.json { render json: @order }
 				format.js
 			else
 				render 'edit'
 			end
 
+		end
+	end
+
+	def update_addresses
+		@order = Order.find(params[:id])
+		@addresses = Address.where(contact_id: params[:contact_id])
+
+		respond_to do |format|
+			format.js
 		end
 	end
 
@@ -62,6 +75,11 @@ class OrdersController < ApplicationController
 		@order.mark_as_completed
 
 		redirect_to order_path
+		if @order.date_completed.blank?
+			flash[:success] = "Auftrag #{@order.id} als offen gekennzeichnet."
+		else
+			flash[:success] = "Auftrag #{@order.id} abgeschlossen."
+		end
 	end
 
 
@@ -71,6 +89,12 @@ class OrdersController < ApplicationController
 		@order.mark_as_marked
 
 		redirect_to order_path
+
+		if @order.marked == false
+			flash[:success] = "Auftrag #{@order.id} aus Favoriten entfernt."
+		else
+			flash[:success] = "Auftrag #{@order.id} zu Favoriten hinzugefügt."
+		end		
 	end
 
 

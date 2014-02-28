@@ -13,6 +13,7 @@ Filialen::Application.routes.draw do
   resources :orders do
     resources :line_items
     member do
+      post :update_addresses
       put :marked
       put :completed
     end

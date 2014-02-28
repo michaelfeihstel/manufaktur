@@ -168,7 +168,30 @@ select:focus {
 
 
 
+/* ----- Flash messages ----- */
 
+.alert-box {
+	border: none;
+
+	a.close {
+		color: inherit;
+	}
+}
+
+.alert-box.success {
+	background-color: limegreen;
+	color: #fff;
+}
+
+.alert-box.notice {
+	background-color: lightskyblue;
+	color: #fff;
+}
+
+.alert-box.error {
+	background-color: indianred;
+	color: #fff;
+}
 
 
 

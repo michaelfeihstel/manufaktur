@@ -18,3 +18,6 @@
 //= require_tree .
 
 $(document).foundation();
+
+
+$('#flash').delay(5000).fadeOut(2000)

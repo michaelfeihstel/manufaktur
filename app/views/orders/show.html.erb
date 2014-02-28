@@ -70,6 +70,10 @@
       <div class="panel">
         <h4>Status</h4>
         <p>
+          <label>Erstellt am</label>
+          <%= @order.created_at.to_formatted_s(:rfc822) %>
+        </p>
+        <p>
           <label>Liefertermin</label>
           <%= @order.date_delivery.to_formatted_s(:rfc822) %>
         </p>

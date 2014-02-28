@@ -42,6 +42,9 @@ class Order < ActiveRecord::Base
   # SCOPES
   
   # METHODS
+
+  include ToolbarHelper
+
   def subtitle
   	if self.delivery_address_id != self.billing_address_id
   		( "<i class='ion-ios7-redo'></i>" + self.delivery_address.full_address(0) ).html_safe
@@ -52,9 +55,9 @@ class Order < ActiveRecord::Base
 
   def marked_icon
     if self.marked != true
-      ( "<span class='ion-ios7-star-outline ion-big'></span><br>Markieren" ).html_safe
+      toolbar_icon("Markieren", "ion-ios7-star-outline")
     else
-      ( "<span class='ion-ios7-star ion-big' style='color: limegreen'></span><br>Markiert" ).html_safe
+      toolbar_icon("Markiert", "ion-ios7-star", "limegreen")
     end
   end
 
@@ -70,9 +73,9 @@ class Order < ActiveRecord::Base
 
   def completed_icon
     if self.date_completed.blank?
-      ( "<span class='ion-ios7-checkmark-empty ion-big'></span><br>Abschließen" ).html_safe
+      toolbar_icon("Abschließen", "ion-ios7-checkmark-empty")
     else
-      ( "<span class='ion-checkmark-circled ion-big' style='color: limegreen'></span><br>Abgeschlossen" ).html_safe
+      toolbar_icon("Abgeschlossen", "ion-checkmark-circled", "limegreen")
     end
   end
 
