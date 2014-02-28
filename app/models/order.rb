@@ -25,6 +25,7 @@
 #  webshop?              :boolean
 #  created_at            :datetime
 #  updated_at            :datetime
+#  marked                :boolean          default(FALSE), not null
 #
 
 class Order < ActiveRecord::Base
@@ -47,4 +48,39 @@ class Order < ActiveRecord::Base
   	end
   end
 
+
+
+  def marked_icon
+    if self.marked != true
+      ( "<span class='ion-ios7-star-outline ion-big'></span><br>Markieren" ).html_safe
+    else
+      ( "<span class='ion-ios7-star ion-big' style='color: limegreen'></span><br>Markiert" ).html_safe
+    end
+  end
+
+  def mark_as_marked
+    if marked == true
+      update_attributes(:marked => false)
+    else
+      update_attributes(:marked => true)
+    end
+  end
+
+
+
+  def completed_icon
+    if self.date_completed.blank?
+      ( "<span class='ion-ios7-checkmark-empty ion-big'></span><br>Abschließen" ).html_safe
+    else
+      ( "<span class='ion-checkmark-circled ion-big' style='color: limegreen'></span><br>Abgeschlossen" ).html_safe
+    end
+  end
+
+  def mark_as_completed
+    if date_completed.blank?
+      update_attributes(:date_completed => Date.today)
+    else
+      update_attributes(:date_completed => "")
+    end
+  end
 end

@@ -10,7 +10,13 @@ Filialen::Application.routes.draw do
   resources :variation_sets
   resources :contacts
   resources :addresses
-  resources :orders
+  resources :orders do
+    resources :line_items
+    member do
+      put :marked
+      put :completed
+    end
+  end
 
 
   get "home/index"

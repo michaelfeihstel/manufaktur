@@ -3,27 +3,19 @@
 <!-- HEADER -->
 
 <% content_for :breadcrumbs do %>
-  <div class="row">
-    <div class="small-12 columns">
-      <ul class="breadcrumbs">
-        <li><%= link_to "Home", "/" %></li>
-        <li><%= render "/layouts/breadcrumbs/sections" %></li>
-      </ul>
-    </div>
-  </div>
+  <ul class="breadcrumbs">
+    <li><%= link_to "Home", "/" %></li>
+    <li><%= render "/layouts/breadcrumbs/sections" %></li>
+    <li class="current"><%= "Auftrag #{@order.id}" %></li>
+  </ul>
 <% end %>
+
+<%= render "orders/actions/show" %>
 
 <% content_for :title_bar do %>
   <div class="row">
-    <div class="large-9 small-9 columns">
+    <div class="small-12 medium-9 large-9 columns">
       <h1 class="page-heading"><%= "Auftrag #{@order.id}" %></h1>
-    </div>
-    <div class="large-3 small-3 columns">
-      <ul class="inline-list right">
-        <li>
-          <h2><%= link_to '', new_order_path, class: "ion-ios7-plus-outline toolbar" %></h2>
-        </li>
-      </ul>
     </div>
   </div>
 <% end %>
@@ -77,8 +69,14 @@
     <div class="small-12 medium-3 large-3 columns">
       <div class="panel">
         <h4>Status</h4>
-        <label>Liefertermin</label>
-        <p><%= @order.date_delivery.to_formatted_s(:rfc822) %>
+        <p>
+          <label>Liefertermin</label>
+          <%= @order.date_delivery.to_formatted_s(:rfc822) %>
+        </p>
+        <p>
+          <label>Abgeschlossen am</label>
+          <%= @order.try(:date_completed) %>
+        </p>
       </div>
     </div>
 

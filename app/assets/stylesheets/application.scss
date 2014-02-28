@@ -9,8 +9,436 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require 'custom'
  *= require 'ionicons'
  */
 
 @import "foundation_and_overrides";
+
+
+/* ----- TOP BAR ----- */
+
+.top-bar-section {
+	text-transform: uppercase;
+
+	.dropdown {
+
+		li {
+			a {
+				font-weight: 300;
+			}
+		}
+	}
+
+}
+
+
+
+/* ----- SEARCH BAR ----- */
+
+.searchbar {
+	background-color: $secondary-color;
+	padding: 1em;
+	position: relative;
+	margin-bottom: 3rem;
+}
+
+.searchbar-label {
+
+}
+
+.searchbar-actions button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 0px;
+}
+
+@mixin input {
+	border: none;
+	border-bottom: 1px solid darken($secondary-color, 10%);
+	margin: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+	@include input;
+	background: none;
+}
+
+select {
+	@include input;
+	background-color: transparent;
+}
+
+input:hover,
+input:focus {
+	background: none;
+	border-bottom: 1px solid $primary-color;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+	border: none;
+}
+
+select:hover,
+select:focus {
+	background-color: transparent;
+}
+
+.searchbar ul.inline-list {
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+/*----- SUB BAR ----- */
+
+.sub-bar {
+	background-color: $secondary-color;
+	box-sizing: border-box
+}
+
+.actions {
+	@include sub-nav();
+	padding: 0;
+	margin: 0;
+
+	dd, dt {
+		color: $primary-color;
+		margin: 0;
+		padding: 0.5rem 1rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		text-align: center;
+
+		&:hover{
+			background-color: $primary-color;
+			color: $body-bg;
+		}
+
+		a {
+			color: inherit;
+			padding: 0;
+
+			&:hover{
+				color: inherit;
+			}
+		}
+	}
+}
+
+.f-dropdown {
+	z-index: 98;
+}
+
+.f-dropdown:after {
+	border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- GENERAL ----- */
+
+.titlebar {
+	background-color: #E5DDCB;
+}
+
+
+input {
+	box-shadow: none;
+}
+
+.sidebar-fixed {
+	background-color: #b74e3c;
+	color: #fff;
+	position: fixed;
+	height: 100%;
+}
+
+.error_explaination {
+	
+}
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- TYPOGRAPHY ----- */
+
+body {
+	background-color: #F5FFFA;
+	font-family: "Europa"
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+.page-heading {
+	margin: 1em 0;
+	font-weight: 700;
+}
+
+.page-toolbar {
+}
+
+.section-label {
+	color: #aaa;
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 1em;
+	font-weight: 100;
+	margin-bottom: 0.3em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- LABELS ----- */
+
+.label {
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-weight: 100;
+	text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- PANELS ----- */
+
+.toolbar {
+	background-color: scale-color($primary-color, $lightness: 0%);
+	color: $body-bg;
+	box-sizing: border-box;
+	padding: 1.25rem;
+}
+
+.toolbar-bottom {
+	@extend .toolbar;
+	margin-bottom: -1.25rem !important;
+	margin: -1.25rem;
+	margin-top: 1rem;
+}
+
+.toolbar a {
+	color: scale-color($body-bg, $lightness: 0%);
+}
+
+.toolbar a:hover {
+	color: scale-color($body-bg, $lightness: 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- ORDERS ----- */
+
+.size-row li {
+	margin-left: -2px;
+}
+
+.size-row li input[type="text"] {
+	background: none;
+	border: 1px solid #ddd;
+	border-top: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	height: 1.6rem;
+}
+
+.size-row li input[type="text"]:hover,
+.size-row li input[type="text"]:focus {
+	border-bottom: 1px solid #4682B4;
+}
+
+.size-input,
+.size-label {
+	text-align: center;
+}
+
+.size-label {
+	font-size: 0.8em;
+	color: #999;
+}
+
+.size-input {
+	border: 1px solid #ddd;
+	border-top: none;
+	background: none;
+}
+
+
+
+
+
+
+
+
+
+
+/*----- SIDEBAR ----- */
+
+.side-nav li a:hover {
+	color: lighten($primary-color, 10%);
+}
+
+li {
+	list-style: none;
+}
+
+.fixed-sidebar {
+	background-color: $primary-color;
+	color: #fff;
+	padding: 1em;
+	box-sizing: border-box;
+	min-height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	min-width: 100px;
+}
+
+.side-nav li.active {
+	font-weight: 700;
+}
+
+
+
+
+
+/*----- BREADCRUMBS ----- */
+
+.breadcrumbs {
+	margin-bottom: 0;
+	//border-bottom: 1px solid darken($body-bg, 10%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- DEBUG ----- */
+
+.columns,
+.row {
+	border: 0px solid #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Line Items ----- */
+
+.total {
+	text-align: right
+}
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */

@@ -24,7 +24,7 @@
 	</div>
 
 	<div class="row">
-		<div class="small-12 medium-8 large-8 columns">
+		<div class="small-12 medium-9 large-9 columns">
 			<div class="panel contact-panel">
 				<h4>Händler</h4>
 				<p>
@@ -37,7 +37,7 @@
 		  </div>
 		</div>
 		
-		<div class="small-12 medium-4 large-4 columns">
+		<div class="small-12 medium-3 large-3 columns">
 			<div class="panel">
 			<h4>Status</h4>
 		  <p>
@@ -58,8 +58,13 @@
 			<div class="panel">
 
 				<h3>Schuhe</h3>
-				<%= f.fields_for :line_items %>
-				<%= f.link_to_add "+", :line_items, class: "tiny button" %>
+				<div id="line_item_target">
+					<%= f.fields_for :line_items %>
+				</div>
+
+				<div class="toolbar-bottom">
+					<%= f.link_to_add "", :line_items, :data => { :target => "#line_item_target" }, class: "ion-plus-circled ion-big" %>
+				</div>
 
 			</div>
 
@@ -68,10 +73,8 @@
 
 	<div class="row">
 		<div class="small-12 columns">
-		  <p>
-		  	<%= link_to 'Zurück', orders_path, class: "button secondary float_left" %>
-		    <%= f.submit "Speichern", class: "button float_right" %>
-		  </p>
+		  <%= link_to 'Zurück', orders_path, class: "button secondary float_left" %>
+		  <%= f.submit "Speichern", class: "button right" %>
 	  </div>
 	</div>
 

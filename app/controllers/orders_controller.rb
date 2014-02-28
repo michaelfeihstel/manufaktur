@@ -36,13 +36,6 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
-		@addresses = Address.where(contact_id: @order.contact_id)
-	end
-
-	def select_contact
-		respond_to do |format|
-	   format.js 
-	  end
 	end
 
 
@@ -63,6 +56,24 @@ class OrdersController < ApplicationController
 	end
 
 
+	def completed
+		@order = Order.find(params[:id])
+
+		@order.mark_as_completed
+
+		redirect_to order_path
+	end
+
+
+	def marked
+		@order = Order.find(params[:id])
+
+		@order.mark_as_marked
+
+		redirect_to order_path
+	end
+
+
 	private
 	def order_params
 		params.require(:order).permit(
@@ -73,6 +84,7 @@ class OrdersController < ApplicationController
 			:contact_id,
 			:billing_address_id,
 			:delivery_address_id,
+			:marked,
 			line_items_attributes: [
 				:id,
 				:order_id,

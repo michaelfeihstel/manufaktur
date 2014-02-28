@@ -12,8 +12,6 @@
     <section class="top-bar-section">
       <ul class="right">
 
-        <li class="divider"></li>
-
         <li class="has-dropdown">
           <%= link_to "Kontakte", contacts_path %>
           <ul class="dropdown">
@@ -23,16 +21,12 @@
           </ul>
         </li>
 
-        <li class="divider"></li>
-
         <li class="has-dropdown">
           <%= link_to "Aufträge", orders_path, class: "disabled" %>
           <ul class="dropdown">
             <li><%= link_to "Aufträge", "#" %></li>
           </ul> 
         </li>
-
-        <li class="divider"></li>
 
         <li class="has-dropdown">
           <%= link_to "Artikel", products_path %>
@@ -42,8 +36,6 @@
             <li><%= link_to "Größensysteme", sizes_path %></li>
           </ul>
         </li>
-
-        <li class="divider"></li>
 
         <li class="has-dropdown">
           <%= link_to "Produktion", "#" %>
@@ -65,6 +57,12 @@
       </ul>
     </section>
   </nav>
+
+</div>
+
+
+<div class="sub-bar">
+  <%= yield :actionbar %>
 </div>
 <!-- End Top Bar -->
 

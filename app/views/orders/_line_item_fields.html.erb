@@ -3,9 +3,27 @@
 
 			<div class="row">
 				<div class="small-12 medium-2 large-2 columns">
+					
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-12 medium-2 large-2 columns">
 					<p>
 						<%= f.label :product_id, "Artikelnummer" %>
 						<%= f.collection_select(:product_id, Product.all, :id, :sku) %>
+					</p>
+				</div>
+				<div class="small-12 medium-2 large-2 columns">
+					<p>
+						<%= f.label "Bezeichnung" %>
+						<%= f.object.try(:product).try(:name) %>
+					</p>
+				</div>
+				<div class="small-12 medium-2 large-2 columns">
+					<p>
+						<%= f.label "Farbe" %>
+						<%= f.object.try(:product).try(:color_text) %>
 					</p>
 				</div>
 			</div>
@@ -137,13 +155,162 @@
 							<%= label(:line_item, :quantity, "Gesamt" ) %>
 							<span class="total"><%= f.object.quantity %></span>
 						</li>
+					</ul>
+				  <ul class="inline-list">
 						<li>
 							<%= label(:line_item, :quantity, "Preis" ) %>
 						</li>
+
+						<li class="right">
+							<%= f.link_to_remove "", class: "ion-minus-circled ion-big", style: "color: crimson" %>
+						</li>
+
 					</ul>
+
+					<table width="100%">
+						<thead>
+							<tr>
+								<th>Artikel</th>
+								<th>Größenlauf</th>
+								<th>Gesamt</th>
+								<th>Preis</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= f.collection_select(:product_id, Product.all, :id, :sku) %></td>
+								<td>
+									<ul class="inline-list size-row">
+										<li style="margin-left: 1.375rem;">
+											<%= f.label :g1, f.object.get_size("g1"), class: "size-label" %>
+											<%= f.text_field :g1, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g1h, f.object.get_size("g1h"), class: "size-label" %>
+											<%= f.text_field :g1h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g2, f.object.get_size("g2"), class: "size-label" %>
+											<%= f.text_field :g2, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g2h, f.object.get_size("g2h"), class: "size-label" %>
+											<%= f.text_field :g2h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g3, f.object.get_size("g3"), class: "size-label" %>
+											<%= f.text_field :g3, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g3h, f.object.get_size("g3h"), class: "size-label" %>
+											<%= f.text_field :g3h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g4, f.object.get_size("g4"), class: "size-label" %>
+											<%= f.text_field :g4, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g4h, f.object.get_size("g4h"), class: "size-label" %>
+											<%= f.text_field :g4h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g5, f.object.get_size("g5"), class: "size-label" %>
+											<%= f.text_field :g5, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g5h, f.object.get_size("g5h"), class: "size-label" %>
+											<%= f.text_field :g5h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g6, f.object.get_size("g6"), class: "size-label" %>
+											<%= f.text_field :g6, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g6h, f.object.get_size("g6h"), class: "size-label" %>
+											<%= f.text_field :g6h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g7, f.object.get_size("g7"), class: "size-label" %>
+											<%= f.text_field :g7, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g7h, f.object.get_size("g7h"), class: "size-label" %>
+											<%= f.text_field :g7h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g8, f.object.get_size("g8"), class: "size-label" %>
+											<%= f.text_field :g8, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g8h, f.object.get_size("g8h"), class: "size-label" %>
+											<%= f.text_field :g8h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g9, f.object.get_size("g9"), class: "size-label" %>
+											<%= f.text_field :g9, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g9h, f.object.get_size("g9h"), class: "size-label" %>
+											<%= f.text_field :g9h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g10, f.object.get_size("g10"), class: "size-label" %>
+											<%= f.text_field :g10, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g10h, f.object.get_size("g10h"), class: "size-label" %>
+											<%= f.text_field :g10h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g11, f.object.get_size("g11"), class: "size-label" %>
+											<%= f.text_field :g11, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g11h, f.object.get_size("g11h"), class: "size-label" %>
+											<%= f.text_field :g11h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g12, f.object.get_size("g12"), class: "size-label" %>
+											<%= f.text_field :g12, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g12h, f.object.get_size("g12h"), class: "size-label" %>
+											<%= f.text_field :g12h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g13, f.object.get_size("g13"), class: "size-label" %>
+											<%= f.text_field :g13, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g13h, f.object.get_size("g13h"), class: "size-label" %>
+											<%= f.text_field :g13h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g14, f.object.get_size("g14"), class: "size-label" %>
+											<%= f.text_field :g14, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g14h, f.object.get_size("g14h"), class: "size-label" %>
+											<%= f.text_field :g14h, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g15, f.object.get_size("g15"), class: "size-label" %>
+											<%= f.text_field :g15, size: 2, class: "size-input" %>
+										</li>
+										<li>
+											<%= f.label :g16, f.object.get_size("g16"), class: "size-label" %>
+											<%= f.text_field :g16, size: 2, class: "size-input" %>
+										</li>
+									</ul>
+								</td>
+								<td><span class="total"><%= f.object.quantity %></span></td>
+							</tr>
+						</tbody>
+					</table>
+
 				</div>
 			</div>
-		<%= f.link_to_remove "Remove", class: "tiny button alert" %>
+		
 
 	</div>
 </div>

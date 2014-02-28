@@ -25,6 +25,7 @@
 #  webshop?              :boolean
 #  created_at            :datetime
 #  updated_at            :datetime
+#  marked                :boolean          default(FALSE), not null
 #
 
 require 'spec_helper'

@@ -48,7 +48,7 @@ $row-width: rem-calc(1300);
 // $primary-color: #da284b;
 $primary-color: #4682B4;
 // $primary-color: #4F5263;
-$secondary-color: #F3F3F3;
+$secondary-color: #f3f3f3;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 
@@ -179,7 +179,7 @@ $header-font-weight: 100;
 // $include-html-nav-classes: $include-html-classes;
 
 // We use this to set the background color for the breadcrumb container.
-$crumb-bg: $body-bg;
+$crumb-bg: $secondary-color;
 
 // We use these to set the padding around the breadcrumbs.
 $crumb-padding: rem-calc(9 0 9);
@@ -256,13 +256,13 @@ $f-dropdown-bg: $primary-color;
 
 // We use this to set the border styles for dropdowns.
 $f-dropdown-border-style: none;
-$f-dropdown-border-width: 1px;
+$f-dropdown-border-width: 0px;
 // $f-dropdown-border-color: darken(#fff, 20%);
 
 // We use these to style the triangle pip.
 $f-dropdown-triangle-size: 10px;
 $f-dropdown-triangle-color: $f-dropdown-bg;
-$f-dropdown-triangle-side-offset: 10px;
+$f-dropdown-triangle-side-offset: 9px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
@@ -270,7 +270,7 @@ $f-dropdown-font-color: $body-bg;
 // $f-dropdown-font-size: rem-calc(14);
 // $f-dropdown-list-padding: rem-calc(5, 10);
 // $f-dropdown-line-height: rem-calc(18);
-$f-dropdown-list-hover-bg: lighten($primary-color, 10%)  ;
+$f-dropdown-list-hover-bg: lighten($f-dropdown-bg, 10%)  ;
 // $dropdown-mobile-default-float: 0;
 
 // We use this to control the styles for when the dropdown has custom content.
@@ -985,7 +985,7 @@ $topbar-dropdown-link-bg: lighten($primary-color, 10%);
 // $topbar-link-color: #fff;
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
-// $topbar-link-weight: normal;
+$topbar-link-weight: 300;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg-hover: lighten($primary-color, 5%);

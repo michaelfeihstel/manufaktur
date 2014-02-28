@@ -31,7 +31,6 @@ $body-bg: #f6f4f1;
 	padding-right: 0;
 }
 
-input,
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -61,6 +60,11 @@ input:focus {
 	border-bottom: 1px solid $primary-color;
 }
 
+input[type="submit"]:hover,
+input[type="button"]:hover {
+	border: none;
+}
+
 select:hover,
 select:focus {
 	background-color: transparent;
@@ -69,6 +73,39 @@ select:focus {
 .searchbar ul.inline-list {
 	margin-bottom: 0;
 }
+
+
+
+
+
+
+
+
+
+/*----- SUB BAR ----- */
+
+.sub-bar {
+	background-color: $secondary-color;
+	padding: 0.5rem 1rem;
+	box-sizing: border-box
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*----- GENERAL ----- */
@@ -93,10 +130,6 @@ input {
 	
 }
 
-.toolbar {
-	line-height: 1.8em;
-}
-
 .float_left {
 	float: left;
 }
@@ -110,12 +143,110 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /*----- TYPOGRAPHY ----- */
 
 body {
 	background-color: #F5FFFA;
 	font-family: "Europa"
 }
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+.page-heading {
+	margin: 1em 0;
+	font-weight: 700;
+}
+
+.page-toolbar {
+}
+
+.section-label {
+	color: #aaa;
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 1em;
+	font-weight: 100;
+	margin-bottom: 0.3em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- LABELS ----- */
+
+.label {
+	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-weight: 100;
+	text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----- PANELS ----- */
+
+.toolbar {
+	background-color: scale-color($primary-color, $lightness: 0%);
+	color: $body-bg;
+	box-sizing: border-box;
+	padding: 1.25rem;
+}
+
+.toolbar-bottom {
+	@extend .toolbar;
+	margin-bottom: -1.25rem !important;
+	margin: -1.25rem;
+	margin-top: 1rem;
+}
+
+.toolbar a {
+	color: scale-color($body-bg, $lightness: 0%);
+}
+
+.toolbar a:hover {
+	color: scale-color($body-bg, $lightness: 100%);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* ----- ORDERS ----- */
@@ -158,6 +289,11 @@ body {
 
 
 
+
+
+
+
+
 /*----- SIDEBAR ----- */
 
 .side-nav li a:hover {
@@ -192,8 +328,17 @@ li {
 
 .breadcrumbs {
 	margin-bottom: 0;
-	border-bottom: 1px solid darken($body-bg, 10%);
+	//border-bottom: 1px solid darken($body-bg, 10%);
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -208,32 +353,11 @@ li {
 }
 
 
-/*----- Typography ----- */
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
 
-.page-heading {
-	margin: 1em 0;
-	font-weight: 700;
-}
 
-.section-label {
-	color: #aaa;
-	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 1em;
-	font-weight: 100;
-	margin-bottom: 0.3em;
-}
 
-/*----- LABELS ----- */
 
-.label {
-	font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-weight: 100;
-	text-transform: uppercase;
-}
 
 
 
@@ -252,4 +376,3 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* -------------------------------------------------------------------------- */
-
