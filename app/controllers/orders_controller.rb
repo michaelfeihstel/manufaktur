@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+	respond_to :html, :js, :json
 	
 	def index
 		@search = Order.search(params[:q])

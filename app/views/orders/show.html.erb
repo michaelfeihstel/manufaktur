@@ -10,7 +10,7 @@
   </ul>
 <% end %>
 
-<%= render "orders/actions/show" %>
+<%= render "orders/toolbar/show" %>
 
 <% content_for :title_bar do %>
   <div class="row">
@@ -88,9 +88,9 @@
       <div class="panel">
         <h4>Aufgaben</h4>
         <ul class="side-nav">
-          <li><%= link_to "Auftragsbestätigung", "#" %><li>
-          <li><%= link_to "Lieferschein", "#" %><li>
-          <li><%= link_to "Rechnung", "#" %><li>
+          <li><%= link_to inline_icon("Auftragsbestätigung", "ion-document"), "#" %><li>
+          <li><%= link_to inline_icon("Lieferschein", "ion-document"), "#" %><li>
+          <li><%= link_to inline_icon("Rechnung", "ion-document"), "#" %><li>
         </ul>
       </div>
     </div>

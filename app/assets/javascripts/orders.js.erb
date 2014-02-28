@@ -1,7 +1,12 @@
 $('#order_contact_id').change(function() {
-  // $(this).parents('form:first').submit();
-  $('#select_addresses').load(
-  	"/orders/2/update_addresses",
-  	{ "contact_id": $('#order_contact_id').val() }
-  	);
+
+	var order_id = $('form').data('item-id');
+
+	console.log('current order_id: ' + order_id);
+
+  $('#select_addresses').load (
+  		"/orders/" + order_id + "/update_addresses",
+  		{ "contact_id": $('#order_contact_id').val() }
+  );
+
 });

@@ -43,7 +43,7 @@ class Order < ActiveRecord::Base
   
   # METHODS
 
-  include ToolbarHelper
+  include IconHelper
 
   def subtitle
   	if self.delivery_address_id != self.billing_address_id
@@ -53,11 +53,19 @@ class Order < ActiveRecord::Base
 
 
 
-  def marked_icon
-    if self.marked != true
-      toolbar_icon("Markieren", "ion-ios7-star-outline")
-    else
+  def marked_toolbar_icon
+    if marked == true    
       toolbar_icon("Markiert", "ion-ios7-star", "limegreen")
+    else
+      toolbar_icon("Markieren", "ion-ios7-star-outline")
+    end
+  end
+
+  def marked_inline_icon
+    if marked == true
+      inline_icon("Markiert", "ion-ios7-star", "limegreen")
+    else
+      inline_icon("Markieren", "ion-ios7-star-outline")
     end
   end
 
@@ -71,11 +79,19 @@ class Order < ActiveRecord::Base
 
 
 
-  def completed_icon
-    if self.date_completed.blank?
+  def completed_toolbar_icon
+    if date_completed.blank?
       toolbar_icon("Abschließen", "ion-ios7-checkmark-empty")
     else
       toolbar_icon("Abgeschlossen", "ion-checkmark-circled", "limegreen")
+    end
+  end
+
+  def completed_inline_icon
+    if date_completed.blank?
+      inline_icon("Abschließen", "ion-ios7-checkmark-empty")
+    else
+      inline_icon("Abgeschlossen", "ion-checkmark-circled", "limegreen")
     end
   end
 

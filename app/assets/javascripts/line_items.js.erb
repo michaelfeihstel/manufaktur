@@ -1,7 +1,13 @@
-/*
+$('.size-input').change(function () {
 
-$('.size-input').change(function() {
-  $(this).parents('form:first').submit();
+    var sum = 0;
+    
+    $('.size-input').each(function() {
+        sum += Number($(this).val());
+    });
+
+    console.log(sum);
+
+    $('.total').html('<span class="total">' + sum + '</span>');
+
 });
-
-*/

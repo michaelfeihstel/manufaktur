@@ -1,4 +1,4 @@
-<%= nested_form_for @order do |f| %>
+<%= nested_form_for @order, html: { "data-item-id" => @order.id } do |f| %>
 
 	<div class="row">
 		<div class="small-12 columns">

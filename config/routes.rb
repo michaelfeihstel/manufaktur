@@ -22,8 +22,6 @@ Filialen::Application.routes.draw do
 
   get "home/index"
 
-  get 'orders/update_addresses_select', :as => 'update_addresses'
-
   root :to => "home#index"
 
   # The priority is based upon order of creation:
