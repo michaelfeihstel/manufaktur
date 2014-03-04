@@ -4,20 +4,38 @@ Filialen::Application.routes.draw do
 
 
   resources :brands
-  resources :products
+
+  resources :products do
+
+    member do
+      post :get_product_price
+    end
+
+  end
+
   resources :sizes
+
   resources :variations
+
   resources :variation_sets
+
   resources :contacts
+
   resources :addresses
+
   resources :orders do
+
     resources :line_items
+
     member do
       post :update_addresses
       put :marked
       put :completed
     end
+
   end
+
+
 
 
   get "home/index"

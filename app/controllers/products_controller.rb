@@ -58,6 +58,15 @@ class ProductsController < ApplicationController
 		redirect_to products_path, :flash => { :success => "Product deleted!" }
 	end
 
+	def get_product_price
+		@product = Product.find(params[:product_id])
+		@temp_id = params[:temp_id]
+
+		respond_to do |format|
+			format.js
+		end
+	end
+
 
 	private
 	def product_params

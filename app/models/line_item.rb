@@ -46,9 +46,21 @@ class LineItem < ActiveRecord::Base
   belongs_to :order
   belongs_to :product
 
+  def temp_id
+    if @temp_id.nil?
+      @temp_id = rand(1000000)
+    end
+  end
+
   def quantity
   	items = [g1, g1h, g2, g2h, g3, g3h, g4, g4h, g5, g5h, g6, g6h, g7, g7h, g8, g8h, g9, g9h, g10, g10h, g11, g11h, g12, g12h, g13, g13h, g14, g14h, g15, g16]
   	items.compact.sum
+  end
+
+  def subtotal_net
+    q = quantity || 0
+    p = price || 0
+    q * p
   end
 
   def quantity_badge

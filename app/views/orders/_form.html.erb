@@ -55,18 +55,17 @@
 	<div class="row">
 		<div class="small-12 columns">
 
-			<div class="panel">
-
 				<h3>Schuhe</h3>
+
 				<div id="line_item_target">
-					<%= f.fields_for :line_items %>
+					<%= f.fields_for :line_items, class: "test" %>
 				</div>
 
-				<div class="toolbar-bottom">
-					<%= f.link_to_add "", :line_items, :data => { :target => "#line_item_target" }, class: "ion-plus-circled ion-big" %>
+				<div class="toolbar">
+					<dl class="actions">
+						<dd><%= f.link_to_add toolbar_icon("Artikel hinzufügen", "ion-ios7-plus-outline"), :line_items, :data => { :target => "#line_item_target" } %></dd>
+					</dl>
 				</div>
-
-			</div>
 
 		</div>
 	</div>

@@ -28,7 +28,8 @@ class OrdersController < ApplicationController
 		@order = Order.new(order_params)
 
 		if @order.save
-			redirect_to @order, flash[:success] = "Auftrag #{@order.id} wurde erstellt"
+			redirect_to @order
+			flash[:success] = "Auftrag #{@order.id} wurde erstellt"
 		else
 			render "new"
 		end
@@ -61,7 +62,6 @@ class OrdersController < ApplicationController
 	end
 
 	def update_addresses
-		@order = Order.find(params[:id])
 		@addresses = Address.where(contact_id: params[:contact_id])
 
 		respond_to do |format|

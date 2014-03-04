@@ -1,13 +1,56 @@
-$('.size-input').change(function () {
+// TOTALS
+
+$('form').on('change', '.size-input', function () {
 
     var sum = 0;
     
-    $('.size-input').each(function() {
+    $(this).closest('#line_item').find('.size-input').each(function() {
         sum += Number($(this).val());
     });
 
     console.log(sum);
 
-    $('.total').html('<span class="total">' + sum + '</span>');
+    $(this).closest('#line_item').find('.total').html('<span class="total">' + sum + '</span>');
+
+});
+
+
+/* COLORBAR
+
+$('form').on('change', '#order_line_items_product_id', function () {
+
+	var product_id = $('#order_line_items_product_id').val();
+
+    console.log(
+    	product_id
+    );
+
+    $(this).closest('#line_item').find('.colorbar').html('<div class="colorbar"></div>');
+
+});
+
+*/
+
+
+// SELECT product_id
+
+$('body').on('change', '.order_line_items_product_id', function () {
+
+    console.log('line_items#get_product_price triggered');
+
+    var order_id = $('form').data('item-id');
+    var line_item_temp_id = $(this).closest('#line_item').data('item-temp-id');
+    var product_id = $(this).val();
+
+    console.log(
+        'order_id: ' + order_id,
+        'line_item_temp_id: ' + line_item_temp_id,
+        'product_id: ' + product_id
+    );
+
+    $('#line_item[data-item-temp-id=' + line_item_temp_id + '] #subtotal_net').load (
+        "/products/" + product_id + "/get_product_price",
+        { "product_id": product_id, "temp_id": line_item_temp_id }
+    );
 
 });

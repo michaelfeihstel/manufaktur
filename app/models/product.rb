@@ -33,5 +33,10 @@ class Product < ActiveRecord::Base
       self.product_images.first.image.url(:medium)
     end
   end
+
+  def sku_name_color
+    full_name = [ sku, name, color_text ]
+    full_name.join(" - ")
+  end
   
 end

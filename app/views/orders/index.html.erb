@@ -43,7 +43,7 @@
           <div class="row">
             <div class="small-12 columns">
               <% o.line_items.each do |li| %>
-                <span class="label"><%= li.quantity_badge %></span>
+                <span class="label <%= li.product.try(:sku) %>"><%= li.quantity_badge %></span>
               <% end %>
             </div>
           </div>

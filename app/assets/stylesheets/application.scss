@@ -14,6 +14,15 @@
 
 @import "foundation_and_overrides";
 
+/* ----- COLORS ----- */
+
+$GLS100CCG: #CFB597;
+$GLS200CCG: #CFB597;
+$GLS200SSS: #000;
+$GLS100SSS: #000;
+$GLS100MMS: #424557;
+$GLS200MMS: #424557;
+
 
 /* ----- TOP BAR ----- */
 
@@ -306,14 +315,15 @@ h1, h2, h3, h4, h5, h6 {
 /* ----- PANELS ----- */
 
 .toolbar {
-	background-color: scale-color($primary-color, $lightness: 0%);
-	color: $body-bg;
+	background-color: scale-color($secondary-color, $lightness: -5%);
+	margin: 0 0 1rem 0;
 	box-sizing: border-box;
-	padding: 1.25rem;
+	padding: 0;
 }
 
-.toolbar-bottom {
+.toolbar-panel {
 	@extend .toolbar;
+	background-color: scale-color($secondary-color, $lightness: -5%);
 	margin-bottom: -1.25rem !important;
 	margin: -1.25rem;
 	margin-top: 1rem;
@@ -342,6 +352,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .size-row li {
 	margin-left: -2px;
+	padding: 0 0.25rem 1.25rem;
 }
 
 .size-row li input[type="text"] {
@@ -355,7 +366,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .size-row li input[type="text"]:hover,
 .size-row li input[type="text"]:focus {
-	border-bottom: 1px solid #4682B4;
+	border: 1px solid $primary-color;
+	border-top: none;
 }
 
 .size-input,
@@ -372,6 +384,29 @@ h1, h2, h3, h4, h5, h6 {
 	border: 1px solid #ddd;
 	border-top: none;
 	background: none;
+}
+
+.colorbar {
+	height: 10px;
+}
+
+.GLS100CCG,
+.GLS200CCG {
+	background-color: $GLS200CCG;
+	color: #fff;
+	// background-image: -webkit-gradient(linear, left top, right top, color-stop(33%,rgb(119, 116, 143)), color-stop(66%,rgb(0, 0, 0)))
+}
+
+.GLS100SSS,
+.GLS200SSS {
+	background-color: $GLS200SSS;
+	color: #fff;
+}
+
+.GLS100MMS,
+.GLS200MMS {
+	background-color: $GLS200MMS;
+	color: #fff;
 }
 
 
