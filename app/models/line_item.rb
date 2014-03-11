@@ -61,7 +61,7 @@ class LineItem < ActiveRecord::Base
 
 
 
-  def subtotal_net
+  def price_total
     q = quantity || 0
     p = price || 0
     q * p

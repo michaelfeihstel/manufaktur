@@ -16,8 +16,8 @@ $('form').on('change', '.size-input', function () {
 
     $(this).closest('#line_item').find('#quantity').html('<span class="quantity">' + quantity + '</span>');
 
-    $(this).closest('#line_item').find('#subtotal_net').load (
-        "/line_items/update_product_price",
+    $(this).closest('#line_item').find('#price_total').load (
+        "/line_items/update_price_total",
         { "product_id": product_id, "quantity": quantity }
     );
 
@@ -43,8 +43,22 @@ $('body').on('change', '.order_line_items_product_id', function () {
         'quantity: ' + quantity
     );
 
-    $(this).closest('#line_item[data-item-temp-id=' + line_item_temp_id + ']').find('#subtotal_net').load (
-        "/line_items/update_product_price",
+    // update price_single
+
+    $(this).closest('#line_item').find('#price_single').load (
+        "/line_items/update_price_single",
+        { "product_id": product_id }
+    );
+
+    $(this).closest('#line_item').find('#price_single_input').val().load (
+        "/line_items/update_price_single",
+        { "product_id": product_id }
+    );    
+
+    // update price_total
+
+    $(this).closest('#line_item').find('#price_total').load (
+        "/line_items/update_price_total",
         { "product_id": product_id, "quantity": quantity }
     );
 

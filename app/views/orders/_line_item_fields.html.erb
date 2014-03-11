@@ -150,9 +150,14 @@
 								<span class="quantity" id="quantity"><%= f.object.quantity %></span>
 							</li>
 							<li>
-								<%= label(:line_item, :quantity, "Preis" ) %>
-								<span id="subtotal_net"><%= number_to_currency(f.object.try(:price_single), unit: "€ ") %></span>
+								<%= label :price, "Preis" %>
+								<%= f.hidden_field :price, id: "price_single_input" %>
+								<span id="price_single"><%= number_to_currency(f.object.try(:price), unit: "€ ") %></span>
 							</li>
+							<li>
+								<%= label(:line_item, :price, "Summe" ) %>
+								<span id="price_total"><%= number_to_currency(f.object.try(:price_total), unit: "€ ") %></span>
+							</li>							
 						</ul>
 					</div>
 
