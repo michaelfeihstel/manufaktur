@@ -1,16 +1,25 @@
-// CALCULATE TOTALS
+// CALCULATE QUANTITY
 
 $('form').on('change', '.size-input', function () {
 
-    var sum = 0;
+    var product_id = $(this).closest('#line_item').find('.order_line_items_product_id').val();
+    var quantity = 0;
     
     $(this).closest('#line_item').find('.size-input').each(function() {
-        sum += Number($(this).val());
+        quantity += Number($(this).val());
     });
 
-    console.log(sum);
+    console.log(
+        'quantity: ' + quantity,
+        'Product_id: ' + product_id
+    );
 
-    $(this).closest('#line_item').find('.total').html('<span class="total">' + sum + '</span>');
+    $(this).closest('#line_item').find('#quantity').html('<span class="quantity">' + quantity + '</span>');
+
+    $(this).closest('#line_item').find('#subtotal_net').load (
+        "/line_items/update_product_price",
+        { "product_id": product_id, "quantity": quantity }
+    );
 
 });
 
@@ -20,21 +29,23 @@ $('form').on('change', '.size-input', function () {
 
 $('body').on('change', '.order_line_items_product_id', function () {
 
-    console.log('line_items#get_product_price triggered');
-
-    var order_id = $('form').data('item-id');
+    var order_id = $('form').data('order-id');
     var line_item_temp_id = $(this).closest('#line_item').data('item-temp-id');
     var product_id = $(this).val();
+    var quantity = $(this).closest('#line_item').find('#quantity').text();
+
+    console.log('line_items#get_product_price triggered');
 
     console.log(
         'order_id: ' + order_id,
         'line_item_temp_id: ' + line_item_temp_id,
-        'product_id: ' + product_id
+        'product_id: ' + product_id,
+        'quantity: ' + quantity
     );
 
-    $('#line_item[data-item-temp-id=' + line_item_temp_id + '] #subtotal_net').load (
-        "/products/" + product_id + "/get_product_price",
-        { "product_id": product_id, "temp_id": line_item_temp_id }
+    $(this).closest('#line_item[data-item-temp-id=' + line_item_temp_id + ']').find('#subtotal_net').load (
+        "/line_items/update_product_price",
+        { "product_id": product_id, "quantity": quantity }
     );
 
 });

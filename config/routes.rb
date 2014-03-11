@@ -5,13 +5,7 @@ Filialen::Application.routes.draw do
 
   resources :brands
 
-  resources :products do
-
-    member do
-      post :get_product_price
-    end
-
-  end
+  resources :products 
 
   resources :sizes
 
@@ -37,8 +31,10 @@ Filialen::Application.routes.draw do
 
 
 
-
   get "home/index"
+
+
+  match "line_items/update_product_price" => "line_items#update_product_price", :via => :post
 
   root :to => "home#index"
 

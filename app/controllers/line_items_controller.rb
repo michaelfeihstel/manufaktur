@@ -9,8 +9,12 @@ class LineItemsController < ApplicationController
 		end
 	end
 
-	def get_product_price
-		@line_item = LineItem.find(params[:temp_id])
+	def update_product_price
+		@product = Product.find(params[:product_id])
+		@price_single = @product.price.to_i || 0
+		@quantity = params[:quantity].to_i || 0
+		@price_total = @quantity * @price_single
+
 
 		respond_to do |format|
 			format.js

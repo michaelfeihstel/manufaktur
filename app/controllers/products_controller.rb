@@ -17,9 +17,11 @@ class ProductsController < ApplicationController
 	end
 
 
+
 	def edit
 		@product = Product.find(params[:id])
 	end
+
 
 
 	def update
@@ -40,6 +42,7 @@ class ProductsController < ApplicationController
 	end
 
 
+
 	def create
 		@product = Product.new(product_params)
 
@@ -51,6 +54,7 @@ class ProductsController < ApplicationController
 	end
 
 
+
 	def destroy
 		@product = Product.find(params[:id])
 		@product.destroy
@@ -58,14 +62,17 @@ class ProductsController < ApplicationController
 		redirect_to products_path, :flash => { :success => "Product deleted!" }
 	end
 
+
+
 	def get_product_price
-		@product = Product.find(params[:product_id])
+		@product = Product.find(params[:order][:line_items_attributes]["0"][:product_id])
 		@temp_id = params[:temp_id]
 
 		respond_to do |format|
 			format.js
 		end
 	end
+
 
 
 	private

@@ -52,10 +52,14 @@ class LineItem < ActiveRecord::Base
     end
   end
 
+
+
   def quantity
   	items = [g1, g1h, g2, g2h, g3, g3h, g4, g4h, g5, g5h, g6, g6h, g7, g7h, g8, g8h, g9, g9h, g10, g10h, g11, g11h, g12, g12h, g13, g13h, g14, g14h, g15, g16]
   	items.compact.sum
   end
+
+
 
   def subtotal_net
     q = quantity || 0
@@ -63,10 +67,14 @@ class LineItem < ActiveRecord::Base
     q * p
   end
 
+
+
   def quantity_badge
   	badge = [self.quantity, "x", self.product.sku]
   	badge.join(" ")
   end
+
+
 
   def get_size(size_to_get)
     result = eval("self.try(:product).try(:size).try(:" + size_to_get + ")")

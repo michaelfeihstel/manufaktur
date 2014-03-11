@@ -1,4 +1,4 @@
-<%= nested_form_for @order, html: { "data-item-id" => @order.id } do |f| %>
+<%= nested_form_for @order, html: { "data-order-id" => @order.id } do |f| %>
 
 	<div class="row">
 		<div class="small-12 columns">
@@ -58,7 +58,7 @@
 				<h3>Schuhe</h3>
 
 				<div id="line_item_target">
-					<%= f.fields_for :line_items, class: "test" %>
+					<%= f.fields_for :line_items %>
 				</div>
 
 				<div class="toolbar">

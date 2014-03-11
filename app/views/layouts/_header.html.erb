@@ -15,16 +15,15 @@
         <li class="has-dropdown">
           <%= link_to "Kontakte", contacts_path %>
           <ul class="dropdown">
-            <li><label>Bearbeiten</label></li>
             <li><%= link_to "Kontakte", contacts_path %></li>
             <li><%= link_to "Briefe", "#" %></li>
           </ul>
         </li>
 
         <li class="has-dropdown">
-          <%= link_to "Aufträge", orders_path, class: "disabled" %>
+          <%= link_to "Aufträge", orders_path %>
           <ul class="dropdown">
-            <li><%= link_to "Aufträge", "#" %></li>
+            <li><%= link_to "Aufträge", orders_path %></li>
           </ul> 
         </li>
 
