@@ -33,9 +33,8 @@ Filialen::Application.routes.draw do
 
   get "home/index"
 
-
-  match "line_items/update_price_total" => "line_items#update_price_total", :via => :post
   match "line_items/select_product" => "line_items#select_product", :via => :post
+  match "line_items/change_quantity" => "line_items#change_quantity", :via => :post
 
   root :to => "home#index"
 
