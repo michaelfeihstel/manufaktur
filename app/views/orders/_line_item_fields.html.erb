@@ -8,7 +8,7 @@
 				<div class="small-10 columns">
 					<p>
 						<%= f.label :product_id, "Artikel" %>
-						<%= f.collection_select(:product_id, Product.all, :id, :sku_name_color, {}, { class: "order_line_items_product_id" } ) %>
+						<%= f.collection_select(:product_id, Product.all, :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } ) %>
 					</p>
 				</div>
 				<div class="small-2 columns">

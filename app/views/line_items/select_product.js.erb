@@ -13,3 +13,9 @@ $('#line_item[data-item-temp-id="' + <%= j(@line_item_temp_id) %> + '"]').find('
 $('#line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_total').text(
     "<%= j (number_to_currency(@price_total, unit: "€ ")) %>"
 );
+
+// set colorbar
+
+$('#line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').prev('.colorbar').attr({
+    class: "colorbar <%= j ( @product.sku ) %>"
+});
