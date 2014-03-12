@@ -25,77 +25,102 @@
 <!-- MAIN CONTENT -->
 
 <% content_for :main_content do %>
-  
+
   <div class="row">
-
     <div class="small-12 medium-9 large-9 columns">
-      <div class="panel">
 
-        <div class="row">
-          <div class="small-12 columns">
-            <h4>Händler</h4>
-            <h2><%= @order.contact.name %></h2>
-            <hr>
+      <div class="row">
+        <div class="small-12 columns">
+
+          <div class="panel">
+
+            <div class="row">
+              <div class="small-12 columns">
+                <h4>Händler</h4>
+                <h2><%= @order.contact.name %></h2>
+                <hr>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 medium-6 large-6 columns">
+                <p>
+                  <label>Rechnungsanschrift</label>
+                  <%= @order.try(:billing_address).try(:name) || "-" %><br>
+                  <%= @order.try(:billing_address).try(:street) %> <%= @order.try(:billing_address).try(:house_number) %></br>
+                  <%= @order.try(:billing_address).try(:zip) %> <%= @order.try(:billing_address).try(:city) %></br>
+                  <%= @order.try(:billing_address).try(:country) %>
+                </p>
+              </div>
+
+              <div class="small-12 medium-6 large-6 columns">
+                <p>
+                  <label>Lieferanschrift</label>
+                  <%= @order.try(:delivery_address).try(:name) || "-" %><br>
+                  <%= @order.try(:delivery_address).try(:street) %> <%= @order.try(:delivery_address).try(:house_number) %></br>
+                  <%= @order.try(:delivery_address).try(:zip) %> <%= @order.try(:delivery_address).try(:city) %></br>
+                  <%= @order.try(:delivery_address).try(:country) %>
+                </p>
+              </div>
+            </div>  
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns">
+
+          <% @order.line_items.each do |li| %>
+            <%= render partial: "orders/show/line_item", locals: { :li => li } %>
+          <% end %>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="small-12 medium-3 large-3 columns">
+
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="panel">
+            <h4>Status</h4>
+            <p>
+              <label>Erstellt am</label>
+              <%= @order.created_at.to_formatted_s(:rfc822) %>
+            </p>
+            <p>
+              <label>Liefertermin</label>
+              <%= @order.date_delivery.to_formatted_s(:rfc822) %>
+            </p>
+            <p>
+              <label>Abgeschlossen am</label>
+              <%= @order.try(:date_completed) %>
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="row">
+      <div class="row">
+        <div class="small-12 columns">
 
-          <div class="small-12 medium-6 large-6 columns">
-            <p>
-              <label>Rechnungsanschrift</label>
-              <%= @order.try(:billing_address).try(:name) || "-" %><br>
-              <%= @order.try(:billing_address).try(:street) %> <%= @order.try(:billing_address).try(:house_number) %></br>
-              <%= @order.try(:billing_address).try(:zip) %> <%= @order.try(:billing_address).try(:city) %></br>
-              <%= @order.try(:billing_address).try(:country) %>
-            </p>
+          <div class="panel">
+            <h4>Aufgaben</h4>
+            <ul class="side-nav">
+              <li><%= link_to inline_icon("Auftragsbestätigung", "ion-document"), "#" %><li>
+              <li><%= link_to inline_icon("Lieferschein", "ion-document"), "#" %><li>
+              <li><%= link_to inline_icon("Rechnung", "ion-document"), "#" %><li>
+            </ul>
           </div>
 
-          <div class="small-12 medium-6 large-6 columns">
-            <p>
-              <label>Lieferanschrift</label>
-              <%= @order.try(:delivery_address).try(:name) || "-" %><br>
-              <%= @order.try(:delivery_address).try(:street) %> <%= @order.try(:delivery_address).try(:house_number) %></br>
-              <%= @order.try(:delivery_address).try(:zip) %> <%= @order.try(:delivery_address).try(:city) %></br>
-              <%= @order.try(:delivery_address).try(:country) %>
-            </p>
-          </div>
-
-        </div>  
-
+        </div>
       </div>
-    </div>
 
-    <div class="small-12 medium-3 large-3 columns">
-      <div class="panel">
-        <h4>Status</h4>
-        <p>
-          <label>Erstellt am</label>
-          <%= @order.created_at.to_formatted_s(:rfc822) %>
-        </p>
-        <p>
-          <label>Liefertermin</label>
-          <%= @order.date_delivery.to_formatted_s(:rfc822) %>
-        </p>
-        <p>
-          <label>Abgeschlossen am</label>
-          <%= @order.try(:date_completed) %>
-        </p>
-      </div>
     </div>
-
-    <div class="small-12 medium-3 large-3 columns">
-      <div class="panel">
-        <h4>Aufgaben</h4>
-        <ul class="side-nav">
-          <li><%= link_to inline_icon("Auftragsbestätigung", "ion-document"), "#" %><li>
-          <li><%= link_to inline_icon("Lieferschein", "ion-document"), "#" %><li>
-          <li><%= link_to inline_icon("Rechnung", "ion-document"), "#" %><li>
-        </ul>
-      </div>
-    </div>
-
   </div>
+
 
   <div class="row">
     <div class="small-12 medium-3 large-3 columns">
