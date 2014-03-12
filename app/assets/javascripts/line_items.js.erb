@@ -37,29 +37,41 @@ $('body').on('change', '.order_line_items_product_id', function () {
     console.log('line_items#get_product_price triggered');
 
     console.log(
-        'order_id: ' + order_id,
-        'line_item_temp_id: ' + line_item_temp_id,
-        'product_id: ' + product_id,
+        'order_id: ' + order_id + '\n' +
+        'line_item_temp_id: ' + line_item_temp_id + '\n' +
+        'product_id: ' + product_id + '\n' +
         'quantity: ' + quantity
     );
 
-    // update price_single
 
-    $(this).closest('#line_item').find('#price_single').load (
-        "/line_items/update_price_single",
-        { "product_id": product_id }
-    );
+    $.ajax({
+        url: "/line_items/select_product",
+        data: { 
+            "product_id": product_id,
+            "temp_id": line_item_temp_id,
+            "quantity": quantity
+        },
+        type: "post",
+        error: function(data) {
+            alert("Error: " + data);
+        },
+        success: function(data) {
+            data
+        }
+    });
 
-    $(this).closest('#line_item').find('#price_single_input').val().load (
+/*
+    $(this).closest('#line_item').find('#price_single_input').load(
         "/line_items/update_price_single",
         { "product_id": product_id }
     );    
 
     // update price_total
 
-    $(this).closest('#line_item').find('#price_total').load (
+    $(this).closest('#line_item').find('#price_total').load(
         "/line_items/update_price_total",
         { "product_id": product_id, "quantity": quantity }
     );
+*/
 
 });

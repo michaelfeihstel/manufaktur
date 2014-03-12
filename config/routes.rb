@@ -35,7 +35,7 @@ Filialen::Application.routes.draw do
 
 
   match "line_items/update_price_total" => "line_items#update_price_total", :via => :post
-  match "line_items/update_price_single" => "line_items#update_price_single", :via => :post
+  match "line_items/select_product" => "line_items#select_product", :via => :post
 
   root :to => "home#index"
 

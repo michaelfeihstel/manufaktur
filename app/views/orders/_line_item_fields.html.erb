@@ -5,12 +5,18 @@
 		<div class="panel">
 
 			<div class="row">
-				<div class="small-12 columns">
+				<div class="small-10 columns">
 					<p>
 						<%= f.label :product_id, "Artikel" %>
 						<%= f.collection_select(:product_id, Product.all, :id, :sku_name_color, {}, { class: "order_line_items_product_id" } ) %>
 					</p>
-				</div>	
+				</div>
+				<div class="small-2 columns">
+					<p>
+						<%= f.label :price, "Einzelpreis" %>
+						<%= f.text_field :price, id: "price_single_input" %>
+					</p>
+				</div>
 			</div>
 
 			<div class="row">
@@ -148,11 +154,6 @@
 							<li>
 								<%= label(:line_item, :quantity, "Gesamt" ) %>
 								<span class="quantity" id="quantity"><%= f.object.quantity %></span>
-							</li>
-							<li>
-								<%= label :price, "Preis" %>
-								<%= f.hidden_field :price, id: "price_single_input" %>
-								<span id="price_single"><%= number_to_currency(f.object.try(:price), unit: "€ ") %></span>
 							</li>
 							<li>
 								<%= label(:line_item, :price, "Summe" ) %>
