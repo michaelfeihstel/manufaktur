@@ -1,0 +1,14 @@
+<% content_for :toolbar do %>
+
+  <dl class="actions show-for-medium-up">
+    <dd><%= link_to toolbar_icon("Neuer Auftrag", "ion-ios7-plus-outline"), new_order_path %></dd>
+    <dd><%= link_to toolbar_icon("Suchen", "ion-ios7-search"), "#" %></dd>
+  </dl>
+
+  <a href="#" data-dropdown="mobile-actions" class="show-for-small-only">Aktionen <span class="ion-ios7-arrow-down right"></span></a>
+		<ul id="mobile-actions" class="f-dropdown" data-dropdown-content>
+		  <li><%= link_to inline_icon("Neuer Auftrag", "ion-ios7-plus-outline"), new_order_path %></li>
+	  </ul>
+	</a>
+
+<% end %>

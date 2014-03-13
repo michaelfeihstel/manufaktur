@@ -181,6 +181,7 @@ select:focus {
 
 .alert-box {
 	border: none;
+	z-index: -99;
 
 	a.close {
 		color: inherit;

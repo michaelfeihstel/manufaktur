@@ -1,45 +1,42 @@
-<% @section = "Aufträge" %>
+<!-- toolbar -->
 
-<!-- HEADER -->
+<%= render "orders/toolbar/index" %>
 
-<% content_for :breadcrumbs do %>
-  <div class="row">
-    <div class="small-12 columns">
-      <ul class="breadcrumbs">
-        <li><%= link_to "Home", "/" %></li>
-        <li><%= render "/layouts/breadcrumbs/sections" %></li>
-      </ul>
-    </div>
-  </div>
-<% end %>
+<!-- title bar -->
 
 <% content_for :title_bar do %>
   <div class="row">
-    <div class="large-9 small-9 columns">
+    <div class="small-12 columns">
       <h1 class="page-heading">Aufträge</h1>
     </div>
-    <div class="large-3 small-12 columns">
-      <ul class="inline-list right">
-        <li>
-          <%= render "orders/search" %>
-        </li>
-      </ul>
-    </div>
   </div>
+
+  <!-- filter -->
+
+  <dl class="sub-nav">
+    <dt>Filter:</dt>
+    <%= content_tag :dd, class: ("active" if @filter_selected == "all") do %>
+      <%= link_to "Alle", orders_path %>
+    <% end %>
+    <%= content_tag :dd, class: ("active" if @filter_selected == "favorites") do %>
+      <%= link_to "Favoriten (#{@orders.marked_as_favorite.count})", marked_orders_path %>
+    <% end %>
+    <dd><%= link_to "Terminlieferungen", "#" %></dd>
+    <dd><%= link_to "Rückstände", marked_orders_path %></dd>
+  </dl>
+
 <% end %>
 
-<!-- End Header -->
-
-<!-- MAIN CONTENT -->
+<!-- main content -->
 
 <% content_for :main_content do %>
   
-    <!-- Order Items -->
+    <!-- order items -->
   
     <% @orders.each do |o| %>
       <div class="row">
         <div class="small-12 columns">
-          <h3><%= link_to o.contact.name, order_path(o) %> <small><%= o.subtitle %></small></h3>
+          <h4><%= link_to o.contact.name, order_path(o) %> <small><%= o.subtitle %></small></h4>
           <div class="row">
             <div class="small-12 columns">
               <% o.line_items.each do |li| %>
@@ -51,7 +48,5 @@
         </div>
       </div>
     <% end %>
-
-    <!-- End Order Items -->
 
 <% end %>

@@ -1,16 +1,8 @@
-<% @section = "Aufträge" %>
-
-<!-- HEADER -->
-
-<% content_for :breadcrumbs do %>
-  <ul class="breadcrumbs">
-    <li><%= link_to "Home", "/" %></li>
-    <li><%= render "/layouts/breadcrumbs/sections" %></li>
-    <li class="current"><%= "Auftrag #{@order.id}" %></li>
-  </ul>
-<% end %>
+<!-- toolbar -->
 
 <%= render "orders/toolbar/show" %>
+
+<!-- title bar -->
 
 <% content_for :title_bar do %>
   <div class="row">
@@ -20,9 +12,7 @@
   </div>
 <% end %>
 
-<!-- End Header -->
-
-<!-- MAIN CONTENT -->
+<!-- main content -->
 
 <% content_for :main_content do %>
 
@@ -93,7 +83,7 @@
             </p>
             <p>
               <label>Liefertermin</label>
-              <%= @order.date_delivery.to_formatted_s(:rfc822) %>
+              <%= @order.date_delivery.to_formatted_s(:rfc822) unless @order.date_delivery.nil? %>
             </p>
             <p>
               <label>Abgeschlossen am</label>

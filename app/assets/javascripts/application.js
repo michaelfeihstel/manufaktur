@@ -19,4 +19,4 @@
 $(document).foundation();
 
 
-$('#flash').delay(5000).fadeOut(2000)
+$('#flash').slideDown(500).delay(5000).slideUp(500);

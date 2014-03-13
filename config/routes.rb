@@ -1,7 +1,12 @@
 Filialen::Application.routes.draw do
 
-  resources :product_images
+  # orders
 
+  get "orders/marked_orders" => "orders#get_marked_orders", :as => "marked_orders"
+
+  # resources
+
+  resources :product_images
 
   resources :brands
 
@@ -19,7 +24,7 @@ Filialen::Application.routes.draw do
 
   resources :orders do
 
-    resources :line_items
+
 
     member do
       post :update_addresses
@@ -32,6 +37,7 @@ Filialen::Application.routes.draw do
 
 
   get "home/index"
+
 
   match "line_items/select_product" => "line_items#select_product", :via => :post
   match "line_items/change_quantity" => "line_items#change_quantity", :via => :post

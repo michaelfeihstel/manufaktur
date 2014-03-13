@@ -40,6 +40,8 @@ class Order < ActiveRecord::Base
   # VALIDATIONS
 
   # SCOPES
+
+  scope :marked_as_favorite, -> { where(marked: true) }
   
   # METHODS
 

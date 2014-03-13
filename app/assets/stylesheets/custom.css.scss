@@ -87,7 +87,7 @@ select:focus {
 .sub-bar {
 	background-color: $secondary-color;
 	padding: 0.5rem 1rem;
-	box-sizing: border-box
+	box-sizing: border-box;
 }
 
 
@@ -112,6 +112,10 @@ select:focus {
 
 .titlebar {
 	background-color: #E5DDCB;
+}
+
+#flash {
+	z-index: -99;
 }
 
 
