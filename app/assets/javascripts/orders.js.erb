@@ -13,10 +13,12 @@ $('#order_contact_id').change(function() {
 
 // toggle search panel
 
-$('#searchbar-toggle').click(function() {
+$('#search-toggle').click(function() {
 
-	console.log('searchbar-toggle clicked');
+	console.log('search-toggle clicked');
 
-	$('#searchbar').toggle();
+	$('#search').slideToggle(200);
+
+	$('#search-toggle').toggleClass("enabled")
 
 });

@@ -23,6 +23,8 @@ $GLS100SSS: #000;
 $GLS100MMS: #424557;
 $GLS200MMS: #424557;
 
+$inverted: #fff;
+
 
 /* ----- TOP BAR ----- */
 
@@ -40,12 +42,26 @@ $GLS200MMS: #424557;
 
 }
 
+/* ----- INVERTED SECTIONS ----- */
+
+.inverted,
+.inverted h1,h2,h3,h4,h5,h6,
+.inverted input,
+.inverted p {
+	color: $inverted;
+}
+
+.inverted label {
+	color: $inverted;
+	opacity: 0.6;
+}
 
 
 /* ----- SEARCH ----- */
 
 #search {
-	background-color: linen;
+	background-color: scale-color($primary-color, $lightness: 30%);
+	padding-top: 1rem;
 }
 
 .searchbar {
@@ -149,6 +165,11 @@ select:focus {
 		&:hover{
 			background-color: $primary-color;
 			color: $body-bg;
+		}
+
+		&.enabled {
+			background-color: scale-color($primary-color, $lightness: 30%);
+			color: #fff;
 		}
 
 		a {
