@@ -1,0 +1,19 @@
+<% content_for :secondary_sidebar do %>
+  <div id="secondary-sidebar">
+    <div class="secondary-sidebar-header">
+      <%= search_form_for @search do |f| %>
+        <%= f.search_field :contact_name_cont, placeholder: "Suchen...", id: "secondary-search-field" %>
+      <% end %>
+    </div>
+    <ul class="side-nav">
+      <%= content_tag :li, class: ("active" if @filter_selected == "all") do %>
+        <%= link_to "Alle", orders_path %>
+      <% end %>
+      <%= content_tag :li, class: ("active" if @filter_selected == "favorites") do %>
+        <a href="<%= marked_orders_path %>">Favoriten <span class="label round"><%= @orders.marked_as_favorite.count %></span></a>
+      <% end %>
+      <li><%= link_to "Terminlieferungen", "#" %></li>
+      <li><%= link_to "Rückstände", marked_orders_path %></li>
+    </ul>
+  </div>
+<% end %>

@@ -3,7 +3,7 @@
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en" ng-app> <!--<![endif]-->
+<html lang="en"> <!--<![endif]-->
   <head>
   	<meta charset="utf-8" />
 
@@ -24,15 +24,23 @@
 
   <body>
 
-    <%= render "layouts/header" %>
+    
     <%= render "layouts/flash" %>
-    <%= yield :search %>
+    
 
-    <div class="row ">
-      <div class="small-12 columns">
-        <%= yield :title_bar %>
-        <%= yield :main_content %>
-        <%= render "layouts/footer" %>
+    <%= render "layouts/sidebar" %>
+    <%= yield :secondary_sidebar %>
+
+    <div id="content">
+      <%= yield :search %>
+      <%= yield :toolbar %>
+      <div class="row">
+        
+        <div class="small-12 columns">
+          <%= yield :title_bar %>
+          <%= yield :main_content %>
+          <%= render "layouts/footer" %>
+        </div>
       </div>
     </div>
         

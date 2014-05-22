@@ -31,7 +31,7 @@ $rem-base: 16px;
 // $include-html-grid-classes: $include-html-classes;
 
 $row-width: rem-calc(1300);
-// $column-gutter: rem-calc(30);
+$column-gutter: rem-calc(60);
 // $total-columns: 12;
 
 
@@ -49,20 +49,21 @@ $default-float: left;
 $primary-color: #4F5263;
 // $primary-color: #4F5263;
 $secondary-color: #f3f3f3;
+$highlight-color: #7BACCC;
 $alert-color: #E40D46;
 // $success-color: #43AC6A;
 
 // We use these to control various global styles
 // $body-bg: #f6f4f1;
-$body-bg: #F5FFFA;
+$body-bg: #FFFFFF;
 // $body-font-color: #222;
-$body-font-family: "Europa", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
-$header-font-family: "Europa","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$header-font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 $header-font-color: $primary-color;
-$header-font-weight: 100;
+$header-font-weight: 400;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -777,11 +778,11 @@ $panel-border-style: none;
 // We use these to control list styles.
 // $side-nav-list-type: none;
 // $side-nav-list-position: inside;
-// $side-nav-list-margin: rem-calc(0 0 7 0);
+$side-nav-list-margin: rem-calc(0 0 0 0);
 
 // We use these to control link styles.
-// $side-nav-link-color: $primary-color;
-// $side-nav-link-color-active: darken($secondary-color, 30%);
+$side-nav-link-color: $primary-color;
+$side-nav-link-color-active: scale-color($highlight-color, $lightness: 0%);
 $side-nav-font-size: rem-calc(16);
 // $side-nav-font-weight: normal;
 // $side-nav-font-family: $body-font-family;

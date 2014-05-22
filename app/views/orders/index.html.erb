@@ -1,10 +1,10 @@
 <!-- toolbar -->
 
-<%= render "orders/toolbar/index" %>
+<%= render "orders/index/toolbar" %>
 
 <!-- search -->
 
-<%= render "orders/search/index" %>
+<%= render "orders/index/search" %>
 
 <!-- title bar -->
 
@@ -14,43 +14,51 @@
       <h1 class="page-heading">Aufträge</h1>
     </div>
   </div>
-
-  <!-- filter -->
-
-  <dl class="sub-nav">
-    <dt>Filter:</dt>
-    <%= content_tag :dd, class: ("active" if @filter_selected == "all") do %>
-      <%= link_to "Alle", orders_path %>
-    <% end %>
-    <%= content_tag :dd, class: ("active" if @filter_selected == "favorites") do %>
-      <%= link_to "Favoriten (#{@orders.marked_as_favorite.count})", marked_orders_path %>
-    <% end %>
-    <dd><%= link_to "Terminlieferungen", "#" %></dd>
-    <dd><%= link_to "Rückstände", marked_orders_path %></dd>
-  </dl>
-
 <% end %>
+
+<!-- Secondary Sidebar -->
+
+<%= render "orders/index/secondary_sidebar" %>
 
 <!-- main content -->
 
 <% content_for :main_content do %>
-  
-    <!-- order items -->
-  
-    <% @orders.each do |o| %>
+
+  <div class="row">    
+
+    <div class="small-12 columns">
+      <% @orders.each do |order| %>
       <div class="row">
         <div class="small-12 columns">
-          <h4><%= link_to o.contact.name, order_path(o) %> <small><%= o.subtitle %></small></h4>
+        <div class="item">
+          <h4><%= link_to order.contact.name, order_path(order) %></h4>
+          <p class="push-up small light italic">Auftrag <%= link_to order.id, order_path(order) %> vom <%= link_to order.created_at.to_s(:short), orders_path %><P>
+          
           <div class="row">
             <div class="small-12 columns">
-              <% o.line_items.each do |li| %>
+              <% order.line_items.each do |li| %>
                 <span class="label <%= li.product.try(:sku) %>"><%= li.quantity_badge %></span>
               <% end %>
+              <hr>
             </div>
           </div>
-          <hr>    
+          
+          <div class="row">
+            <div class="small-12 columns">
+              <ul class="inline-list">
+                <li><%= link_to order.marked_inline_icon, marked_order_path(order), method: :put %></li>
+                <li><%= link_to order.completed_inline_icon, completed_order_path(order), method: :put %></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
-    <% end %>
+    </div>
+      <% end %>
+    </div>
+
+  </div>
+
 
 <% end %>

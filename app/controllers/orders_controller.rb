@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
 
 
 	def show
+		@search = Order.search(params[:q])
 		@order = Order.find(params[:id])
 	end
 
