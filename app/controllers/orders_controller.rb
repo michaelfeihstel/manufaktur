@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
 
 	def show
 		@search = Order.search(params[:q])
+		@orders = @search.result(distinct: true)
 		@order = Order.find(params[:id])
 	end
 

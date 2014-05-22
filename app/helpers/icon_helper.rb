@@ -10,4 +10,8 @@ module IconHelper
 		( "<span class = '#{icon}' #{color_attribute}></span> #{name}" ).html_safe
 	end
 
+	def square_icon(icon, color=nil)
+		content_tag("span", "", class: "square_icon #{icon}")
+	end
+
 end

@@ -3,9 +3,23 @@
     <p class="light inverted"><%= link_to "Lunge Manufaktur", :root %></p>
   </div>
   <ul class="main-sidenav">
-    <li><a href="#">Kontakte</a></li>
-    <li><a href="#">Aufträge</a></li>
-    <li><a href="#">Artikel</a></li>
+
+    <li><h4 class="light small"><%= link_to "Kontakte", contacts_path %></h4></li>
+    <li><%= link_to "Kontakte & Adressen", contacts_path %></li>
+    <li><%= link_to "Briefe", "#" %></li>
+
+    <li class="divider"></li>
+
+    <li><h4 class="light small"><%= link_to "Aufträge", orders_path %></h4></li>
+    <li><%= link_to "Favoriten", marked_orders_path %></li>
+    <li><%= link_to "Alle Aufträge", orders_path %></li>
+    <li><%= link_to "Rückstände", "#" %></li>
+
+    <li class="divider"></li>
+
+    <li><h4 class="light small"><%= link_to "Artikel", products_path %></h4></li>
+    <li><%= link_to "Schuhe", products_path %></li>
+    <li><%= link_to "Inventuren", "#" %></li>
     <li><a href="#">Produktion</a></li>
     <li><a href="#">Material</a></li>
   </ul>

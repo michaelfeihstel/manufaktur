@@ -6,6 +6,7 @@
       <% end %>
     </div>
     <ul class="side-nav">
+      <h4 class="light small">Filter</h4>
       <%= content_tag :li, class: ("active" if @filter_selected == "all") do %>
         <%= link_to "Alle", orders_path %>
       <% end %>

@@ -1,4 +1,4 @@
-<% content_for :secondary_sidebar do %>
+<!-- <% content_for :secondary_sidebar do %>
   <div id="secondary-sidebar">
 
     <div class="secondary-sidebar-header">
@@ -8,7 +8,7 @@
     </div>
     
     <div class="section">
-      <h4>Status</h4>
+      <h4 class="light small">Status</h4>
       <p>
         <label>Erstellt am</label>
         <%= @order.created_at.to_s(:short) %>
@@ -22,16 +22,46 @@
         <%= @order.try(:date_completed) %>
       </p>
     </div>
-
+    
 
     <div class="section">
-        <h4>Dokumente</h4>
+        <h4 class="small light">Dokumente</h4>
         <ul class="side-nav">
           <li><%= link_to inline_icon("Auftragsbestätigung", "ion-document"), "#" %><li>
           <li><%= link_to inline_icon("Lieferschein", "ion-document"), "#" %><li>
           <li><%= link_to inline_icon("Rechnung", "ion-document"), "#" %><li>
         </ul>
     </div>    
+
+  </div>
+<% end %> -->
+
+<% content_for :secondary_sidebar do %>
+  <div id="secondary-sidebar">
+
+    <div class="secondary-sidebar-header">
+      <%= search_form_for @search do |f| %>
+        <%= f.search_field :contact_name_cont, placeholder: "Suchen...", id: "secondary-search-field" %>
+      <% end %>
+    </div>
+
+    <ul class="secondary-itemlist">
+      <% @orders.each do |order| %>
+        <li class="sidebar-item <%= 'active' if @order.id == order.id %>">
+          <a href="<%= order_path(order) %>">
+            <span class="light"><%= order.id %></span><br>
+            <div class="truncated"><%= order.contact.name %></div>
+            <ul class="small-icon-list">
+              <li><%= square_icon("ion-ios7-checkmark-empty") %></li>
+              <li><%= square_icon("ion-ios7-star-outline") %></li>
+              <li><%= square_icon("ion-ios7-cart-outline") %></li>
+            </ul>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+        
+       
 
   </div>
 <% end %>

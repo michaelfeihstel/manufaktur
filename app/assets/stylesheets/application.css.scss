@@ -340,6 +340,12 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: -0.5rem;
 }
 
+.truncated {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
 
 
 
@@ -417,6 +423,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ----- ORDERS ----- */
 
+.small-icon-list {
+	@include inline-list;
+	margin: 0px;
+
+	li {
+		margin-left: 0;
+		margin-right: 1rem;
+	}
+
+}
+
 .size-row li {
 	text-align: center;
 }
@@ -452,6 +469,12 @@ h1, h2, h3, h4, h5, h6 {
 	background: none;
 }
 
+.color-tile {
+	height: 1.063rem;
+	width: 1.063rem;
+	display: inline-block;
+}
+
 .colorbar {
 	min-height: 10px;
 	padding: 0.3rem 1rem;
@@ -468,20 +491,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .GLS100CCG,
 .GLS200CCG {
-	background-color: $GLS200CCG;
+	background-color: #CFB597;
+	border-bottom: 4px solid #ddd;
 	color: #fff;
-	// background-image: -webkit-gradient(linear, left top, right top, color-stop(33%,rgb(119, 116, 143)), color-stop(66%,rgb(0, 0, 0)))
+	// background: linear-gradient(to right, #CFB597 50%,#CFB597 50%,#ddd 50%);
 }
 
 .GLS100SSS,
 .GLS200SSS {
-	background-color: $GLS200SSS;
+	background-color: #000;
+	border-bottom: 1px solid #000;
 	color: #fff;
 }
 
 .GLS100MMS,
 .GLS200MMS {
-	background-color: $GLS200MMS;
+	background-color: #424557;
+	border-bottom: 4px solid #000;
 	color: #fff;
 }
 
@@ -555,11 +581,38 @@ input#secondary-search-field {
 }
 
 .main-sidenav {
+	li.divider {
+		margin: 1rem 0;
+		
+	}
+
   @include side-nav(
-    $divider-color: #cccccc,
+    $divider-color: scale-color($primary-color, $lightness: 20%),
     $link-color: $body-bg,
     $link-color-hover: $highlight-color
   );
+}
+
+.secondary-itemlist {
+	margin: 0 -1rem -1rem -1rem;
+	li.sidebar-item {
+		border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
+		
+		&.active {
+			background-color: #fff;
+			color: #fff;
+		}
+
+		a {
+			padding: 1rem;
+			display: block;
+			&:hover {
+				background-color: $highlight-color;
+				color: #fff;
+			}
+		}
+
+	}
 }
 
 .section {
