@@ -11,9 +11,9 @@
   font-size: 2.75rem; }
 
 @font-face {
-  font-family: "Ionicons";
+  font-family: "ionicons";
   src: url(/assets/ionicons.eot);
-  src: url(/assets/ionicons.eot#iefix) format("embedded-opentype"), url(/assets/ionicons.ttf) format("truetype"), url(/assets/ionicons.woff) format("woff"), url(/assets/ionicons.svg#Ionicons) format("svg");
+  src: url(/assets/ionicons.eot?#iefix) format("embedded-opentype"), url(/assets/ionicons.ttf) format("truetype"), url(/assets/ionicons.woff) format("woff"), url(/assets/ionicons.svg?#Ionicons) format("svg");
   font-weight: normal;
   font-style: normal; }
 
