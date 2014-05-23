@@ -28,10 +28,10 @@
 					<%= f.label "Liefertermin" %>
 					<div class="row form-group">
 						<div class="small-6 columns">
-	           	<%= f.date_field :date_delivery_gteq, class: "searchbar-input" %>
+	           	<%= f.date_field :delivered_on_gteq, class: "searchbar-input" %>
 						</div>
 						<div class="small-6 columns">
-	           	<%= f.date_field :date_delivery_lteq, class: "searchbar-input" %>
+	           	<%= f.date_field :delivered_on_lteq, class: "searchbar-input" %>
 						</div>
 					</div>
 					<p></p>
@@ -39,10 +39,10 @@
 					<%= f.label "Abgeschlossen" %>
 					<div class="row form-group">
 						<div class="small-6 columns">
-	           	<%= f.date_field :date_completed_gteq, class: "searchbar-input" %>
+	           	<%= f.date_field :completed_at_gteq, class: "searchbar-input" %>
 						</div>
 						<div class="small-6 columns">
-	           	<%= f.date_field :date_completed_lteq, class: "searchbar-input" %>
+	           	<%= f.date_field :completed_at_lteq, class: "searchbar-input" %>
 						</div>
 					</div>
 					<p></p>

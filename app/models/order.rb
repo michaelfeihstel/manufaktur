@@ -3,15 +3,15 @@
 # Table name: orders
 #
 #  id                    :integer          not null, primary key
-#  date_delivery         :date
-#  date_invoice          :date
-#  date_completed        :date
+#  delivered_on          :date
+#  invoiced_at           :datetime
+#  completed_at          :datetime
 #  contact_id            :integer
 #  billing_address_id    :integer
 #  delivery_address_id   :integer
 #  billing_name          :string(255)
 #  billing_street        :string(255)
-#  blling_house_number   :string(255)
+#  billing_house_number  :string(255)
 #  billing_zip           :string(255)
 #  billing_city          :string(255)
 #  billing_country       :string(255)
@@ -22,7 +22,7 @@
 #  delivery_zip          :string(255)
 #  delivery_country      :string(255)
 #  delivery_iso          :string(255)
-#  webshop?              :boolean
+#  is_webshop            :boolean
 #  created_at            :datetime
 #  updated_at            :datetime
 #  marked                :boolean          default(FALSE), not null
@@ -38,6 +38,25 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :line_items, :allow_destroy => true
 
   # VALIDATIONS
+
+  # CALLBACKS
+
+  before_save :get_references
+
+  def get_references
+    self.billing_name = billing_address.name
+    self.billing_street = billing_address.street
+    self.billing_house_number = billing_address.house_number
+    self.billing_zip = billing_address.zip
+    self.billing_city = billing_address.city
+    self.billing_country = billing_address.country
+    self.delivery_name = delivery_address.name
+    self.delivery_street = delivery_address.street
+    self.delivery_house_number = delivery_address.house_number
+    self.delivery_zip = delivery_address.zip
+    self.delivery_city = delivery_address.city
+    self.delivery_country = delivery_address.country
+  end
 
   # SCOPES
 
@@ -90,7 +109,7 @@ class Order < ActiveRecord::Base
   end
 
   def completed_inline_icon
-    if date_completed.blank?
+    if completed_at.blank?
       inline_icon("Abschließen", "ion-ios7-checkmark-empty")
     else
       inline_icon("Abgeschlossen", "ion-checkmark-circled", "limegreen")
@@ -98,10 +117,11 @@ class Order < ActiveRecord::Base
   end
 
   def mark_as_completed
-    if date_completed.blank?
-      update_attributes(:date_completed => Date.today)
+    if completed_at.blank?
+      update_attributes(:completed_at => Time.now)
     else
-      update_attributes(:date_completed => "")
+      update_attributes(:completed_at => "")
     end
   end
+
 end

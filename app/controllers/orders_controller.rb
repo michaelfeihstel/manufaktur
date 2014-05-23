@@ -93,7 +93,7 @@ class OrdersController < ApplicationController
 		@order.mark_as_completed
 
 		redirect_to order_path
-		if @order.date_completed.blank?
+		if @order.completed_at.blank?
 			flash[:success] = "Auftrag #{@order.id} als offen gekennzeichnet."
 		else
 			flash[:success] = "Auftrag #{@order.id} abgeschlossen."

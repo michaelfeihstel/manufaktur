@@ -12,6 +12,8 @@ class ContactsController < ApplicationController
 	end
 
 	def show
+		@search = Contact.search(params[:q])
+		@contacts = @search.result(distinct: true).order(:name)
 		@contact = Contact.find(params[:id])
 		@section = "Kontakte"
 	end

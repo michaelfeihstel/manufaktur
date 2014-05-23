@@ -1,0 +1,11 @@
+<li class="sidebar-item <%= 'active' if @contact.id == contact.id %>" id="<%= contact.id %>">
+  <a href="<%= contact_path(contact) %>">
+    <span class="light"><%= contact.id %></span><br>
+    <div class="truncated"><%= contact.name %></div>
+    <ul class="small-icon-list">
+      <li><span class="label">Händler</span></li>
+      <li><%= square_icon("ion-ios7-star-outline") %></li>
+      <li><%= square_icon("ion-ios7-cart-outline") %></li>
+    </ul>
+  </a>
+</li>

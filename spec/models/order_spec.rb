@@ -3,15 +3,15 @@
 # Table name: orders
 #
 #  id                    :integer          not null, primary key
-#  date_delivery         :date
-#  date_invoice          :date
-#  date_completed        :date
+#  delivered_on          :date
+#  invoiced_at           :datetime
+#  completed_at          :datetime
 #  contact_id            :integer
 #  billing_address_id    :integer
 #  delivery_address_id   :integer
 #  billing_name          :string(255)
 #  billing_street        :string(255)
-#  blling_house_number   :string(255)
+#  billing_house_number  :string(255)
 #  billing_zip           :string(255)
 #  billing_city          :string(255)
 #  billing_country       :string(255)
@@ -22,7 +22,7 @@
 #  delivery_zip          :string(255)
 #  delivery_country      :string(255)
 #  delivery_iso          :string(255)
-#  webshop?              :boolean
+#  is_webshop            :boolean
 #  created_at            :datetime
 #  updated_at            :datetime
 #  marked                :boolean          default(FALSE), not null

@@ -1,27 +1,54 @@
-<div class="row">
-  <div class="small-12 columns">
+<%= content_for :search do %>
+  <div id="search" class="inverted" style="display:none;">
+    <div class="row">
+      <div class="small-12 columns">
 
-    <div class="panel searchbar">
+        <h4>Suchen</h4>
 
-      <%= search_form_for @search do |f| %>
+        <%= search_form_for @search do |f| %>
+          <div class="row">
+            <div class="small-12 medium-6 large-4 columns">
+              
+              <p>
+                <%= f.label :name_cont, "Händler" %>
+                <%= f.text_field :name_cont %>
+              </p>
+              
+              <p>
+                <%= f.label :addresses_street_cont, "Straße" %>
+                <%= f.text_field :addresses_street_cont %> 
+              </p>
 
-        <div class="searchbar-form">
-          <ul class="inline-list">
-            <li><%= f.text_field :name_cont, class: "searchbar-input", placeholder: "Name" %></li>
-            <li><%= f.text_field :addresses_street_cont, class: "searchbar-input", placeholder: "Straße" %></li>
-            <li><%= f.text_field :addresses_zip_cont, size: 5, class: "searchbar-input", placeholder: "PLZ" %></li>
-            <li><%= f.text_field :addresses_city_cont, class: "searchbar-input", placeholder: "Stadt" %></li>
-            <li><%= f.text_field :addresses_country_cont, class: "searchbar-input", placeholder: "Land" %></li>
-          </ul>
-        </div>
+              <p>
+                <div class="row">
+                  <div class="small-4 columns">
+                    <%= f.label :addresses_zip_cont, "PLZ" %>
+                    <%= f.text_field :addresses_zip_cont %>
+                  </div>
+                  <div class="small-8 columns">
+                    <%= f.label :addresses_city_cont, "Ort" %>
+                    <%= f.text_field :addresses_city_cont %>
+                  </div>
+                </div>
+              </p>
 
-        <div class="searchbar-actions">
-          <button type="submit" class="ion-ios7-search-strong ion-big"></button>
-        </div>
+              <p>
+                <%= f.label :addresses_country_cont, "Land" %>
+                <%= f.text_field :addresses_country_cont %>              
+              </p>
 
-      <% end %>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="small-12 columns">
+              <%= f.submit "Suchen", class: "button" %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
     </div>
-
+    
   </div>
-</div>
+<% end %>

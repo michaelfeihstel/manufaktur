@@ -58,6 +58,11 @@ $inverted: #fff;
 	color: $inverted;
 }
 
+.inverted input:hover,
+.inverted input:focus {
+	border-color: #fff
+}
+
 .inverted a:hover {
 	color: $highlight-color;
 }
@@ -72,7 +77,7 @@ $inverted: #fff;
 
 #search {
 	background-color: scale-color($primary-color, $lightness: 30%);
-	padding-top: 1rem;
+	padding: 1rem;
 }
 
 .searchbar {
@@ -216,6 +221,7 @@ select:focus {
 /* ----- Flash messages ----- */
 
 .alert-box {
+	margin-bottom: 0;
 	border: none;
 	z-index: -99;
 
@@ -247,7 +253,7 @@ select:focus {
 
 #content {
 	@media #{$medium-up} {
-		left: 400px;
+		left: 300px;
 		right: 0px;
 		position: absolute;
 	}
@@ -330,6 +336,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .italic {
 	font-style: italic;
+}
+
+.thin {
+	font-weight: 100;
 }
 
 .small {
@@ -559,8 +569,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #secondary-sidebar {
-	width: 200px;
-	left: 200px;
+	width: 300px;
 	position: fixed;
 	height: 100%;
 	background-color: $secondary-color;

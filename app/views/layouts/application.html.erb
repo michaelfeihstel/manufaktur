@@ -24,18 +24,15 @@
 
   <body>
 
-    
+    <%= render "layouts/header" %>
     <%= render "layouts/flash" %>
-    
-
-    <%= render "layouts/sidebar" %>
-    <%= yield :secondary_sidebar %>
+    <%= yield :sidebar %>
 
     <div id="content">
       <%= yield :search %>
       <%= yield :toolbar %>
+
       <div class="row">
-        
         <div class="small-12 columns">
           <%= yield :title_bar %>
           <%= yield :main_content %>

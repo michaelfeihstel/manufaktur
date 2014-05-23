@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226124620) do
+ActiveRecord::Schema.define(version: 20140523112301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,15 +97,15 @@ ActiveRecord::Schema.define(version: 20140226124620) do
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
   create_table "orders", force: true do |t|
-    t.date     "date_delivery"
-    t.date     "date_invoice"
-    t.date     "date_completed"
+    t.date     "delivered_on"
+    t.datetime "invoiced_at"
+    t.datetime "completed_at"
     t.integer  "contact_id"
     t.integer  "billing_address_id"
     t.integer  "delivery_address_id"
     t.string   "billing_name"
     t.string   "billing_street"
-    t.string   "blling_house_number"
+    t.string   "billing_house_number"
     t.string   "billing_zip"
     t.string   "billing_city"
     t.string   "billing_country"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20140226124620) do
     t.string   "delivery_zip"
     t.string   "delivery_country"
     t.string   "delivery_iso"
-    t.boolean  "webshop?"
+    t.boolean  "is_webshop"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "marked",                default: false, null: false
