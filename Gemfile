@@ -10,6 +10,7 @@ gem 'ransack'
 
 # HEROKU
 gem 'pg'
+gem 'newrelic_rpm'
 
 group :production do
 	gem 'rails_12factor'

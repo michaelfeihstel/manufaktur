@@ -44,6 +44,16 @@ Filialen::Application.routes.draw do
 
   root :to => "home#index"
 
+  # /api/...
+
+  namespace :api, defaults: { format: "json" } do
+    resources :contacts
+    resources :addresses
+    resources :orders
+    resources :line_items
+    resources :sizes
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

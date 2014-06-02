@@ -120,9 +120,9 @@ class OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(
 			:id,
-			:date_delivery,
-			:date_invoice,
-			:date_completed,
+			:delivered_on,
+			:invoiced_at,
+			:completed_at,
 			:contact_id,
 			:billing_address_id,
 			:delivery_address_id,
