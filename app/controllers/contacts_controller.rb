@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
 	def index
 		@search = Contact.search(params[:q])
-		@contacts = @search.result(distinct: true)
+		@contacts = @search.result(distinct: true).includes(:addresses)
 		@section = "Kontakte"
 
 		respond_to do |format|
@@ -53,6 +53,13 @@ class ContactsController < ApplicationController
 				render 'edit'
 			end
 		end
+	end
+
+	def destroy
+		@contact = Contact.find(params[:id])
+		@contact.destroy
+
+		redirect_to contacts_path, :flash => { :success => "Contact deleted!" }
 	end
 
 

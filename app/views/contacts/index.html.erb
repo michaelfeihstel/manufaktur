@@ -27,10 +27,11 @@
       <div class="small-12 columns">
         <div class="item">
           <h4><%= link_to c.name, contact_path(c) %></h4>
-          <span class="small light push-up"><%= c.addresses.first.full_address(1)%></span>
-            <% if c.addresses.count - 1 > 0 %>
-              <span class="light small"><%= "(+#{c.addresses.count - 1})" %></span>
+          <ul class="no-bullet">
+            <% c.addresses.each do |address| %>
+              <li class="small light"><%= address.full_address(1) %></li>
             <% end %>
+          </ul>
           <hr>
           <ul class="small-icon-list">
             <li><%= link_to square_icon("ion-ios7-cart-outline"), "#" %></li>

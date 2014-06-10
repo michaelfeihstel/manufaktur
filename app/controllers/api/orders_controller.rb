@@ -2,27 +2,27 @@ module Api
 	class OrdersController < ApplicationController
 		respond_to :json
 
-		# GET /orders/
+		# GET /api/orders/
 		def index
 			respond_with Order.all
 		end
 
-		# GET /orders/1/
+		# GET /api/orders/1/
 		def show
 			respond_with Order.find(params[:id])
 		end
 
-		# POST /orders/
+		# POST /api/orders/
 		def create
 			respond_with Order.create(order_params)
 		end
 
-		# PATCH /orders/1/
+		# PATCH /api/orders/1/
 		def update
 			respond_with Order.update(params[:id], order_params)
 		end
 
-		# DELETE /orders/1/
+		# DELETE /api/orders/1/
 		def destroy
 			respond_with Order.destroy(params[:id])
 		end
