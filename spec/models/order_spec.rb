@@ -26,6 +26,7 @@
 #  created_at            :datetime
 #  updated_at            :datetime
 #  marked                :boolean          default(FALSE), not null
+#  fmid                  :integer
 #
 
 require 'spec_helper'

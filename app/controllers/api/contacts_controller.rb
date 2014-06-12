@@ -5,12 +5,12 @@ module Api
 
 		# GET /api/contacts/
 		def index
-			respond_with(Contact.all, :include => :addresses)
+			respond_with Contact.all, :include => :addresses
 		end
 
 		# GET /api/contacts/1/
 		def show
-			respond_with(Contact.find(params[:id]), :include => :addresses)
+			respond_with Contact.find(params[:id]), :include => :addresses
 		end
 
 		# POST /api/contacts/
@@ -18,10 +18,10 @@ module Api
 			respond_with Contact.create(contact_params)
 		end
 
+		# PUT /api/contacts/1
 		def update
 			respond_with Contact.update(params[:id], contact_params)
 		end
-
 
 
 		private

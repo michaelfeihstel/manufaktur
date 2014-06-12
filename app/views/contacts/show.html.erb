@@ -39,20 +39,60 @@
       <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid large-block-grid-4">
         <% @contact.addresses.each do |c| %>
           <li>
-            <div class="panel">
-              <label><%= c.description %></label>
-              <p>
-                <%= c.name %><br>
-                <%= c.street + ' ' + c.house_number %></br>
-                <%= c.zip + ' ' + c.city %></br>
-                <%= c.country %></br>
-              </p>
-            </div>
+
+            <label><%= c.description %></label>
+            <p>
+              <%= c.name %><br>
+              <%= c.street + ' ' + c.house_number %></br>
+              <%= c.zip + ' ' + c.city %></br>
+              <%= c.country %></br>
+            </p>
+
           </li>
         <% end %>
       </ul>
     </div>
   </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      
+      <h4>Kontaktdaten</h4>
+      
+      <div class="row">
+        <div class="small-12 medium-4 columns">
+          <label>Telefon</label>
+          <ul class="no-bullet">
+            <% @contact.contact_information.phone.each do |ci| %>
+              <li><span class="light"><%= "#{ci.name}: " %></span><%= ci.value %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <label>E-Mail</label>
+          <ul class="no-bullet">
+            <% @contact.contact_information.email.each do |ci| %>
+              <li><%= ci.value %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="small-12 medium-4 columns">
+          <label>Personen</label>
+          <ul class="no-bullet">
+            <% @contact.contact_information.people.each do |ci| %>
+              <li><span class="light"><%= "#{ci.name}: " %></span><%= ci.value %></li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+
+  
 
   <div class="row">
     <div class="small-12 medium-4 large-6 columns">
@@ -62,7 +102,7 @@
     </div>
     <div class="small-12 medium-8 large-6 columns">
       <ul class="inline-list right">
-        <li><%= link_to "Löschen", @contact, confirm: "Wirklich löschen?", method: :delete, class: "button alert" %></li>
+        <li><%= link_to "Löschen", @contact, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button alert" %></li>
         <li><%= link_to "Bearbeiten", edit_contact_path, class: "button" %></li>
       </ul>
     </div>

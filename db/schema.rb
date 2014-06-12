@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523112301) do
+ActiveRecord::Schema.define(version: 20140612073019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140523112301) do
     t.string  "zip"
     t.string  "city"
     t.string  "country"
+    t.integer "fmid"
   end
 
   add_index "addresses", ["contact_id"], name: "index_addresses_on_contact_id", using: :btree
@@ -49,8 +50,22 @@ ActiveRecord::Schema.define(version: 20140523112301) do
     t.datetime "updated_at"
   end
 
+  create_table "contact_informations", force: true do |t|
+    t.integer  "contact_id"
+    t.string   "name"
+    t.string   "value"
+    t.string   "info_type"
+    t.boolean  "default",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_informations", ["contact_id"], name: "index_contact_informations_on_contact_id", using: :btree
+  add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
+
   create_table "contacts", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "fmid"
   end
 
   create_table "line_items", force: true do |t|
@@ -91,6 +106,7 @@ ActiveRecord::Schema.define(version: 20140523112301) do
     t.decimal  "price",      precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "fmid"
   end
 
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
@@ -120,6 +136,7 @@ ActiveRecord::Schema.define(version: 20140523112301) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "marked",                default: false, null: false
+    t.integer  "fmid"
   end
 
   add_index "orders", ["contact_id"], name: "index_orders_on_contact_id", using: :btree
@@ -148,6 +165,7 @@ ActiveRecord::Schema.define(version: 20140523112301) do
     t.string   "color_text"
     t.integer  "variation_set_id"
     t.integer  "size_id"
+    t.integer  "fmid"
   end
 
   create_table "sizes", force: true do |t|

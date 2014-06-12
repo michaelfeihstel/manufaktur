@@ -48,6 +48,7 @@ Filialen::Application.routes.draw do
 
   namespace :api, defaults: { format: "json" } do
     resources :contacts
+    resources :contact_information
     resources :addresses
     resources :orders
     resources :line_items

@@ -40,6 +40,7 @@
 #  price      :decimal(8, 2)
 #  created_at :datetime
 #  updated_at :datetime
+#  fmid       :integer
 #
 
 class LineItem < ActiveRecord::Base
