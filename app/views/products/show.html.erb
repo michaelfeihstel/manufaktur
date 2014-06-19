@@ -1,28 +1,11 @@
 <% @section = "Artikel" %>
 
-<!-- Header -->
+<!-- toolbar -->
+<%= render "products/show/toolbar" %>
 
-<% content_for :breadcrumbs do %>
-	<div class="row">
-		<div class="small-12 columns">
-			<ul class="breadcrumbs">
-				<li><%= link_to "Home", "/" %></li>
-				<li><%= render "/layouts/breadcrumbs/sections" %></li>
-				<li><%= render "/layouts/breadcrumbs/product_items" %></li>			
-			</ul>
-		</div>
-	</div>
-<% end %>
-
+<!-- title -->
 <% content_for :title_bar do %>
-	<div class="row">
-	  <div class="large-9 small-9 columns">
-	    <h1 class="page-heading"><%= @product.name %> <small><%= @product.color_text %></small></h1>
-	  </div>
-	  <div class="large-3 small-3 columns">
-	    <h2><%= link_to '', new_product_path, class: "ion-ios7-trash-outline toolbar right" %></h2>
-	  </div>
-  </div>
+  <h1 class="page-heading"><%= @product.name %> <span class="light thin"><%= @product.sku %></span></h1>
 <% end %>
 
 <!-- End Header -->
@@ -34,17 +17,17 @@
 	<div class="row">
 	  <div class="small-12 medium-9 large-9 columns">
 
-	  	<div class="panel">
+	  	<div class="section">
 
-		  	<h3>Allgemein</h3>
-				<p>
-					<label>Bezeichnung</label>
-					<%= @product.name %>
-				</p>
-
+		  	<h4>Allgemein</h4>
 				<p>
 					<label>Artikelnummer</label>
 					<%= @product.sku %>
+				</p>
+
+				<p>
+					<label>Bezeichnung</label>
+					<%= @product.name %>
 				</p>
 
 				<p>
@@ -56,8 +39,6 @@
 					<label>Größensystem</label>
 					<%= @product.size.try(:name) %>
 				</p>
-
-				<h3>Preis</h3>
 
 				<p>
 					<label>Preis</label>
@@ -75,13 +56,11 @@
 
 	  <div class="small-12 medium-3 large-3 columns">
 
-	  	<div class="panel">
-
-		  	<h3>Bilder</h3>
+	  	<div class="section">
+		  	<h4>Bilder</h4>
 				<% @product.product_images.each do |product_image| %>
 					<p><%= image_tag(product_image.image.url(:large)) %></p>
 				<% end %>
-
 			</div>
 
 	  </div>

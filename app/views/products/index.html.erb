@@ -49,6 +49,7 @@
 
         <div class="panel">
           <h5><%= link_to p.name, product_path(p) %></h5>
+          <%= product_color(p) %>
           <span class="label"><%= p.color_text %></span>
           <h6 class="subheader"><%= number_to_currency(p.price, unit:"€ ") %></h6>
         </div>

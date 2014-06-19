@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619070253) do
+ActiveRecord::Schema.define(version: 20140619124137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,8 @@ ActiveRecord::Schema.define(version: 20140619070253) do
     t.integer  "variation_set_id"
     t.integer  "size_id"
     t.integer  "fmid"
+    t.string   "primary_color"
+    t.string   "secondary_color"
   end
 
   create_table "sizes", force: true do |t|

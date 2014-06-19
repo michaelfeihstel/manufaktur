@@ -82,10 +82,11 @@ class ProductsController < ApplicationController
 			:name,
 			:sku,
 			:color_text,
+			:primary_color,
+			:secondary_color,
 			:price,
 			:vat,
 			:size_id,
-			:variation_set_id,
 			product_images_attributes: [
 				:id,
 				:product_id,

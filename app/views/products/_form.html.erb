@@ -25,7 +25,7 @@
 
 			<div class="row">
 				<div class="small-12 medium-9 large-9 columns">
-					<div class="panel">
+					<div class="section">
 
 						<h4>Allgemein</h4>
 					  <p>
@@ -50,7 +50,21 @@
 
 					</div>
 
-					<div class="panel">
+					<div class="section">
+						<h4>Darstellung</h4>
+						<div class="fields">
+							<%= f.label :primary_color, "Primäre Farbe" %>
+							<%= f.color_field :primary_color %>
+							<%= f.text_field :primary_color %>
+						</div>
+						<div class="fields">
+							<%= f.label :secondary_color, "Sekundäre Farbe" %>
+							<%= f.color_field :secondary_color %>
+							<%= f.text_field :secondary_color %>
+						</div>
+					</div>
+
+					<div class="section">
 
 						<h4>Preis</h4>
 				    <%= f.label :price, "Preis zzgl. MwSt." %>

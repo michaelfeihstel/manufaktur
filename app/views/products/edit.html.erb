@@ -1,26 +1,11 @@
 <% @section = "Artikel" %>
 
-<!-- Header -->
+<!-- toolbar -->
+<%= render "products/show/toolbar" %>
 
-<% content_for :breadcrumbs do %>
-	<div class="row">
-		<div class="small-12 columns">
-			<ul class="breadcrumbs">
-				<li><%= link_to "Home", "/" %></li>
-				<li><%= render "/layouts/breadcrumbs/sections" %></li>
-				<li><%= render "/layouts/breadcrumbs/product_items" %></li>
-				<li>Bearbeiten</li>			
-			</ul>
-		</div>
-	</div>
-<% end %>
-
+<!-- title -->
 <% content_for :title_bar do %>
-	<div class="row">
-	  <div class="large-12 columns">
-	    <h1 class="page-heading"><%= @product.name %> bearbeiten</h1>
-	  </div>
-	</div>
+  <h1 class="page-heading"><%= @product.name %> <span class="light thin"><%= @product.sku %></span></h1>
 <% end %>
 
 

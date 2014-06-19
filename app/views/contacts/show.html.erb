@@ -1,16 +1,12 @@
 <% @section = "Kontakte" %>
 
-
 <!-- search -->
-
 <%= render "contacts/search" %>
 
 <!-- toolbar -->
-
 <%= render "contacts/show/toolbar" %>
 
 <!-- title -->
-
 <% content_for :title_bar do %>
   <h1 class="page-heading"><%= @contact.name %></h1>
 <% end %>
