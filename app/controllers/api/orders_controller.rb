@@ -9,7 +9,7 @@ module Api
 
 		# GET /api/orders/1/
 		def show
-			respond_with Order.find(params[:id])
+			respond_with Order.find(params[:id]), include: :line_items
 		end
 
 		# POST /api/orders/
@@ -34,9 +34,11 @@ module Api
 		def order_params
 			params.require(:order).permit(
 				:id,
+				:created_at,
 				:delivered_on,
 				:invoiced_at,
 				:completed_at,
+				:paid_on,
 				:contact_id,
 				:billing_address_id,
 				:billing_address_name,
@@ -53,6 +55,10 @@ module Api
 				:delivery_address_city,
 				:delivery_address_country,
 				:marked,
+				:comment,
+				:is_webshop,
+				:is_free,
+				:is_vat_exempt,
 				line_items_attributes: [
 					:id,
 					:order_id,

@@ -71,7 +71,7 @@ class LineItem < ActiveRecord::Base
 
 
   def quantity_badge
-  	badge = [self.quantity, "x", self.product.sku]
+  	badge = [self.quantity, "x", self.try(:product).try(:sku)]
   	badge.join(" ")
   end
 

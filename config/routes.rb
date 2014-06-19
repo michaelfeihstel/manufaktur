@@ -7,32 +7,21 @@ Filialen::Application.routes.draw do
   # resources
 
   resources :product_images
-
   resources :brands
-
   resources :products 
-
   resources :sizes
-
   resources :variations
-
   resources :variation_sets
-
   resources :contacts
-
   resources :addresses
-
   resources :orders do
-
-
-
     member do
       post :update_addresses
       put :marked
       put :completed
     end
-
   end
+  resources :line_items
 
 
 
@@ -47,11 +36,12 @@ Filialen::Application.routes.draw do
   # /api/...
 
   namespace :api, defaults: { format: "json" } do
+    resources :addresses
     resources :contacts
     resources :contact_information
-    resources :addresses
-    resources :orders
     resources :line_items
+    resources :orders
+    resources :products
     resources :sizes
   end
 

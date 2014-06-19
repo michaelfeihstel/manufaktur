@@ -27,6 +27,10 @@
 #  updated_at            :datetime
 #  marked                :boolean          default(FALSE), not null
 #  fmid                  :integer
+#  comment               :text
+#  is_free               :boolean          default(FALSE)
+#  is_vat_exempt         :boolean          default(FALSE)
+#  paid_on               :date
 #
 
 require 'spec_helper'

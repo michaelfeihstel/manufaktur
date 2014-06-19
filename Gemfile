@@ -7,6 +7,8 @@ gem 'annotate', ">=2.5.0"
 gem 'paperclip', "~> 3.0"
 gem 'aws-sdk'
 gem 'ransack'
+gem 'kaminari'
+gem 'rails-i18n'
 
 # HEROKU
 gem 'pg'

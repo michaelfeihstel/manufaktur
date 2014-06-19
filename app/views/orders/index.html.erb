@@ -47,7 +47,7 @@
           <div class="row">
             <div class="small-12 columns">
               <% order.line_items.each do |li| %>
-                <span class="label <%= li.product.try(:sku) %>"><%= li.quantity_badge %></span>
+                <span class="label <%= value_or_blank li.try(:product).try(:sku) %>"><%= li.quantity_badge %></span>
               <% end %>
               <hr>
             </div>

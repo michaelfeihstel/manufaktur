@@ -7,4 +7,8 @@ module ApplicationHelper
 		s + " gefunden."
 	end
 
+	def value_or_blank(value)
+	  value.blank? ? "&nbsp;".html_safe : value
+	end
+
 end
