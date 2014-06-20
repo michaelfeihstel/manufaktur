@@ -54,13 +54,18 @@
 						<h4>Darstellung</h4>
 						<div class="fields">
 							<%= f.label :primary_color, "Primäre Farbe" %>
-							<%= f.color_field :primary_color %>
-							<%= f.text_field :primary_color %>
+							<%= f.text_field :primary_color, class: "color-picker" %>
+							<%= @product.primary_color %>
 						</div>
 						<div class="fields">
 							<%= f.label :secondary_color, "Sekundäre Farbe" %>
-							<%= f.color_field :secondary_color %>
-							<%= f.text_field :secondary_color %>
+							<%= f.text_field :secondary_color, class: "color-picker" %>
+							<%= @product.secondary_color %>
+						</div>
+						<div class="fields">
+							<%= f.label :text_color, "Text Farbe" %>
+							<%= f.text_field :text_color, class: "color-picker" %>
+							<%= @product.text_color %>
 						</div>
 					</div>
 

@@ -1,60 +1,41 @@
-<% @section = "Artikel" %>
+<!-- toolbar -->
+<%= render "products/index/toolbar" %>
 
-<!-- Header -->
+<!-- search -->
+<%= render "products/index/search" %>
 
-<% content_for :breadcrumbs do %>
-  <div class="row">
-    <div class="small-12 columns">
-      <ul class="breadcrumbs">
-        <li><%= link_to "Home", "/" %></li>
-        <li><%= render "/layouts/breadcrumbs/sections" %></li>    
-      </ul>
-    </div>
-  </div>
-<% end %>
-
+<!-- titlebar -->
 <% content_for :title_bar do %>
   <div class="row">
-    <div class="large-9 small-12 columns">
+    <div class="small-12 columns">
       <h1 class="page-heading">Artikel</h1>
-    </div>
-    <div class="large-3 small-12 columns">
-      <ul class="inline-list right">
-        <li>
-          <h2 class="page-heading"><%= link_to '', new_product_path, class: "ion-ios7-plus-outline toolbar" %></h2>
-        </li>
-        <li>
-          <h2 class="page-heading"><%= link_to '', new_product_path, class: "ion-ios7-search toolbar" %></h2>
-        </li>
-      </ul>
     </div>
   </div>
 <% end %>
 
+<!-- sidebar -->
+<%= render "products/index/sidebar" %>
 
-<!-- End Header -->
 
-<!-- MAIN CONTENT -->
-
+<!-- main content -->
 <% content_for :main_content do %>
 
-  <%= render "products/search" %>
-
-  <!-- ITEMS -->
-
   <div class="row">
-    <% @products.each do |p| %>
-      <div class="large-4 medium-4 small-12 columns">
-        <%= link_to (image_tag p.default_image), product_path(p) %>
+    <div class="small-12 columns">
+      <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+        <% @products.each do |p| %>
+          <li>
+            <%= link_to (image_tag p.default_image), product_path(p) %>
 
-        <div class="panel">
-          <h5><%= link_to p.name, product_path(p) %></h5>
-          <%= product_color(p) %>
-          <span class="label"><%= p.color_text %></span>
-          <h6 class="subheader"><%= number_to_currency(p.price, unit:"€ ") %></h6>
-        </div>
-      </div>
-    <% end %>
+            <div class="panel">
+              <h5><%= link_to p.name, product_path(p) %></h5>
+              <span class="label" style="<%= product_color(p) %>"><%= p.color_text %></span>
+              <h6 class="subheader"><%= number_to_currency(p.price, unit:"€ ") %></h6>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
   <!-- END ITEMS -->

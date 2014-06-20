@@ -34,7 +34,10 @@ module Api
 				:price,
 				:vat,
 				:color_text,
-				:size_id
+				:size_id,
+				:primary_color,
+				:secondary_color,
+				:text_color
 			)
 		end
 

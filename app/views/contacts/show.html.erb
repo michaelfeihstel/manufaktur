@@ -60,7 +60,7 @@
           <label>Telefon</label>
           <ul class="no-bullet">
             <% @contact.contact_information.phone.each do |ci| %>
-              <li><span class="light"><%= "#{ci.name}: " %></span><%= ci.value %></li>
+              <li><span class="inline-label light"><%= "#{ci.name} " %></span><%= ci.value %></li>
             <% end %>
           </ul>
         </div>
@@ -78,7 +78,7 @@
           <label>Personen</label>
           <ul class="no-bullet">
             <% @contact.contact_information.people.each do |ci| %>
-              <li><span class="light"><%= "#{ci.name}: " %></span><%= ci.value %></li>
+              <li><span class="inline-label light"><%= "#{ci.name} " %></span><%= ci.value %></li>
             <% end %>
           </ul>
         </div>

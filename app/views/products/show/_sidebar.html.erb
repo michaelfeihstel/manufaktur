@@ -1,0 +1,17 @@
+<% content_for :sidebar do %>
+  <div id="secondary-sidebar">
+
+    <div class="secondary-sidebar-header">
+      <%= search_form_for @search do |f| %>
+        <%= f.search_field :name_or_sku_cont, placeholder: "Suchen...", id: "secondary-search-field" %>
+      <% end %>
+    </div>
+
+    <ul class="secondary-itemlist">
+      <% @products.each do |product| %>
+        <%= render partial: "products/list_item", locals: { product: product } %>
+      <% end %>
+    </ul>
+
+  </div>
+<% end %>

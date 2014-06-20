@@ -1,0 +1,21 @@
+<% content_for :toolbar do %>
+	
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="toolbar">
+				<ul class="inline-list show-for-medium-up">
+				  <li><%= link_to inline_icon("Neuer Artikel", "ion-ios7-plus-outline"), new_product_path %></li>
+				  <li id="search-toggle"><%= link_to inline_icon("Suchen", "ion-ios7-search"), "#" %></li>
+				</dl>
+			</div>
+		</div>
+	</div>
+  
+
+  <a href="#" data-dropdown="mobile-actions" class="show-for-small-only">Aktionen <span class="ion-ios7-arrow-down right"></span></a>
+		<ul id="mobile-actions" class="f-dropdown" data-dropdown-content>
+		  <li><%= link_to inline_icon("Neuer Auftrag", "ion-ios7-plus-outline"), new_order_path %></li>
+	  </ul>
+	</a>
+
+<% end %>

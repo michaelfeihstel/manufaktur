@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
 	def index
 		@search = Product.search(params[:q])
-		@products = @search.result(distinct: true)
+		@products = @search.result(distinct: true).order(:name)
 
 		respond_to do |format|
   		format.html # index.html.erb
@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
 	def show
 		@search = Product.search(params[:q])
 		@product = Product.find(params[:id])
+		@products = Product.all
 	end
 
 

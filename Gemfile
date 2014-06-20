@@ -32,6 +32,7 @@ gem 'foundation-rails', '~> 5'
 #
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-minicolors-rails'
 gem 'nested_form'
 
 group :test, :development do

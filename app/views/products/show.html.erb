@@ -1,17 +1,18 @@
-<% @section = "Artikel" %>
-
 <!-- toolbar -->
 <%= render "products/show/toolbar" %>
+
+<!-- search -->
+<%= render "products/index/search" %>
 
 <!-- title -->
 <% content_for :title_bar do %>
   <h1 class="page-heading"><%= @product.name %> <span class="light thin"><%= @product.sku %></span></h1>
 <% end %>
 
-<!-- End Header -->
+<!-- sidebar -->
+<%= render "products/show/sidebar" %>
 
-<!-- MAIN CONTENT -->
-
+<!-- main content -->
 <% content_for :main_content do %>
 
 	<div class="row">

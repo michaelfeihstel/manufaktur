@@ -1,0 +1,53 @@
+<%= content_for :search do %>
+	
+	<div id="search" class="inverted" style="display:none;">
+
+		<%= search_form_for @search do |f| %>
+			
+			<div class="row">
+				<div class="small-12 medium-6 large-4 columns">
+
+					<h4>Suchen</h4>
+
+					<div class="fields">
+						<%= f.label :sku_cont, "Artikelnummer" %>
+						<%= f.text_field :sku_cont %>
+					</div>
+
+					<div class="fields">
+						<%= f.label :name_cont, "Bezeichnung" %>
+						<%= f.text_field :name_cont %>
+					</div>
+
+					<div class="fields">
+						<%= f.label :color_text_cont, "Farbe" %>
+						<%= f.text_field :color_text_cont %>
+					</div>
+
+					<%= f.label :price_gteq, "Preis" %>
+					<div class="row form-group">
+						<div class="small-6 columns">
+	           	<%= f.number_field :price_gteq, placeholder: "Von", class: "searchbar-input" %>
+						</div>
+						<div class="small-6 columns">
+	           	<%= f.number_field :price_lteq, placeholder: "Bis", class: "searchbar-input" %>
+						</div>
+					</div>
+					<p></p>
+
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-12 columns">
+					<button type="submit"><%= inline_icon("", "ion-ios7-search") %></button>
+					<%= link_to "Alle anzeigen", products_path, class: "button secondary" %>
+				</div>
+			</div>
+
+	  <% end %>
+
+	</div>
+
+<% end %>

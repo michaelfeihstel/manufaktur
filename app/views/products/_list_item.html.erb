@@ -1,0 +1,7 @@
+<li class="sidebar-item <%= 'active' if @product.id == product.id %>">
+  <a href="<%= product_path(product) %>">
+    <span class="light"><%= product.sku %></span><br>
+    <div class="truncated"><%= product.name %></div>
+    <span class="label" style="<%= product_color(product) %>"><%= product.color_text %></span>
+  </a>
+</li>

@@ -61,6 +61,14 @@ class LineItem < ActiveRecord::Base
   end
 
 
+  def quantity_share
+    order_total = self.order.line_items.to_a.sum(&:quantity).to_f
+    line_item_total = quantity.to_f
+
+    width = line_item_total / order_total * 100
+  end
+
+
 
   def price_total
     q = quantity || 0
@@ -70,9 +78,8 @@ class LineItem < ActiveRecord::Base
 
 
 
-  def quantity_badge
-  	badge = [self.quantity, "x", self.try(:product).try(:sku)]
-  	badge.join(" ")
+  def quantity_label
+    badge = "#{self.try(:product).try(:sku)} (#{quantity})"
   end
 
 

@@ -10,6 +10,7 @@
  *
  *= require foundation_and_overrides
  *= require ionicons
+ *= require jquery.minicolors
  *= require_self
  */
 
@@ -99,6 +100,12 @@ $inverted: #fff;
 	margin: 0px;
 }
 
+/* ----- FORMS ----- */
+
+div.fields {
+	margin-bottom: 1rem;
+}
+
 @mixin input {
 	border: none;
 	border-bottom: 1px solid darken($secondary-color, 10%);
@@ -144,6 +151,10 @@ input[type="button"]:hover {
 select:hover,
 select:focus {
 	background-color: transparent;
+}
+
+.minicolors-input {
+	height: 100% !important;
 }
 
 .searchbar ul.inline-list {
@@ -336,6 +347,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0.3em;
 }
 
+.inline-label {
+	display: inline !important;
+	font-weight: 600;
+	font-variant: small-caps;
+	text-transform: lowercase;
+	font-family: "futura-pt", "Helvetica Neue", "Arial"
+}
+
 .light {
 	opacity: 0.7;
 }
@@ -346,6 +365,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .thin {
 	font-weight: 100;
+}
+
+.bold {
+	font-weight: 700;
 }
 
 .small {
@@ -382,6 +405,19 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-weight: normal;
 	text-transform: uppercase;
+}
+
+.share-label {
+	background-color: $primary-color;
+	// border-right: 1px solid #fff;
+	// float: left;
+	font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 0.875rem;
+	font-weight: normal;
+	margin-bottom: inherit;
+	padding: 0.25rem 0.5rem;
+	//text-transform: uppercase;
+	white-space: nowrap;
 }
 
 
