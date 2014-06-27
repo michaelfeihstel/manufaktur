@@ -22,55 +22,13 @@
 <% content_for :main_content do %>
 
   <div class="row">    
-
     <div class="small-12 columns">
+
       <% @orders.each do |order| %>
-      <div class="row">
-        <div class="small-12 columns">
-        <div class="item">
-          <h4><%= link_to order.contact.name, order_path(order) %></h4>
-          <ul class="inline-list push-up">
-            <li>
-              <span class="small light">Auftrag: <%= link_to order.id, order_path(order) %></span>
-            </li>
-            <li>
-              <span class="small light">Erstellt am: <%= link_to order.created_at.to_s(:short), orders_path %></span>
-            </li>
-            <li>
-              <span class="small light">Rechnungsbetrag: <%= number_to_currency(order.line_items.first.price_total) %></span>
-            </li>
-          </ul>
-          
-          <div class="row">
-            <div class="small-12 columns">
-              <% order.line_items.each do |li| %>
-                <span class="share-label" style="<%= product_color(li.product) %> width: <%= li.quantity_share %>%"><%= li.quantity_label %></span>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="small-12 columns">
-              <hr>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="small-12 columns">
-              <ul class="inline-list">
-                <li><%= link_to order.marked_inline_icon, marked_order_path(order), method: :put %></li>
-                <li><%= link_to order.completed_inline_icon, completed_order_path(order), method: :put %></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+        <%= render partial: "orders/order_item", locals: { order: order } %>
       <% end %>
+
     </div>
-
   </div>
-
 
 <% end %>

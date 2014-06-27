@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 	respond_to :html, :js, :json
 	
 	def index
-		@search = Order.search(params[:q])
+		@search = Order.includes(:line_items, :products, :contact).limit(100).search(params[:q])
 		@orders = @search.result(distinct: true)
 		@filter_selected = "all"
 

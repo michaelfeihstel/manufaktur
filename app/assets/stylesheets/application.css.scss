@@ -8,13 +8,14 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require foundation_and_overrides
  *= require ionicons
  *= require jquery.minicolors
+ *= require c3
  *= require_self
  */
 
-@import "foundation_and_overrides";
+ @import "foundation_and_overrides";
+
 
 /* ----- COLORS ----- */
 
@@ -26,6 +27,13 @@ $GLS100MMS: #424557;
 $GLS200MMS: #424557;
 
 $inverted: #fff;
+
+
+/* ----- LAYOUT ----- */
+
+section {
+	margin-bottom: 5rem;
+}
 
 
 /* ----- TOP BAR ----- */
@@ -164,6 +172,46 @@ select:focus {
 
 
 
+/*----- TABS -----*/
+.tabs {
+
+	background-color: $secondary-color;
+
+	dd.active {
+		color: #fff;
+
+		a {
+			color: inherit !important;
+		}
+	}
+}
+
+
+/* ----- TABLES ----- */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+
+	tr {
+		border-bottom: 1px solid $secondary-color;
+
+		th {
+			color: #aaa
+		}
+
+		td {
+			vertical-align: middle;
+		}
+
+		th.cell-right,
+		td.cell-right {
+			text-align: right;
+		}
+
+	}
+
+}
 
 
 
@@ -177,9 +225,6 @@ select:focus {
 }
 
 .actions {
-	@include sub-nav();
-	padding: 0;
-	margin: 0;
 
 	dd, dt {
 		color: $primary-color;
@@ -418,6 +463,11 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 0.25rem 0.5rem;
 	//text-transform: uppercase;
 	white-space: nowrap;
+	display: inline-block;
+	text-align: center;
+	width: 120px;
+	margin: 0.1rem 0;
+	overflow: hidden;
 }
 
 

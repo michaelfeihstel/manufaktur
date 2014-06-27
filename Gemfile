@@ -9,6 +9,7 @@ gem 'aws-sdk'
 gem 'ransack'
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'groupdate'
 
 # HEROKU
 gem 'pg'
@@ -36,7 +37,10 @@ gem 'jquery-minicolors-rails'
 gem 'nested_form'
 
 group :test, :development do
-	gem "rspec-rails"
+end
+
+group :development do
+	gem 'pry-rails'
 end
 
 

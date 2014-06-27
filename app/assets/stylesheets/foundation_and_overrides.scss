@@ -868,24 +868,24 @@ $side-nav-font-size: rem-calc(16);
 // $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
-// $table-bg: #fff;
-// $table-even-row-bg: #f9f9f9  ;
+$table-bg: #fff;
+$table-even-row-bg: $table-bg;
 
 // These control the table cell border style
-// $table-border-style: solid;
+$table-border-style: none;
 // $table-border-size: 1px;
 // $table-border-color: #ddd;
 
 // These control the table head styles
-// $table-head-bg: #f5f5f5  ;
-// $table-head-font-size: rem-calc(14);
-// $table-head-font-color: #222;
-// $table-head-font-weight: bold;
-// $table-head-padding: rem-calc(8 10 10);
+$table-head-bg: none  ;
+$table-head-font-size: rem-calc(16);
+$table-head-font-color: #AAA;
+$table-head-font-weight: normal;
+$table-head-padding: rem-calc(10 0);
 
 // These control the row padding and font styles
-// $table-row-padding: rem-calc(9 10);
-// $table-row-font-size: rem-calc(14);
+$table-row-padding: rem-calc(10 0);
+$table-row-font-size: rem-calc(16);
 // $table-row-font-color: #222;
 // $table-line-height: rem-calc(18);
 
@@ -900,8 +900,9 @@ $side-nav-font-size: rem-calc(16);
 // $include-html-tabs-classes: $include-html-classes;
 
 // $tabs-navigation-padding: rem-calc(16);
-// $tabs-navigation-bg-color: #efefef  ;
-// $tabs-navigation-hover-bg-color: darken($tabs-navigation-bg-color, 5%);
+$tabs-navigation-bg-color: none;
+$tabs-navigation-hover-bg-color: scale-color($secondary-color, $lightness: -5%);
+$tabs-navigation-active-bg-color: $primary-color;
 // $tabs-navigation-font-color: #222;
 // $tabs-navigation-font-size: rem-calc(16);
 // $tabs-navigation-font-family: $body-font-family;
@@ -1024,4 +1025,5 @@ $topbar-divider-border-top: solid 1px darken($body-bg, 20%);
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
-@import 'foundation';
+
+@import "foundation";

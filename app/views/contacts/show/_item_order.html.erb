@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to order.try(:id), order_path(order) %></td>
+  <td><%= l order.created_at, format: :date_only %></td>
+  <td><%= order.completed? ? (l order.completed_at, format: :date_only) : "-" %></td>
+  <td>
+    <% order.line_items.each do |li| %>
+      <span class="share-label" style="<%= product_color(li.product) if li.product %>"><%= li.quantity_label %></span>
+    <% end %>
+  </td>
+  <td class="cell-right"><%= number_to_currency(order.try(:line_items).to_a.sum(&:price_total)) %></td>
+</tr>

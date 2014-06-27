@@ -40,6 +40,7 @@ class Order < ActiveRecord::Base
   belongs_to :billing_address, foreign_key: "billing_address_id", class_name: "Address"
   belongs_to :delivery_address, foreign_key: "delivery_address_id", class_name: "Address"
   has_many :line_items, :dependent => :destroy
+  has_many :products, through: :line_items
   accepts_nested_attributes_for :line_items, :allow_destroy => true
 
   # VALIDATIONS
@@ -49,18 +50,18 @@ class Order < ActiveRecord::Base
   before_save :get_references
 
   def get_references
-    self.billing_name = billing_address.name
-    self.billing_street = billing_address.street
-    self.billing_house_number = billing_address.house_number
-    self.billing_zip = billing_address.zip
-    self.billing_city = billing_address.city
-    self.billing_country = billing_address.country
-    self.delivery_name = delivery_address.name
-    self.delivery_street = delivery_address.street
-    self.delivery_house_number = delivery_address.house_number
-    self.delivery_zip = delivery_address.zip
-    self.delivery_city = delivery_address.city
-    self.delivery_country = delivery_address.country
+    self.billing_name = try(:billing_address).try(:name)
+    self.billing_street = try(:billing_address).try(:street)
+    self.billing_house_number = try(:billing_address).try(:house_number)
+    self.billing_zip = try(:billing_address).try(:zip)
+    self.billing_city = try(:billing_address).try(:city)
+    self.billing_country = try(:billing_address).try(:country)
+    self.delivery_name = try(:delivery_address).try(:name)
+    self.delivery_street = try(:delivery_address).try(:street)
+    self.delivery_house_number = try(:delivery_address).try(:house_number)
+    self.delivery_zip = try(:delivery_address).try(:zip)
+    self.delivery_city = try(:delivery_address).try(:city)
+    self.delivery_country = try(:delivery_address).try(:country)
   end
 
   # SCOPES
@@ -70,6 +71,22 @@ class Order < ActiveRecord::Base
   # METHODS
 
   include IconHelper
+
+  def completed?
+    if completed_at.present?
+      true
+    else
+      false
+    end
+  end
+
+  def quantity_total
+    self.line_items.sum(&:quantity)
+  end
+
+  def created_in_month
+    created_at.strftime('%B %Y')
+  end
 
   def subtitle
   	if self.delivery_address_id != self.billing_address_id

@@ -29,6 +29,7 @@ module Api
 		def line_item_params
 			params.require(:line_item).permit(
 				:id,
+				:created_at,
 				:order_id,
 				:product_id,
 				:g1,

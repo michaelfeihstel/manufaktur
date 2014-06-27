@@ -14,16 +14,19 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   	<title><%= content_for?(:title) ? yield(:title) : "Lunge Manufaktur" %></title>
-
-  	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    
+    <%= javascript_include_tag "d3.min" %>
+    <%= javascript_include_tag "c3.min" %>
+    <%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/modernizr" %>
+    
     <script type="text/javascript" src="//use.typekit.net/vyp8igb.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-
+    
     <%= render "layouts/header" %>
     <%= render "layouts/flash" %>
     <%= yield :sidebar %>
@@ -40,7 +43,7 @@
         </div>
       </div>
     </div>
-        
+    
     <%= javascript_include_tag "application" %>
     
   </body>
