@@ -15,8 +15,8 @@
 
   	<title><%= content_for?(:title) ? yield(:title) : "Lunge Manufaktur" %></title>
     
-    <%= javascript_include_tag "d3.min" %>
-    <%= javascript_include_tag "c3.min" %>
+    <%= javascript_include_tag "d3" %>
+    <%= javascript_include_tag "c3" %>
     <%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/modernizr" %>
     
@@ -26,7 +26,7 @@
   </head>
 
   <body>
-    
+
     <%= render "layouts/header" %>
     <%= render "layouts/flash" %>
     <%= yield :sidebar %>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-    
+
     <%= javascript_include_tag "application" %>
     
   </body>

@@ -19,7 +19,7 @@ Filialen::Application.configure do
   config.assets.compile = false
 
   # Add Modernizr to asset pipeline
-  config.assets.precompile += %w(vendor/modernizr.js .svg .eot .woff .ttf d3.min.js c3.min.js)
+  config.assets.precompile += %w(vendor/modernizr.js .svg .eot .woff .ttf d3.js c3.js)
 
   # Generate digests for assets URLs
   config.assets.digest = true
