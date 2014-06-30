@@ -1,10 +1,12 @@
 <% content_for :sidebar do %>
   <div id="secondary-sidebar">
+
     <div class="secondary-sidebar-header">
       <%= search_form_for @search do |f| %>
         <%= f.search_field :contact_name_cont, placeholder: "Suchen...", id: "secondary-search-field" %>
       <% end %>
     </div>
+
     <ul class="side-nav">
       <h4 class="light small">Filter</h4>
       <%= content_tag :li, class: ("active" if @filter_selected == "all") do %>
@@ -16,5 +18,13 @@
       <li><%= link_to "Terminlieferungen", "#" %></li>
       <li><%= link_to "Rückstände", marked_orders_path %></li>
     </ul>
+
+    <div class="sidebar-calendar">
+      <h4 class="light small">Kalender</h4>
+      <%= month_calendar table: {class: "calendar"} do |date| %>
+        <%= l date, format: :day_of_month %>
+      <% end %>      
+    </div>
+
   </div>
 <% end %>

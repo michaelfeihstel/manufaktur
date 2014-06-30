@@ -35,7 +35,7 @@
 
             <div class="row">
               <div class="small-12 columns">
-                <h4><%= @order.contact.name %></h4>
+                <h4><%= @order.try(:billing_name) %></h4>
                 <hr>
               </div>
             </div>
@@ -44,20 +44,20 @@
               <div class="small-12 medium-6 large-6 columns">
                 <p>
                   <label>Rechnungsanschrift</label>
-                  <%= @order.try(:billing_address).try(:name) || "-" %><br>
-                  <%= @order.try(:billing_address).try(:street) %> <%= @order.try(:billing_address).try(:house_number) %></br>
-                  <%= @order.try(:billing_address).try(:zip) %> <%= @order.try(:billing_address).try(:city) %></br>
-                  <%= @order.try(:billing_address).try(:country) %>
+                  <%= @order.try(:billing_name) %><br>
+                  <%= @order.try(:billing_street) %> <%= @order.try(:billing_house_number) %></br>
+                  <%= @order.try(:billing_zip) %> <%= @order.try(:billing_city) %></br>
+                  <%= @order.try(:billing_country) %>
                 </p>
               </div>
 
               <div class="small-12 medium-6 large-6 columns">
                 <p>
                   <label>Lieferanschrift</label>
-                  <%= @order.try(:delivery_address).try(:name) || "-" %><br>
-                  <%= @order.try(:delivery_address).try(:street) %> <%= @order.try(:delivery_address).try(:house_number) %></br>
-                  <%= @order.try(:delivery_address).try(:zip) %> <%= @order.try(:delivery_address).try(:city) %></br>
-                  <%= @order.try(:delivery_address).try(:country) %>
+                  <%= @order.try(:delivery_name) || "-" %><br>
+                  <%= @order.try(:delivery_street) %> <%= @order.try(:delivery_house_number) %></br>
+                  <%= @order.try(:delivery_zip) %> <%= @order.try(:delivery_city) %></br>
+                  <%= @order.try(:delivery_country) %>
                 </p>
               </div>
             </div>  

@@ -1,4 +1,9 @@
 <tr>
+	<td>
+		<%= inline_icon("", "ion-ios7-checkmark-outline", "#ccc") %>
+		<%= inline_icon("", "ion-ios7-star-outline", "#ccc") %>
+		<%= inline_icon("", "ion-cash", "#ccc") %>
+	</td>
   <td><%= link_to order.try(:id), order_path(order) %></td>
   <td><%= l order.created_at, format: :date_only %></td>
   <td><%= order.completed? ? (l order.completed_at, format: :date_only) : "-" %></td>

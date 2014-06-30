@@ -626,7 +626,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar-header {
 	height: 59px !important;
-	margin: -1rem -1rem 0 -1rem !important;
+	// margin: -1rem -1rem 0 -1rem !important;
 }
 
 .main-sidebar-header {
@@ -668,7 +668,6 @@ h1, h2, h3, h4, h5, h6 {
 	position: fixed;
 	height: 100%;
 	background-color: $secondary-color;
-	padding: 1rem;
 	overflow-y: scroll;
 }
 
@@ -698,7 +697,10 @@ input#secondary-search-field {
 }
 
 .secondary-itemlist {
-	margin: 0 -1rem -1rem -1rem;
+	margin: 0;
+	list-style: none;
+	padding-bottom: 125px;
+	
 	li.sidebar-item {
 		border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
 		
@@ -722,6 +724,100 @@ input#secondary-search-field {
 .section {
 	margin-top: rem-calc(14);
 	margin-bottom: 3rem;
+}
+
+
+
+/* ----- PAGINATION ----- */
+
+.sidebar-nav {
+	background-color: $primary-color;
+	bottom: 0px;
+	padding: 2rem 0.5rem;
+	position: fixed;
+	width: inherit;
+
+}
+
+nav.pagination {
+
+	text-align: center;
+
+	span {
+		font-size: 1rem;
+		height: auto;
+
+		&.current {
+			border-color: $primary-color;
+		}
+
+		a {
+			border-radius: 0px;
+			padding: 0.5rem 1rem;
+		}
+	}
+}
+
+
+/* ----- CALENDAR ----- */
+
+.sidebar-calendar {
+	padding: 1rem;
+}
+
+table.calendar {
+	width: 100%;
+	background: none;
+	border: none;
+
+	tr {
+		background-color: transparent;
+		border-bottom: 1px solid $secondary-color;
+	}
+
+	td {
+		vertical-align: top;
+		position: relative;
+		border-top: 1px solid $secondary-color;
+	}
+
+	td.today {
+		background-color: $secondary-color;
+	}
+
+	.date-header {
+
+	}
+
+	.date-content {
+	}
+
+	.event-item {
+		width: 100%;
+		display: block;
+		margin-bottom: 0.5rem;
+		
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	.event-header {
+		padding: 0.2rem 0.5rem;
+	}
+
+	.event-details {
+		background-color: linen;
+		padding: 0.2rem 0.5rem;
+		display: none;
+		font-size: 0.875rem;
+	}
+
+	.prev-month,
+	.next-month {
+		opacity: 0.4;
+	}
+
 }
 
 

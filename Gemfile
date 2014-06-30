@@ -10,10 +10,10 @@ gem 'ransack'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'groupdate'
+gem "simple_calendar", "~> 1.1.0"
 
 # HEROKU
 gem 'pg'
-gem 'newrelic_rpm'
 
 group :production do
 	gem 'rails_12factor'
