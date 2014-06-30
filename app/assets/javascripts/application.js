@@ -15,6 +15,8 @@
 //= require foundation
 //= require jquery_nested_form
 //= require jquery.minicolors
+//= require d3.min
+//= require c3.min
 //= require_tree
 
 $(document).foundation();
