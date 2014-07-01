@@ -12,6 +12,13 @@ class OrdersController < ApplicationController
 		end
 	end
 
+	def index_created_at
+		@search = Order.search(params[:q])
+		@date = "#{params[:year]}-#{params[:month]}-#{params[:day]}".to_date
+		@orders = Order.where(created_at: @date).order(created_at: :desc)
+		render "index"
+	end
+
 	def get_marked_orders
 		@search = Order.marked_as_favorite.search(params[:q])
 		@orders = @search.result(distinct: true)

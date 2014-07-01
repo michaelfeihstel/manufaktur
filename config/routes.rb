@@ -20,6 +20,9 @@ Filialen::Application.routes.draw do
       put :marked
       put :completed
     end
+    collection do
+      get "created/:year/:month/:day" => "orders#index_created_at", :as => "created_at"
+    end
   end
   resources :line_items
 

@@ -19,10 +19,10 @@
       <li><%= link_to "Rückstände", marked_orders_path %></li>
     </ul>
 
-    <div class="sidebar-calendar">
+    <div class="sidebar-calendar fixed-bottom inverted dark">
       <h4 class="light small">Kalender</h4>
-      <%= month_calendar table: {class: "calendar"} do |date| %>
-        <%= l date, format: :day_of_month %>
+      <%= month_calendar start_date: @date, table: {class: "calendar"} do |date| %>
+        <%= link_to (l date, format: :day_of_month), created_at_orders_path(year: date.year, month: date.month, day: date.day) %>
       <% end %>      
     </div>
 

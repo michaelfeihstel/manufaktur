@@ -880,8 +880,8 @@ $table-border-style: none;
 $table-head-bg: none  ;
 $table-head-font-size: rem-calc(16);
 $table-head-font-color: #AAA;
-$table-head-font-weight: normal;
-$table-head-padding: rem-calc(10 0);
+$table-head-font-weight: 100;
+$table-head-padding: 0.25rem;
 
 // These control the row padding and font styles
 $table-row-padding: rem-calc(10 0);

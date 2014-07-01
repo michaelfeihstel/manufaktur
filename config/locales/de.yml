@@ -35,6 +35,7 @@ de:
       long: ! '%e. %B %Y'
       short: ! '%e. %b'
       day_of_month: '%d'
+      weekday_default: "%A, %d.%m.%Y"
     month_names:
     -
     - Januar

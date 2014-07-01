@@ -1,0 +1,39 @@
+<tr class="order-item" data-id="<%= order.id %>">
+  <td class="first"><%= link_to order.try(:id), order_path(order), class: "link" %></td>
+	<td><%= link_to order.billing_name, contact_path(order.contact_id), class: "link" %></td>
+  <td>
+    <%= l order.created_at, format: :date_only %><br>
+    <%= order.completed? ? (l order.completed_at, format: :date_only) : "-" %>
+  </td>
+  <td>
+    <% order.line_items.each do |li| %>
+      <span class="share-label" style="<%= product_color(li.product) if li.product %>"><%= li.quantity_label %></span>
+    <% end %>
+  </td>
+  <td class="cell-right last"><%= number_to_currency(order.try(:line_items).to_a.sum(&:price_total)) %></td>
+</tr>
+<tr id="<%= order.id %>_content" style="display:none">
+  <td class="first" colspan="5">
+    <div class="row">
+      <div class="small-12 medium-6 large-6 columns">
+        <p>
+          <label>Rechnungsanschrift</label>
+          <%= order.try(:billing_name) %><br>
+          <%= order.try(:billing_street) %> <%= order.try(:billing_house_number) %></br>
+          <%= order.try(:billing_zip) %> <%= order.try(:billing_city) %></br>
+          <%= order.try(:billing_country) %>
+        </p>
+      </div>
+
+      <div class="small-12 medium-6 large-6 columns">
+        <p>
+          <label>Lieferanschrift</label>
+          <%= order.try(:delivery_name) || "-" %><br>
+          <%= order.try(:delivery_street) %> <%= order.try(:delivery_house_number) %></br>
+          <%= order.try(:delivery_zip) %> <%= order.try(:delivery_city) %></br>
+          <%= order.try(:delivery_country) %>
+        </p>
+      </div>
+    </div>  
+  </td>
+</tr>

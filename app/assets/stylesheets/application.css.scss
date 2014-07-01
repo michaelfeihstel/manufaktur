@@ -196,11 +196,25 @@ table {
 	tr {
 		border-bottom: 1px solid $secondary-color;
 
+		td.first,
+		th.first {
+			padding-left: 0;
+		}
+
+		td.last,
+		th.last {
+			padding-right: 0;
+		}
+
 		th {
-			color: #aaa
+			color: #aaa;
+			padding-left: 0.25rem;
+			padding-right: 0.25rem;
 		}
 
 		td {
+			padding-left: 0.25rem;
+			padding-right: 0.25rem;
 			vertical-align: middle;
 		}
 
@@ -209,6 +223,21 @@ table {
 			text-align: right;
 		}
 
+	}
+
+	tr.enabled {
+		border:none;
+	}
+
+	tr.header {
+		border: none;
+		vertical-align: bottom;
+		font-family: "futura-pt", "Helvetica Neue", "Arial", "Sans-serif"
+
+		th {
+			padding-left: 0.25rem;
+			padding-right: 0.25rem;
+		}
 	}
 
 }
@@ -374,6 +403,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+a.link {
+	border-bottom: 1px dotted #ccc;
+
+	&:hover {
+		border-bottom: 1px dotted $primary-color;
+	}
 }
 
 .page-heading {
@@ -761,8 +798,18 @@ nav.pagination {
 
 /* ----- CALENDAR ----- */
 
+.fixed-bottom {
+	position: fixed;
+	bottom: 0;
+}
+
+.dark {
+	background-color: $primary-color;
+}
+
 .sidebar-calendar {
 	padding: 1rem;
+	width: inherit;
 }
 
 table.calendar {
@@ -770,19 +817,35 @@ table.calendar {
 	background: none;
 	border: none;
 
+	th {
+		padding: 0.25rem;
+	}
+
 	tr {
 		background-color: transparent;
-		border-bottom: 1px solid $secondary-color;
+		border: none;
 	}
 
 	td {
-		vertical-align: top;
 		position: relative;
-		border-top: 1px solid $secondary-color;
+		vertical-align: top;
+
+		a {
+			padding: 0 0.25rem;
+
+			&:hover {
+				background-color: $primary-color;
+				color: #fff;
+			}
+		}
 	}
 
 	td.today {
-		background-color: $secondary-color;
+
+		a {
+			background-color: $highlight-color;
+			color: #fff;
+		}
 	}
 
 	.date-header {

@@ -9,6 +9,11 @@
   <div class="row">
     <div class="small-12 columns">
       <h1 class="page-heading">Aufträge</h1>
+      <% if @date %>
+        <h4 class="page-heading thin">
+          <%= l @date, format: :weekday_default %>
+        </h4>
+      <% end %>
     </div>
   </div>
 <% end %>
@@ -24,9 +29,9 @@
   <div class="row">    
     <div class="small-12 columns">
 
-      <% @orders.each do |order| %>
-        <%= render partial: "orders/order_item", locals: { order: order } %>
-      <% end %>
+
+      <%= render partial: "orders/index/table_orders" %>
+
 
     </div>
   </div>
