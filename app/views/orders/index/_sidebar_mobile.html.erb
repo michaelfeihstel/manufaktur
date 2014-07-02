@@ -1,16 +1,9 @@
 <% content_for :sidebar do %>
-  <div id="sidebar">
-
-    <div class="sidebar-header">
-      <%= search_form_for @search do |f| %>
-        <%= f.search_field :contact_name_cont, placeholder: "Suchen...", id: "search-field" %>
-      <% end %>
-    </div>
-
+  <div id="mobile-sidebar" class="hide-for-large-up">
     <div class="row sidebar-section">
       <div class="small-12 columns">
+        <h4 class="light small">Filter</h4>
         <ul class="side-nav">
-          <h4 class="light small">Filter</h4>
           <%= content_tag :li, class: ("active" if @filter_selected == "all") do %>
             <%= link_to "Alle", orders_path %>
           <% end %>
@@ -22,9 +15,9 @@
         </ul>
       </div>
     </div>
-
     
-    <div class="fixed-bottom inverted dark">
+
+    <div class="sidebar-calendar inverted dark">
       <div class="row sidebar-section">
         <div class="small-12 columns">
           <h4 class="light small">Kalender</h4>
@@ -33,7 +26,6 @@
           <% end %>      
         </div>
       </div>
-    </div>
+    </div>      
   </div>
 <% end %>
-

@@ -337,16 +337,26 @@ table {
 /*----- GENERAL ----- */
 
 #content {
+	-webkit-transition: -webkit-transform 200ms ease;
+	-moz-transition: -moz-transform 200ms ease;
+	-o-transition: -o-transform 200ms ease;
+	transition: transform 200ms ease;
 	@media #{$medium-only} {
-		left: 200px;
-		right: 0px;
-		position: absolute;
+
 	};
 
 	@media #{$large-up} {
 		left: 300px;
 		right: 0px;
 		position: absolute;
+	}
+
+	&.disabled {
+		-webkit-transform: translate3d(300px, 0, 0);
+		-moz-transform: translate3d(70%, 0, 0);
+		-ms-transform: translate3d(70%, 0, 0);
+		-o-transform: translate3d(70%, 0, 0);
+		transform: translate3d(300px, 0, 0);
 	}
 }
 
@@ -359,12 +369,6 @@ input {
 	box-shadow: none;
 }
 
-.sidebar-fixed {
-	background-color: #b74e3c;
-	color: #fff;
-	position: fixed;
-	height: 100%;
-}
 
 .error_explaination {
 	
@@ -405,8 +409,13 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 
+h1 {
+	font-weight: 700;
+}
+
 a.link {
 	border-bottom: 1px dotted #ccc;
+	line-height: normal;
 
 	&:hover {
 		border-bottom: 1px dotted $primary-color;
@@ -493,8 +502,7 @@ a.link {
 	background-color: $primary-color;
 	// border-right: 1px solid #fff;
 	// float: left;
-	font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 0.875rem;
+	font-size: 0.75rem;
 	font-weight: normal;
 	margin-bottom: inherit;
 	padding: 0.25rem 0.5rem;
@@ -502,7 +510,7 @@ a.link {
 	white-space: nowrap;
 	display: inline-block;
 	text-align: center;
-	width: 120px;
+	width: 100px;
 	margin: 0.1rem 0;
 	overflow: hidden;
 }
@@ -661,8 +669,57 @@ a.link {
 
 /*----- SIDEBAR ----- */
 
+#sidebar {
+	background-color: $secondary-color;
+	-webkit-transition: -webkit-transform 200ms ease;
+	-moz-transition: -moz-transform 200ms ease;
+	-o-transition: -o-transform 200ms ease;
+	transition: transform 200ms ease;
+	left: -300px;
+	width: 300px;
+	position: fixed;
+	height: 100%;
+	overflow-y: scroll;
+	z-index: 999;
+	@media #{$large-up} {
+		left: 0px;
+	};
+
+	&.enabled {
+    -webkit-transform: translate3d(300px, 0, 0);
+    -moz-transform: translate3d(70%, 0, 0);
+    -ms-transform: translate3d(70%, 0, 0);
+    -o-transform: translate3d(70%, 0, 0);
+    transform: translate3d(300px, 0, 0);
+	}
+}
+
+.sidebar-toggle {
+	font-size: 36px;
+	text-align: center;
+	height: 36px;
+	width: 36px;
+	position: fixed;
+	bottom: 0;
+	background-color: $primary-color;
+	color: #fff;
+	z-index: 999;
+
+	&.enabled {
+		-webkit-transition: -webkit-transform 200ms ease;
+		-moz-transition: -moz-transform 200ms ease;
+		-o-transition: -o-transform 200ms ease;
+		transition: transform 200ms ease;
+		-webkit-transform: translate3d(300px, 0, 0);
+		-moz-transform: translate3d(70%, 0, 0);
+		-ms-transform: translate3d(70%, 0, 0);
+		-o-transform: translate3d(70%, 0, 0);
+		transform: translate3d(300px, 0, 0);
+	}
+}
+
 .sidebar-header {
-	height: 59px !important;
+	
 	// margin: -1rem -1rem 0 -1rem !important;
 }
 
@@ -678,8 +735,8 @@ a.link {
 
 }
 
-.secondary-sidebar-header {
-	@extend .sidebar-header;
+.sidebar-header {
+	height: 59px !important;
 	background-color: scale-color($secondary-color, $lightness: -5%)
 }
 
@@ -689,27 +746,38 @@ a.link {
 	left: 50px;
 }
 
-#sidebar {
-	width: 200px;
-	position: fixed;
-	height: 100%;
-	background-color: $primary-color;
-	padding: 1rem;
+.sidebar-section {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
-#secondary-sidebar {
-	@media #{$medium-only} {
-		width: 200px;
-	};
-	width: 300px;
-	position: fixed;
-	height: 100%;
+
+#mobile-sidebar {
 	background-color: $secondary-color;
-	overflow-y: scroll;
 }
 
-input#secondary-search-field {
-	padding: 1rem;
+ul.side-nav {
+
+	li {
+
+		a {
+			padding: 0.2rem 0 !important;
+		}
+
+		&:hover {
+			a {
+				background-color: $highlight-color;
+				color: #fff;
+				padding: 0.2rem 30px !important;
+				margin: 0 -30px;
+			}			
+		}
+	}
+
+}
+
+input#search-field {
+	padding: 1rem 1.5rem;
 	height: 59px;
 	border: none;
 
@@ -720,18 +788,7 @@ input#secondary-search-field {
 	}
 }
 
-.main-sidenav {
-	li.divider {
-		margin: 1rem 0;
-		
-	}
 
-  @include side-nav(
-    $divider-color: scale-color($primary-color, $lightness: 20%),
-    $link-color: $body-bg,
-    $link-color-hover: $highlight-color
-  );
-}
 
 .secondary-itemlist {
 	margin: 0;
@@ -798,9 +855,10 @@ nav.pagination {
 
 /* ----- CALENDAR ----- */
 
-.fixed-bottom {
-	position: fixed;
+.fixed-bottom {	
 	bottom: 0;
+	position: absolute;
+	width: inherit;
 }
 
 .dark {
@@ -808,8 +866,7 @@ nav.pagination {
 }
 
 .sidebar-calendar {
-	padding: 1rem;
-	width: inherit;
+	overflow-x: scroll;
 }
 
 table.calendar {
@@ -818,7 +875,6 @@ table.calendar {
 	border: none;
 
 	th {
-		padding: 0.25rem;
 	}
 
 	tr {

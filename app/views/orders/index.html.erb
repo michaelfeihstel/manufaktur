@@ -8,22 +8,24 @@
 <% content_for :title_bar do %>
   <div class="row">
     <div class="small-12 columns">
-      <h1 class="page-heading">Aufträge</h1>
-      <% if @date %>
-        <h4 class="page-heading thin">
-          <%= l @date, format: :weekday_default %>
-        </h4>
-      <% end %>
+      <section>
+
+      <h1>Aufträge</h1>
+        <% if @date %>
+          <h4 class="page-heading thin">
+            <%= l @date, format: :weekday_default %>
+          </h4>
+        <% end %>
+
+      </section>
     </div>
   </div>
 <% end %>
 
-<!-- Secondary Sidebar -->
-
+<!-- Sidebar -->
 <%= render "orders/index/sidebar" %>
 
 <!-- main content -->
-
 <% content_for :main_content do %>
 
   <div class="row">    

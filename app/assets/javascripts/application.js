@@ -23,3 +23,14 @@ $(document).foundation();
 
 
 $('#flash').slideDown(500).delay(5000).slideUp(500);
+
+$('.sidebar-toggle').click(function() {
+ 	var order_id = $(this).data("id");
+
+	$('#sidebar').toggleClass('enabled');
+	$('#content').toggleClass('disabled');
+	$(this).toggleClass('enabled');
+
+	console.log("sidebar was triggered.");
+
+});

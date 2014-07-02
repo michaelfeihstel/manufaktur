@@ -27,21 +27,29 @@
 
   <body>
 
-    <%= render "layouts/header" %>
-    <%= render "layouts/flash" %>
-    <%= yield :sidebar %>
+    <div class="wrapper">
 
-    <div id="content">
-      <%= yield :search %>
-      <%= yield :toolbar %>
+      <a href="#" class="sidebar-toggle"><%= inline_icon("", "ion-ios7-arrow-forward") %></a>
 
-      <div class="row">
-        <div class="small-12 columns">
-          <%= yield :title_bar %>
-          <%= yield :main_content %>
-          <%= render "layouts/footer" %>
+      <%= yield :sidebar %>
+
+      <%= render "layouts/header" %>
+      <%= render "layouts/flash" %>
+      
+
+      <div id="content">
+        <%= yield :search %>
+        <%= yield :toolbar %>
+
+        <div class="row">
+          <div class="small-12 columns">
+            <%= yield :title_bar %>
+            <%= yield :main_content %>
+            <%= render "layouts/footer" %>
+          </div>
         </div>
       </div>
+
     </div>
 
     <%= javascript_include_tag "application" %>
