@@ -1,0 +1,11 @@
+<tr class="contact-item" data-id="<%= contact.id %>">
+  <td class="first"><%= link_to contact.try(:id), contact_path(contact), class: "link" %></td>
+	<td><%= link_to contact.name, contact_path(contact), class: "link" %></td>
+  <td><%= "Händler" %><br></td>
+  <td>
+    
+  </td>
+  <td class="cell-right last">
+    <%= inline_icon("", "ion-edit") %>
+  </td>
+</tr>

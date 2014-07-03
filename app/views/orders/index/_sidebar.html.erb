@@ -27,8 +27,8 @@
     <div class="fixed-bottom inverted dark">
       <div class="row sidebar-section">
         <div class="small-12 columns">
-          <h4 class="light small">Kalender</h4>
-          <%= month_calendar table: {class: "calendar"} do |date| %>
+          <h4 class="light small">Kalender <%= @date %></h4>
+          <%= month_calendar start_date: @date, table: {class: "calendar"} do |date| %>
             <%= link_to (l date, format: :day_of_month), created_at_orders_path(year: date.year, month: date.month, day: date.day) %>
           <% end %>      
         </div>

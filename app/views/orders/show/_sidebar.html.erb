@@ -7,14 +7,84 @@
       <% end %>
     </div>
 
-    <ul class="secondary-itemlist">
-      <% @orders.each do |order| %>
-        <%= render partial: "orders/list_item", locals: { order: order } %>
-      <% end %>
-    </ul>
-  
-    <div class="sidebar-nav inverted">
-      <%= paginate @orders %>
+    <div class="row">
+      <div class="small-12 columns">
+
+        <div class="sidebar-section">
+          <h6 class="light">Status</h6>
+          <ul class="no-bullet">
+            <li>
+              <span class="inline-label light">Erstellt am</span>
+              <span class="right"><%= l @order.created_at, format: :date_only %></span>
+            </li>
+            <li>
+              <span class="inline-label light">Liefertermin</span>
+              <span class="right"><%= l @order.delivered_on %></span>
+            </li>
+            <% if @order.invoiced_at %>
+              <li>
+                <span class="inline-label light">Rechnungsdatum</span>
+                <span class="right"><%= l @order.invoiced_at, format: :date_only %></span>
+              </li>
+            <% end %>
+            <% if @order.completed_at %>
+              <li>
+                <span class="inline-label light">Abgeschlossen am</span>
+                <span class="right"><%= l @order.completed_at, format: :date_only %></span>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h6 class="light">Optionen</h6>
+          <ul class="no-bullet">
+            <li>
+              <%= inline_icon("Ohne Berechnung", "ion-ios7-checkmark-outline") %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h6 class="light">Rechnung</h6>
+          <% if @order.is_free == true %>
+            <p class="small light text-center">Ohne Berechnung</p>
+          <% else %>
+            <ul class="no-bullet">
+              <li>
+                <span class="inline-label light">Rechnungsdatum</span>
+                <span class="right"><%= l @order.invoiced_at, format: :date_only %></span>
+              </li>
+              <li>
+                <span class="inline-label light">Rechnungsbetrag</span>
+                <span class="right"><%= number_to_currency(@order.line_items.to_a.sum(&:price_total)) %></span>
+              </li>
+            </ul>
+            <ul class="no-bullet">
+              <li>
+                <span class="inline-label light">Skontofrist</span>
+                <span class="right"><%= l @order.invoiced_at.advance(days: 10), format: :date_only %></span>
+              </li>
+              <li>
+                <span class="inline-label light">Skontobetrag</span>
+                <span class="right"><%= number_to_currency(@order.line_items.to_a.sum(&:price_total)*0.97) %></span>
+              </li>
+            </ul>
+            <ul class="no-bullet">
+              <li>
+                <span class="inline-label light">Zahlungsdatum</span>
+                <span class="right"><%= @order.try(:paid_on) %></span>
+              </li>
+              <li>
+                <span class="inline-label light">Zahlungsbetrag</span>
+                <span class="right"><%= number_to_currency(@order.line_items.to_a.sum(&:price_total)*0.97) %></span>
+              </li>
+            </ul>
+                
+          <% end %>
+        </div>
+
+      </div>
     </div>
 
   </div>

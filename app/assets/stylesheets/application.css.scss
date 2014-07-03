@@ -229,17 +229,17 @@ table {
 		border:none;
 	}
 
-	tr.header {
-		border: none;
-		vertical-align: bottom;
-		font-family: "futura-pt", "Helvetica Neue", "Arial", "Sans-serif"
+}
 
-		th {
-			padding-left: 0.25rem;
-			padding-right: 0.25rem;
-		}
+thead > tr {
+	border: none;
+	vertical-align: bottom;
+	font-family: "futura-pt", "Helvetica Neue", "Arial", "Sans-serif"
+
+	th {
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
 	}
-
 }
 
 
@@ -439,6 +439,7 @@ a.link {
 }
 
 .inline-label {
+	color: #666;
 	display: inline !important;
 	font-weight: 600;
 	font-variant: small-caps;
@@ -678,7 +679,8 @@ a.link {
 	left: -300px;
 	width: 300px;
 	position: fixed;
-	height: 100%;
+	bottom: 0px;
+	top: 45px;
 	overflow-y: scroll;
 	z-index: 999;
 	@media #{$large-up} {

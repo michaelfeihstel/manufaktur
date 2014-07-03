@@ -868,7 +868,7 @@ $side-nav-font-size: rem-calc(16);
 // $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
-$table-bg: #fff;
+$table-bg: transparent;
 $table-even-row-bg: $table-bg;
 
 // These control the table cell border style

@@ -22,25 +22,10 @@
 
 <% content_for :main_content do %>
     
-  <% @contacts.sort_by{|e| e[:name]}.each do |c| %>
     <div class="row">
       <div class="small-12 columns">
-        <div class="item">
-          <h4><%= link_to c.name, contact_path(c) %></h4>
-          <ul class="no-bullet">
-            <% c.addresses.each do |address| %>
-              <li class="small light"><%= address.full_address(1) %></li>
-            <% end %>
-          </ul>
-          <hr>
-          <ul class="small-icon-list">
-            <li><%= link_to square_icon("ion-ios7-cart-outline"), "#" %></li>
-            <li><%= link_to square_icon("ion-ios7-email-outline"), "#" %></li>
-            <li><%= link_to square_icon("ion-ios7-chatboxes-outline"), "#" %></li>
-          </ul>
-        </div>
+        <%= render "contacts/index/table_contacts" %>
       </div>
     </div>
-  <% end %>
 
 <% end %>

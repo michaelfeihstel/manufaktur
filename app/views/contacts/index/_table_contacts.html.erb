@@ -1,0 +1,27 @@
+<table>
+
+  <thead>
+    <tr>
+      <th class="first" width="100">Kundennummer</th>
+      <th>Name / Firma</th>
+      <th width="120">Kategorie</th>   
+      <th>Tags</th>
+      <th width="100" class="cell-right last">Aktionen</th>
+    </tr>
+  </thead>
+
+  <tbody>
+		<% @contacts.each do |contact| %>
+			<%= render partial: "contacts/index/item_contact", locals: { contact: contact } %>
+		<% end %>
+  </tbody>
+
+</table>
+
+<div class="row">
+	<div class="small-12 columns text-right">
+
+		<h4><span class="bold"><%= @contacts.count %> <span class="thin">Kontakte gefunden</span></h4>
+
+	</div>
+</div>
