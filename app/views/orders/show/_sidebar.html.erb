@@ -21,12 +21,6 @@
               <span class="inline-label light">Liefertermin</span>
               <span class="right"><%= l @order.delivered_on %></span>
             </li>
-            <% if @order.invoiced_at %>
-              <li>
-                <span class="inline-label light">Rechnungsdatum</span>
-                <span class="right"><%= l @order.invoiced_at, format: :date_only %></span>
-              </li>
-            <% end %>
             <% if @order.completed_at %>
               <li>
                 <span class="inline-label light">Abgeschlossen am</span>
@@ -40,7 +34,12 @@
           <h6 class="light">Optionen</h6>
           <ul class="no-bullet">
             <li>
-              <%= inline_icon("Ohne Berechnung", "ion-ios7-checkmark-outline") %>
+              <span class="inline-label light">Kostenlos</span>
+              <%= boolean_icon @order.is_free? %>
+            </li>
+            <li>
+              <span class="inline-label light">Mehrwertsteuerbefreit</span>
+              <%= boolean_icon @order.is_vat_exempt? %>
             </li>
           </ul>
         </div>
@@ -80,8 +79,12 @@
                 <span class="right"><%= number_to_currency(@order.line_items.to_a.sum(&:price_total)*0.97) %></span>
               </li>
             </ul>
-                
           <% end %>
+        </div>
+
+        <div class="sidebar-section">
+          <h6 class="light">Versand</h6>
+
         </div>
 
       </div>
