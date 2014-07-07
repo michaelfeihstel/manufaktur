@@ -1,0 +1,11 @@
+<% content_for :sidebar do %>
+  <div id="sidebar">
+
+    <div class="sidebar-header">
+      <%= search_form_for @search do |f| %>
+        <%= f.search_field :billing_name_or_delivery_name_cont, placeholder: "Suchen...", id: "search-field" %>
+      <% end %>
+    </div>
+
+  </div>
+<% end %>

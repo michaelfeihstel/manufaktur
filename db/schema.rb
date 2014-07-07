@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620052635) do
+ActiveRecord::Schema.define(version: 20140707095925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,8 +64,10 @@ ActiveRecord::Schema.define(version: 20140620052635) do
   add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
 
   create_table "contacts", force: true do |t|
-    t.string  "name"
-    t.integer "fmid"
+    t.string   "name"
+    t.integer  "fmid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "line_items", force: true do |t|

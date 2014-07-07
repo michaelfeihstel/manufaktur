@@ -55,6 +55,9 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
+
+		@search = Order.includes(:line_items, :products, :contact).order(created_at: :desc).limit(100).search(params[:q])
+		@orders = @search.result(distinct: true)
 	end
 
 

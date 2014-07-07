@@ -2,9 +2,11 @@
 #
 # Table name: contacts
 #
-#  id   :integer          not null, primary key
-#  name :string(255)
-#  fmid :integer
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  fmid       :integer
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class Contact < ActiveRecord::Base

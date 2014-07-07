@@ -28,6 +28,8 @@ module Api
 		def contact_params
 			params.require(:contact).permit(
 				:id,
+				:created_at,
+				:updated_at,
 				:name,
 				addresses_attributes: [
 					:id,

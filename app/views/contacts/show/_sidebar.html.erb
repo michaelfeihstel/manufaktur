@@ -7,11 +7,39 @@
       <% end %>
     </div>
 
-    <ul class="secondary-itemlist">
-      <% @contacts.each do |contact| %>
-        <%= render partial: "contacts/list_item", locals: { contact: contact } %>
-      <% end %>
-    </ul>
+    <div class="row">
+      <div class="small-12 columns">
+
+        <div class="sidebar-section">
+          <h6 class="light">Status</h6>
+          <ul class="no-bullet">
+            <li>
+              <span class="inline-label light">Erstellt am</span>
+              <span class="right"><%= l @contact.created_at, format: :date_only %></span>
+            </li>
+            <li>
+              <span class="inline-label light">Letzte Änderung</span>
+              <span class="right"><%= l @contact.updated_at, format: :date_only %></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h6 class="light">Kontext</h6>
+          <ul class="no-bullet">
+            <li>
+              <span class="inline-label light">Kategorie</span>
+              <span class="right"><%= l @contact.created_at, format: :date_only %></span>
+            </li>
+            <li>
+              <span class="inline-label light">Letzte Änderung</span>
+              <span class="right"><%= l @contact.updated_at, format: :date_only %></span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 <% end %>

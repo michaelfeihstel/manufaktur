@@ -1,29 +1,28 @@
+<section>
 <div class="<%= "colorbar #{f.object.try(:product).try(:sku)}" %>"></div>
-<div id="line_item" class="row" data-item-temp-id="<%= f.object.temp_id %>">
-	<div class="small-12 columns">
+	<div id="line_item" data-item-temp-id="<%= f.object.temp_id %>">
 
-		<div class="panel">
-
-			<div class="row">
-				<div class="small-10 columns">
-					<p>
-						<%= f.label :product_id, "Artikel" %>
-						<%= f.collection_select(:product_id, Product.all, :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } ) %>
-					</p>
-				</div>
-				<div class="small-2 columns">
-					<p>	
-						<%= f.label :price, "Einzelpreis" %>
-						<%= f.text_field :price, id: "price_single_input" %>
-					</p>
-				</div>
+		<div class="row">
+			<div class="small-10 columns">
+				<p>
+					<%= f.label :product_id, "Artikel" %>
+					<%= f.collection_select(:product_id, Product.all, :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } ) %>
+				</p>
 			</div>
+			<div class="small-2 columns">
+				<p>	
+					<%= f.label :price, "Einzelpreis" %>
+					<%= f.text_field :price, id: "price_single_input" %>
+				</p>
+			</div>
+		</div>
 
-			<div class="row">
-				<div class="small-12 columns">
-					<%= f.label "Größenlauf" %>
+		<div class="row">
+			<div class="small-12 columns">
+				<%= f.label "Größenlauf" %>
+				<div class="row">
 					<div class="small-10 columns">
-						<ul class="small-block-grid-10 medium-block-grid-15 large-block-grid-30 size-row">
+						<ul class="inline-list size-row">
 							<li>
 								<%= f.label :g1, f.object.get_size("g1"), class: "size-label" %>
 								<%= f.text_field :g1, size: 2, class: "size-input", data: { size: :g1 } %>
@@ -161,25 +160,24 @@
 							</li>							
 						</ul>
 					</div>
+				</div>
 
-					<div class="row">
-						<div class="small-12 columns">
+				<div class="row">
+					<div class="small-12 columns">
+						<div class="fields">
 							<%= f.text_field :comment, placeholder: "Kommentar" %>
 						</div>
 					</div>
+				</div>
 
-					<div class="toolbar-panel">
-						<dl class="actions">
-							<dd class="right">
-								<%= f.link_to_remove inline_icon("Artikel entfernen", "ion-ios7-minus-outline") %>
-							</dd>
-						</dl>
+				<div class="row">
+					<div class="small-12 columns">
+						<%= f.link_to_remove icon("bin", text: "Artikel entfernen") %>
 					</div>
-
+				</div>
+				
 				</div>
 			</div>
 
-		</div>	
-
-	</div>
 </div>
+</section>

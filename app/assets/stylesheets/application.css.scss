@@ -403,7 +403,7 @@ hr {
 /*----- TYPOGRAPHY ----- */
 
 body {
-	font-family: "ff-meta-web-pro"
+	font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -594,22 +594,21 @@ a.link {
 }
 
 .size-row li {
+	margin-right: -0.65rem;
+	margin-bottom: 0.5rem;
 	text-align: center;
+	width: 22px;
 }
 
 .size-row li input[type="text"] {
 	background: none;
-	border: 1px solid #ddd;
-	border-top: none;
 	box-shadow: none;
 	-webkit-box-shadow: none;
-	height: 1.6rem;
 }
 
 .size-row li input[type="text"]:hover,
 .size-row li input[type="text"]:focus {
-	border: 1px solid $primary-color;
-	border-top: none;
+	border-bottom: 1px solid $primary-color;
 }
 
 .size-input,

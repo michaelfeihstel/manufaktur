@@ -1,0 +1,14 @@
+<% content_for :toolbar do %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="toolbar">
+        <ul class="inline-list">
+          <li><%= link_to icon("check", text: "Speichern"), "#" %></li>
+          <li><%= link_to icon("cross", text: "Abbrechen"), order_path(@order) %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<% end %>

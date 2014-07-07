@@ -1,25 +1,15 @@
-<% @section = "Aufträge" %>
+<!-- toolbar -->
+<%= render "orders/edit/toolbar" %>
 
-<!-- Header -->
-
-<% content_for :breadcrumbs do %>
-	<div class="row">
-		<div class="small-12 columns">
-			<ul class="breadcrumbs">
-				<li><%= link_to "Home", "/" %></li>
-				<li><%= render "/layouts/breadcrumbs/sections" %></li>
-				<li>Auftrag hinzufügen</li>			
-			</ul>
-		</div>
-	</div>
-<% end %>
-
-<%= render "orders/toolbar/edit" %>
+<!-- sidebar -->
+<%= render "orders/edit/sidebar" %>
 
 <% content_for :title_bar do %>
 	<div class="row">
 	  <div class="small-12 columns">
-	    <h1 class="page-heading">Auftrag <%= @order.id %> <small>/ Bearbeiten</small></h1>
+	  	<section>
+	    	<h1><%= @order.id %> <span class="thin">Bearbeiten</span></h1>
+	    </section>
 	  </div>
 	</div>
 <% end %>
