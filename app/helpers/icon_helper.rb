@@ -15,14 +15,15 @@ module IconHelper
 	end
 
 	def icon(icon, options={})
-		color_attribute = "style='color: #{options[:color]}'" unless options[:color].nil?
+		color_attribute = "color: #{options[:color]}" unless options[:color].nil?
 		size_attribute = "style='size: #{options[:size]}'" unless options[:size].nil?
 		icon_class = "icon-#{icon}"
 		additional_classes = options[:class] || nil
 		text = " #{options[:text]}" || ""
 
-		span_tag = content_tag(:span, text, class: "#{icon_class} #{additional_classes}")
-		span_tag.html_safe
+		icon_span = content_tag(:span, "", class: "#{icon_class} #{additional_classes}", style: "#{color_attribute}")
+		text_span = content_tag(:span, text, class: "icon-text #{additional_classes}", style: "#{color_attribute}")
+		(icon_span + text_span).html_safe
 	end
 
 	def boolean_icon(value)

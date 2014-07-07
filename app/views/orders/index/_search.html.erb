@@ -3,49 +3,51 @@
 	<div id="search" class="inverted" style="display:none;">
 
 		<%= search_form_for @search do |f| %>
-			
 			<div class="row">
 				<div class="small-12 medium-6 large-4 columns">
 
 					<h4>Auftrag</h4>
 
-					<p>
+					<div class="fields">
 						<%= f.label :id_eq, "Auftragsnummer" %>
 						<%= f.text_field :id_eq %>
-					</p>
+					</div>
 
-					<%= f.label "Erstellt" %>
-					<div class="row">
-						<div class="small-6 columns">
-	           	<%= f.date_field :created_at_gteq, class: "searchbar-input" %>
-						</div>
-						<div class="small-6 columns">
-	           	<%= f.date_field :created_at_lteq, class: "searchbar-input" %>
+					<div class="fields">
+						<%= f.label "Erstellt" %>
+						<div class="row">
+							<div class="small-6 columns">
+		           	<%= f.date_field :created_at_gteq, class: "searchbar-input" %>
+							</div>
+							<div class="small-6 columns">
+		           	<%= f.date_field :created_at_lteq, class: "searchbar-input" %>
+							</div>
 						</div>
 					</div>
-					<p></p>
 
-					<%= f.label "Liefertermin" %>
-					<div class="row form-group">
-						<div class="small-6 columns">
-	           	<%= f.date_field :delivered_on_gteq, class: "searchbar-input" %>
-						</div>
-						<div class="small-6 columns">
-	           	<%= f.date_field :delivered_on_lteq, class: "searchbar-input" %>
+					<div class="fields">
+						<%= f.label "Liefertermin" %>
+						<div class="row form-group">
+							<div class="small-6 columns">
+		           	<%= f.date_field :delivered_on_gteq, class: "searchbar-input" %>
+							</div>
+							<div class="small-6 columns">
+		           	<%= f.date_field :delivered_on_lteq, class: "searchbar-input" %>
+							</div>
 						</div>
 					</div>
-					<p></p>
 
-					<%= f.label "Abgeschlossen" %>
-					<div class="row form-group">
-						<div class="small-6 columns">
-	           	<%= f.date_field :completed_at_gteq, class: "searchbar-input" %>
-						</div>
-						<div class="small-6 columns">
-	           	<%= f.date_field :completed_at_lteq, class: "searchbar-input" %>
+					<div class="fields">
+						<%= f.label "Abgeschlossen" %>
+						<div class="row form-group">
+							<div class="small-6 columns">
+		           	<%= f.date_field :completed_at_gteq, class: "searchbar-input" %>
+							</div>
+							<div class="small-6 columns">
+		           	<%= f.date_field :completed_at_lteq, class: "searchbar-input" %>
+							</div>
 						</div>
 					</div>
-					<p></p>
 
 
 				</div>
@@ -53,36 +55,34 @@
 				<div class="small-12 medium-6 large-4 columns">
 
 					<h4>Auftraggeber</h4>
-					<p>
+					<div class="fields">
 						<%= f.label :name, "Name / Firma" %>
 						<%= f.text_field :contact_name_cont %>
-					</p>
+					</div>
 					
-					<p>
+					<div class="fields">
 						<%= f.label :billing_address_street_or_delivery_address_street_cont, "Straße" %>
 						<%= f.text_field :billing_address_street_or_delivery_address_street_cont %>
-					</p>
+					</div>
 					
-					<div class="row">
-						<div class="small-4 columns">
-							<p>
+					<div class="fields">
+						<div class="row">
+							<div class="small-4 columns">
 								<%= f.label :billing_address_zip_or_delivery_address_zip_cont, "PLZ" %>
 								<%= f.text_field :billing_address_zip_or_delivery_address_zip_cont %>
-							</p>
-						</div>
+							</div>
 
-						<div class="small-8 columns">
-							<p>
-								<%= f.label :billing_address_city_or_delivery_address_city_cont, "Stadt" %>
-								<%= f.text_field :billing_address_city_or_delivery_address_city_cont %>
-							</p>
+							<div class="small-8 columns">
+									<%= f.label :billing_address_city_or_delivery_address_city_cont, "Stadt" %>
+									<%= f.text_field :billing_address_city_or_delivery_address_city_cont %>
+							</div>
 						</div>
 					</div>
 
-					<p>
+					<div class="fields">
 						<%= f.label :billing_address_country_or_delivery_address_country_cont, "Land" %>
 						<%= f.text_field :billing_address_country_or_delivery_address_country_cont %>
-					</p>
+					</div>
 
 
 
@@ -95,11 +95,11 @@
 
 			<div class="row">
 				<div class="small-12 columns">
-					<button type="submit" class="right"><%= inline_icon("", "ion-ios7-search") %></button>
-					<%= link_to inline_icon("", "ion-ios7-close-outline"), orders_path, class: "button right alert" %>
+					<button type="submit">Suchen</button>
+						<%= link_to "Alle anzeigen", orders_path, class: "button alert" %>
 				</div>
 			</div>
-
+		
 	  <% end %>
 
 	</div>

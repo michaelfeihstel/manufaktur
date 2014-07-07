@@ -84,15 +84,23 @@ class Order < ActiveRecord::Base
     self.line_items.sum(&:quantity)
   end
 
-  def created_in_month
-    created_at.strftime('%B %Y')
+  def marked_label
+    if marked
+      "Markiert"
+    else
+      "Markieren"
+    end
   end
 
-  def subtitle
-  	if self.delivery_address_id != self.billing_address_id
-  		( "<i class='ion-ios7-redo'></i>" + self.delivery_address.full_address(0) ).html_safe
-  	end
+  def completed_label
+    if completed_at
+      "Abgeschlossen"
+    else
+      "Abschliessen"
+    end
   end
+
+  
 
 
 

@@ -309,7 +309,7 @@ thead > tr {
 .alert-box {
 	margin-bottom: 0;
 	border: none;
-	z-index: -99;
+	z-index: 999;
 
 	a.close {
 		color: inherit;
@@ -484,7 +484,17 @@ a.link {
 
 
 
+/* ----- ICONS ----- */
 
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.icon-text {
+	vertical-align: middle;
+}
 
 
 
@@ -683,7 +693,6 @@ a.link {
 	bottom: 0px;
 	top: 45px;
 	overflow-y: scroll;
-	z-index: 999;
 	@media #{$large-up} {
 		left: 0px;
 	};
@@ -698,10 +707,11 @@ a.link {
 }
 
 .sidebar-toggle {
-	font-size: 36px;
+	font-size: 24px;
 	text-align: center;
-	height: 36px;
-	width: 36px;
+	height: 50px;
+	width: 50px;
+	padding: 12px;
 	position: fixed;
 	bottom: 0;
 	background-color: $primary-color;

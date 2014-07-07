@@ -29,15 +29,13 @@
 
     <div class="wrapper">
 
-      <a href="#" class="sidebar-toggle"><%= inline_icon("", "ion-ios7-arrow-forward") %></a>
-
-      <%= yield :sidebar %>
-
       <%= render "layouts/header" %>
-      <%= render "layouts/flash" %>
       
+      <%= yield :sidebar %>
+      <a href="#" class="sidebar-toggle hide-for-large-up"><%= icon("show-sidebar") %></a>
 
       <div id="content">
+        <%= render "layouts/flash" %>
         <%= yield :search %>
         <%= yield :toolbar %>
 

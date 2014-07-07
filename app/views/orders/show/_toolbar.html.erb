@@ -3,33 +3,16 @@
   <div class="row">
     <div class="small-12 columns">
       <div class="toolbar">
-        <ul class="inline-list show-for-medium-up">
-            <li><%= link_to icon("add", text: "Neuer Auftrag"), new_order_path %></li>
-            <li><%= link_to @order.marked_inline_icon, marked_order_path(@order), method: :put %></li>
-            <li><%= link_to @order.completed_inline_icon, completed_order_path(@order), method: :put %></li>
-            <li>
-              <a href="#" data-dropdown="hover1" data-options="is_hover:true">Dokumente</a>
-
-              <ul id="hover1" class="f-dropdown" data-dropdown-content>
-                <li><%= link_to inline_icon("Auftragsbestätigung", "ion-document"), "#" %><li>
-                <li><%= link_to inline_icon("Lieferschein", "ion-document"), "#" %><li>
-                <li><%= link_to inline_icon("Rechnung", "ion-document"), "#" %><li>
-              </ul>
-            </li>
-            <li class="right"><%= link_to inline_icon("Löschen", "ion-ios7-trash-outline" ), @order, method: :delete, data: { confirm: "Wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden." } %></li>
+        <ul class="inline-list">
+          <li><%= link_to icon("add", text: "Neu"), new_order_path %></li>
+          <li><%= link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order) %></li>
+          <li id="search-toggle"><%= link_to icon("search", text: "Suchen"), "#" %></li>
+          <li class="right">
+            <%= link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden." } %>
+          </li>
         </ul>
       </div>
     </div>
   </div>
-
-
-
-  <a href="#" data-dropdown="mobile-actions" class="show-for-small-only">Aktionen <span class="ion-ios7-arrow-down right"></span></a>
-		<ul id="mobile-actions" class="f-dropdown" data-dropdown-content>
-		  <li><%= link_to inline_icon("Neuer Auftrag", "ion-ios7-plus-outline"), new_order_path %></li>
-		  <li><%= link_to @order.marked_inline_icon, marked_order_path(@order), method: :put %></li>
-		  <li><%= link_to @order.completed_inline_icon, completed_order_path(@order), method: :put %></li>
-	  </ul>
-	</a>
 
 <% end %>
