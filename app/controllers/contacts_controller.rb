@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
 	def index
 		@search = Contact.search(params[:q])
-		@contacts = @search.result(distinct: true).includes(:addresses)
+		@contacts = @search.result(distinct: true).includes(:addresses).order(:name)
 
 		respond_to do |format|
 			format.html # index.html.erb
