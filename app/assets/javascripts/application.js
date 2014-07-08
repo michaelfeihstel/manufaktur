@@ -17,6 +17,7 @@
 //= require jquery.minicolors
 //= require d3
 //= require c3
+//= require selectize
 //= require_tree
 
 $(document).foundation();

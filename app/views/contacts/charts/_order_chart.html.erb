@@ -25,7 +25,7 @@
 			bindto: "#chart_revenue",
 	    data: {
 	        columns: [
-	            <%= raw @contact.line_items.includes(:order).where("orders.completed_at IS NOT NULL").to_a.group_by_month(&:completed_at).map{|k,v| v.map(&:price_total).sum.to_i }.prepend("Warenwert") %>
+	            <%= raw @contact.line_items.includes(:order).where("orders.completed_at BETWEEN '#{13.months.ago}' AND '#{Time.now}'").to_a.group_by_month(&:completed_at).map{|k,v| v.map(&:price_total).sum.to_i }.prepend("Warenwert") %>
 	        ],
 	        type: 'area',
 	        labels: true,
@@ -41,7 +41,7 @@
 	    axis: {
 	    	x: {
 	    		type: 'category',
-	    		categories: <%= get_columns(@contact.orders, "month", :created_at) %>
+	    		categories: <%= get_columns(@contact.orders.where(completed_at: 13.months.ago..Time.now), "month", :completed_at) %>
 	    	},
 	    	y: {
 	    		tick: {
