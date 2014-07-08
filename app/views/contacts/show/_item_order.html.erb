@@ -7,5 +7,9 @@
       <span class="share-label" style="<%= product_color(li.product) if li.product %>"><%= li.quantity_label %></span>
     <% end %>
   </td>
+  <td>
+  	<span data-tooltip title="<%= order.completed_label %>"><%= completed_icon(order) %></span>
+  	<span data-tooltip title="<%= order.paid_label %>"><%= paid_icon(order) %></span>
+  </td>
   <td class="cell-right"><%= number_to_currency(order.try(:line_items).to_a.sum(&:price_total)) %></td>
 </tr>

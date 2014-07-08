@@ -96,7 +96,15 @@ class Order < ActiveRecord::Base
     if completed_at
       "Abgeschlossen"
     else
-      "Abschliessen"
+      "In Bearbeitung"
+    end
+  end
+
+  def paid_label
+    if paid_on
+      "Bezahlt"
+    else
+      "Zahlung ausstehend"
     end
   end
 

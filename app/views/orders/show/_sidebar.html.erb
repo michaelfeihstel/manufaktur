@@ -96,8 +96,8 @@
           <div class="sidebar-section">
             <h6 class="light">Aktionen</h6>
             <ul class="no-bullet">
-              <li><%= link_to marked_icon(@order), marked_order_path(@order), method: :put %></li>
-              <li><%= link_to completed_icon(@order), completed_order_path(@order), method: :put %></li>
+              <li><%= link_to marked_icon(@order, label: true), marked_order_path(@order), method: :put %></li>
+              <li><%= link_to completed_icon(@order, label: true), completed_order_path(@order), method: :put %></li>
               <li>
                 <a href="#" data-dropdown="hover1" data-options="is_hover:true align:right"><%= icon("files", text: "Dokumente") %></a>
 
