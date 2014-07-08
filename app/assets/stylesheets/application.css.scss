@@ -10,10 +10,9 @@
  *
  *= require jquery.minicolors
  *= require c3
- *= require_self
  *= require icons
  *= require selectize
- *= require selectize.default
+ *= require_self
  */
 
  @import "foundation_and_overrides";
@@ -139,6 +138,7 @@ input[type="time"],
 input[type="url"],
 textarea {
 	@include input;
+	display: inline !important;
 	background: none;
 }
 
@@ -148,7 +148,8 @@ select {
 }
 
 input:hover,
-input:focus {
+input:focus,
+.selectize-input:hover {
 	background: none;
 	border-bottom: 1px solid $primary-color;
 }
@@ -161,6 +162,43 @@ input[type="button"]:hover {
 select:hover,
 select:focus {
 	background-color: transparent;
+}
+
+.selectize-input,
+.selectize-input.focus {
+	@include input;
+	padding: 0;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.selectize-input > input {
+	max-height: 39px !important;
+	position: relative !important;
+}
+
+.selectize-dropdown {
+	border:none;
+	border-bottom: 1px solid $primary-color; 
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.selectize-dropdown-content {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	border:none;
+	box-shadow: none;
+	border-radius: 0;
+
+		.option {
+			padding: 0.25rem 0;
+			border-bottom: 1px solid $secondary-color;
+		}
 }
 
 .minicolors-input {
@@ -569,9 +607,6 @@ a.link {
 }
 
 
-.item {
-	margin-bottom: 2rem;
-}
 
 
 

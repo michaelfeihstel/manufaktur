@@ -64,9 +64,7 @@ $('body').on('change', '.order_line_items_product_id', function () {
             "quantity": quantity
         },
         type: "post",
-        error: function(data) {
-            alert("Error: " + data);
-        },
+        
         success: function(data) {
             data
         }
