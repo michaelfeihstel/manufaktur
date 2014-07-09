@@ -35,7 +35,7 @@
 #
 
 class Order < ActiveRecord::Base
-
+  
   # RELATIONS
   belongs_to :contact
   belongs_to :billing_address, foreign_key: "billing_address_id", class_name: "Address"
@@ -111,7 +111,7 @@ class Order < ActiveRecord::Base
 
   def formatted_invoice_date
     if invoiced_at
-      l invoiced_at, format: :date_only
+      I18n.l invoiced_at, format: :date_only
     else
       "-"
     end
@@ -119,7 +119,7 @@ class Order < ActiveRecord::Base
 
   def formatted_cashback_date
     if invoiced_at
-      l invoiced_at.advance(days: 10), format: :date_only
+      I18n.l invoiced_at.advance(days: 10), format: :date_only
     else
       "-"
     end
