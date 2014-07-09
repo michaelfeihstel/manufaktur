@@ -39,6 +39,11 @@ $('#order_contact_id').selectize(
 
 );
 
-$('.order_line_items_product_id').selectize(
-
-);
+$('.order_line_items_product_id').selectize({
+	// labelField: 'name',
+	// render: {
+		// option: function(item, escape) {
+			// return '<div class="option"><span class="color-tile" style="background-color: yellow"> <span class="option-text">' + escape(item.name) + '</span></div>';
+		// }
+	// }
+});

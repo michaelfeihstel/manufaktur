@@ -116,6 +116,10 @@ div.fields {
 }
 
 @mixin input {
+	outline: none;
+	-webkit-appeareance: none;
+	-moz-appearance: none;
+	appearance: none;
 	border: none;
 	border-bottom: 1px solid darken($secondary-color, 10%);
 	margin: 0;
@@ -150,7 +154,7 @@ select {
 input:hover,
 input:focus,
 .selectize-input:hover {
-	background: none;
+	background-color: transparent;
 	border-bottom: 1px solid $primary-color;
 }
 
@@ -167,16 +171,18 @@ select:focus {
 .selectize-input,
 .selectize-input.focus {
 	@include input;
+	background-color: transparent;
 	padding: 0;
 	font-family: inherit;
 	font-size: inherit;
 	color: inherit;
+	line-height: inherit;
 	box-shadow: none;
 	border-radius: 0;
 }
 
 .selectize-input > input {
-	max-height: 39px !important;
+	max-height: 38px !important;
 	position: relative !important;
 }
 
@@ -199,7 +205,13 @@ select:focus {
 			padding: 0.25rem 0;
 			border-bottom: 1px solid $secondary-color;
 		}
+
+		.option-text {
+			vertical-align: middle;
+		}
 }
+
+
 
 .minicolors-input {
 	height: 100% !important;
@@ -445,6 +457,10 @@ body {
 	font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 
+a:hover {
+	color: $highlight-color;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
@@ -667,6 +683,12 @@ a.link {
 	height: 1.063rem;
 	width: 1.063rem;
 	display: inline-block;
+}
+
+.color-tile.offset {
+	position: absolute;
+	left: -30px;
+	top: 2px;
 }
 
 .colorbar {
@@ -1035,6 +1057,23 @@ table.calendar {
 .total {
 	text-align: right
 }
+
+#line_item {
+	position: relative;
+
+	.side {
+		height: 100%;
+		margin-right: 1rem;
+		position: absolute;
+		width: 10px;
+	}
+
+	.content {
+		position: absolute;
+	}
+
+}
+
 
 
 

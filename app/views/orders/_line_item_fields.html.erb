@@ -1,18 +1,17 @@
 <section>
-<div class="<%= "colorbar #{f.object.try(:product).try(:sku)}" %>"></div>
 	<div id="line_item" data-item-temp-id="<%= f.object.temp_id %>">
-
+		
 		<div class="row">
 			<div class="small-10 columns">
-				<p>
+				<div class="fields">
 					<%= f.label :product_id, "Artikel" %>
 					<%= f.collection_select(:product_id, Product.all.order(:name), :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } ) %>
-				</p>
+				</div>
 			</div>
 			<div class="small-2 columns">
 				<p>	
-					<%= f.label :price, "Einzelpreis" %>
-					<%= f.text_field :price, id: "price_single_input" %>
+					<%= f.label :price, "Einzelpreis", class: "text-right" %>
+					<%= f.text_field :price, id: "price_single_input", class: "text-right" %>
 				</p>
 			</div>
 		</div>
@@ -151,12 +150,12 @@
 					<div class="small-2 columns">
 						<ul class="small-block-grid-1 medium-block-grid-2" id="totals">
 							<li>
-								<%= label(:line_item, :quantity, "Gesamt" ) %>
+								<%= label(:line_item, :quantity, "Gesamt") %>
 								<span class="quantity" id="quantity"><%= f.object.quantity %></span>
 							</li>
 							<li>
-								<%= label(:line_item, :price, "Summe" ) %>
-								<span id="price_total"><%= number_to_currency(f.object.try(:price_total), unit: "€ ") %></span>
+								<%= label(:line_item, :price, "Summe", class: "text-right") %>
+								<span id="price_total" class="right"><%= number_to_currency(f.object.try(:price_total), unit: "€ ") %></span>
 							</li>							
 						</ul>
 					</div>
@@ -172,12 +171,12 @@
 
 				<div class="row">
 					<div class="small-12 columns">
-						<%= f.link_to_remove icon("bin", text: "Artikel entfernen") %>
+						<span data-tooltip title="Artikel entfernen"><%= f.link_to_remove icon("bin") %></span>
 					</div>
 				</div>
 				
 				</div>
 			</div>
 
-</div>
+	</div>
 </section>

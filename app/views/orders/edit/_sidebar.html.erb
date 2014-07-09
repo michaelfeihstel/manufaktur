@@ -1,10 +1,46 @@
 <% content_for :sidebar do %>
   <div id="sidebar">
-
+		
     <div class="sidebar-header">
       <%= search_form_for @search do |f| %>
         <%= f.search_field :billing_name_or_delivery_name_cont, placeholder: "Suchen...", id: "search-field" %>
       <% end %>
+    </div>
+
+		<div class="row">
+			<div class="small-12 columns">
+
+				<div class="sidebar-section">
+	  		  <h6 class="light">Status</h6>
+			    <div class="fields">
+			      <%= f.label :created_on, "Erstellt am" %>
+			      <%= f.date_field :created_at %>
+			    </div>
+			    <div class="fields">
+			      <%= f.label :delivered_on, "Liefertermin" %>
+			      <%= f.date_field :delivered_on %>
+			    </div>
+			    <div class="fields">
+			    	<%= f.check_box :is_free %>
+			    	<%= f.label :is_free, "Kostenlos" %>
+			    </div>
+			    <% if @order.completed_at %>
+			      <div class="fields">
+			        <%= f.label :completed_at, "Abgeschlossen am" %>
+			        <%= f.date_field :completed_at %>
+			      </div>
+			    <% end %>
+   			</div>
+
+   			<div class="sidebar-section">
+   				<h6 class="light">Rechnung</h6>
+   				<div class="fields">
+						<%= f.label :invoiced_at, "Rechnungsdatum" %>
+						<%= f.date_field :invoiced_at %>
+   				</div>
+   			</div>
+
+    	</div>
     </div>
 
   </div>

@@ -1,5 +1,8 @@
 <%= nested_form_for @order, html: { "data-order-id" => @order.id } do |f| %>
 
+	<!-- sidebar -->
+	<%= render partial: "orders/edit/sidebar", locals: { f: f } %>
+
 	<div class="row">
 		<div class="small-12 columns">
 
@@ -53,22 +56,17 @@
 	</section>
 
 	<section>
-		<div class="row">
-			<div class="small-12 columns">
-				<h4>Schuhe</h4>
+		<h4>Schuhe</h4>
 
-				<div id="line_item_target">
-					<%= f.fields_for :line_items %>
-				</div>
-
-				<div class="toolbar">
-					<dl class="actions">
-						<dd><%= f.link_to_add toolbar_icon("Artikel hinzufügen", "ion-ios7-plus-outline"), :line_items, :data => { :target => "#line_item_target" } %></dd>
-					</dl>
-				</div>
-
-			</div>
+		<div id="line_item_target">
+			<%= f.fields_for :line_items %>
 		</div>
+	</section>
+	<hr>
+	<section>
+		<ul class="inline-list">
+			<li><%= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, :data => { :target => "#line_item_target" }, class: "button" %></li>
+		</ul>
 	</section>
 
 	<div class="row">
@@ -77,5 +75,5 @@
 		  <%= f.submit "Speichern", class: "button right" %>
 	  </div>
 	</div>
-
+	
 <% end %>
