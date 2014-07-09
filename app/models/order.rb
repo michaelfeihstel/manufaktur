@@ -31,6 +31,7 @@
 #  is_free               :boolean          default(FALSE)
 #  is_vat_exempt         :boolean          default(FALSE)
 #  paid_on               :date
+#  paid_amount           :decimal(8, 2)
 #
 
 class Order < ActiveRecord::Base
@@ -105,6 +106,22 @@ class Order < ActiveRecord::Base
       "Bezahlt"
     else
       "Zahlung ausstehend"
+    end
+  end
+
+  def formatted_invoice_date
+    if invoiced_at
+      l invoiced_at, format: :date_only
+    else
+      "-"
+    end
+  end
+
+  def formatted_cashback_date
+    if invoiced_at
+      l invoiced_at.advance(days: 10), format: :date_only
+    else
+      "-"
     end
   end
 

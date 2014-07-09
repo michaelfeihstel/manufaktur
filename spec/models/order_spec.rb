@@ -31,6 +31,7 @@
 #  is_free               :boolean          default(FALSE)
 #  is_vat_exempt         :boolean          default(FALSE)
 #  paid_on               :date
+#  paid_amount           :decimal(8, 2)
 #
 
 require 'spec_helper'

@@ -52,7 +52,7 @@
             <ul class="no-bullet">
               <li>
                 <span class="inline-label light">Rechnungsdatum</span>
-                <span class="right"><%= l @order.invoiced_at, format: :date_only %></span>
+                <span class="right"><%= @order.formatted_invoice_date %></span>
               </li>
               <li>
                 <span class="inline-label light">Rechnungsbetrag</span>
@@ -62,7 +62,7 @@
             <ul class="no-bullet">
               <li>
                 <span class="inline-label light">Skontofrist</span>
-                <span class="right"><%= l @order.invoiced_at.advance(days: 10), format: :date_only %></span>
+                <span class="right"><%= @order.formatted_cashback_date %></span>
               </li>
               <li>
                 <span class="inline-label light">Skontobetrag</span>
