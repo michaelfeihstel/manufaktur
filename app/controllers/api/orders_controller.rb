@@ -39,6 +39,7 @@ module Api
 				:invoiced_at,
 				:completed_at,
 				:paid_on,
+				:paid_amount,
 				:contact_id,
 				:billing_address_id,
 				:billing_name,
