@@ -15,6 +15,7 @@
 //= require foundation
 //= require jquery_nested_form
 //= require jquery.minicolors
+//= require jquery.sticky-kit
 //= require d3
 //= require c3
 //= require selectize
@@ -22,8 +23,11 @@
 
 $(document).foundation();
 
+// Flash notice
 
 $('#flash').slideDown(500).delay(5000).slideUp(500);
+
+// Sidebar toggle
 
 $('.sidebar-toggle').click(function() {
  	var order_id = $(this).data("id");
@@ -35,3 +39,7 @@ $('.sidebar-toggle').click(function() {
 	console.log("sidebar was triggered.");
 
 });
+
+// Sticky elements
+
+$(".sticky").stick_in_parent()

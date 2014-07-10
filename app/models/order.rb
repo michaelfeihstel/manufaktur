@@ -32,6 +32,7 @@
 #  is_vat_exempt         :boolean          default(FALSE)
 #  paid_on               :date
 #  paid_amount           :decimal(8, 2)
+#  is_scheduled_delivery :boolean          default(FALSE)
 #
 
 class Order < ActiveRecord::Base
@@ -83,6 +84,22 @@ class Order < ActiveRecord::Base
 
   def quantity_total
     self.line_items.sum(&:quantity)
+  end
+
+  def price_total
+    self.line_items.sum(&:gross_price_total)
+  end
+
+  def price_cashback
+    price_total * (1 - cashback_percent)
+  end
+
+  def time_for_payment
+    if paid_on
+      "Bezahlt nach #{distance_of_time_in_words(invoiced_at, paid_on)} Tagen."
+    else
+      "Ausstehend seit #{time_ago_in_words(invoiced_at)} Tagen."
+    end
   end
 
   def marked_label

@@ -32,6 +32,7 @@
 #  is_vat_exempt         :boolean          default(FALSE)
 #  paid_on               :date
 #  paid_amount           :decimal(8, 2)
+#  is_scheduled_delivery :boolean          default(FALSE)
 #
 
 require 'spec_helper'

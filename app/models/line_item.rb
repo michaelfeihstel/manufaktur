@@ -91,6 +91,14 @@ class LineItem < ActiveRecord::Base
     q * p
   end
 
+  def gross_price_total
+    q = quantity || 0
+    p = price || 0
+    v = 1 + vat
+
+    p * v * q
+  end
+
 
 
   def quantity_label

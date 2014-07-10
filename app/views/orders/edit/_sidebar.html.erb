@@ -21,15 +21,13 @@
 			      <%= f.date_field :delivered_on %>
 			    </div>
 			    <div class="fields">
-			    	<%= f.check_box :is_free %>
-			    	<%= f.label :is_free, "Kostenlos" %>
+			    	<%= f.check_box :is_scheduled_delivery, class: "custom-checkbox" %>
+			    	<%= f.label :is_scheduled_delivery, "Terminlieferung" %>
 			    </div>
-			    <% if @order.completed_at %>
-			      <div class="fields">
-			        <%= f.label :completed_at, "Abgeschlossen am" %>
-			        <%= f.date_field :completed_at %>
-			      </div>
-			    <% end %>
+		      <div class="fields">
+		        <%= f.label :completed_at, "Abgeschlossen am" %>
+		        <%= f.date_field :completed_at %>
+		      </div>
    			</div>
 
    			<div class="sidebar-section">
@@ -38,6 +36,18 @@
 						<%= f.label :invoiced_at, "Rechnungsdatum" %>
 						<%= f.date_field :invoiced_at %>
    				</div>
+   				<div class="fields">
+						<%= f.label :price_total, "Rechnungsbetrag" %>
+						<%= number_to_currency(@order.price_total, unit: "€") %>
+					</div>
+					<div class="fields">
+						<%= f.label :cashback_until, "Skontofrist" %>
+						<%= f.date_field :cashback_until %>
+					</div>
+					<div class="fields">
+						<%= f.label :cashback_percent, "Skontosatz" %>
+						<%= f.text_field :cashback_percent %>
+					</div>
    			</div>
 
     	</div>

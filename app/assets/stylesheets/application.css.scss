@@ -113,6 +113,7 @@ section {
 
 div.fields {
 	margin-bottom: 1rem;
+	position: relative;
 }
 
 @mixin input {
@@ -146,6 +147,49 @@ textarea {
 	background: none;
 }
 
+input[type="checkbox"] {
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	margin: 0;
+	display: inline-block;
+	outline: none;
+	padding: 0.25rem;
+	background-color: scale-color($secondary-color, $lightness: -10%);
+	color: transparent;
+	vertical-align: middle;
+	text-align: center;
+	font-family: "manufaktur-icons";
+}
+
+input[type="checkbox"].large {
+	font-size: 1.5rem;
+	padding: 0.5rem;
+}
+
+input[type="checkbox"]:after {
+	content: "S";
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:active {
+	border: none;
+	color: $primary-color;
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus {
+	border: none;
+}
+
+input[type="checkbox"]:not(:checked):hover {
+	color: scale-color($secondary-color, $lightness: -30%);
+}
+
+
+
+
+
 select {
 	@include input;
 	background-color: transparent;
@@ -154,7 +198,6 @@ select {
 input:hover,
 input:focus,
 .selectize-input:hover {
-	background-color: transparent;
 	border-bottom: 1px solid $primary-color;
 }
 
@@ -229,7 +272,7 @@ select:focus {
 
 	background-color: $secondary-color;
 
-	dd.active {
+	.active {
 		color: #fff;
 
 		a {
@@ -478,6 +521,11 @@ a.link {
 	}
 }
 
+span.input {
+	display: block;
+	padding: 0.5rem 0;
+}
+
 .page-heading {
 	margin: 0 0 1em;
 	font-weight: 700;
@@ -544,11 +592,11 @@ a.link {
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   vertical-align: middle;
-  margin-right: 5px;
 }
 
 .icon-text {
 	vertical-align: middle;
+	margin-left: 5px;
 }
 
 
