@@ -43,3 +43,10 @@ $('.sidebar-toggle').click(function() {
 // Sticky elements
 
 $(".sticky").stick_in_parent()
+
+// convert table rows to links
+$('tr').on("click", function() {
+    if($(this).attr('href') !== undefined){
+        document.location = $(this).attr('href');
+    }
+});

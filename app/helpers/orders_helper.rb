@@ -10,6 +10,8 @@ module OrdersHelper
 		end
 	end
 
+
+
 	def completed_icon(order, options={})
 		label = order.completed_label if options[:label] == true
 
@@ -19,6 +21,8 @@ module OrdersHelper
 			icon("check2", text: label)
 		end
 	end
+
+
 
 	def paid_icon(order, options={})
 		label = order.paid_label if options[:label] == true
@@ -30,6 +34,17 @@ module OrdersHelper
 		end
 	end
 
+
+
+	def payment_status(order)
+		if order.invoiced_at.nil?
+			"-"
+		elsif order.paid_on
+			"Bezahlt nach #{distance_of_time_in_words(order.invoiced_at, order.paid_on)}"
+		else
+			"Ausstehend seit #{time_ago_in_words(order.invoiced_at)}"
+		end
+	end
 
 
 end

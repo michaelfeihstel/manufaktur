@@ -1,31 +1,22 @@
-<% @section = "Kontakte" %>
+<!-- sidebar -->
+<%= render "contacts/index/sidebar" %>
 
 <!-- search -->
-
 <%= render "contacts/search" %>
 
 <!-- toolbar -->
-
 <%= render "contacts/index/toolbar" %>
 
 <!-- title -->
-
 <% content_for :title_bar do %>
   <h1 class="page-heading">Kontakte</h1>
 <% end %>
 
-<!-- sidebar -->
-
-<%= render "contacts/index/sidebar" %>
-
 <!-- content -->
-
 <% content_for :main_content do %>
-    
-    <div class="row">
-      <div class="small-12 columns">
-        <%= render "contacts/index/table_contacts" %>
-      </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= render "contacts/index/table_contacts" %>
     </div>
-
+  </div>
 <% end %>

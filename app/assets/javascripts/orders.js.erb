@@ -23,16 +23,6 @@ $('#search-toggle').click(function() {
 
 });
 
-$('.order-item').click(function() {
- 	var order_id = $(this).data("id");
-
-	$('#' + order_id + '_content').slideToggle(100);
-	$(this).toggleClass('enabled');
-
-	console.log(order_id + "was triggered.");
-
-});
-
 // selectize.js
 
 $('#order_contact_id').selectize(

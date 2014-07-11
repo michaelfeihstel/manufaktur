@@ -7,111 +7,18 @@
       <% end %>
     </div>
 
-    <div class="row">
-      <div class="small-12 columns">
-
-        <div class="sidebar-section">
-          <h6 class="light">Status</h6>
-          <ul class="no-bullet">
-            <li>
-              <span class="inline-label light">Erstellt am</span>
-              <span class="right"><%= l @order.created_at, format: :date_only %></span>
-            </li>
-            <li>
-              <span class="inline-label light">Liefertermin</span>
-              <span class="right"><%= l @order.delivered_on %></span>
-            </li>
-            <% if @order.completed_at %>
-              <li>
-                <span class="inline-label light">Abgeschlossen am</span>
-                <span class="right"><%= l @order.completed_at, format: :date_only %></span>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-
-        <div class="sidebar-section">
-          <h6 class="light">Optionen</h6>
-          <ul class="no-bullet">
-            <li>
-              <span class="inline-label light">Kostenlos</span>
-              <%= boolean_icon @order.is_free? %>
-            </li>
-            <li>
-              <span class="inline-label light">Mehrwertsteuerbefreit</span>
-              <%= boolean_icon @order.is_vat_exempt? %>
-            </li>
-          </ul>
-        </div>
-
-        <div class="sidebar-section">
-          <h6 class="light">Rechnung</h6>
-          <% if @order.is_free == true %>
-            <p class="small light text-center">Ohne Berechnung</p>
-          <% else %>
-            <ul class="no-bullet">
-              <li>
-                <span class="inline-label light">Rechnungsdatum</span>
-                <span class="right"><%= @order.formatted_invoice_date %></span>
-              </li>
-              <li>
-                <span class="inline-label light">Rechnungsbetrag</span>
-                <span class="right"><%= number_to_currency(@order.line_items.to_a.sum(&:price_total)) %></span>
-              </li>
-            </ul>
-            <ul class="no-bullet">
-              <li>
-                <span class="inline-label light">Skontofrist</span>
-                <span class="right"><%= @order.formatted_cashback_date %></span>
-              </li>
-              <li>
-                <span class="inline-label light">Skontobetrag</span>
-                <span class="right"><%= number_to_currency(@order.line_items.to_a.sum(&:price_total)*0.97) %></span>
-              </li>
-            </ul>
-            <ul class="no-bullet">
-              <li>
-                <span class="inline-label light">Zahlungsdatum</span>
-                <span class="right"><%= @order.try(:paid_on) %></span>
-              </li>
-              <li>
-                <span class="inline-label light">Zahlungsbetrag</span>
-                <span class="right"><%= number_to_currency(@order.line_items.to_a.sum(&:price_total)*0.97) %></span>
-              </li>
-            </ul>
-          <% end %>
-        </div>
-
-        <div class="sidebar-section">
-          <h6 class="light">Versand</h6>
-
-        </div>
-
-      </div>
+    <div class="sidebar-content">
+      <ul class="sidebar-list">
+        <% @orders.each do |order| %>
+          <%= render partial: "orders/list_item", locals: { order: order } %>
+        <% end %>
+      </ul>
     </div>
 
-    <div class="fixed-bottom dark inverted">
-      <div class="row">
-        <div class="small-12 columns">
-          <div class="sidebar-section">
-            <h6 class="light">Aktionen</h6>
-            <ul class="no-bullet">
-              <li><%= link_to marked_icon(@order, label: true), marked_order_path(@order), method: :put %></li>
-              <li><%= link_to completed_icon(@order, label: true), completed_order_path(@order), method: :put %></li>
-              <li>
-                <a href="#" data-dropdown="hover1" data-options="is_hover:true align:right"><%= icon("files", text: "Dokumente") %></a>
-
-                <ul id="hover1" class="f-dropdown" data-dropdown-content>
-                  <li><%= link_to icon("file", text: "Auftragsbestätigung"), "#" %><li>
-                  <li><%= link_to icon("file", text: "Lieferschein"), "#" %><li>
-                  <li><%= link_to icon("file", text: "Rechnung"), "#" %><li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
+    <div class="sidebar-footer dark inverted">
+      <div class="sidebar-section">
+        <%= paginate @orders %>
+      </div>      
     </div>
 
   </div>

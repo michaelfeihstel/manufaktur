@@ -1,8 +1,4 @@
 <%= nested_form_for @order, html: { "data-order-id" => @order.id } do |f| %>
-
-	<!-- sidebar -->
-	<%= render partial: "orders/edit/sidebar", locals: { f: f } %>
-
 	<div class="row">
 		<div class="small-12 columns">
 
@@ -52,7 +48,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 
 	<ul class="tabs" data-tab>
 	  <li class="tab-title active"><a href="#tab-shoes">Auftrag</a></li>
@@ -63,13 +59,13 @@
 
 	  <div class="content active" id="tab-shoes">
 	  	<h4>Bestellte Artikel</h4>
-  		<div id="line_item_target">
-  			<%= f.fields_for :line_items %>
-  		</div>
-  		<hr>
-  		<ul class="inline-list">
-  			<li><%= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, :data => { :target => "#line_item_target" }, class: "button" %></li>
-  		</ul>
+			<div id="line_item_target">
+				<%= f.fields_for :line_items %>
+			</div>
+			<hr>
+			<ul class="inline-list">
+				<li><%= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, :data => { :target => "#line_item_target" }, class: "button" %></li>
+			</ul>
 	  </div>
 
 	  <div class="content" id="tab-invoice">
@@ -145,12 +141,19 @@
 									<td><%= link_to other_order.id, order_path(other_order), class: "link" %></td>
 									<td><%= l other_order.completed_at, format: :date_only %></td>
 									<td>
-										<%= other_order.paid_on ? "Bezahlt nach #{distance_of_time_in_words(other_order.invoiced_at, other_order.paid_on)}" : "Ausstehend seit #{time_ago_in_words(other_order.invoiced_at)}" %>
+										<%= payment_status(other_order) %>
 									</td>
 									<td class="text-right"><%= number_to_currency(other_order.price_total, unit: "€") %></td>
 								</tr>
 	  					<% end %>
 	  				</tbody>
+	  				<tfoot>
+	  					<tr>
+	  						<td class="text-right" colspan=4>
+	  							<h4 class="bold"><%= number_to_currency(Order.where(contact_id: @order.contact_id, paid_on: nil).sum(&:price_total), unit: "€") %><span class="thin"> ausstehend</span></h4>
+	  						</td>
+	  					</tr>
+	  				</tfoot>
 	  			</table>
 	  		</div>
 
@@ -164,19 +167,10 @@
 
 	</div>
 
-	<section>
-		
-	</section>
-
-	<section>
-		
-	</section>
-
 	<div class="row">
 		<div class="small-12 columns">
 		  <%= link_to 'Zurück', orders_path, class: "button secondary float_left" %>
 		  <%= f.submit "Speichern", class: "button right" %>
 	  </div>
 	</div>
-	
 <% end %>

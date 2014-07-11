@@ -1,7 +1,9 @@
-<tr class="contact-item" data-id="<%= contact.id %>">
-  <td class="first"><%= link_to contact.try(:id), contact_path(contact), class: "link" %></td>
+<tr class="contact-item link" href="<%= contact_path(contact) %>" data-id="<%= contact.id %>">
+  <td class=""><%= link_to contact.try(:id), contact_path(contact), class: "link" %></td>
 	<td><%= link_to contact.name, contact_path(contact), class: "link" %></td>
   <td><%= "Händler" %><br></td>
   <td></td>
-  <td class="cell-right last"><%= link_to icon("pencil"), edit_contact_path(contact) %></td>
+  <td class="cell-right">
+  	<span data-tooltip class="tip-left" title="Bearbeiten"><%= link_to icon("pencil"), edit_contact_path(contact) %></span>
+  </td>
 </tr>

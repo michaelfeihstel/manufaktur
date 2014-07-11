@@ -7,5 +7,5 @@
     remote:        data-remote
 -%>
 <span class="first">
-  <%= link_to_unless current_page.first?, inline_icon("", "ion-ios7-arrow-back") + inline_icon("", "ion-ios7-arrow-back"), url, :remote => remote %>
+  <%= link_to_unless current_page.first?, icon("arrow-first"), url, :remote => remote %>
 </span>

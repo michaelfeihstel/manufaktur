@@ -1,5 +1,6 @@
-<tr class="order-item" data-id="<%= order.id %>">
-  <td class="first"><%= link_to order.try(:id), order_path(order), class: "link" %></td>
+<tr class="order-item link" href="<%= order_path(order) %>" data-id="<%= order.id %>">
+  <td><%= completed_icon(order) %></td>
+  <td><%= order.try(:id) %></td>
 	<td><%= link_to order.billing_name, contact_path(order.contact_id), class: "link" %></td>
   <td>
     <%= l order.created_at, format: :date_only %><br>
@@ -10,7 +11,7 @@
       <span class="share-label" style="<%= product_color(li.product) if li.product %>"><%= li.quantity_label %></span>
     <% end %>
   </td>
-  <td class="cell-right last"><%= number_to_currency(order.try(:line_items).to_a.sum(&:price_total)) %></td>
+  <td class="cell-right"><%= number_to_currency(order.try(:line_items).to_a.sum(&:price_total)) %></td>
 </tr>
 <tr id="<%= order.id %>_content" style="display:none">
   <td class="first" colspan="5">

@@ -323,18 +323,29 @@ table {
 	tr.enabled {
 		border:none;
 	}
+	tr.link:hover {
+		background-color: $secondary-color;
+		padding: 0.5rem;
+		cursor: pointer;
+	}
 
 }
 
 thead > tr {
 	border: none;
 	vertical-align: bottom;
-	font-family: "futura-pt", "Helvetica Neue", "Arial", "Sans-serif"
+	font-family: "futura-pt", "Helvetica Neue", "Arial", "Sans-serif";
 
 	th {
 		padding-left: 0.25rem;
 		padding-right: 0.25rem;
 	}
+}
+
+tfoot > tr {
+	padding: 1rem 0;
+	border-top: 3px solid $secondary-color;
+	border-bottom: none;
 }
 
 
@@ -517,7 +528,7 @@ a.link {
 	line-height: normal;
 
 	&:hover {
-		border-bottom: 1px dotted $primary-color;
+		border-bottom: 1px dotted $highlight-color;
 	}
 }
 
@@ -788,6 +799,9 @@ span.input {
 
 #sidebar {
 	background-color: $secondary-color;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 	-webkit-transition: -webkit-transform 200ms ease;
 	-moz-transition: -moz-transform 200ms ease;
 	-o-transition: -o-transform 200ms ease;
@@ -837,8 +851,8 @@ span.input {
 }
 
 .sidebar-header {
-	
-	// margin: -1rem -1rem 0 -1rem !important;
+	flex-grow: 0;
+	flex-shrink: 0;
 }
 
 .main-sidebar-header {
@@ -906,12 +920,20 @@ input#search-field {
 	}
 }
 
+.sidebar-content {
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: scroll;
+}
 
+.sidebar-footer {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
 
-.secondary-itemlist {
+.sidebar-list {
 	margin: 0;
 	list-style: none;
-	padding-bottom: 125px;
 	
 	li.sidebar-item {
 		border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
@@ -942,17 +964,16 @@ input#search-field {
 
 /* ----- PAGINATION ----- */
 
-.sidebar-nav {
+.sidebar-pagination {
 	background-color: $primary-color;
 	bottom: 0px;
 	padding: 2rem 0.5rem;
 	position: fixed;
 	width: inherit;
-
 }
 
 nav.pagination {
-
+	padding: 1rem 0;
 	text-align: center;
 
 	span {
@@ -975,7 +996,7 @@ nav.pagination {
 
 .fixed-bottom {	
 	bottom: 0;
-	position: absolute;
+	position: fixed;
 	width: inherit;
 }
 

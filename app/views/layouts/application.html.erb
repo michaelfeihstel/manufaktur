@@ -26,11 +26,9 @@
   </head>
 
   <body>
-
     <div class="wrapper">
-
       <%= render "layouts/header" %>
-      
+
       <%= yield :sidebar %>
       <a href="#" class="sidebar-toggle hide-for-large-up"><%= icon("show-sidebar") %></a>
 
@@ -47,7 +45,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <%= javascript_include_tag "application" %>

@@ -20,6 +20,7 @@ module IconHelper
 		icon_class = "icon-#{icon}"
 		additional_classes = options[:class] || nil
 		text = " #{options[:text]}" || ""
+		tooltip = "data-tooltip title='#{options[:tooltip]}'" if options[:tooltip]
 
 		icon_span = content_tag(:span, "", class: "#{icon_class} #{additional_classes}", style: "#{color_attribute}")
 		text_span = content_tag(:span, text, class: "icon-text #{additional_classes}", style: "#{color_attribute}")
