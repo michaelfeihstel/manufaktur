@@ -1,0 +1,21 @@
+table
+  thead
+    tr.header
+      th
+      th width="100" Auftrag
+      th width="300" Auftraggeber
+      th width="120"
+        | Erstellt
+        br
+        | Abgeschlossen   
+      th Artikel
+      th.text-right width="100" Betrag
+
+  tbody
+	 - @orders.each do |order|
+	   = render partial: "orders/index/item_order", locals: { order: order }
+
+  tfoot
+    tr
+      td.text-right colspan=6
+        h4.bold= number_to_currency(@orders.sum{|o| o.line_items.to_a.sum(&:price_total)})

@@ -12,6 +12,7 @@ gem 'rails-i18n'
 gem 'groupdate'
 gem "simple_calendar", "~> 1.1.0"
 gem "selectize-rails"
+gem "slim-rails"
 
 # HEROKU
 gem 'pg'

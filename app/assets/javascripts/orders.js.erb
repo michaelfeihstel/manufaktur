@@ -1,14 +1,19 @@
+// update available addresses when selecting contact
+
 $('#order_contact_id').change(function() {
 
-	var order_id = $('form').data('item-id');
+	var order_id = $('form.edit_order').data('order-id');
+	var contact_id = $('#order_contact_id').val();
 
-	console.log('current order_id: ' + order_id);
+	console.log('order_id: ' + order_id);
+	console.log('contact_id: ' + contact_id);
 
-  $('#select_addresses').load (
-  		"/orders/" + order_id + "/update_addresses",
-  		{ "contact_id": $('#order_contact_id').val() }
-  );
+	$('#select_addresses').load (
+			"/orders/" + order_id + "/update_addresses",
+			{ "contact_id": contact_id }
+	);
 
+	$('#order_billing_address_id, #order_delivery_address_id').selectize({});
 });
 
 // toggle search panel

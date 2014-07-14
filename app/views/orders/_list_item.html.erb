@@ -1,9 +1,0 @@
-<li class="sidebar-item <%= 'active' if @order.id == order.id %>">
-  <a href="<%= order_path(order) %>">
-    <span class="light"><%= order.id %></span>
-    <span class="right"><%= completed_icon(order) %></span>
-    <span class="right"><%= marked_icon(order) %></span>
-    <br>
-    <div class="truncated"><%= order.billing_name %></div>
-  </a>
-</li>
