@@ -1,0 +1,41 @@
+<!-- sidebar -->
+= render "contacts/common/sidebar_contact_list"
+
+<!-- search -->
+= render "contacts/search"
+
+<!-- toolbar -->
+= render "contacts/show/toolbar"
+
+<!-- title -->
+- content_for :title_bar do
+  section
+    h1 = @contact.name
+
+<!-- main content -->
+- content_for :main_content do
+
+  .row
+    .small-12.columns
+      ul.tabs data-tab=""
+        li.tab-title.active
+          a href="#tab_overview" Überblick
+        li.tab-title
+          a href="#tab_sales" Verkauf
+      .tabs-content
+        .content.active#tab_overview
+          = render "/contacts/show/contact_information"
+        .content#tab_sales
+          = render "/contacts/charts/order_chart"
+          = render "/contacts/show/table_orders"
+  
+  hr
+
+  .row
+    .small-12.medium-4.large-6.columns
+      ul.inline-list
+        li = link_to 'Zurück', contacts_path, class: "button secondary left"
+    .small-12.medium-8.large-6.columns
+      ul.inline-list.right
+        li = link_to "Löschen", @contact, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button alert"
+        li = link_to "Bearbeiten", edit_contact_path, class: "button"

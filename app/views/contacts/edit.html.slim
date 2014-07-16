@@ -1,0 +1,11 @@
+- content_for :toolbar do
+	.toolbar
+
+- content_for :title_bar do
+  section
+    h1 = @contact.name
+
+= render "contacts/common/sidebar_contact_list"
+
+- content_for :main_content do
+	= render "contacts/form"

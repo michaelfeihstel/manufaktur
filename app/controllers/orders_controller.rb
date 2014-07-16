@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
 	def show
 		@search = Order.search(params[:q])
 		@orders = @search.result(distinct: true).order(id: :desc).includes(:contact).page(params[:page]).per(50)
-		@order = Order.includes(:line_items, :contact).find(params[:id])
+		@order = Order.includes(:line_items, :contact, {:products => :size}).find(params[:id])
 	end
 
 
@@ -54,8 +54,8 @@ class OrdersController < ApplicationController
 
 
 	def edit
-		@order = Order.find(params[:id])
-		@search = Order.includes(:contact).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
+		@order = Order.includes([:contact, {:line_items => :product}, {:products => :size}]).find(params[:id])
+		@search = Order.includes(:contact, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
 		@orders = @search.result(distinct: true)
 	end
 

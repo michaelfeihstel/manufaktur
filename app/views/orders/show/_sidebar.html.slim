@@ -1,14 +1,13 @@
 - content_for :sidebar do
-  #sidebar
-    .sidebar-header
-      = search_form_for @search do |f|
-        = f.search_field :billing_name_or_delivery_name_cont, placeholder: "Suchen...", id: "search-field"
+  .sidebar-header
+    = search_form_for @search do |f|
+      = f.search_field :billing_name_or_delivery_name_cont, placeholder: "Suchen...", id: "search-field"
 
-    .sidebar-content
-      ul.sidebar-list
-        - @orders.each do |order|
-          = render partial: "orders/list_item", locals: { order: order }
+  .sidebar-content
+    ul.sidebar-list
+      - @orders.each do |order|
+        = render partial: "orders/list_item", locals: { order: order }
 
-    .sidebar-footer.dark.inverted
-      .sidebar-section
-        = paginate @orders
+  .sidebar-footer.dark.inverted
+    .sidebar-section
+      = paginate @orders

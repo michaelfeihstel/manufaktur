@@ -1,17 +1,14 @@
 // set line_item.price input field
-
-$('#line_item[data-item-temp-id="' + <%= j(@line_item_temp_id) %> + '"]').find('#price_single_input').val(
+$('.line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_single_input').val(
     <%= @price_single %>
 );
 
 // set #price_total span
-
-$('#line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_total').text(
+$('.line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_total').text(
     "<%= j (number_to_currency(@price_total, unit: "€ ")) %>"
 );
 
-// set colorbar
-
-$('#line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').prev('.colorbar').attr({
-    class: "colorbar <%= j ( @product.sku ) %>"
+// set topbar styling
+$('.line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('.bar-top').attr({
+    style: "<%= j ( product_color(@product) ) %>"
 });

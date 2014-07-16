@@ -1,0 +1,19 @@
+<!-- sidebar -->
+= render "contacts/index/sidebar"
+
+<!-- search -->
+= render "contacts/search"
+
+<!-- toolbar -->
+= render "contacts/index/toolbar"
+
+<!-- title -->
+- content_for :title_bar do
+  section
+  	h1 Kontakte
+
+<!-- content -->
+- content_for :main_content do
+  .row
+    .small-12.columns
+    	= render "contacts/index/table_contacts"

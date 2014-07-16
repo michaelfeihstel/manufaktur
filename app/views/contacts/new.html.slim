@@ -1,0 +1,13 @@
+<!-- sidebar -->
+= render "contacts/common/sidebar_contact_list"
+
+<!-- toolbar -->
+= render "contacts/common/toolbar_form"
+
+- content_for :title_bar do
+  section
+    h1 Kontakt hinzufügen
+
+
+- content_for :main_content do
+  = render "contacts/form"

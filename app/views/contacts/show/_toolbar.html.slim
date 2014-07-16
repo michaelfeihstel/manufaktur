@@ -1,0 +1,8 @@
+- content_for :toolbar do
+  .row
+    .small-12.columns
+      .toolbar
+        ul.inline-list
+          li = link_to icon("add", text: "Neu"), new_contact_path
+          li = link_to icon("pencil", text: "Bearbeiten"), edit_contact_path(@contact)
+          li#search-toggle = link_to icon("search", text: "Suchen"), "#"

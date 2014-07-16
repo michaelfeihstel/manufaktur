@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
+	before_action :initialize_search, only: [:show, :index, :edit]
 
 	def index
-		@search = Contact.search(params[:q])
 		@contacts = @search.result(distinct: true).includes(:addresses).order(:name)
 
 		respond_to do |format|
@@ -17,9 +17,10 @@ class ContactsController < ApplicationController
 	end
 
 	def new
+		@search = Contact.search(params[:q])
+		@contacts = @search.result(distinct: true).order(:name)
 		@contact = Contact.new
 		@contact.addresses.build
-		@section = "Kontakte"
 	end
 
 
@@ -42,14 +43,10 @@ class ContactsController < ApplicationController
 
 	def update
 		@contact = Contact.find(params[:id])
-
-		respond_to do |format|
-
-			if @contact.update_attributes(contact_params)
-				redirect_to contacts_path, notice: "Kontakt aktualisiert."
-			else
-				render 'edit'
-			end
+		if @contact.update_attributes(contact_params)
+			redirect_to contact_path(@contact), notice: "Kontakt aktualisiert."
+		else
+			render 'edit'
 		end
 	end
 
@@ -78,6 +75,11 @@ class ContactsController < ApplicationController
 				:_destroy	
 			]
 		)
+	end
+
+	def initialize_search
+		@search = Contact.search(params[:q])
+		@contacts = @search.result(distinct: true)
 	end
 
 

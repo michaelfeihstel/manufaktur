@@ -1,0 +1,36 @@
+.row
+	.small-12.columns
+		section.panel
+			.bar-top.dark.inverted
+				.flex-grow
+					= f.text_field :description, placeholder: "Bezeichnung"
+				.flex-fixed.bar-icon
+					= f.link_to_remove icon("bin")
+
+			.fields
+				= f.label :name, "Name"
+				= f.text_field :name
+			
+			.row
+				.small-8.columns
+					.fields
+						= f.label :street, "Straße"
+						= f.text_field :street
+				.small-4.columns
+					.fields
+						= f.label :house_number, "Hausnummer"
+						= f.text_field :house_number
+
+			.row
+				.small-3.columns
+					.fields
+						= f.label :zip, "Postleitzahl" 
+						= f.text_field :zip
+				.small-9.columns
+					.fields
+						= f.label :city, "Stadt"
+						= f.text_field :city
+
+			.fields
+				= f.label :country, "Land"
+				= f.text_field :country

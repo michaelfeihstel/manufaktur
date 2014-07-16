@@ -43,6 +43,7 @@ class Order < ActiveRecord::Base
   belongs_to :delivery_address, foreign_key: "delivery_address_id", class_name: "Address"
   has_many :line_items, :dependent => :destroy
   has_many :products, through: :line_items
+  has_many :sizes, through: :products
   accepts_nested_attributes_for :line_items, :allow_destroy => true
 
   # VALIDATIONS
@@ -83,11 +84,11 @@ class Order < ActiveRecord::Base
   end
 
   def quantity_total
-    self.line_items.sum(&:quantity)
+    self.line_items.to_a.sum(&:quantity)
   end
 
   def price_total
-    self.line_items.sum(&:gross_price_total)
+    self.line_items.to_a.sum(&:gross_price_total)
   end
 
   def price_cashback

@@ -1,7 +1,6 @@
 // update available addresses when selecting contact
 
 $('#order_contact_id').change(function() {
-
 	var order_id = $('form.edit_order').data('order-id');
 	var contact_id = $('#order_contact_id').val();
 
@@ -19,22 +18,18 @@ $('#order_contact_id').change(function() {
 // toggle search panel
 
 $('#search-toggle').click(function() {
-
 	console.log('search-toggle clicked');
 
 	$('#search').slideToggle(200);
-
 	$('#search-toggle').toggleClass("enabled")
-
 });
 
 // selectize.js
 
-$('#order_contact_id').selectize(
-
-);
+$('#order_contact_id').selectize();
 
 $('.order_line_items_product_id').selectize({
+	dropdownParent: "body"
 	// labelField: 'name',
 	// render: {
 		// option: function(item, escape) {

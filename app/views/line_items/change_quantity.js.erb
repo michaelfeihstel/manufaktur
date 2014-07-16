@@ -1,11 +1,9 @@
 // set total quantity
-
-$('#line_item[data-item-temp-id="' + <%= j(@line_item_temp_id) %> + '"]').find('#quantity').text(
+$('.line_item[data-item-temp-id="' + <%= j(@line_item_temp_id) %> + '"]').find('#quantity').text(
     <%= @quantity %>
 );
 
 // set span#price_total
-
-$('#line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_total').text(
+$('.line_item[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_total').text(
     "<%= j (number_to_currency(@price_total, unit: "€ ")) %>"
 );

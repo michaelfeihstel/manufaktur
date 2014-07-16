@@ -44,18 +44,16 @@
 #
 
 class LineItem < ActiveRecord::Base
-  
-  # Associations
+  # associations
   belongs_to :order
   belongs_to :product
 
-  # Scopes
+  # scopes
   scope :completed, -> { where( completed_at.present ) }
 
+  # methods
   def temp_id
-    if @temp_id.nil?
-      @temp_id = rand(1000000)
-    end
+    rand(1000000)
   end
 
   def product_name

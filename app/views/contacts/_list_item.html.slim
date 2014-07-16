@@ -1,0 +1,5 @@
+li class="sidebar-item #{'active' if @contact.id == contact.id}" id=contact.id
+  a href=contact_path(contact)
+  	span.light = contact.id
+  	br
+    .truncated = contact.name

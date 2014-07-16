@@ -190,14 +190,23 @@ input[type="checkbox"]:not(:checked):hover {
 
 
 
-select {
+select,
+.selectize-input.full {
 	@include input;
 	background-color: transparent;
 }
 
+.selectize-input,
+.selectize-control.single {
+
+	.selectize-input.input-active {
+		background-color: transparent;
+	}
+
+}
+
 input:hover,
-input:focus,
-.selectize-input:hover {
+input:focus {
 	border-bottom: 1px solid $primary-color;
 }
 
@@ -209,6 +218,9 @@ input[type="button"]:hover {
 select:hover,
 select:focus {
 	background-color: transparent;
+}
+
+.selectize-control {
 }
 
 .selectize-input,
@@ -230,8 +242,9 @@ select:focus {
 }
 
 .selectize-dropdown {
-	border:none;
-	border-bottom: 1px solid $primary-color; 
+	background: #ffffff;
+	// border:none;
+	border: 1px solid $secondary-color; 
 	box-shadow: none;
 	border-radius: 0;
 }
@@ -245,7 +258,7 @@ select:focus {
 	border-radius: 0;
 
 		.option {
-			padding: 0.25rem 0;
+			padding: 0.5rem 0.25rem;
 			border-bottom: 1px solid $secondary-color;
 		}
 
@@ -644,7 +657,21 @@ span.input {
 
 
 
+/* ----- FLEX CLASSES ---- */
 
+.flex-grow {
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: auto;
+}
+
+.flex-fixed {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.flex-centered {
+}
 
 
 
@@ -656,6 +683,24 @@ span.input {
 
 
 /* ----- PANELS ----- */
+
+.bar {
+	padding: 1.25rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.bar-top {
+	@extend .bar;
+	margin: -1.25rem -1.25rem 1.25rem -1.25rem !important; 
+}
+
+.bar-icon {
+	margin-left: 1rem;
+}
+
 
 .toolbar {
 	margin: 0 0 1rem 0;
@@ -1127,7 +1172,7 @@ table.calendar {
 	text-align: right
 }
 
-#line_item {
+.line_item {
 	position: relative;
 
 	.side {

@@ -1,0 +1,28 @@
+section
+	h4 Beliebteste Artikel
+	#chart_product_share
+
+javascript:
+	var chart = c3.generate({
+			bindto: "#chart_product_share",
+			size: {	
+				width: 1300,
+			},
+			data: {
+				columns: [
+					#{raw @contact.line_items.includes(:product).where("product_id IS NOT NULL").order(:product_id).group_by(&:product_name).map{|k,v| v.sum(&:quantity)}.prepend("Verkäufe")}
+				],
+				type: 'bar',
+				order: 'desc',
+				colors: {
+					"Verkäufe": '#7e8298'
+				}
+			},
+			axis: {
+				rotated: true,
+				x: {
+					type: 'category',
+					categories: #{raw @contact.line_items.includes(:product).where("product_id IS NOT NULL").order(:product_id).group_by(&:product_name).map{|k,v| k}}
+				}
+			}
+	});

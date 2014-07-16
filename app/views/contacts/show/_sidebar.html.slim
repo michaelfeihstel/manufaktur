@@ -1,0 +1,13 @@
+- content_for :sidebar do
+  #sidebar
+    .sidebar-header
+      = search_form_for @search do |f|
+        = f.search_field :name_or_addresses_city_cont, placeholder: "Suchen...", id: "search-field"
+
+    .sidebar-content
+      ul.sidebar-list
+        - @contacts.each do |contact|
+          = render partial: "contacts/list_item", locals: { contact: contact }
+
+    .sidebar-footer.dark.inverted
+      .sidebar-section

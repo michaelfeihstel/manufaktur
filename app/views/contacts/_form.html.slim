@@ -1,0 +1,27 @@
+= nested_form_for @contact do |f|
+	.row
+		.small-12.columns
+			- if @contact.errors.any?
+			  #error_explanation
+					h4 = "#{pluralize(@contact.errors.count, 'error')} haben das Speichern dieses Kontakts verhindert:"
+					ul
+					- @contact.errors.full_messages.each do |msg|
+						.alert-box.alert data-alert=""
+							li = msg
+
+		.small-12.medium-6.columns
+			h4 Kontakt
+			.fields
+				= f.label :name
+				= f.text_field :name
+
+		.small-12.medium-6.columns
+			h4 Adressen
+			.fields
+				= f.fields_for :addresses
+				= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses
+
+	.row
+		.small-12.columns
+				= link_to 'Zurück', contacts_path, class: "button secondary float_left"
+				= f.submit "Speichern", class: "button float_right"

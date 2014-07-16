@@ -1,16 +1,12 @@
-section
-	#line_item data-item-temp-id=f.object.temp_id
-		
-		.row
-			.small-10.columns
-				.fields
-					= f.label :product_id, "Artikel"
-					= f.collection_select(:product_id, Product.all.order(:name), :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } )
+section.panel
+	.line_item data-item-temp-id=f.object.temp_id
 
-			.small-2.columns
-				.fields
-					= f.label :price, "Einzelpreis", class: "text-right"
-					= f.text_field :price, id: "price_single_input", class: "text-right"
+		.bar-top.dark.inverted style=(product_color(f.object.product) if f.object.product)
+			.flex-grow
+				= f.collection_select(:product_id, Product.all.order(:name), :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } )
+			.flex-fixed.bar-icon
+				span data-tooltip="" title="Artikel entfernen"
+					= f.link_to_remove icon("bin")
 
 		.row
 			.small-12.columns
@@ -122,8 +118,3 @@ section
 					.small-12.columns
 						.fields
 							= f.text_field :comment, placeholder: "Kommentar"
-
-				.row
-					.small-12.columns
-						span data-tooltip="" title="Artikel entfernen"
-							= f.link_to_remove icon("bin")

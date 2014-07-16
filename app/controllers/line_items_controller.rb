@@ -12,7 +12,7 @@ class LineItemsController < ApplicationController
 	def select_product	
 		@product = Product.find(params[:product_id])
 		@price_single = @product.price || 0
-		@quantity = params[:quantity].to_i || 0		
+		@quantity = params[:quantity].to_i || 0
 		@price_total = @quantity * @price_single
 		@line_item_temp_id = params[:temp_id]
 

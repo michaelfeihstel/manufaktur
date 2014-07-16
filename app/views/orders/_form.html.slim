@@ -22,7 +22,7 @@
 					= render "orders/select_addresses", :f => f
 
 			.small-12.medium-3.large-3.columns
-				h4 Satus
+				h4 Status
 				.fields
 					= f.label :delivered_on, "Liefertermin"
 					= f.date_field :delivered_on
@@ -44,7 +44,7 @@
 				h4 Bestellte Artikel
 				#line_item_target = f.fields_for :line_items
 				ul.inline-list
-					li= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, :data => { :target => "#line_item_target" }, class: "button"
+					li= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, :data => { :target => "#line_item_target" }
 
 			.content#tab-invoice
 				.row
@@ -96,7 +96,7 @@
 									th Status
 									th.text-right width="120" Betrag
 							tbody
-								- Order.where(contact_id: @order.contact_id).where.not(id: @order.id, completed_at: nil).order(created_at: :desc).each do |other_order|
+								- Order.where(contact_id: @order.contact_id).where.not(id: @order.id, completed_at: nil).includes(:line_items).order(created_at: :desc).each do |other_order|
 									tr
 										td= link_to other_order.id, order_path(other_order), class: "link"
 										td= l other_order.completed_at, format: :date_only
@@ -107,7 +107,7 @@
 									td class="text-right" colspan=4
 										h4
 											span.thin offen: 
-											span.bold= number_to_currency(Order.where(contact_id: @order.contact_id, paid_on: nil).sum(&:price_total), unit: "€")
+											span.bold = number_to_currency(Order.where(contact_id: @order.contact_id, paid_on: nil).includes(:line_items).to_a.sum(&:price_total), unit: "€")
 
 			.content#tab-shipping
 				p

@@ -1,0 +1,19 @@
+table
+  thead
+    tr
+      th width="100" Kundennummer
+      th Name / Firma
+      th width="120" Kategorie
+      th Tags
+      th.text-right width="100" Aktionen
+
+  tbody
+    - @contacts.each do |contact|
+      = render partial: "contacts/index/item_contact", locals: { contact: contact }
+
+  tfoot
+    tr
+      td class="text-right" colspan=5
+        h4
+          span.bold = @contacts.count
+          span.thin Kontakte gefunden

@@ -1,12 +1,10 @@
 // input quantites
-
 $('form').on('change', '.size-input', function () {
-
-    var product_id = $(this).closest('#line_item').find('.order_line_items_product_id').val();
-    var line_item_temp_id = $(this).closest('#line_item').data('item-temp-id');
+    var product_id = $(this).closest('.line_item').find('.order_line_items_product_id').val();
+    var line_item_temp_id = $(this).closest('.line_item').data('item-temp-id');
     var quantity = 0;
     
-    $(this).closest('#line_item').find('.size-input').each(function() {
+    $(this).closest('.line_item').find('.size-input').each(function() {
         quantity += Number($(this).val());
     });
 
@@ -14,7 +12,8 @@ $('form').on('change', '.size-input', function () {
 
     console.log(
         'quantity: ' + quantity + '\n' +
-        'Product_id: ' + product_id
+        'product_id: ' + product_id + '\n' +
+        'temp_id: ' + line_item_temp_id
     );
 
     $.ajax({
@@ -28,23 +27,18 @@ $('form').on('change', '.size-input', function () {
         error: function(data) {
             alert("Fehler");
         },
-        success: function(data) {
-
-        }
+        success: function(data) {}
     });
-
 });
 
 
 
 // select product_id
-
 $('body').on('change', '.order_line_items_product_id', function () {
-
     var order_id = $('form').data('order-id');
-    var line_item_temp_id = $(this).closest('#line_item').data('item-temp-id');
+    var line_item_temp_id = $(this).closest('.line_item').data('item-temp-id');
     var product_id = $(this).val();
-    var quantity = $(this).closest('#line_item').find('#quantity').text();
+    var quantity = $(this).closest('.line_item').find('#quantity').text();
 
     console.log('line_items#select_product triggered');
 
@@ -69,5 +63,19 @@ $('body').on('change', '.order_line_items_product_id', function () {
             data
         }
     });
-
 });
+
+
+
+// selectize inputs of line items that are added after page load
+$(document).on('nested:fieldAdded', function(event){
+    var field = event.field;
+    var lineItemDiv = field.find('.line_item');
+    var selectProductField = field.find('.order_line_items_product_id');
+
+    lineItemDiv.attr("data-item-temp-id", Math.random());
+
+    selectProductField.selectize({
+        dropdownParent: "body"
+    });
+})
