@@ -5,7 +5,8 @@
 				.flex-grow
 					= f.text_field :description, placeholder: "Bezeichnung"
 				.flex-fixed.bar-icon
-					= f.link_to_remove icon("bin")
+					span data-tooltip="" title="Adresse entfernen"
+						= f.link_to_remove icon("bin")
 
 			.fields
 				= f.label :name, "Name"

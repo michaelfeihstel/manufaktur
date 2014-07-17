@@ -21,6 +21,7 @@ class ContactsController < ApplicationController
 		@contacts = @search.result(distinct: true).order(:name)
 		@contact = Contact.new
 		@contact.addresses.build
+		@contact.emails.build
 	end
 
 
@@ -63,7 +64,6 @@ class ContactsController < ApplicationController
 		params.require(:contact).permit(
 			:name,
 			addresses_attributes: [
-				:id,
 				:contact_id,
 				:description,
 				:name,
@@ -73,6 +73,12 @@ class ContactsController < ApplicationController
 				:city,
 				:country,
 				:_destroy	
+			],
+			emails_attributes: [
+				:contact_id,
+				:name,
+				:value,
+				:_destroy
 			]
 		)
 	end

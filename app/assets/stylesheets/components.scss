@@ -226,9 +226,10 @@ table {
 
 	}
 
-	tr.enabled {
-		border:none;
+	tr.no-border {
+		border: none
 	}
+
 	tr.link:hover {
 		background-color: $secondary-color;
 		padding: 0.5rem;

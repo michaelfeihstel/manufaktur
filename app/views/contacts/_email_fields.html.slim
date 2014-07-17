@@ -1,0 +1,8 @@
+tr.no-border
+	td.first
+		= f.text_field :name
+	td
+		= f.email_field :value
+	td.last.text-right
+		span data-tooltip="" title="eMail entfernen"
+			= f.link_to_remove icon("bin")

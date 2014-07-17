@@ -10,18 +10,52 @@
 							li = msg
 
 		.small-12.medium-6.columns
-			h4 Kontakt
-			.fields
-				= f.label :name
-				= f.text_field :name
+			section
+				h4 Kontakt
+				.fields
+					= f.label :name
+					= f.text_field :name
+			section
+				h4 Kontaktdaten
+				label eMail
+				table
+					thead
+						tr
+							td.first Bezeichnung
+							td eMail
+							td.last 
+					tbody
+						= f.fields_for :emails do |email_form|
+							= render "email_fields", f: email_form
+					tfoot
+						tr
+							td.first colspan=3
+								= f.link_to_add icon("add", text: "eMail hinzufügen"), :emails
+			section
+				label Telefon & Fax
+				table
+					thead
+						tr
+							td.first Bezeichnung
+							td Nummer
+							td.last 
+					tbody
+						= f.fields_for :phones do |phone_form|
+							= render "phone_fields", f: phone_form
+					tfoot
+						tr
+							td.first colspan=3
+								= f.link_to_add icon("add", text: "Telefon- oder Faxnummer hinzufügen"), :phones
+
 
 		.small-12.medium-6.columns
-			h4 Adressen
-			.fields
-				= f.fields_for :addresses
-				= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses
+			section
+				h4 Adressen
+				.fields
+					= f.fields_for :addresses
+					= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses
 
 	.row
 		.small-12.columns
-				= link_to 'Zurück', contacts_path, class: "button secondary float_left"
-				= f.submit "Speichern", class: "button float_right"
+				= link_to 'Zurück', contacts_path, class: "button secondary left"
+				= f.submit "Speichern", class: "button right"
