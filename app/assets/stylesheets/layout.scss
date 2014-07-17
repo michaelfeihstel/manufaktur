@@ -1,0 +1,66 @@
+// DEBUG
+.columns,
+.row {
+	border: 0px solid #ccc;
+}
+
+// LAYOUT
+section {
+	margin-bottom: 5rem;
+}
+
+
+
+#content {
+	@include transition(all 200ms ease-in-out);
+
+	@media #{$large-up} {
+		left: 300px;
+		right: 0px;
+		position: absolute;
+	}
+
+	&.disabled {
+		@include transform(translateX(300px));
+	}
+}
+
+
+
+#sidebar {
+	@include display(flex);
+	@include flex-direction(column);
+	@include justify-content(flex-start);
+	@include transition (all 200ms ease-in-out);
+	background-color: $secondary-color;
+	left: -300px;
+	width: 300px;
+	position: fixed;
+	bottom: 0px;
+	top: 45px;
+	overflow-y: scroll;
+	@media #{$large-up} {
+		left: 0px;
+	};
+
+	&.enabled {
+    @include transform(translateX(300px));
+	}
+}
+
+
+
+
+// FLEX CLASSES
+
+.flex-grow {
+	@include flex-grow(1);
+	overflow: auto;
+}
+
+.flex-fixed {
+	@include flex-shrink(0);
+}
+
+.flex-centered {
+}

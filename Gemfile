@@ -10,11 +10,23 @@ gem 'ransack'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'groupdate'
+
+# views and presentation
+gem "bourbon"
 gem "simple_calendar", "~> 1.1.0"
 gem "selectize-rails"
 gem "slim-rails"
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier'
+gem 'compass'
+gem 'foundation-rails', '~> 5'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-minicolors-rails'
+gem 'nested_form'
 
-# HEROKU
+# heroku
 gem 'pg'
 
 group :production do
@@ -24,19 +36,6 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-
-# ASSETS
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'uglifier'
-gem 'compass'
-gem 'foundation-rails', '~> 5'
-
-#
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'jquery-minicolors-rails'
-gem 'nested_form'
 
 group :test, :development do
 end

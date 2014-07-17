@@ -1,0 +1,131 @@
+// TYPOGRAPHY
+body {
+	font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+a:hover {
+	color: $highlight-color;
+}
+
+a.link {
+	border-bottom: 1px dotted #ccc;
+	line-height: normal;
+
+	&:hover {
+		border-bottom: 1px dotted $highlight-color;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+h1 {
+	font-weight: 700;
+}
+
+span.input {
+	display: block;
+	padding: 0.5rem 0;
+}
+
+.page-heading {
+	margin: 0 0 1em;
+	font-weight: 700;
+}
+
+.inline-label {
+	color: #666;
+	display: inline !important;
+	font-weight: 600;
+	font-variant: small-caps;
+	text-transform: lowercase;
+	font-family: "futura-pt", "Helvetica Neue", "Arial"
+}
+
+.light {
+	opacity: 0.7;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.thin {
+	font-weight: 100;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.small {
+	font-size: 0.875rem;
+}
+
+.push-up {
+	margin-top: -0.5rem;
+}
+
+.truncated {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.product-label {
+	background-color: $primary-color;
+	font-size: 0.75rem;
+	font-weight: normal;
+	margin-bottom: inherit;
+	padding: 0.25rem 0.5rem;
+	white-space: nowrap;
+	display: inline-block;
+	text-align: center;
+	width: 100px;
+	margin: 0.1rem 0;
+	overflow: hidden;
+}
+
+
+
+// INVERTED
+.inverted,
+.inverted h1,
+.inverted h2,
+.inverted h3,
+.inverted h4,
+.inverted h5,
+.inverted h6,
+.inverted input,
+.inverted p,
+.inverted a {
+	color: #fff;
+}
+
+.inverted input:hover,
+.inverted input:focus {
+	border-color: #fff
+}
+
+.inverted a:hover {
+	color: $highlight-color;
+}
+
+.inverted label {
+	color: #fff;
+	opacity: 0.6;
+}
+
+
+
+// ICONS
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  vertical-align: middle;
+}
+
+.icon-text {
+	vertical-align: middle;
+	margin-left: 5px;
+}
