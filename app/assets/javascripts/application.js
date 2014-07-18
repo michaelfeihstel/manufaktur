@@ -24,11 +24,17 @@
 $(document).foundation();
 
 // Flash notice
-
 $('#flash').slideDown(500).delay(5000).slideUp(500);
 
-// Sidebar toggle
+// search-toggle
+$('#search-toggle').click(function() {
+	console.log('search-toggle clicked');
 
+	$('#search').slideToggle(200);
+	$('#search-toggle').toggleClass("enabled")
+});
+
+// sidebar toggle
 $('.sidebar-toggle').click(function() {
  	var order_id = $(this).data("id");
 
@@ -37,11 +43,9 @@ $('.sidebar-toggle').click(function() {
 	$(this).toggleClass('enabled');
 
 	console.log("sidebar was triggered.");
-
 });
 
-// Sticky elements
-
+// sticky elements
 $(".sticky").stick_in_parent()
 
 // convert table rows to links
@@ -49,4 +53,10 @@ $('tr').on("click", function() {
     if($(this).attr('href') !== undefined){
         document.location = $(this).attr('href');
     }
+});
+
+// remove required attribute for deleted nested_forms
+$(document).on('nested:fieldRemoved', function (event) {
+	console.log("field removed");
+  $('[required]', event.field).removeAttr('required');
 });

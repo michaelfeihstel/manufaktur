@@ -12,7 +12,13 @@ section {
 
 
 #content {
+	@include display(flex);
+	@include flex-direction(column);
+	@include justify-content(flex-start);
 	@include transition(all 200ms ease-in-out);
+
+	top: 45px;
+	bottom: 0px;
 
 	@media #{$large-up} {
 		left: 300px;
@@ -25,6 +31,18 @@ section {
 	}
 }
 
+#content-top {
+	@include flex-shrink(0);
+}
+
+#content-middle {
+	@include flex-grow(1);
+	overflow: scroll;
+}
+
+#content-bottom {
+	@include flex-shrink(0);
+}
 
 
 #sidebar {

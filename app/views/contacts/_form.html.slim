@@ -15,6 +15,7 @@
 				.fields
 					= f.label :name
 					= f.text_field :name
+
 			section
 				h4 Kontaktdaten
 				label eMail
@@ -24,13 +25,11 @@
 							td.first Bezeichnung
 							td eMail
 							td.last 
-					tbody
-						= f.fields_for :emails do |email_form|
+					tbody id="emails"
+						= f.fields_for :emails, wrapper: false do |email_form|
 							= render "email_fields", f: email_form
-					tfoot
-						tr
-							td.first colspan=3
-								= f.link_to_add icon("add", text: "eMail hinzufügen"), :emails
+				= f.link_to_add icon("add", text: "eMail hinzufügen"), :emails, class: "button tiny", data:  { target: "#emails" }
+
 			section
 				label Telefon & Fax
 				table
@@ -39,13 +38,10 @@
 							td.first Bezeichnung
 							td Nummer
 							td.last 
-					tbody
-						= f.fields_for :phones do |phone_form|
+					tbody id="phones"
+						= f.fields_for :phones, wrapper: false do |phone_form|
 							= render "phone_fields", f: phone_form
-					tfoot
-						tr
-							td.first colspan=3
-								= f.link_to_add icon("add", text: "Telefon- oder Faxnummer hinzufügen"), :phones
+				= f.link_to_add icon("add", text: "Nummer hinzufügen"), :phones, class: "button tiny", data:  { target: "#phones" }
 
 
 		.small-12.medium-6.columns
@@ -53,9 +49,11 @@
 				h4 Adressen
 				.fields
 					= f.fields_for :addresses
-					= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses
-
-	.row
-		.small-12.columns
+					= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "button tiny"
+	
+	- content_for :footer do
+		.row
+			.small-12.columns
+				hr
 				= link_to 'Zurück', contacts_path, class: "button secondary left"
 				= f.submit "Speichern", class: "button right"

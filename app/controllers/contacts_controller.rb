@@ -64,6 +64,7 @@ class ContactsController < ApplicationController
 		params.require(:contact).permit(
 			:name,
 			addresses_attributes: [
+				:id,
 				:contact_id,
 				:description,
 				:name,
@@ -75,6 +76,7 @@ class ContactsController < ApplicationController
 				:_destroy	
 			],
 			emails_attributes: [
+				:id,
 				:contact_id,
 				:name,
 				:value,

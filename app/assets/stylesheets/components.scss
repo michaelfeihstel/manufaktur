@@ -4,9 +4,79 @@
 	padding: 1rem;
 }
 
+// BUTTONS
+@mixin button {
+	@include appearance(none);
+	@include transition (all 150ms ease-in-out);
+	background-color: transparent;
+	border-style: solid;
+	border-width: 2px;
+	font-family: $header-font;
+	letter-spacing: 1px;
+	outline: none;
+	text-transform: uppercase;
+}
+
+.button {
+	@include button;
+	border-color: $primary-color;
+	color: $primary-color;
+
+	&:hover {
+		background-color: $primary-color;
+		color: #fff;
+	}
+}
+
+.button.secondary {
+	@include button;
+	border-color: #ccc;
+	color: #ccc;
+
+	&:hover {
+		background-color: #ccc;
+		color: #fff;
+	}
+}
+
+.button.alert {
+	@include button;
+	border-color: $alert-color;
+	color: $alert-color;
+
+	&:hover {
+		background-color: $alert-color;
+		color: #fff;
+	}
+}
+
+.button.inverted {
+	@include button;
+	border-color: #fff;
+	color: #fff;
+
+	&:hover {
+		background-color: #fff;
+		color: $primary-color;
+	}
+}
+
+
+.button.small,
+.button.tiny {
+	border-width: 1px;
+}
+
+.button.large {
+	border-width: 3px;
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+
+
 
 // FORMS
-
 div.fields {
 	margin-bottom: 1rem;
 	position: relative;
@@ -39,6 +109,11 @@ textarea {
 	@include input;
 	display: inline !important;
 	background: none;
+
+	&:hover,
+	&:focus {
+		border-bottom: 1px solid $primary-color;
+	}
 }
 
 input[type="checkbox"] {
@@ -99,15 +174,6 @@ select,
 
 }
 
-input:hover,
-input:focus {
-	border-bottom: 1px solid $primary-color;
-}
-
-input[type="submit"]:hover,
-input[type="button"]:hover {
-	border: none;
-}
 
 select:hover,
 select:focus {

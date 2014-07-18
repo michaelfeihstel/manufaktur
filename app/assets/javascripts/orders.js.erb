@@ -15,15 +15,6 @@ $('#order_contact_id').change(function() {
 	$('#order_billing_address_id, #order_delivery_address_id').selectize({});
 });
 
-// toggle search panel
-
-$('#search-toggle').click(function() {
-	console.log('search-toggle clicked');
-
-	$('#search').slideToggle(200);
-	$('#search-toggle').toggleClass("enabled")
-});
-
 // selectize.js
 
 $('#order_contact_id').selectize();

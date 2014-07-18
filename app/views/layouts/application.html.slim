@@ -29,16 +29,21 @@ html lang="en"
     = render "layouts/header"
 
     #content
-      = render "layouts/flash"
-      = yield :search
+      #content-top
+        = render "layouts/flash"
+        = yield :search
+        = yield :toolbar
 
-      .row
-        .small-12.columns
-          = yield :toolbar
-          = yield :title_bar
-          = yield
-          = yield :main_content
-          = render "layouts/footer"
+      #content-middle
+        .row
+          .small-12.columns
+            = yield :title_bar
+            = yield
+            = yield :main_content
+
+      #content-bottom
+        = yield :footer
+        // = render "layouts/footer"
 
     #sidebar
       = yield :sidebar

@@ -6,6 +6,5 @@
         ul.inline-list
           li= link_to icon("add", text: "Neu"), new_order_path
           li= link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order)
-          li#search-toggle= link_to icon("search", text: "Suchen"), "#"
           li.right
             = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden." }
