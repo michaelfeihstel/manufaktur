@@ -81,6 +81,13 @@ class ContactsController < ApplicationController
 				:name,
 				:value,
 				:_destroy
+			],
+			phones_attributes: [
+				:id,
+				:contact_id,
+				:name,
+				:value,
+				:_destroy
 			]
 		)
 	end

@@ -37,6 +37,7 @@ html lang="en"
       #content-middle
         .row
           .small-12.columns
+            = yield :breadcrumbs
             = yield :title_bar
             = yield
             = yield :main_content

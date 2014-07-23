@@ -1,18 +1,18 @@
+= render "orders/show/sidebar"
 = render "orders/index/search"
+= render "orders/common/toolbar"
+= render "orders/show/breadcrumbs"
 
-= render "orders/show/toolbar"
+- content_for :title, "Order Page"
+- navigation_add "Aufträge", orders_path
+
+= render_navigation
 
 - content_for :title_bar
   .row
     .small-12.columns
       section
-        ul.breadcrumbs
-          li = link_to "Home", :root
-          li = link_to "Aufträge", orders_path
-          li.current = link_to "#{@order.id}", order_path(@order.id)
         h1= @order.id
-
-= render "orders/show/sidebar"
 
 - content_for :main_content
   .row
@@ -51,11 +51,9 @@
           = render partial: "orders/show/line_item", locals: { :li => li }
 
 
-- content_for :footer
   .row
-    .small-12.medium-2.columns
-      = link_to "Zurück", :back, class: "button secondary expand"
-
-    .small-12.medium-2.columns
+    .small-12.columns
+      hr
+      = link_to "Zurück", :back, class: "button secondary left"
       = link_to "Bearbeiten", edit_order_path, class: "button right"
       = button_to "Löschen", @order, method: :delete, data: { confirm: "Wirklich löschen?" }, class: "button right alert"

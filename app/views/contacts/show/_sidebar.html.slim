@@ -1,13 +1,17 @@
 - content_for :sidebar do
-  #sidebar
-    .sidebar-header
-      = search_form_for @search do |f|
-        = f.search_field :name_or_addresses_city_cont, placeholder: "Suchen...", id: "search-field"
+  .sidebar-header
+    = search_form_for @search do |f|
+      = f.search_field :name_or_addresses_city_cont, placeholder: "Suchen...", id: "search-field"
 
-    .sidebar-content
-      ul.sidebar-list
-        - @contacts.each do |contact|
-          = render partial: "contacts/list_item", locals: { contact: contact }
+  .sidebar-content
+    .sidebar-section.row
+      .small-12.columns
+        h4.light.small Bereich
+        ul.side-nav data-tab=""
+          li.tab-title.active = link_to "Stammdaten", "#tab_overview"
+          li.tab-title = link_to "Verkauf", "#tab_sales"
+          li.tab-title = link_to "Bemerkungen", "#tab_notes"
+          li.tab-title = link_to "Briefe", "#tab_letters"
 
-    .sidebar-footer.dark.inverted
-      .sidebar-section
+  .sidebar-footer.dark.inverted
+    .sidebar-section

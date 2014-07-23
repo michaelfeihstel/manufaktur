@@ -32,16 +32,16 @@ section {
 }
 
 #content-top {
-	@include flex-shrink(0);
+	@include flex(0 0 59px);
+	z-index: 1;
 }
 
 #content-middle {
-	@include flex-grow(1);
+	@include flex(1 0);
 	overflow: scroll;
 }
 
 #content-bottom {
-	@include flex-shrink(0);
 }
 
 

@@ -9,51 +9,15 @@
 						.alert-box.alert data-alert=""
 							li = msg
 
-		.small-12.medium-6.columns
-			section
-				h4 Kontakt
-				.fields
-					= f.label :name
-					= f.text_field :name
+	.row
+		.small-12.columns
+			.tabs-content
+				= render "contacts/edit/form_core_data", f: f
+				= render "contacts/edit/form_notes", f: f
+				= render "contacts/edit/form_letters", f: f
 
-			section
-				h4 Kontaktdaten
-				label eMail
-				table
-					thead
-						tr
-							td.first Bezeichnung
-							td eMail
-							td.last 
-					tbody id="emails"
-						= f.fields_for :emails, wrapper: false do |email_form|
-							= render "email_fields", f: email_form
-				= f.link_to_add icon("add", text: "eMail hinzufügen"), :emails, class: "button tiny", data:  { target: "#emails" }
-
-			section
-				label Telefon & Fax
-				table
-					thead
-						tr
-							td.first Bezeichnung
-							td Nummer
-							td.last 
-					tbody id="phones"
-						= f.fields_for :phones, wrapper: false do |phone_form|
-							= render "phone_fields", f: phone_form
-				= f.link_to_add icon("add", text: "Nummer hinzufügen"), :phones, class: "button tiny", data:  { target: "#phones" }
-
-
-		.small-12.medium-6.columns
-			section
-				h4 Adressen
-				.fields
-					= f.fields_for :addresses
-					= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "button tiny"
-	
-	- content_for :footer do
-		.row
-			.small-12.columns
-				hr
-				= link_to 'Zurück', contacts_path, class: "button secondary left"
-				= f.submit "Speichern", class: "button right"
+	.row
+		.small-12.columns
+			hr
+			= link_to 'Abbrechen', :back, class: "button secondary left"
+			= f.submit "Speichern", class: "button right"

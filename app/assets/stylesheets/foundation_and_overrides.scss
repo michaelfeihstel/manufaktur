@@ -194,12 +194,12 @@ $crumb-border-size: 0px;
 // $crumb-radius: $global-radius;
 
 // We use these to set various text styles for breadcrumbs.
-// $crumb-font-size: rem-calc(11);
+$crumb-font-size: rem-calc(13);
 // $crumb-font-color: $primary-color;
-// $crumb-font-color-current: #333;
+// $crumb-font-color-current: #666;
 // $crumb-font-color-unavailable: #999;
-// $crumb-font-transform: uppercase;
-// $crumb-link-decor: underline;
+$crumb-font-transform: none;
+$crumb-link-decor: none;
 
 // We use these to control the slash between breadcrumbs
 // $crumb-slash-color: lighten($primary-color, 20%);

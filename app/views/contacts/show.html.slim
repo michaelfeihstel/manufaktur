@@ -1,38 +1,24 @@
-<!-- sidebar -->
-= render "contacts/common/sidebar_contact_list"
-
-<!-- search -->
+= render "contacts/show/sidebar"
 = render "contacts/search"
+= render "contacts/common/toolbar"
+= render "contacts/show/breadcrumbs"
 
-<!-- toolbar -->
-= render "contacts/show/toolbar"
-
-<!-- title -->
 - content_for :title_bar do
   section
     h1 = @contact.name
 
-<!-- main content -->
 - content_for :main_content do
+  .tabs-content
+    .content.active#tab_overview
+      = render "/contacts/show/contact_information"
+    .content#tab_sales
+      = render "/contacts/charts/order_chart"
+      = render "/contacts/show/table_orders"
+
 
   .row
     .small-12.columns
-      ul.tabs data-tab=""
-        li.tab-title.active
-          a href="#tab_overview" Überblick
-        li.tab-title
-          a href="#tab_sales" Verkauf
-      .tabs-content
-        .content.active#tab_overview
-          = render "/contacts/show/contact_information"
-        .content#tab_sales
-          = render "/contacts/charts/order_chart"
-          = render "/contacts/show/table_orders"
-
-- content_for :footer do
-  .row
-    .small-12.columns
-      ul.inline-list
-        li.left = link_to 'Zurück', contacts_path, class: "button secondary left"
-        li.right = link_to "Löschen", @contact, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button alert"
-        li.right = link_to "Bearbeiten", edit_contact_path, class: "button"
+      hr
+      = link_to 'Zurück', contacts_path, class: "button secondary left"
+      = link_to "Löschen", @contact, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button right alert"
+      = link_to "Bearbeiten", edit_contact_path, class: "button right"

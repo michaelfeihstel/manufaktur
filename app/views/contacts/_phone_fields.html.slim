@@ -1,8 +1,7 @@
-tr.no-border
+tr.no-border.fields
 	td.first
 		= f.text_field :name
 	td
 		= f.text_field :value
 	td.last.text-right
-		span data-tooltip="" title="Eintrag entfernen"
-			= f.link_to_remove icon("bin")
+		= f.link_to_remove icon("bin")

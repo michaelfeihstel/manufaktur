@@ -13,8 +13,21 @@
 	border-width: 2px;
 	font-family: $header-font;
 	letter-spacing: 1px;
+	margin-right: 1rem;
 	outline: none;
 	text-transform: uppercase;
+
+	&.right {
+		margin-right: 0;
+		margin-left: 1rem;
+	}
+
+	@media #{$small-only} {
+		clear: both;
+		width: 100%;
+		margin-right: 0;
+		margin-left: 0;
+	};
 }
 
 .button {
@@ -343,7 +356,28 @@ tfoot > tr {
 
 
 
+// BREADCRUMBS
+ul.breadcrumbs {
+	background: none;
+	margin-bottom: 0;
+
+	li {
+		font-size: rem-calc(14);
+		text-transform: none;
+	}
+}
+
+
+
 // TOOLBAR
+.main-toolbar {
+	background-color: scale-color($primary-color, $lightness: 80%);
+	padding: 1rem 0;
+	ul {
+		margin-bottom: 0;
+	}
+}
+
 .toolbar {
 	margin: 0 0 1rem 0;
 	box-sizing: border-box;
@@ -548,7 +582,14 @@ ul.side-nav {
 				color: #fff;
 				padding: 0.2rem 30px !important;
 				margin: 0 -30px;
-			}			
+			}
+		}
+
+		&.active {
+			padding: 0 30px;
+			margin: 0 -30px;
+			background-color: #fff;
+			color: $primary-color;
 		}
 	}
 

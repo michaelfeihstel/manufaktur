@@ -1,18 +1,12 @@
-- content_for :toolbar do
-	.toolbar
+= render "contacts/search"
+= render "contacts/common/toolbar"
+= render "contacts/edit/breadcrumbs"
 
 - content_for :title_bar do
   section
     h1 = @contact.name
-    ul.sub-nav
-      li.active
-      	= link_to "Übersicht", edit_contact_path(@contact)
-      li
-      	= link_to "Briefe", "#"
-      li
-      	= link_to "Bemerkungen", "#"
 
-= render "contacts/common/sidebar_contact_list"
+= render "contacts/edit/sidebar"
 
 - content_for :main_content do
 	= render "contacts/form"
