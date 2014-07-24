@@ -1,0 +1,7 @@
+= content_for :breadcrumbs do
+  .toolbar
+    ul.breadcrumbs
+      li = link_to "Home", :root
+      li = link_to "Aufträge", orders_path
+      li = link_to @order.id, order_path(@order)
+      li.light Bearbeiten

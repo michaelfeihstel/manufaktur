@@ -1,18 +1,14 @@
-/sidebar
-= render partial: "orders/edit/sidebar"
+= render "orders/edit/sidebar"
+= render "orders/common/search"
+= render "orders/common/toolbar"
+= render "orders/edit/breadcrumbs"
 
-/toolbar
-= render "orders/edit/toolbar"
-
-/title bar
 - content_for :title_bar do
 	.row
 	  .small-12.columns
 	  	section
 				h1
 					span.bold = @order.id
-					span.thin Bearbeiten
 
-/main content
 - content_for :main_content do
 	= render "orders/form"

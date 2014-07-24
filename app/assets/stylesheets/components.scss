@@ -193,7 +193,8 @@ select:focus {
 	background-color: transparent;
 }
 
-.selectize-control {
+.selectize-input {
+	z-index: 0;
 }
 
 .selectize-input,
@@ -362,8 +363,13 @@ ul.breadcrumbs {
 	margin-bottom: 0;
 
 	li {
+		color: inherit;
 		font-size: rem-calc(14);
 		text-transform: none;
+
+		a {
+			color: inherit;
+		}
 	}
 }
 

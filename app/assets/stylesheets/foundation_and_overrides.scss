@@ -30,8 +30,8 @@ $rem-base: 16px;
 
 // $include-html-grid-classes: $include-html-classes;
 
-$row-width: rem-calc(1300);
-$column-gutter: rem-calc(60);
+$row-width: 100%;
+$column-gutter: rem-calc(120);
 // $total-columns: 12;
 
 
@@ -55,7 +55,7 @@ $alert-color: #E40D46;
 
 // We use these to control various global styles
 // $body-bg: #f6f4f1;
-$body-bg: #FFFFFF;
+$body-bg: #fff;
 // $body-font-color: #222;
 $body-font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;

@@ -29,21 +29,25 @@ html lang="en"
     = render "layouts/header"
 
     #content
-      = yield :search
-      #content-top.inverted
+      #content-top
         = render "layouts/flash"
-        = yield :breadcrumbs
-        = yield :title_bar
+        = yield :search
+        = yield :toolbar
 
       #content-middle
         .row
           .small-12.columns
+            = yield :breadcrumbs
+            = yield :title_bar
             = yield
             = yield :main_content
 
       #content-bottom
         = yield :footer
+        // = render "layouts/footer"
 
+    #sidebar
+      = yield :sidebar
     
     a href="#" class="sidebar-toggle hide-for-large-up" = icon("show-sidebar")
 

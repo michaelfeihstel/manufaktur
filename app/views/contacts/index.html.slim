@@ -1,11 +1,13 @@
 = render "contacts/index/sidebar"
 = render "contacts/search"
-= render "contacts/common/toolbar"
 = render "contacts/index/breadcrumbs"
 
 - content_for :title_bar do
-  section
-  	h1 Kontakte
+	.row-collapse
+		.small-12.medium-8.columns
+			h1 Kontakte
+		.small-12.medium-4.columns
+			= render "contacts/common/toolbar"
 
 - content_for :main_content do
   .row

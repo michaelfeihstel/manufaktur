@@ -1,13 +1,9 @@
 module NavigationHelper
-		def ensure_navigation
-			@navigation ||= [ { title: "Home", url: :root } ]
+	def build_breadcrumbs(crumbs)
+		crumbs.each do |crumb|
+			content_tag :li do
+				link_to crumb[:title], crumb[:url]
+			end
 		end
-
-		def navigation_add(title, url)
-			ensure_navigation << { title: title, url: url }
-		end
-
-		def render_navigation
-			render "shared/navigation", nav: ensure_navigation
-		end
+	end
 end

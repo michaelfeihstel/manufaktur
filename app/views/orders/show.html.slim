@@ -1,12 +1,7 @@
 = render "orders/show/sidebar"
-= render "orders/index/search"
+= render "orders/common/search"
 = render "orders/common/toolbar"
 = render "orders/show/breadcrumbs"
-
-- content_for :title, "Order Page"
-- navigation_add "Aufträge", orders_path
-
-= render_navigation
 
 - content_for :title_bar
   .row

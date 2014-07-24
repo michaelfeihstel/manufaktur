@@ -1,17 +1,13 @@
 = render "orders/index/sidebar"
-= render "orders/index/search"
+= render "orders/common/search"
 = render "orders/common/toolbar"
 = render "orders/index/breadcrumbs"
-
-- content_for :title, "Current Page"
-- navigation_add "Aufträge", orders_path
-= render_navigation
 
 - content_for :title_bar do
 	section
 		h1 Aufträge
 		- if @date
-			h4.thin= l @date, format: :weekday_default
+			h4.thin = l @date, format: :weekday_default
 
 - content_for :main_content do
 	.row  
