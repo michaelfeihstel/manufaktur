@@ -1,22 +1,12 @@
 - content_for :sidebar do
-	.sidebar-header
-		= search_form_for @search do |f|
-			= f.search_field :id_or_billing_name_or_delivery_name_cont, placeholder: "Suchen...", id: "search-field"
-
 	.sidebar-content
-		.section
-			.row
-				.small-12.columns
-					h4.small.light Bereich
-					ul.side-nav data-tab=""
-						li.tab-title.active
-							a href="#tab-shoes" Auftrag
-						li.tab-title
-							a href="#tab-invoice" Rechnung & Zahlung
-						li.tab-title
-							a href="#tab-shipping" Versand
-
-
-	.sidebar-footer.dark.inverted
-		.sidebar-section
-			= paginate @orders
+		.row
+			.small-12.columns
+				h4.small.light Bereich
+				ul.side-nav data-tab=""
+					li.tab-title.active
+						a href="#tab-shoes" Auftrag
+					li.tab-title
+						a href="#tab-invoice" Rechnung & Zahlung
+					li.tab-title
+						a href="#tab-shipping" Versand

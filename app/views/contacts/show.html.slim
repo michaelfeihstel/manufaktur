@@ -1,13 +1,15 @@
-= render "contacts/show/sidebar"
 = render "contacts/search"
-= render "contacts/common/toolbar"
 = render "contacts/show/breadcrumbs"
 
 - content_for :title_bar do
-  section
-    h1 = @contact.name
+  .row
+    .small-12.columns
+      h1 = @contact.name
 
-- content_for :main_content do
+= render "contacts/common/toolbar"
+= render "contacts/show/sidebar"
+
+- content_for :content do
   .tabs-content
     .content.active#tab_overview
       = render "/contacts/show/contact_information"

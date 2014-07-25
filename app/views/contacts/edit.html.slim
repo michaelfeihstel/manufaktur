@@ -1,12 +1,12 @@
 = render "contacts/search"
 = render "contacts/common/toolbar"
 = render "contacts/edit/breadcrumbs"
-
-- content_for :title_bar do
-  section
-    h1 = @contact.name
-
 = render "contacts/edit/sidebar"
 
-- content_for :main_content do
+- content_for :title_bar do
+	.row
+		.small-12.columns
+			h1 = @contact.name
+
+- content_for :content do
 	= render "contacts/form"

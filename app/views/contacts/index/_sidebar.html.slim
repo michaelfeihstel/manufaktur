@@ -1,16 +1,10 @@
 - content_for :sidebar do
-  #sidebar
-
-    .sidebar-header
-      = search_form_for @search do |f|
-        = f.search_field :name_or_addresses_city_cont, placeholder: "Suchen...", id: "search-field"
-
-    .sidebar-content
-      .sidebar-section.row
-        .small-12.columns
-          h4.light.small Filter
-          ul.side-nav
-            li = link_to "Alle", contacts_path
-            li = link_to "Händler", "#"
-            li = link_to "Mitarbeiter", "#"
-            li = link_to "Shop Kunden", "#"
+	.sidebar-content
+		.row
+			.small-12.columns
+				h4.light.small Filter
+				ul.side-nav
+					li.active = link_to "Alle", contacts_path
+					li = link_to "Händler", "#"
+					li = link_to "Mitarbeiter", "#"
+					li = link_to "Shop Kunden", "#"

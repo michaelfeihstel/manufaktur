@@ -1,3 +1,7 @@
-ul.inline-list.right
-	li = link_to icon("add", text: "Neu"), new_contact_path
-	li#search-toggle = link_to icon("search", text: "Suchen"), "#"
+- content_for :toolbar
+	.main-toolbar
+		.row
+			.small-12.columns
+				ul.inline-list
+					li = link_to icon("add", text: "Neu"), new_contact_path
+					li#search-toggle = link_to icon("search", text: "Suchen"), "#"

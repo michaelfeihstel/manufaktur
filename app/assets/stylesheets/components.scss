@@ -1,7 +1,7 @@
 // SEARCH
 #search {
 	background-color: scale-color($primary-color, $lightness: 30%);
-	padding: 1rem;
+	padding: 1.25rem 0;
 }
 
 // BUTTONS
@@ -15,7 +15,6 @@
 	letter-spacing: 1px;
 	margin-right: 1rem;
 	outline: none;
-	text-transform: uppercase;
 
 	&.right {
 		margin-right: 0;
@@ -594,7 +593,6 @@ ul.side-nav {
 		&.active {
 			padding: 0 30px;
 			margin: 0 -30px;
-			background-color: #fff;
 			color: $primary-color;
 		}
 	}

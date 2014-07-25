@@ -28,23 +28,24 @@ html lang="en"
   body
     = render "layouts/header"
 
-    #content
-      = yield :search
-      #content-top.inverted
+    #container
+      #header
         = render "layouts/flash"
-        = yield :breadcrumbs
-        = yield :title_bar
+        #title-area.inverted
+          = yield :breadcrumbs
+          = yield :title_bar
+        = yield :search
+        = yield :toolbar
 
-      #content-middle
-        .row
-          .small-12.columns
-            = yield
-            = yield :main_content
+      #content
+        #sidebar
+          = yield :sidebar
+        #content-main
+          .row
+            .small-12.columns
+              = yield :content
 
-      #content-bottom
+      #footer
         = yield :footer
-
-    
-    a href="#" class="sidebar-toggle hide-for-large-up" = icon("show-sidebar")
 
     = javascript_include_tag "application"

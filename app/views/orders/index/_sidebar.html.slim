@@ -1,26 +1,20 @@
 - content_for :sidebar do
-  .sidebar-header
-    = search_form_for @search do |f|
-      = f.search_field :contact_name_cont, placeholder: "Suchen...", id: "search-field"
-
   .sidebar-content
-    .row.sidebar-section
+    .row
       .small-12.columns
-        ul.side-nav
-          h4.light.small Filter
-          = content_tag :li, class: ("active" if @filter_selected == "all") do
-            = link_to "Alle", orders_path
-          = content_tag :li, class: ("active" if @filter_selected == "favorites") do
-            a href=marked_orders_path
-              | Favoriten 
-              span.label.round = @orders.marked_as_favorite.count
-          li = link_to "Terminlieferungen", "#"
-          li = link_to "Rückstände", marked_orders_path
-
-  
-  .sidebar-footer.inverted.dark
-    .row.sidebar-section
-      .small-12.columns
-        h4.light.small Kalender
-        = month_calendar start_date: @date, table: {class: "calendar"} do |date|
-          = link_to (l date, format: :day_of_month), created_at_orders_path(year: date.year, month: date.month, day: date.day)
+        section
+          ul.side-nav
+            label Filter
+            = content_tag :li, class: ("active" if @filter_selected == "all") do
+              = link_to "Alle", orders_path
+            = content_tag :li, class: ("active" if @filter_selected == "favorites") do
+              a href=marked_orders_path
+                | Favoriten 
+                span.label.round = @orders.marked_as_favorite.count
+            li = link_to "Terminlieferungen", "#"
+            li = link_to "Rückstände", marked_orders_path
+        
+        section
+          label Kalender
+          = month_calendar start_date: @date, table: {class: "calendar"} do |date|
+            = link_to (l date, format: :day_of_month), created_at_orders_path(year: date.year, month: date.month, day: date.day)

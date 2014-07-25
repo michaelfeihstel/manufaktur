@@ -31,7 +31,7 @@ $rem-base: 16px;
 // $include-html-grid-classes: $include-html-classes;
 
 $row-width: 100%;
-$column-gutter: rem-calc(120);
+$column-gutter: rem-calc(60);
 // $total-columns: 12;
 
 
@@ -54,14 +54,13 @@ $alert-color: #E40D46;
 // $success-color: #43AC6A;
 
 // We use these to control various global styles
-// $body-bg: #f6f4f1;
-$body-bg: #fff;
+$body-bg: #fdfdfd;
 // $body-font-color: #222;
 $body-font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
-$header-font-family: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$header-font-family: "ff-meta-web-serif-pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 $header-font-color: $primary-color;
 $header-font-weight: 400;
 
@@ -843,8 +842,8 @@ $side-nav-font-size: rem-calc(16);
 
 // We use this to control the definition
 // $sub-nav-font-family: $body-font-family;
-// $sub-nav-font-size: rem-calc(14);
-// $sub-nav-font-color: #999;
+// $sub-nav-font-size: rem-calc(16);
+$sub-nav-font-color: #ccc;
 // $sub-nav-font-weight: normal;
 // $sub-nav-text-decoration: none;
 $sub-nav-border-radius: none;
@@ -908,7 +907,7 @@ $tabs-navigation-active-bg-color: $primary-color;
 // $tabs-navigation-font-family: $body-font-family;
 
 // $tabs-content-margin-bottom: rem-calc(24);
-// $tabs-content-padding: $column-gutter/2;
+$tabs-content-padding: none;
 
 // $tabs-vertical-navigation-margin-bottom: 1.25rem;
 

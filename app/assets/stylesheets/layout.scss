@@ -11,7 +11,7 @@ section {
 
 
 
-#content {
+#container {
 	@include display(flex);
 	@include flex-direction(column);
 	@include justify-content(flex-start);
@@ -20,53 +20,61 @@ section {
 	top: 45px;
 	bottom: 0px;
 
-	@media #{$large-up} {
-		//left: 300px;
-		//right: 0px;
-		//position: absolute;
-	}
-
 	&.disabled {
 		@include transform(translateX(300px));
 	}
 }
 
-#content-top {
+#header {
 	@include flex(0 0);
-	background-color: scale-color($primary-color, $lightness: 20%);
-	margin-bottom: 5rem;
-	padding: 1.25rem 0 4rem 0rem;
 	z-index: 1;
-}
 
-#content-middle {
-	@include flex(1 0);
-	overflow: scroll;
-}
-
-#content-bottom {
-}
-
-
-#sidebar {
-	@include display(flex);
-	@include flex-direction(column);
-	@include justify-content(flex-start);
-	@include transition (all 200ms ease-in-out);
-	background-color: $secondary-color;
-	left: -300px;
-	width: 300px;
-	position: fixed;
-	bottom: 0px;
-	top: 45px;
-	overflow-y: scroll;
-	@media #{$large-up} {
-		left: 0px;
-	};
-
-	&.enabled {
-    @include transform(translateX(300px));
+	#title-area {
+		background-color: scale-color($primary-color, $lightness: 20%);
+		padding: 1.25rem 0 2rem 0rem;
 	}
+}
+
+#content {
+	@include flex(1 0);
+	@include display(flex);
+	@include flex-direction(row);
+	@include justify-content(flex-start);
+	@include align-items(stretch);
+	overflow: scroll;
+	position: absolute;
+	top: 259px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+
+
+	#sidebar {
+		@include flex(0 0 300px);
+		@include display(flex);
+		@include flex-direction(column);
+		@include justify-content(flex-start);
+		@include transition (all 200ms ease-in-out);
+		border-right: 1px solid #e3e3e3;
+		margin: 2rem 0;
+		overflow-y: scroll;
+		@media #{$large-up} {
+			left: 0px;
+		};
+
+		&.enabled {
+	    @include transform(translateX(300px));
+		}
+	}
+
+	#content-main {
+		@include flex(1 1);
+		padding-top: 2rem;
+		overflow: auto;
+	}
+}
+
+#footer {
 }
 
 
