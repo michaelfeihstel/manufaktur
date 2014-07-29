@@ -1,0 +1,9 @@
+- content_for :sidebar
+	.row
+		.small-12.columns
+			label Menü
+			ul.side-nav data-tab=""
+				li.tab-title.active = link_to "Allgemein", "#tab-general"
+				li.tab-title = link_to "Verkauf", "#tab-sales"
+				li.tab-title = link_to "Produktion", "#tab-production"
+				li.tab-title = link_to "Material", "#tab-material"

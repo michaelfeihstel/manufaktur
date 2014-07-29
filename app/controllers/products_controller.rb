@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
 	def index
 		@search = Product.search(params[:q])
-		@products = @search.result(distinct: true).order(:name)
+		@products = @search.result(distinct: true).includes(:product_images).order(:name)
 
 		respond_to do |format|
   		format.html # index.html.erb

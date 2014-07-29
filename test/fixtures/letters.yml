@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: letters
+#
+#  id           :integer          not null, primary key
+#  contact_id   :integer
+#  address_id   :integer
+#  name         :string(255)
+#  street       :string(255)
+#  house_number :string(255)
+#  zip          :string(255)
+#  city         :string(255)
+#  country      :string(255)
+#  subject      :string(255)
+#  body         :text
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_id: 
+  address_id: 
+  name: MyString
+  street: MyString
+  house_number: MyString
+  zip: MyString
+  city: MyString
+  country: MyString
+  subject: MyString
+  body: MyText
+
+two:
+  contact_id: 
+  address_id: 
+  name: MyString
+  street: MyString
+  house_number: MyString
+  zip: MyString
+  city: MyString
+  country: MyString
+  subject: MyString
+  body: MyText

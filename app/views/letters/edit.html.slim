@@ -1,0 +1,15 @@
+= render "letters/common/search"
+= render "letters/edit/breadcrumbs"
+= render "letters/common/toolbar"
+= render "letters/edit/sidebar"
+
+- content_for :title_bar
+	.row
+		.small-12.columns
+			h1.truncated = @letter.subject
+
+- content_for :content
+	section
+		.row
+			.small-12.columns
+				= render "letters/common/form"

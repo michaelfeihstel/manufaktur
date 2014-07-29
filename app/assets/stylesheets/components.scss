@@ -15,6 +15,7 @@
 	letter-spacing: 1px;
 	margin-right: 1rem;
 	outline: none;
+	text-transform: uppercase;
 
 	&.right {
 		margin-right: 0;
@@ -342,10 +343,10 @@ tfoot > tr {
 	padding: 1.25rem;
 }
 
-.bar-top {
+.panel-top {
 	@extend .bar;
 	@include flex-direction(row);
-	@include align-items(center);
+	@include align-items(stretch);
 	@include justify-content(flex-start);
 	margin: -1.25rem -1.25rem 1.25rem -1.25rem !important; 
 }
@@ -664,7 +665,6 @@ input#search-field {
 
 nav.pagination {
 	padding: 1rem 0;
-	text-align: center;
 
 	span {
 		font-size: 1rem;

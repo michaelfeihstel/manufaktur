@@ -26,6 +26,9 @@ $(document).foundation();
 // Flash notice
 $('#flash').slideDown(500).delay(5000).slideUp(500);
 
+
+
+
 // search-toggle
 $('#search-toggle').click(function() {
 	console.log('search-toggle clicked');
@@ -33,6 +36,9 @@ $('#search-toggle').click(function() {
 	$('#search').slideToggle(200);
 	$('#search-toggle').toggleClass("enabled")
 });
+
+
+
 
 // sidebar toggle
 $('.sidebar-toggle').click(function() {
@@ -45,8 +51,16 @@ $('.sidebar-toggle').click(function() {
 	console.log("sidebar was triggered.");
 });
 
+
+
+
 // sticky elements
-$(".sticky").stick_in_parent()
+$(".sticky").stick_in_parent({
+	parent: "#head"
+})
+
+
+
 
 // convert table rows to links
 $('tr').on("click", function() {
@@ -55,8 +69,15 @@ $('tr').on("click", function() {
     }
 });
 
+
+
 // remove required attribute for deleted nested_forms
 $(document).on('nested:fieldRemoved', function (event) {
 	console.log("field removed");
   $('[required]', event.field).removeAttr('required');
 });
+
+
+
+// selectize.js for select boxes
+$('.selectize').selectize();

@@ -49,7 +49,8 @@ class LineItem < ActiveRecord::Base
   belongs_to :product
 
   # scopes
-  scope :completed, -> { where( completed_at.present ) }
+  scope :completed, -> { where(completed_at.present) }
+  scope :order_by_created_desc, -> { order(created_at: :desc) }
 
   # methods
   def temp_id

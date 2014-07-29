@@ -17,6 +17,7 @@ class Contact < ActiveRecord::Base
 	has_many :phones, -> { where(info_type: "Telefon") }, class_name: "ContactInformation"
 	has_many :orders
 	has_many :line_items, through: :orders
+	has_many :letters
 
 	accepts_nested_attributes_for :addresses, allow_destroy: true
 	accepts_nested_attributes_for :contact_information, allow_destroy: true

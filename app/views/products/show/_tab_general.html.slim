@@ -1,0 +1,29 @@
+.content.active#tab-general
+	.row
+		.small-12.large-8.columns
+			section
+				h5 Allgemein
+				p
+					label Artikelnummer
+					= @product.sku
+				p
+					label Bezeichnung
+					= @product.name
+				p
+					label Farbe
+					= @product.color_text
+				p
+					label Größensystem
+					= @product.size.try(:name)
+				p
+					label Preis
+					= number_to_currency(@product.price, unit: "€")
+				p
+					label Mehrwertsteuer
+					= @product.vat
+
+		.small-12.large-4.columns
+			section
+				h5 Bilder
+				- @product.product_images.each do |product_image|
+					p = image_tag(product_image.image.url(:large))

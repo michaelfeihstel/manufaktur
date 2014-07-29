@@ -1,0 +1,32 @@
+= render "products/index/sidebar"
+= render "products/index/breadcrumbs"
+= render "products/common/toolbar"
+= render "products/common/search"
+
+
+- content_for :title_bar
+	.row
+		.small-12.columns
+			h1 Artikel
+
+- content_for :content
+	.row
+		.small-12.columns
+			table
+				thead
+					tr
+						td width=100 Bild
+						td width=150 Artikelnummer
+						td Bezeichnung
+						td Farbe
+						td Preis
+				tbody
+					- @products.each do |product|
+						tr.link href=product_path(product)
+							td = image_tag product.default_image
+							td = product.sku
+							td = product.name
+							td
+								span.label style=product_color(product)
+									= product.color_text
+							td = number_to_currency(product.price, unit:"€ ")

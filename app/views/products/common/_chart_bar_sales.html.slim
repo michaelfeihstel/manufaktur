@@ -1,0 +1,47 @@
+#chart_sales
+
+javascript:
+	var de = d3.locale({
+		'decimal': ',',
+		'thousands': '.',
+		'grouping': [3],
+		'currency': ['€ ', ''],
+		'dateTime': '%a %b %e %X %Y',
+		'date': '%m/%d/%Y',
+		'time': '%H:%M:%S',
+		'periods': ['AM', 'PM'],
+		'days': ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+		'shortDays': ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+		'months': ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+		'shortMonths': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	});
+
+
+	var chart = c3.generate({
+			bindto: "#chart_sales",
+			data: {
+				columns: [
+					#{raw @product.sales_per_size.map{|k,v| v}.prepend("Anzahl")}
+				],
+				type: 'bar',
+				labels: true,
+				labels: {
+					format: { }
+				},
+				colors: {
+					"Anzahl": '#7baccc'
+				}
+			},
+			axis: {
+				x: {
+					type: 'category',
+					categories: #{raw @product.size.sizes_as_array}
+				},
+				y: {
+					tick: { }
+				}
+			},
+			tooltip: {
+				format: { }
+			}
+	});

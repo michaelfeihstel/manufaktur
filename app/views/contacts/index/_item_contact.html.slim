@@ -1,8 +1,8 @@
-tr.contact-item.link href= contact_path(contact) data-id= contact.id
+tr.contact-item.link href=contact_path(contact)
 	td = contact.try(:id)
 	td = contact.name
 	td = "Händler"
 	td
 	td.text-right
-			span.tip-left data-tooltip="" title="Bearbeiten"
-			= link_to icon("pencil"), edit_contact_path(contact)
+		span.tip-left data-tooltip="" title="Bearbeiten"
+		= link_to icon("pencil"), edit_contact_path(contact)

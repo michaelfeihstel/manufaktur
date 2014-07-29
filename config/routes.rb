@@ -25,6 +25,11 @@ Filialen::Application.routes.draw do
     end
   end
   resources :line_items
+  resources :letters do
+    collection do
+      get 'page/:page', action: :index
+    end
+  end
 
 
 
@@ -42,6 +47,7 @@ Filialen::Application.routes.draw do
     resources :addresses
     resources :contacts
     resources :contact_information
+    resources :letters
     resources :line_items
     resources :orders
     resources :products

@@ -42,5 +42,12 @@ class Product < ActiveRecord::Base
     full_name = [ sku, name, color_text ]
     full_name.join(" - ")
   end
+
+  def sales_per_size
+    line_items = self.line_items
+    sizes = Size.column_names.delete_if{|column| ["id","name","created_at","updated_at"].include?(column)}
+
+    sizes.map{ |size| [size, line_items.sum(size)] }.to_h
+  end
   
 end
