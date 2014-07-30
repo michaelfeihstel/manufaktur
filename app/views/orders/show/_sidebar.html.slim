@@ -1,9 +1,9 @@
 - content_for :sidebar do
-  .sidebar-content
-    .row
-      .small-12.columns
-        h4.light.small Aufgaben
-        ul.side-nav
-          li = link_to icon("add", text: "Neu"), new_order_path
-          li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order)
-          li#search-toggle = link_to icon("search", text: "Suchen"), "#"
+	.row
+	  .small-12.columns
+	    h4.light.small Aufgaben
+	    ul.side-nav
+	      li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order)
+	      li = link_to completed_icon(@order, action_label: true), complete_order_path, method: :put
+	      li = link_to marked_icon(@order, action_label: true), mark_order_path, method: :put
+	      li = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Auftrag #{@order.id} wirklich löschen?" }

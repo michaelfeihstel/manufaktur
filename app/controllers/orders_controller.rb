@@ -96,9 +96,8 @@ class OrdersController < ApplicationController
 	end
 
 
-	def completed
+	def complete
 		@order = Order.find(params[:id])
-
 		@order.mark_as_completed
 
 		redirect_to order_path
@@ -110,13 +109,11 @@ class OrdersController < ApplicationController
 	end
 
 
-	def marked
+	def mark
 		@order = Order.find(params[:id])
-
 		@order.mark_as_marked
 
 		redirect_to order_path
-
 		if @order.marked == false
 			flash[:success] = "Auftrag #{@order.id} aus Favoriten entfernt."
 		else

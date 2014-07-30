@@ -17,8 +17,8 @@ Filialen::Application.routes.draw do
   resources :orders do
     member do
       post :update_addresses
-      put :marked
-      put :completed
+      put :mark
+      put :complete
     end
     collection do
       get "created/:year/:month/:day" => "orders#index_created_at", :as => "created_at"

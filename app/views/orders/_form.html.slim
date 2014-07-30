@@ -1,15 +1,13 @@
 = nested_form_for @order, data: { "order-id" => @order.id } do |f|
 	.row
 		.small-12.columns
-
 			- if @order.errors.any?
-			  #error_explanation
-			  	h4= "#{pluralize(@order.errors.count, "error")} prohibited this post from being saved:"
-
-			    ul
-				    - @order.errors.full_messages.each do |msg|
-				      .alert-box.alert data-alert=""
-				      	li= msg
+				#error_explanation
+					h4= "#{pluralize(@order.errors.count, "error")} prohibited this post from being saved:"
+					ul
+						- @order.errors.full_messages.each do |msg|
+							.alert-box.alert data-alert=""
+								li= msg
 
 	section
 		.row
@@ -31,82 +29,82 @@
 					= f.date_field :completed_at
 
 	section
-	.tabs-content
-		.content.active#tab-shoes
-			h4 Bestellte Artikel
-			#line_item_target = f.fields_for :line_items
-			ul.inline-list
-				li= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, :data => { :target => "#line_item_target" }
+		.tabs-content
+			.content.active#tab-shoes
+				h4 Bestellte Artikel
+				#line_item_target = f.fields_for :line_items
+				ul.inline-list
+					li= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, data: { target: "#line_item_target" }, class: "button small"
 
-		.content#tab-invoice
-			.row
-				.small-12.medium-6.columns
-					section
-						h4 Optionen
-						.fields
-							= f.check_box :is_free
-							= f.label :is_free, "Kostenloser Auftrag"
-						.fields
-							= f.check_box :is_vat_exempt
-							= f.label :is_vat_exempt, "Mehrwertsteuerbefreit"
-					section
-						h4 Rechnung
-						ul.small-block-grid-2.medium-block-grid-3
-							li.fields
-								= f.label :invoiced_at, "Rechnungsdatum"
-								= f.date_field :invoiced_at
-							li.fields
-								= f.label :price_total, "Rechnungsbetrag"
-								span.input = number_to_currency(@order.price_total, unit: "€")
-						h4 Skonto
-						ul.small-block-grid-2.medium-block-grid-3
-							li.fields
-								= f.label :cashback_until, "Skontofrist"
-								= f.date_field :cashback_until
-							li.fields
-								= f.label "Skontobetrag"
-								span.input= number_to_currency(@order.price_cashback, unit: "€")
-						h4 Zahlung
-						ul.small-block-grid-2.medium-block-grid-3
-							li.fields
-								= f.label :paid_on, "Zahlung erhalten am"
-								= f.date_field :paid_on
-							li.fields
-								= f.label :time_for_payment, "Status"
-								- if @order.paid_on && @order.invoiced_at
-									span.input= "Bezahlt nach #{distance_of_time_in_words(@order.invoiced_at, @order.paid_on)}"
-								- else
-									span.input= "Ausstehend seit #{time_ago_in_words(@order.invoiced_at)}"
+			.content#tab-invoice
+				.row
+					.small-12.medium-6.columns
+						section
+							h4 Optionen
+							.fields
+								= f.check_box :is_free
+								= f.label :is_free, "Kostenloser Auftrag"
+							.fields
+								= f.check_box :is_vat_exempt
+								= f.label :is_vat_exempt, "Mehrwertsteuerbefreit"
+						section
+							h4 Rechnung
+							ul.small-block-grid-2.medium-block-grid-3
+								li.fields
+									= f.label :invoiced_at, "Rechnungsdatum"
+									= f.date_field :invoiced_at
+								li.fields
+									= f.label :price_total, "Rechnungsbetrag"
+									span.input = number_to_currency(@order.price_total, unit: "€")
+							h4 Skonto
+							ul.small-block-grid-2.medium-block-grid-3
+								li.fields
+									= f.label :cashback_until, "Skontofrist"
+									= f.date_field :cashback_until
+								li.fields
+									= f.label "Skontobetrag"
+									span.input= number_to_currency(@order.price_cashback, unit: "€")
+							h4 Zahlung
+							ul.small-block-grid-2.medium-block-grid-3
+								li.fields
+									= f.label :paid_on, "Zahlung erhalten am"
+									= f.date_field :paid_on
+								li.fields
+									= f.label :time_for_payment, "Status"
+									- if @order.paid_on && @order.invoiced_at
+										span.input= "Bezahlt nach #{distance_of_time_in_words(@order.invoiced_at, @order.paid_on)}"
+									- else
+										span.input= "Ausstehend seit #{time_ago_in_words(@order.invoiced_at)}"
 
-				.small-12.medium-6.columns
-					h4 Zahlungsmoral
-					table
-						thead
-							tr
-								th width="80" Auftrag
-								th width="100" Abgeschlossen
-								th Status
-								th.text-right width="120" Betrag
-						tbody
-							- Order.where(contact_id: @order.contact_id).where.not(id: @order.id, completed_at: nil).includes(:line_items).order(created_at: :desc).each do |other_order|
+					.small-12.medium-6.columns
+						h4 Zahlungsmoral
+						table
+							thead
 								tr
-									td= link_to other_order.id, order_path(other_order), class: "link"
-									td= l other_order.completed_at, format: :date_only
-									td= payment_status(other_order)
-									td.text-right= number_to_currency(other_order.price_total, unit: "€")
-						tfoot
-							tr
-								td class="text-right" colspan=4
-									h4
-										span.thin offen: 
-										span.bold = number_to_currency(Order.where(contact_id: @order.contact_id, paid_on: nil).includes(:line_items).to_a.sum(&:price_total), unit: "€")
+									th width="80" Auftrag
+									th width="100" Abgeschlossen
+									th Status
+									th.text-right width="120" Betrag
+							tbody
+								- Order.where(contact_id: @order.contact_id).where.not(id: @order.id, completed_at: nil).includes(:line_items).order(created_at: :desc).each do |other_order|
+									tr
+										td= link_to other_order.id, order_path(other_order), class: "link"
+										td= l other_order.completed_at, format: :date_only
+										td= payment_status(other_order)
+										td.text-right= number_to_currency(other_order.price_total, unit: "€")
+							tfoot
+								tr
+									td class="text-right" colspan=4
+										h4
+											span.thin offen: 
+											span.bold = number_to_currency(Order.where(contact_id: @order.contact_id, paid_on: nil).includes(:line_items).to_a.sum(&:price_total), unit: "€")
 
-		.content#tab-shipping
-			p
-				| Third panel content goes here
+			.content#tab-shipping
+				p
+					| Third panel content goes here
 
-		.row
-			.small-12.columns
-				hr
-				= link_to 'Abbrechen', :back, class: "button secondary left"
-				= f.submit "Speichern", class: "button right"
+	.row
+		.small-12.columns
+			hr
+			= link_to 'Abbrechen', :back, class: "button secondary left"
+			= f.submit "Speichern", class: "button right"

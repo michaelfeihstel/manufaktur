@@ -105,19 +105,35 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def marked_label
+  def marked_status_label
     if marked
-      "Markiert"
+      "Auf Favoritenliste"
     else
-      "Markieren"
+      "Nicht auf Favoritenliste"
     end
   end
 
-  def completed_label
+  def marked_action_label
+    if marked
+      "Aus Favoriten entfernen"
+    else
+      "Zu Favoriten hinzufügen"
+    end
+  end
+
+  def completed_status_label
     if completed_at
       "Abgeschlossen"
     else
       "In Bearbeitung"
+    end
+  end
+
+  def completed_action_label
+    if completed_at
+      "Abgeschlossen widerrufen"
+    else
+      "Abschliessen"
     end
   end
 

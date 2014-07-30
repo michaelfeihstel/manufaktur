@@ -1,3 +1,5 @@
+= render "contacts/common/toolbar"
+= render "contacts/index/sidebar"
 = render "contacts/search"
 = render "contacts/index/breadcrumbs"
 
@@ -6,10 +8,6 @@
 		.small-12.columns
 			h1 Kontakte
 
-= render "contacts/common/toolbar"
-= render "contacts/index/sidebar"
-
-- content_for :content do
-	.row
-		.small-12.columns
-			= render "contacts/index/table_contacts"
+.row
+	.small-12.columns
+		= render "contacts/index/table_contacts"

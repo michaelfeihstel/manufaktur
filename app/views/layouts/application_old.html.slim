@@ -28,27 +28,19 @@ html lang="en"
   body
     = render "layouts/header"
 
-    #content
-      #content-top
+    #container
+      #header
         = render "layouts/flash"
+        #title-area.inverted
+          = yield :breadcrumbs
+          = yield :title_bar
         = yield :search
         = yield :toolbar
 
-      #content-middle
-        .row
-          .small-12.columns
-            = yield :breadcrumbs
-            = yield :title_bar
-            = yield
-            = yield :main_content
+      #content
+        = yield
 
-      #content-bottom
+      #footer
         = yield :footer
-        // = render "layouts/footer"
-
-    #sidebar
-      = yield :sidebar
-    
-    a href="#" class="sidebar-toggle hide-for-large-up" = icon("show-sidebar")
 
     = javascript_include_tag "application"

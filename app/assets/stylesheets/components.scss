@@ -360,7 +360,10 @@ tfoot > tr {
 // BREADCRUMBS
 ul.breadcrumbs {
 	background: none;
+	line-height: 1.5rem;
 	margin-bottom: 0;
+	overflow: visible;
+	padding: 0;
 
 	li {
 		color: inherit;
@@ -369,6 +372,11 @@ ul.breadcrumbs {
 
 		a {
 			color: inherit;
+
+			&:hover {
+				color: $highlight-color;
+				border-bottom: 1px solid $highlight-color;
+			}
 		}
 	}
 }

@@ -1,12 +1,11 @@
-- content_for :sidebar
-  .row
-    .small-12.columns
-      label Filter
-      ul.side-nav
-        li class=("active" if @filter_selected == "all") = link_to "Alle", products_path
-        li class=("active" if @filter_selected == "adagio") = link_to "Adagio", products_path
-        li class=("active" if @filter_selected == "cdur") = link_to "C-Dur / a-Moll", products_path
-        li class=("active" if @filter_selected == "vivo") = link_to "Vivo", products_path
-        li class=("active" if @filter_selected == "fis") = link_to "Fis", products_path
-        li class=("active" if @filter_selected == "light") = link_to "Light", products_path
-        li class=("active" if @filter_selected == "gomax") = link_to "Gomax", products_path
+.row
+  .small-12.columns
+    label Filter
+    ul.side-nav
+      li class=("active" if @filter_selected == "all") = link_to "Alle", products_path
+      li class=("active" if @filter_selected == "adagio") = link_to "Adagio", products_path
+      li class=("active" if @filter_selected == "cdur") = link_to "C-Dur / a-Moll", products_path
+      li class=("active" if @filter_selected == "vivo") = link_to "Vivo", products_path
+      li class=("active" if @filter_selected == "fis") = link_to "Fis", products_path
+      li class=("active" if @filter_selected == "light") = link_to "Light", products_path
+      li class=("active" if @filter_selected == "gomax") = link_to "Gomax", products_path

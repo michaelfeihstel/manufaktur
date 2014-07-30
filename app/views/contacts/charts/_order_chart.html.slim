@@ -42,6 +42,7 @@ javascript:
 					categories: #{get_columns(@contact.orders.where(completed_at: 13.months.ago..Time.now), "month", :completed_at)}
 				},
 				y: {
+					show: false,
 					tick: {
 						format: de.numberFormat("$")
 					}

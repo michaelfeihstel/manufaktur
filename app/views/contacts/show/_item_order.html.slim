@@ -8,7 +8,7 @@ tr.link href=order_path(order)
         = li.quantity_label
       '
   td
-    span data-tooltip="" title=order.completed_label
+    span data-tooltip="" title=order.completed_status_label
       = completed_icon(order)
   	span data-tooltip="" title= order.paid_label
       = paid_icon(order)

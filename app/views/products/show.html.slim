@@ -1,6 +1,5 @@
 = render "products/common/toolbar"
 = render "products/common/search"
-= render "products/show/sidebar"
 = render "products/show/breadcrumbs"
 
 - content_for :title_bar
@@ -10,10 +9,15 @@
 				span = "#{@product.name} "
 				span.thin = @product.sku
 
-- content_for :content
-	.tabs-content
-		= render "/products/show/tab_general"
-		= render "/products/show/tab_sales"
+#sidebar
+	= render "products/show/sidebar"
+
+#content-main
+	.row
+		.small-12.columns
+			.tabs-content
+				= render "/products/show/tab_general"
+				= render "/products/show/tab_sales"
 
 	.row
 		.small-12.columns

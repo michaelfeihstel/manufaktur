@@ -1,15 +1,16 @@
-= render "products/index/sidebar"
 = render "products/index/breadcrumbs"
 = render "products/common/toolbar"
 = render "products/common/search"
-
 
 - content_for :title_bar
 	.row
 		.small-12.columns
 			h1 Artikel
 
-- content_for :content
+#sidebar
+	= render "products/index/sidebar"
+
+#content-main
 	.row
 		.small-12.columns
 			table

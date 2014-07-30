@@ -11,7 +11,7 @@ section {
 
 
 
-#container {
+.container {
 	@include display(flex);
 	@include flex-direction(column);
 	@include justify-content(flex-start);
@@ -35,7 +35,7 @@ section {
 	}
 }
 
-#content {
+.content-area {
 	@include flex(1 0);
 	@include display(flex);
 	@include flex-direction(row);
@@ -43,20 +43,22 @@ section {
 	@include align-items(stretch);
 	overflow: scroll;
 	position: absolute;
-	top: 259px;
+	top: 45px;
 	right: 0px;
 	bottom: 0px;
 	left: 0px;
 
 
-	#sidebar {
+	.sidebar {
 		@include flex(0 0 300px);
 		@include display(flex);
 		@include flex-direction(column);
 		@include justify-content(flex-start);
 		@include transition (all 200ms ease-in-out);
+		background-color: #F2F2F2;
 		border-right: 1px solid #e3e3e3;
-		margin: 2rem 0;
+		box-shadow: inset 0px 1px 4px #ddd;
+		padding: 1.25rem 0;
 		overflow-y: scroll;
 		@media #{$large-up} {
 			left: 0px;
@@ -67,15 +69,15 @@ section {
 		}
 	}
 
-	#content-main {
+	.content-main {
 		@include flex(1 1);
-		padding-top: 2rem;
+		padding: 1.25rem;
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
 	}
 }
 
-#footer {
+footer {
 }
 
 

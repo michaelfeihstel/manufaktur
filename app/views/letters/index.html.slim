@@ -1,34 +1,27 @@
 = render "letters/common/search"
 = render "letters/index/breadcrumbs"
-= render "letters/common/toolbar"
 = render "letters/index/sidebar"
 
 - content_for :title_bar do
-	.row
-		.small-12.columns
-			h1 Briefe
+	h1 Briefe
 
-- content_for :content do
-	.row
-		.small-12.columns
-			table
-				thead
-					tr
-						td width=100 Datum
-						td Kontakt
-						td Subject
-						td width=100
-				tbody
-					- @letters.each do |letter|
-						tr.link href=letter_path(letter)
-							td = l letter.created_at, format: :date_only
-							td = letter.name
-							td = letter.subject
-							td.text-right
-								= link_to icon("pencil"), edit_letter_path(letter)
+table
+	thead
+		tr
+			td width=100 Datum
+			td Kontakt
+			td Subject
+			td width=100
+	tbody
+		- @letters.each do |letter|
+			tr.link href=letter_path(letter)
+				td = l letter.created_at, format: :date_only
+				td = letter.name
+				td = letter.subject
+				td.text-right
+					= link_to icon("pencil"), edit_letter_path(letter)
 
-	hr
-	.section
-		.row
-			.small-12.columns.text-right
-				= paginate @letters
+- content_for :footer
+	.section.text-right
+		hr
+		= paginate @letters

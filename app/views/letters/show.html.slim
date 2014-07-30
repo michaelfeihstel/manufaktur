@@ -1,46 +1,39 @@
 = render "letters/common/search"
 = render "letters/show/breadcrumbs"
-= render "letters/common/toolbar"
 = render "letters/show/sidebar"
 
 - content_for :title_bar
+	h1.truncated = @letter.subject
+
+section
+	label Empfänger
+	p
+		= @letter.name
+		br
+		= "#{@letter.street} #{@letter.house_number}"
+		br
+		= "#{@letter.zip} #{@letter.city}"
+		br
+		= @letter.country
+
+section
 	.row
-		.small-12.columns
-			h1.truncated = @letter.subject
+		.small-12.medium-8.columns
+			label Betreff
+			= @letter.subject
+		.small-12.medium-4.columns
+			label Datum
+			= l @letter.created_at, format: :date_only
 
-- content_for :content
-	section
-		.row
-			.small-12.columns
-				label Empfänger
-				p
-					= @letter.name
-					br
-					= "#{@letter.street} #{@letter.house_number}"
-					br
-					= "#{@letter.zip} #{@letter.city}"
-					br
-					= @letter.country
+section
+	.row
+		.small-12.medium-8.columns
+			label Inhalt
+			= simple_format(@letter.body)
 
-	section
-		.row
-			.small-12.medium-8.columns
-				label Betreff
-				= @letter.subject
-			.small-12.medium-4.columns
-				label Datum
-				= l @letter.created_at, format: :date_only
-
-	section
-		.row
-			.small-12.medium-8.columns
-				label Inhalt
-				= simple_format(@letter.body)
-
+- content_for :footer
 	hr
-	.row
-		.small-12.columns
-			= link_to "Zurück", :back, class: "button secondary"
-			= link_to "Drucken", "#", class: "button right"
-			= link_to "Bearbeiten", edit_letter_path(@letter), class: "button right"
-			= link_to "Löschen", "#", class: "button alert right"
+		= link_to "Zurück", :back, class: "button secondary"
+		= link_to "Drucken", "#", class: "button right"
+		= link_to "Bearbeiten", edit_letter_path(@letter), class: "button right"
+		= link_to "Löschen", "#", class: "button alert right"
