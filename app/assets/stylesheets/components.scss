@@ -255,16 +255,38 @@ select:focus {
 
 // TABS
 .tabs {
+	margin-bottom: 2rem;
+	border-bottom: 1px solid $secondary-color;
 
-	background-color: $secondary-color;
+	.tab-title {
+		margin-bottom: -1px !important;
+		color: #999;
+	}
 
-	.active {
-		color: #fff;
+	.tab-title > a {
+		padding: 0 0 0.5rem 0;
+		margin-right: 1.25rem;
+		color: inherit;
+
+		&:hover {
+			background-color: transparent;
+			color: scale-color(#999, $lightness: -30%);
+		}
+	}
+
+	.tab-title.active {
+		color: #333;
 
 		a {
 			color: inherit !important;
+			background: transparent;
+			border-bottom: 1px solid $primary-color;
 		}
 	}
+}
+
+.tabs-content {
+	margin-top: 2rem;
 }
 
 
@@ -385,7 +407,7 @@ ul.breadcrumbs {
 
 // TOOLBAR
 .main-toolbar {
-	background-color: scale-color($primary-color, $lightness: 80%);
+	background-color: scale-color($secondary-color, $lightness: -2%);
 	padding: 1rem 0;
 	ul {
 		margin-bottom: 0;
@@ -548,14 +570,13 @@ ul.breadcrumbs {
 }
 
 .sidebar-header {
-	@include flex-grow(0);
-	@include flex-shrink(0);
+	
 }
 
 .main-sidebar-header {
 	@extend .sidebar-header;
 	padding: 1rem !important;
-	background-color: scale-color($primary-color, $lightness: -10%);
+	
 
 	&:hover {
 		background-color: $highlight-color;
@@ -583,6 +604,7 @@ ul.breadcrumbs {
 
 
 ul.side-nav {
+	margin-bottom: 2rem;
 
 	li {
 
@@ -608,15 +630,22 @@ ul.side-nav {
 
 }
 
-input#search-field {
-	padding: 1rem 1.5rem;
-	height: 59px;
+input.sidebar-search {
+	@include flex(0 0 59px);
+	background-color: scale-color($secondary-color, $lightness: -5%);
 	border: none;
+	height: 59px;
+	margin-top: -1.25rem;
+	margin-bottom: 1.25rem;
+	padding: 1rem 1.5rem;
+	box-shadow: inset 0px 1px 4px #ddd;
 
 	&:hover,
 	&:focus {
+		box-shadow: inset 0px 1px 4px #666;
 		background-color: #FF4D71;
 		color: #fff;
+		border: none;
 	}
 }
 
@@ -688,7 +717,6 @@ nav.pagination {
 		}
 	}
 }
-
 
 
 // CALENDAR

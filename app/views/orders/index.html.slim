@@ -1,6 +1,6 @@
 = render "orders/common/search"
-= render "orders/common/toolbar"
 = render "orders/index/breadcrumbs"
+= render "orders/index/sidebar"
 
 - content_for :title_bar do
 	.row
@@ -9,10 +9,7 @@
 			- if @date
 				h4.thin = l @date, format: :weekday_default
 
-#sidebar
-	= render "orders/index/sidebar"
-
-#content-main
+.content
 	.row  
 		.small-12.columns
 			= render partial: "orders/index/table_orders"

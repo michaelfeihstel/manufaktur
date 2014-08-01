@@ -8,6 +8,11 @@
 
 .row
   .small-12.columns
+    ul.tabs data-tab=""
+      li.tab-title.active = link_to "Stammdaten", "#tab_overview"
+      li.tab-title = link_to "Verkauf", "#tab_orders"
+      li.tab-title = link_to "Bemerkungen", "#tab_notes"
+      li.tab-title = link_to "Briefe", "#tab_letters"
     .tabs-content
       = render "/contacts/show/tab_general"
       = render "/contacts/show/tab_orders"

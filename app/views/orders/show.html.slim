@@ -2,49 +2,56 @@
 = render "orders/show/sidebar"
 
 - content_for :title_bar
-  .row
-    .small-12.columns
-      h1= @order.id
+	h1= @order.id
+
+section
+	.row
+		.small-12.columns
+			p
+				label Auftraggeber
+				= @order.try(:billing_name)
+			hr
+	.row
+		.small-12.medium-6.columns
+			p
+				label Rechnungsansschrift
+				= @order.try(:billing_name)
+				br
+				= "#{@order.try(:billing_street)} #{@order.try(:billing_house_number)}"
+				br
+				= "#{@order.try(:billing_zip)} #{@order.try(:billing_city)}"
+				br
+				= @order.try(:billing_country)
+		.small-12.medium-6.columns
+			p
+				label Lieferanschrift
+				= @order.try(:delivery_name)
+				br
+				= "#{@order.try(:delivery_street)} #{@order.try(:delivery_house_number)}"
+				br
+				= "#{@order.try(:delivery_zip)} #{@order.try(:delivery_city)}"
+				br
+				= @order.try(:delivery_country)
+
+ul.tabs data-tab=""
+	li.tab-title.active = link_to "Artikel", "#tab-products"
+	li.tab-title = link_to "Rechnung & Zahlung", "#tab-invoice"
+	li.tab-title = link_to "Versand", "#tab-shipping"
+
+.tabs-content
+	.content.active#tab-products
+		section
+			- @order.line_items.each do |li|
+				= render partial: "orders/show/line_item", locals: { :li => li }
+	.content#tab-invoice
+		p Some Text
+	.content#tab-shipping
+		p Another tab
+
 
 .row
-  .small-12.columns
-    section
-      .row
-        .small-12.columns
-          h4= @order.try(:billing_name)
-          hr
-      .row
-        .small-12.medium-6.columns
-          p
-            label Rechnungsansschrift
-            = @order.try(:billing_name)
-            br
-            = "#{@order.try(:billing_street)} #{@order.try(:billing_house_number)}"
-            br
-            = "#{@order.try(:billing_zip)} #{@order.try(:billing_city)}"
-            br
-            = @order.try(:billing_country)
-        .small-12.medium-6.columns
-          p
-            label Lieferanschrift
-            = @order.try(:delivery_name)
-            br
-            = "#{@order.try(:delivery_street)} #{@order.try(:delivery_house_number)}"
-            br
-            = "#{@order.try(:delivery_zip)} #{@order.try(:delivery_city)}"
-            br
-            = @order.try(:delivery_country)
-
-.row
-  .small-12.columns
-    section
-      - @order.line_items.each do |li|
-        = render partial: "orders/show/line_item", locals: { :li => li }
-
-
-.row
-  .small-12.columns
-    hr
-    = link_to "Zurück", :back, class: "button secondary left"
-    = link_to "Bearbeiten", edit_order_path, class: "button right"
-    = button_to "Löschen", @order, method: :delete, data: { confirm: "Wirklich löschen?" }, class: "button right alert"
+	.small-12.columns
+		hr
+		= link_to "Zurück", :back, class: "button secondary left"
+		= link_to "Bearbeiten", edit_order_path, class: "button right"
+		= button_to "Löschen", @order, method: :delete, data: { confirm: "Wirklich löschen?" }, class: "button right alert"

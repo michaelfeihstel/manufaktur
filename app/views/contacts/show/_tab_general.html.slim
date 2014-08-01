@@ -1,6 +1,6 @@
 .content.active#tab_overview
   section
-    h4 Adressen & Filialen
+    h5 Adressen & Filialen
     ul.small-block-grid-1.medium-block-grid-2.large-block-grid.large-block-grid-4
       - @contact.addresses.each do |contact|
         li
@@ -13,9 +13,11 @@
             = "#{contact.zip} #{contact.city}"
             br
             = contact.country
+            br
+            span data-tooltip="" title="Versandlabel drucken" = link_to icon("print"), "#"
 
   section
-    h4 Kontaktdaten
+    h5 Kontaktdaten
     .row
       .small-12.medium-4.columns
         label Telefon
@@ -31,7 +33,7 @@
         label E-Mail
         ul.no-bullet
           - @contact.contact_information.email.each do |contact_information|
-            li = contact_information.value
+            li = link_to contact_information.value, "mailto:#{contact_information.value}", class: "link"
 
       .small-12.medium-4.columns
         label Personen

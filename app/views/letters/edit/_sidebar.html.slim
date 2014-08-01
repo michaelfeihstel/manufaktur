@@ -1,4 +1,7 @@
 - content_for :sidebar
-	.row
-		.small-12.columns
-			
+		= form_for @letter do |f|
+			.row
+				.small-12.columns
+					label Bearbeiten
+					ul.side-nav
+						li = f.submit icon("add", text: "Speichern")

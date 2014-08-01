@@ -35,6 +35,10 @@ section {
 	}
 }
 
+.title {
+	padding-top: 1.25rem;
+}
+
 .content-area {
 	@include flex(1 0);
 	@include display(flex);
@@ -56,7 +60,6 @@ section {
 		@include justify-content(flex-start);
 		@include transition (all 200ms ease-in-out);
 		background-color: #F2F2F2;
-		border-right: 1px solid #e3e3e3;
 		box-shadow: inset 0px 1px 4px #ddd;
 		padding: 1.25rem 0;
 		overflow-y: scroll;
@@ -71,7 +74,6 @@ section {
 
 	.content-main {
 		@include flex(1 1);
-		padding: 1.25rem;
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
 	}

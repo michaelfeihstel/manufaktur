@@ -27,18 +27,19 @@ html lang="en"
 
 	body
 		= render "layouts/header"
+		= render "layouts/flash"
 		.container
 			.content-area
 				.sidebar
 					= yield :sidebar
 				.content-main
+					= yield :search
+					= yield :toolbar
 					.row
 						.small-12.columns
-							section.title-area
+							section.title
 								= yield :breadcrumbs
 								= yield :title_bar
-							= yield :search
-							= yield :toolbar
 							= yield
 							footer
 								= yield :footer

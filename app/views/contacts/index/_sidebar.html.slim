@@ -1,4 +1,6 @@
 - content_for :sidebar do
+	= search_form_for @search do |f|
+	  = f.search_field :name_or_addresses_city_cont, placeholder: "Suchen", class: "sidebar-search"
 	.row
 		.small-12.columns
 			label Filter
@@ -7,3 +9,7 @@
 				li = link_to "Händler", "#"
 				li = link_to "Mitarbeiter", "#"
 				li = link_to "Shop Kunden", "#"
+
+			label Aufgaben
+			ul.side-nav
+				li = link_to icon("add", text: "Neuer Kontakt"), new_contact_path
