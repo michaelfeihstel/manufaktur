@@ -1,9 +1,11 @@
 - content_for :sidebar do
+	= search_form_for @search, url: search_orders_path, method: :post do |f|
+		= f.search_field :billing_name_cont, placeholder: "Suchen", class: "sidebar-search"
 	.row
-	  .small-12.columns
-	    h4.light.small Aufgaben
-	    ul.side-nav
-	      li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order)
-	      li = link_to completed_icon(@order, action_label: true), complete_order_path, method: :put
-	      li = link_to marked_icon(@order, action_label: true), mark_order_path, method: :put
-	      li = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Auftrag #{@order.id} wirklich löschen?" }
+		.small-12.columns
+			label Aufgaben
+			ul.side-nav
+				li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order)
+				li = link_to completed_icon(@order, action_label: true), complete_order_path, method: :put
+				li = link_to marked_icon(@order, action_label: true), mark_order_path, method: :put
+				li = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Auftrag #{@order.id} wirklich löschen?" }

@@ -1,17 +1,18 @@
 - content_for :sidebar
+  = search_form_for @search, url: search_orders_path, method: :post do |f|
+    = f.search_field :billing_name_cont, placeholder: "Suchen", class: "sidebar-search"
   .row
     .small-12.columns
-      section
-        ul.side-nav
-          label Filter
-          = content_tag :li, class: ("active" if @filter_selected == "all") do
-            = link_to "Alle", orders_path
-          = content_tag :li, class: ("active" if @filter_selected == "favorites") do
-            a href=marked_orders_path
-              | Favoriten 
-              span.label.round = @orders.marked_as_favorite.count
-          li = link_to "Terminlieferungen", "#"
-          li = link_to "Rückstände", marked_orders_path
+      label Filter
+      ul.side-nav
+        = content_tag :li, class: ("active" if @filter_selected == "all") do
+          = link_to "Alle", orders_path
+        = content_tag :li, class: ("active" if @filter_selected == "favorites") do
+          a href=marked_orders_path
+            | Favoriten 
+            span.label.round = @orders.marked_as_favorite.count
+        li = link_to "Terminlieferungen", "#"
+        li = link_to "Rückstände", marked_orders_path
       
       section
         label Kalender

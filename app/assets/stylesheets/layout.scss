@@ -51,6 +51,9 @@ section {
 	right: 0px;
 	bottom: 0px;
 	left: 0px;
+	@media #{$small-only} {
+		@include flex-direction(column-reverse);
+	};
 
 
 	.sidebar {
@@ -63,8 +66,8 @@ section {
 		box-shadow: inset 0px 1px 4px #ddd;
 		padding: 1.25rem 0;
 		overflow-y: scroll;
-		@media #{$large-up} {
-			left: 0px;
+		@media #{$medium-only} {
+			@include flex(0 0 180px);
 		};
 
 		&.enabled {

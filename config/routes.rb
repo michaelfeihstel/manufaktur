@@ -22,6 +22,7 @@ Filialen::Application.routes.draw do
     end
     collection do
       get "created/:year/:month/:day" => "orders#index_created_at", :as => "created_at"
+      match "search" => "orders#search", via: [:get, :post], as: "search"
     end
   end
   resources :line_items

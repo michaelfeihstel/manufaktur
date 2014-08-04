@@ -27,7 +27,6 @@ html lang="en"
 
 	body
 		= render "layouts/header"
-		= render "layouts/flash"
 		.container
 			.content-area
 				.sidebar
@@ -35,6 +34,7 @@ html lang="en"
 				.content-main
 					= yield :search
 					= yield :toolbar
+					= render "layouts/flash"
 					.row
 						.small-12.columns
 							section.title

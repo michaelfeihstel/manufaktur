@@ -2,14 +2,20 @@ class OrdersController < ApplicationController
 	respond_to :html, :js, :json
 	
 	def index
-		@search = Order.includes(:line_items, :products, :contact).order(created_at: :desc).limit(100).search(params[:q])
-		@orders = @search.result(distinct: true)
+		@search = Order.includes(:line_items, :products, :contact).order(created_at: :desc).search(params[:q])
+		@orders = @search.result(distinct: true).page(params[:page]).per(100)
 		@filter_selected = "all"
 
 		respond_to do |format|
 			format.html # index.html.erb
   		format.json { render json: @orders }
 		end
+	end
+
+	def search
+		@search = Order.includes(:line_items, :products, :contact).order(created_at: :desc).search(params[:q])
+		@orders = @search.result(distinct: true).page(params[:page]).per(100)
+		render "index"
 	end
 
 	def index_created_at

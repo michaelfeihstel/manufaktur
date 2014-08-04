@@ -2,7 +2,7 @@
 	
 	#search.inverted style="display:none;"
 
-		= search_form_for @search do |f|
+		= search_form_for @search, url: search_orders_path, method: :post do |f|
 			section
 				.row
 					.small-12.medium-6.large-4.columns
