@@ -20,10 +20,23 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  sku: MyString
+Regular Product:
+  name: Regular Product
+  sku: TEST123
+  color_text: Grau / Schwarz / Rot
+  price: 120.33
+  vat: 0.19
+  size: us herren
+  primary_color: #ccc
+  secondary_color: #000
+  text_color: #00FF00
 
-two:
-  name: MyString
-  sku: MyString
+Product without VAT:
+  name: Product without VAT
+  sku: TEST123
+  color_text: Grau / Schwarz / Rot
+  price: 120.33
+  size: us herren
+  primary_color: #ccc
+  secondary_color: #000
+  text_color: #00FF00
