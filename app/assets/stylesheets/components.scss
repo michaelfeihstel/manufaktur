@@ -407,8 +407,9 @@ ul.breadcrumbs {
 
 // TOOLBAR
 .main-toolbar {
-	background-color: scale-color($secondary-color, $lightness: -2%);
+	background-color: #f2f2f2;
 	padding: 1rem 0;
+	border-bottom: 1px solid $highlight-color;
 	ul {
 		margin-bottom: 0;
 	}
@@ -630,10 +631,11 @@ ul.side-nav {
 }
 
 input.sidebar-search {
-	@include flex(0 0 59px);
+	@include flex(0 0 60px);
 	background-color: scale-color($secondary-color, $lightness: -5%);
 	border: none;
-	height: 59px;
+	border-bottom: 1px solid scale-color($highlight-color, $lightness: 30%);
+	height: 60px;
 	margin-top: -1.25rem;
 	margin-bottom: 1.25rem;
 	padding: 1rem 1.5rem;

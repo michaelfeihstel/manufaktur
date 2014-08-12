@@ -140,26 +140,26 @@
 	"buffers":
 	[
 		{
-			"file": "config/application.rb",
+			"file": "test/fixtures/products.yml",
 			"settings":
 			{
-				"buffer_size": 2599,
+				"buffer_size": 1042,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/assets/stylesheets/components.scss",
+			"file": "app/models/size.rb",
 			"settings":
 			{
-				"buffer_size": 10963,
+				"buffer_size": 1402,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/assets/stylesheets/foundation_and_overrides.scss",
+			"file": "test/fixtures/sizes.yml",
 			"settings":
 			{
-				"buffer_size": 33769,
+				"buffer_size": 1260,
 				"line_ending": "Unix"
 			}
 		}
@@ -200,12 +200,14 @@
 	},
 	"file_history":
 	[
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/components.scss",
+		"/Users/ulflunge/projects/manufaktur/config/application.rb",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/foundation_and_overrides.scss",
 		"/Users/ulflunge/projects/manufaktur/Gemfile",
 		"/Users/ulflunge/projects/manufaktur/config/routes.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/orders_controller.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/_list_item.html.erb",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/show/_sidebar.html.slim",
-		"/Users/ulflunge/projects/manufaktur/config/application.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/index.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/index/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/common/_search.html.slim",
@@ -218,7 +220,6 @@
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/layout.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/edit.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/common/_form.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/components.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/common/_toolbar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/edit/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/contacts_controller.rb",
@@ -286,7 +287,6 @@
 		"/Users/ulflunge/projects/manufaktur/app/controllers/api/addresses_controller.rb",
 		"/Users/ulflunge/projects/manufaktur/db/migrate/20140728060146_create_letters.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/edit/_breadcrumbs.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/foundation_and_overrides.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/show/_breadcrumbs.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/index/_breadcrumbs.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit.html.slim",
@@ -497,29 +497,29 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/application.rb",
+					"file": "test/fixtures/products.yml",
 					"settings":
 					{
-						"buffer_size": 2599,
+						"buffer_size": 1042,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1404,
-								1404
+								767,
+								767
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -530,54 +530,54 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/assets/stylesheets/components.scss",
+					"file": "app/models/size.rb",
 					"settings":
 					{
-						"buffer_size": 10963,
+						"buffer_size": 1402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8584,
-								8584
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 15167.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/assets/stylesheets/foundation_and_overrides.scss",
+					"file": "test/fixtures/sizes.yml",
 					"settings":
 					{
-						"buffer_size": 33769,
+						"buffer_size": 1260,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25659,
-								25666
+								1260,
+								1260
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"syntax": "Packages/YAML/YAML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 19485.0,
+						"translation.y": 530.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

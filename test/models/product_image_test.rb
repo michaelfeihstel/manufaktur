@@ -3,7 +3,6 @@
 # Table name: product_images
 #
 #  id                 :integer          not null, primary key
-#  url_old            :string(255)
 #  product_id         :integer
 #  created_at         :datetime
 #  updated_at         :datetime

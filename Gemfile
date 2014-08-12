@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.1.0'
 
-gem 'rails', '~> 4.0.0'
+gem 'rails', '~> 4.1.0'
 gem 'annotate', ">=2.5.0"
-gem 'paperclip', "~> 3.0"
+gem 'paperclip', "~> 4.2.0"
 gem 'aws-sdk'
 gem 'ransack'
 gem 'kaminari'
@@ -37,7 +37,10 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 
-group :test, :development do
+gem "minitest-rails"
+
+group :test do
+	gem "minitest-rails-capybara"
 end
 
 group :development do

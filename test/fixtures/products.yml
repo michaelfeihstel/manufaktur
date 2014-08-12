@@ -20,23 +20,23 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-Regular Product:
+default_product:
   name: Regular Product
   sku: TEST123
   color_text: Grau / Schwarz / Rot
   price: 120.33
   vat: 0.19
-  size: us herren
+  size: us_herren
   primary_color: #ccc
   secondary_color: #000
   text_color: #00FF00
 
-Product without VAT:
+womens_product:
   name: Product without VAT
   sku: TEST123
   color_text: Grau / Schwarz / Rot
   price: 120.33
-  size: us herren
+  size: us_damen
   primary_color: #ccc
   secondary_color: #000
   text_color: #00FF00

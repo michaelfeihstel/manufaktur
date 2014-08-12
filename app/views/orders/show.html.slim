@@ -44,7 +44,7 @@ ul.tabs data-tab=""
 	.content.active#tab-products
 		section
 			- @order.line_items.each do |li|
-				= render partial: "orders/show/line_item", locals: { :li => li }
+				= render "orders/show/line_item", li: li
 	.content#tab-invoice
 		p Some Text
 	.content#tab-shipping
