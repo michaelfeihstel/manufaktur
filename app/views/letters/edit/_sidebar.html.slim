@@ -1,7 +1,7 @@
 - content_for :sidebar
-		= form_for @letter do |f|
-			.row
-				.small-12.columns
-					label Bearbeiten
-					ul.side-nav
-						li = f.submit icon("add", text: "Speichern")
+  = render "letters/common/quicksearch"
+		.row
+			.small-12.columns
+				label Bearbeiten
+				ul.side-nav
+					li = link_to icon("cross", text: "Abbrechen")

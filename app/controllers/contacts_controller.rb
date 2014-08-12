@@ -27,7 +27,6 @@ class ContactsController < ApplicationController
 
 	def create
 		@contact = Contact.new(contact_params)
-		@section = "Kontakte"
 
 		if @contact.save
 			redirect_to @contact

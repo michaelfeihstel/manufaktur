@@ -1,55 +1,72 @@
 class LettersController < ApplicationController
-	before_action :initialize_search
+  before_action :initialize_search
 
-	def index
-		@letters = @search.result(distinct: true).order_by_date_desc.page(params[:page]).per(50)
-	end
+  def index
+    @search = Letter.search(params[:q])
+    @letters = @search.result(distinct: true).order_by_date_desc.page(params[:page]).per(50)
+  end
 
-	def show
-		@letter = Letter.find(params[:id])
-	end
+  def search
+    index
+    render "new"
+  end
 
-	def new
-		@letter = Letter.new
-	end
+  def show
+    @letter = Letter.find(params[:id])
+  end
 
-	def create
+  def new
+    @letter = Letter.new
+  end
 
-	end
+  def create
+    @letter = Letter.create(letter_params)
+    if @letter.save
+      redirect_to letter_path(@letter)
+    else
+      render "new"
+    end
+  end
 
-	def edit
-		@letter = Letter.find(params[:id])
-	end
+  def edit
+    @letter = Letter.find(params[:id])
+  end
 
-	def update
-		@letter = Letter.find(params[:id])
-		if @letter.update_attributes(letter_params)
-			redirect_to letter_path(@letter), notice: "Brief aktualisiert"
-		else
-			render "edit"
-		end
-	end
+  def update
+    @letter = Letter.find(params[:id])
+    if @letter.update_attributes(letter_params)
+      redirect_to letter_path(@letter), notice: "Brief aktualisiert"
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @letter = Letter.find(params[:id])
+    @letter.destroy
+    redirect_to letters_path
+  end
 
 
 
-	private
-	def initialize_search
-		@search = Letter.search(params[:q])
-	end
+  private
+  def initialize_search
+    @search = Letter.search(params[:q])
+  end
 
-	def letter_params
-		params.require(:letter).permit(
-			:contact_id,
-			:address_id,
-			:name,
-			:street,
-			:house_number,
-			:zip,
-			:city,
-			:country,
-			:subject,
-			:body
-		)
-	end
+  def letter_params
+    params.require(:letter).permit(
+      :contact_id,
+      :address_id,
+      :name,
+      :street,
+      :house_number,
+      :zip,
+      :city,
+      :country,
+      :subject,
+      :body
+    )
+  end
 
 end

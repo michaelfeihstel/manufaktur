@@ -28,6 +28,7 @@ Filialen::Application.routes.draw do
   resources :line_items
   resources :letters do
     collection do
+      post "search", as: "search"
       get 'page/:page', action: :index
     end
   end

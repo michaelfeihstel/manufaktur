@@ -91,11 +91,11 @@ class LineItem < ActiveRecord::Base
   end
 
   def gross_price_total
-    q = quantity || 0
-    p = price || 0
-    v = 1 + vat
+    quantity = quantity || 0
+    price = price || 0
+    vat = 1 + (vat || 0)
 
-    p * v * q
+    price * vat * quantity
   end
 
 

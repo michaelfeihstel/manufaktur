@@ -41,6 +41,7 @@ class OrdersController < ApplicationController
 
 
 	def new
+		@search = Order.search(params[:q])
 		@order = Order.new
 		@order.line_items.build
 		@addresses = Address.all
@@ -73,7 +74,7 @@ class OrdersController < ApplicationController
 
 			if @order.update_attributes(order_params)
 				format.html do
-					redirect_to edit_order_path
+					redirect_to order_path
 					flash[:success] = "Auftrag #{@order.id} wurde bearbeitet"
 				end
 
