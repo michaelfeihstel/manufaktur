@@ -64,7 +64,6 @@ section {
 		@include transition (all 200ms ease-in-out);
 		background-color: #F2F2F2;
 		box-shadow: inset 0px 1px 4px #ddd;
-		padding: 1.25rem 0;
 		overflow-y: scroll;
 		@media #{$medium-only} {
 			@include flex(0 0 180px);

@@ -1,4 +1,5 @@
 = render "products/index/breadcrumbs"
+= render "products/index/sidebar"
 = render "products/common/toolbar"
 = render "products/common/search"
 
@@ -6,9 +7,6 @@
 	.row
 		.small-12.columns
 			h1 Artikel
-
-#sidebar
-	= render "products/index/sidebar"
 
 #content-main
 	.row
@@ -20,7 +18,7 @@
 						td width=150 Artikelnummer
 						td Bezeichnung
 						td Farbe
-						td Preis
+						td.text-right Preis
 				tbody
 					- @products.each do |product|
 						tr.link href=product_path(product)
@@ -30,4 +28,4 @@
 							td
 								span.label style=product_color(product)
 									= product.color_text
-							td = number_to_currency(product.price, unit:"€ ")
+							td.text-right = number_to_currency(product.price, unit:"€ ")

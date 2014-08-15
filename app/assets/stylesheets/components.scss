@@ -4,6 +4,13 @@
 	padding: 1.25rem 0;
 }
 
+
+// CHARTS
+
+.highlighted-region {
+	fill: $highlight-color;
+}
+
 // BUTTONS
 @mixin button {
 	@include appearance(none);
@@ -636,7 +643,6 @@ input.sidebar-search {
 	border: none;
 	border-bottom: 1px solid scale-color($highlight-color, $lightness: 30%);
 	height: 60px;
-	margin-top: -1.25rem;
 	margin-bottom: 1.25rem;
 	padding: 1rem 1.5rem;
 	box-shadow: inset 0px 1px 4px #ddd;

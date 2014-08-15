@@ -1,11 +1,10 @@
-tr.order-item.link href= order_path(order) data-id= order.id
-  td= completed_icon(order)
-  td= order.try(:id)
-  td= link_to order.billing_name, contact_path(order.contact_id), class: "link"
+tr.order-item data-id= order.id
   td
-    = l order.created_at, format: :date_only
-    br
-    = order.completed? ? (l order.completed_at, format: :date_only) : "-"
+    span data-tooltip="" title = order.completed_status_label
+      = completed_icon(order)
+  td = link_to order.id, order_path(order), class: "link"
+  td = link_to order.billing_name, contact_path(order.contact_id), class: "link"
+  td = l order.created_at, format: :date_only
   td
     - order.line_items.each do |li|
       span.product-label style= (product_color(li.product) if li.product)

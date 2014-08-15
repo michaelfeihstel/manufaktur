@@ -1,0 +1,59 @@
+section
+  h4 Monatlicher Umsatz
+  #chart_revenue
+
+javascript:
+  var de = d3.locale({
+    'decimal': ',',
+    'thousands': '.',
+    'grouping': [3],
+    'currency': ['€ ', ''],
+    'dateTime': '%a %b %e %X %Y',
+    'date': '%m/%d/%Y',
+    'time': '%H:%M:%S',
+    'periods': ['AM', 'PM'],
+    'days': ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+    'shortDays': ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    'months': ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    'shortMonths': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  });
+
+
+  var chart = c3.generate({
+      bindto: "#chart_revenue",
+      data: {
+        columns: [
+          #{raw get_categories_for_revenue_chart}
+        ],
+        type: 'area',
+        labels: true,
+        labels: {
+          format: {
+            y: de.numberFormat('$'),
+          }
+        },
+        colors: {
+          "Warenwert": '#7e8298'
+        }
+      },
+      axis: {
+        x: {
+          type: 'categories',
+          categories: #{raw get_columns_for_revenue_chart}
+        },
+        y: {
+          show: false,
+          tick: {
+            format: de.numberFormat("$")
+          }
+        }
+      },
+      tooltip: {
+        format: {
+          value: de.numberFormat('$')
+        }
+      },
+      regions: [
+        {start:11.5, end:12.5, class: 'highlighted-region'}
+      ]
+  });

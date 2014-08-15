@@ -123,7 +123,7 @@ class Order < ActiveRecord::Base
 
   def completed_status_label
     if completed_at
-      "Abgeschlossen"
+      "Abgeschlossen am #{I18n.localize completed_at, format: :date_only}"
     else
       "In Bearbeitung"
     end

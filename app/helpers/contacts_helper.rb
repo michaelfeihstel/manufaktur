@@ -4,7 +4,5 @@ module ContactsHelper
 		group_clause = "group_by_" + "groupe_type"
 		raw collection.group_by_month(grouped_by, format: "%B %Y").count.map{|k, v| k}
 	end
-
-	
-
+  
 end

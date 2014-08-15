@@ -8,7 +8,13 @@ Filialen::Application.routes.draw do
 
   resources :product_images
   resources :brands
-  resources :products 
+  
+  resources :products do
+    collection do
+      match "search" => "products#search", via: [:get, :post], as: "search"
+    end
+  end
+
   resources :sizes
   resources :variations
   resources :variation_sets
