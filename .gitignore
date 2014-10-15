@@ -25,3 +25,7 @@
 # Sublime Text Project files
 /manufaktur.sublime-project
 /manufaktur.sublime-workspace
+
+# env variables
+.env
+.foreman

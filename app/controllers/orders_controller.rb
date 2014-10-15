@@ -13,8 +13,7 @@ class OrdersController < ApplicationController
 	end
 
 	def search
-		@search = Order.includes(:line_items, :products, :contact).order(created_at: :desc).search(params[:q])
-		@orders = @search.result(distinct: true).page(params[:page]).per(100)
+		index
 		render "index"
 	end
 

@@ -14,12 +14,19 @@
 			table
 				thead
 					tr
-						td width=100 Bild
-						td width=150 Artikelnummer
-						td Bezeichnung
-						td Farbe
-						td.text-right Preis
+						th.first width=100 Bild
+						th width=150 Artikelnummer
+						th Bezeichnung
+						th Farbe
+						th.last.text-right Preis
 				tbody
+					tr.panel
+						= search_form_for @search, url: search_products_path, method: :post do |f|
+							th = icon("search")
+							th = f.search_field :sku_cont
+							th = f.search_field :name_cont
+							th = f.search_field :color_text_cont
+							th = f.search_field :price_eq, class: "text-right"
 					- @products.each do |product|
 						tr.link href=product_path(product)
 							td = image_tag product.default_image

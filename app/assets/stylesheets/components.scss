@@ -136,6 +136,10 @@ textarea {
 	}
 }
 
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
 input[type="checkbox"] {
 	border: none;
 	-webkit-appearance: none;
@@ -318,13 +322,13 @@ table {
 
 		th {
 			color: #aaa;
-			padding-left: 0.25rem;
-			padding-right: 0.25rem;
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
 		}
 
 		td {
-			padding-left: 0.25rem;
-			padding-right: 0.25rem;
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
 			vertical-align: middle;
 		}
 
@@ -350,11 +354,10 @@ table {
 thead > tr {
 	border: none;
 	vertical-align: bottom;
-	font-family: "futura-pt", "Helvetica Neue", "Arial", "Sans-serif";
 
 	th {
-		padding-left: 0.25rem;
-		padding-right: 0.25rem;
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
 	}
 }
 

@@ -10,6 +10,8 @@ gem 'ransack'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'groupdate'
+gem 'puma'
+gem "rack-timeout"
 
 # views and presentation
 gem "bourbon"
@@ -31,6 +33,10 @@ gem 'pg'
 
 group :production do
 	gem 'rails_12factor'
+end
+
+group :development, :test do
+  gem "foreman"
 end
 
 

@@ -17,9 +17,9 @@ class ContactsControllerTest < ActionController::TestCase
     assert_response :success
     assert assigns(:contact).new_record?
   end
-
+  
   test "should create new contact" do
-    assert_difference "Contact.count", +1 do
+    assert_difference "Contact.count" do
       post :create, contact: @contact.attributes
     end
     assert_redirected_to contact_path(assigns(:contact))
