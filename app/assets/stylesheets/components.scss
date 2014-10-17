@@ -1,6 +1,6 @@
 // SEARCH
 #search {
-	background-color: scale-color($primary-color, $lightness: 30%);
+	background-color: $highlight-color;
 	padding: 1.25rem 0;
 }
 
@@ -91,6 +91,16 @@
 	border-width: 3px;
 	font-weight: 700;
 	letter-spacing: 2px;
+}
+
+.button.dense {
+	@include button;
+	padding: 0.5rem 1rem;
+
+	&:hover {
+		background-color: $primary-color;
+		color: #fff;
+	}
 }
 
 
@@ -267,7 +277,7 @@ select:focus {
 // TABS
 .tabs {
 	margin-bottom: 2rem;
-	border-bottom: 1px solid $secondary-color;
+	border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
 
 	.tab-title {
 		margin-bottom: -1px !important;
@@ -275,8 +285,9 @@ select:focus {
 	}
 
 	.tab-title > a {
-		padding: 0 0 0.5rem 0;
-		margin-right: 1.25rem;
+		padding: 0.5rem 1rem;
+		border: 1px solid $body-bg;
+		border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
 		color: inherit;
 
 		&:hover {
@@ -291,7 +302,8 @@ select:focus {
 		a {
 			color: inherit !important;
 			background: transparent;
-			border-bottom: 1px solid $primary-color;
+			border: 1px solid scale-color($secondary-color, $lightness: -10%);
+			border-bottom: 1px solid $body-bg;
 		}
 	}
 }
@@ -394,8 +406,9 @@ ul.breadcrumbs {
 	background: none;
 	line-height: 1.5rem;
 	margin-bottom: 0;
-	overflow: visible;
-	padding: 0;
+	height: 60px;
+	padding: 1.4rem 0;
+	border-bottom: 1px solid $hairline-color;
 
 	li {
 		color: inherit;
@@ -419,7 +432,6 @@ ul.breadcrumbs {
 .main-toolbar {
 	background-color: #f2f2f2;
 	padding: 1rem 0;
-	border-bottom: 1px solid $highlight-color;
 	ul {
 		margin-bottom: 0;
 	}
@@ -601,12 +613,6 @@ ul.breadcrumbs {
 	background-color: scale-color($secondary-color, $lightness: -5%)
 }
 
-.logo {
-	position: absolute;
-	bottom: 1rem;
-	left: 50px;
-}
-
 .sidebar-section {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
@@ -616,28 +622,52 @@ ul.breadcrumbs {
 
 ul.side-nav {
 	margin-bottom: 2rem;
-
 	li {
-
 		a {
 			padding: 0.2rem 0 !important;
 		}
-
-		&:hover {
+		&:hover, &.active {
 			a {
 				color: #fff;
 				padding: 0.2rem 30px !important;
 				margin: 0 -30px;
 			}
 		}
+		&.active {
+			background-color: $secondary-color;
+			padding: 0 30px;
+			margin: 0 -30px;
+			color: inherit;
+		}
+	}
+}
 
+ul.side-nav.inverted {
+	margin-bottom: 2rem;
+	li {
+		a {
+			padding: 0.2rem 0 !important;
+			color: #fff;
+		}
+		&:hover {
+			a {
+				color: #fff;
+				padding: 0.2rem 30px !important;
+				margin: 0 -30px;
+				background-color: $highlight-color;
+			}
+		}
 		&.active {
 			padding: 0 30px;
 			margin: 0 -30px;
-			color: $primary-color;
+			a {
+				color: #fff;
+				padding: 0.2rem 30px !important;
+				margin: 0 -30px;
+				background-color: $highlight-color;
+			}
 		}
 	}
-
 }
 
 input.sidebar-search {

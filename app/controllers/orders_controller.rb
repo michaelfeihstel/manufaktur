@@ -44,6 +44,7 @@ class OrdersController < ApplicationController
 		@order = Order.new
 		@order.line_items.build
 		@addresses = Address.all
+		@products = Product.all.order(:name)
 	end
 
 
@@ -63,6 +64,7 @@ class OrdersController < ApplicationController
 		@order = Order.includes([:contact, {:line_items => :product}, {:products => :size}]).find(params[:id])
 		@search = Order.includes(:contact, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
 		@orders = @search.result(distinct: true)
+		@products = Product.all.order(:name)
 	end
 
 

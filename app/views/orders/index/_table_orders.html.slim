@@ -1,19 +1,12 @@
 table
   thead
     tr
-      th
+      th = icon("check2")
       th width="100" Auftrag
       th width="300" Auftraggeber
       th width="120" Erstellt
       th Artikel
       th.text-right width="100" Betrag
-    tr.search
-      = search_form_for @search, url: search_orders_path, method: :post do |f|
-        th
-        th = f.search_field :id_cont
-        th = f.search_field :billing_name_or_billing_city_or_delivery_name_or_delivery_city_cont
-        th = f.date_field :created_at_eq
-        th = f.search_field :line_items_product_sku_cont
 
   tbody
 	 - @orders.each do |order|

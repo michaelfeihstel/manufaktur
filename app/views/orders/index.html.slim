@@ -1,20 +1,26 @@
 = render "orders/common/toolbar"
 = render "orders/common/search"
 = render "orders/index/breadcrumbs"
-= render "orders/index/sidebar"
 
 - content_for :title_bar do
-	.row
-		.small-12.columns
-			h1 Aufträge
-			- if @date
-				h4.thin = l @date, format: :weekday_default
+  .row
+    .small-12.columns
+      h1 Aufträge
+      - if @date
+        h4.thin = l @date, format: :weekday_default
 
 .content
-	.row  
-		.small-12.columns
-			= render partial: "orders/index/table_orders"
+  .row
+    .small-12.columns
+      = link_to "Auftrag erstellen", new_order_path, class: "button dense"
+      = link_to "Suchen", "#", id: "search-toggle", class: "button dense"
+      hr
+  .row
+    .small-12.large-10.columns
+      = render "orders/index/table_orders"
+    .small-12.large-2.columns
+      = render "orders/index/sidebar"
 
-	.row
-		.small-12.columns.text-right
-			= paginate @orders
+  .row
+    .small-12.columns.text-right
+      = paginate @orders

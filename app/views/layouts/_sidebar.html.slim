@@ -1,0 +1,11 @@
+.row.inverted
+  .small-12.columns
+    .logo
+      = link_to (image_tag "http://cdn.lunge.de/images/home/logo-titlebar.png"), :root
+    label Menü
+    ul.side-nav.inverted
+      li class=("active" if controller_name == "contacts") = link_to "Kontakte", contacts_path
+      li class=("active" if controller_name == "orders") = link_to "Aufträge", orders_path
+      li class=("active" if controller_name == "products") = link_to "Artikel", products_path
+      li class=("active" if controller_name == "production_series") = link_to "Produktion", "#"
+      li class=("active" if controller_name == "materials") = link_to "Material", "#"

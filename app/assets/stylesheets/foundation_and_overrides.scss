@@ -45,17 +45,17 @@ $column-gutter: rem-calc(60);
 $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #da284b;
-$primary-color: #4F5263;
+$primary-color: #d82b4e;
 // $primary-color: #4F5263;
 $secondary-color: #f3f3f3;
-$highlight-color: #7BACCC;
+$highlight-color: #FF3F66;
+// $highlight-color: #7BACCC;
 $alert-color: #E40D46;
 // $success-color: #43AC6A;
 
 // We use these to control various global styles
 $body-bg: #fdfdfd;
-// $body-font-color: #222;
+$body-font-color: #333;
 $body-font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -781,7 +781,7 @@ $side-nav-list-margin: rem-calc(0 0 0 0);
 
 // We use these to control link styles.
 $side-nav-link-color: $primary-color;
-$side-nav-link-color-active: scale-color($highlight-color, $lightness: 0%);
+$side-nav-link-color-active: inherit;
 $side-nav-font-size: rem-calc(16);
 // $side-nav-font-weight: normal;
 // $side-nav-font-family: $body-font-family;
@@ -877,7 +877,7 @@ $table-border-style: none;
 
 // These control the table head styles
 $table-head-bg: none  ;
-$table-head-font-size: rem-calc(16);
+$table-head-font-size: rem-calc(14);
 $table-head-font-color: #AAA;
 $table-head-font-weight: 100;
 $table-head-padding: 0.5rem;

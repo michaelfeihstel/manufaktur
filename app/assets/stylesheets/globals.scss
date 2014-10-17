@@ -1,3 +1,11 @@
-// FONT STACKS
+// font stacks
 $body-font: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-$header-font: "futura-pt","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$header-font: "futura-pt", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+
+// colors
+$hairline-color: #e2e2e2;
+
+// hide outline on focus
+*:focus {
+  outline: none;
+}

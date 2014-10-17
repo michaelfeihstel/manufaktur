@@ -1,6 +1,6 @@
-tr.contact-item
-	td = link_to contact.id, contact_path(contact), class: "link"
-	td = link_to contact.name, contact_path(contact), class: "link"
+tr.contact-item.link href=contact_path(contact)
+	td = contact.id
+	td = contact.name
 	td = "Händler"
 	td
 	td.text-right

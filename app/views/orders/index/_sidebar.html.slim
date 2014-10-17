@@ -1,19 +1,15 @@
-- content_for :sidebar
-  = render "orders/common/quicksearch"
-  .row
-    .small-12.columns
-      label Filter
-      ul.side-nav
-        = content_tag :li, class: ("active" if @filter_selected == "all") do
-          = link_to "Alle", orders_path
-        = content_tag :li, class: ("active" if @filter_selected == "favorites") do
-          a href=marked_orders_path
-            | Favoriten 
-            span.label.round = @orders.marked_as_favorite.count
-        li = link_to "Terminlieferungen", "#"
-        li = link_to "Rückstände", marked_orders_path
-      
-      section
-        label Kalender
-        = month_calendar start_date: @date, table: {class: "calendar"} do |date|
-          = link_to (l date, format: :day_of_month), created_at_orders_path(year: date.year, month: date.month, day: date.day)
+.sidebar-right
+  label Filter
+  ul.side-nav
+    li class=("active" if @filter_selected == "all") = link_to "Alle", orders_path
+    li class=("active" if @filter_selected == "favorites")
+      a href=marked_orders_path
+        span Favoriten 
+        span.label.round = @orders.marked_as_favorite.count
+    li = link_to "Terminlieferungen", "#"
+    li = link_to "Rückstände", marked_orders_path
+
+  // section
+  //   label Kalender
+  //   = month_calendar start_date: @date, table: {class: "calendar"} do |date|
+  //     = link_to (l date, format: :day_of_month), created_at_orders_path(year: date.year, month: date.month, day: date.day)
