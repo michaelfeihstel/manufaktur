@@ -1,15 +1,16 @@
-.sidebar-right
-	label Aufgaben
-	ul.side-nav
-		li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order)
-		li = link_to completed_icon(@order, action_label: true), complete_order_path, method: :put
-		li = link_to marked_icon(@order, action_label: true), mark_order_path, method: :put
-		li = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Auftrag #{@order.id} wirklich löschen?" }
+- content_for :sidebar_right
+	.sidebar-right data-equalizer-watch=""
+		label Aufgaben
+		ul.side-nav
+			li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path(@order)
+			li = link_to completed_icon(@order, action_label: true), complete_order_path, method: :put
+			li = link_to marked_icon(@order, action_label: true), mark_order_path, method: :put
+			li = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Auftrag #{@order.id} wirklich löschen?" }
 
-	label Dokumente
-	ul.side-nav
-		li = link_to icon("mail", text: "Auftragsbestätigung"), "#"
-		li = link_to icon("file", text: "Kommissionierschein"), "#"
-		li = link_to icon("file", text: "Lieferschein"), "#"
-		li = link_to icon("file", text: "Rechnung"), "#"
-		li = link_to icon("mail", text: "Versandbestätigung"), "#"
+		label Dokumente
+		ul.side-nav
+			li = link_to icon("mail", text: "Auftragsbestätigung"), "#"
+			li = link_to icon("file", text: "Kommissionierschein"), "#"
+			li = link_to icon("file", text: "Lieferschein"), "#"
+			li = link_to icon("file", text: "Rechnung"), "#"
+			li = link_to icon("mail", text: "Versandbestätigung"), "#"

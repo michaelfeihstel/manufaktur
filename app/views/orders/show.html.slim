@@ -6,18 +6,24 @@
 	h1 = @order.id
 	h4 = @order.billing_name
 
+.row
+	.small-12.columns
+		= link_to "Auftrag Bearbeiten", edit_order_path(@order), class: "button dense"
+		= link_to "Suchen", "#", id: "search-toggle", class: "button dense"
+		hr
+
 section
-	.row
-		.small-12.large-9.columns
+	.row data-equalizer=""
+		.small-12.large-9.columns data-equalizer-watch=""
 			section
 				.row
 					.small-12.columns
-						label Auftraggeber
-						= @order.try(:billing_name)
-						hr
+						.fields
+							label Auftraggeber
+							= @order.try(:billing_name)
 				.row
 					.small-12.medium-6.columns
-						p
+						.fields
 							label Rechnungsansschrift
 							= @order.try(:billing_name)
 							br
@@ -27,7 +33,7 @@ section
 							br
 							= @order.try(:billing_country)
 					.small-12.medium-6.columns
-						p
+						.fields
 							label Lieferanschrift
 							= @order.try(:delivery_name)
 							br

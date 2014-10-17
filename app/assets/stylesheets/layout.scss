@@ -72,7 +72,7 @@ section {
 	bottom: 0px;
 	left: 0px;
 	@media #{$small-only} {
-		@include flex-direction(column-reverse);
+		@include flex-direction(column);
 	};
 
 
@@ -101,8 +101,9 @@ section {
 }
 
 .sidebar-right {
+	@include flex(0 0 200px);
 	padding: 0.5rem 1.875rem;
-	border-left: 1px solid #e2e2e2;
+	background-color: $secondary-color;
 }
 
 footer {
