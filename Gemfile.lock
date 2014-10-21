@@ -208,10 +208,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate (>= 2.5.0)
+  annotate
   aws-sdk
   bourbon
-  coffee-rails (~> 4.0.0)
+  coffee-rails
   compass
   foreman
   foundation-rails (~> 5)
@@ -228,11 +228,11 @@ DEPENDENCIES
   pry-rails
   puma
   rack-timeout
-  rails (~> 4.1.0)
+  rails (~> 4.1)
   rails-i18n
   rails_12factor
   ransack
-  sass-rails (~> 4.0.0)
+  sass-rails
   selectize-rails
   simple_calendar (~> 1.1.0)
   slim-rails
