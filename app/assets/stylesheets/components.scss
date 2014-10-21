@@ -520,10 +520,12 @@ ul.breadcrumbs {
 }
 
 .size-row li {
+	margin-left: 1.2rem;
 	margin-right: -0.65rem;
 	margin-bottom: 0.5rem;
 	text-align: center;
 	width: 22px;
+	min-height: 50px
 }
 
 .size-row li input[type="text"] {

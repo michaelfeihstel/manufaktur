@@ -1,6 +1,7 @@
 = render "orders/common/search"
 = render "orders/common/toolbar"
 = render "orders/show/breadcrumbs"
+= render "orders/show/sidebar"
 
 - content_for :title_bar
 	h1 = @order.id
@@ -13,8 +14,8 @@
 		hr
 
 section
-	.row data-equalizer=""
-		.small-12.large-9.columns data-equalizer-watch=""
+	.row
+		.small-12.columns
 			section
 				.row
 					.small-12.columns
@@ -58,8 +59,6 @@ section
 							p Some Text
 						.content#tab-shipping
 							p Another tab
-		.small-12.large-3.columns
-			= render "orders/show/sidebar"
 
 
 .row
