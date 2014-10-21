@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.3'
 
-gem 'rails', '~> 4.1.0'
-gem 'annotate', ">=2.5.0"
+gem 'rails', '~> 4.1'
+gem 'annotate'
 gem 'paperclip', "~> 4.2.0"
 gem 'aws-sdk'
 gem 'ransack'
@@ -18,8 +18,8 @@ gem "bourbon"
 gem "simple_calendar", "~> 1.1.0"
 gem "selectize-rails"
 gem "slim-rails"
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails'
+gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass'
 gem 'foundation-rails', '~> 5'

@@ -4,6 +4,22 @@
 	padding: 1.25rem 0;
 }
 
+.sidebar-search-form {
+	height: 60px;
+	margin: 0 0 2rem 0;
+}
+
+.sidebar-search-field {
+	height: 100% !important;
+	padding: 1.875rem !important;
+	border: none !important;
+	background-color: scale-color($secondary-color, $lightness: -5%) !important;
+
+	&:hover, &:focus {
+		background-color: scale-color($secondary-color, $lightness: -8%) !important;
+	}
+}
+
 
 // CHARTS
 

@@ -1,2 +1,2 @@
-= search_form_for @search, url: search_orders_path, method: :post do |f|
-  = f.search_field :billing_name_cont, placeholder: "Suchen", class: "sidebar-search"
+= search_form_for @search, method: :post, url: search_orders_path, class: "sidebar-search-form" do |f|
+  = f.search_field :billing_name_cont, placeholder: "Suchen", class: "sidebar-search-field"
