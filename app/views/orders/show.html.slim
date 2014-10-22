@@ -1,5 +1,4 @@
 = render "orders/common/search"
-= render "orders/common/toolbar"
 = render "orders/show/breadcrumbs"
 = render "orders/show/sidebar"
 
@@ -55,6 +54,23 @@ section
 							section
 								- @order.line_items.each do |li|
 									= render "orders/show/line_item", li: li
+							section
+								.row
+									.small-12.medium-6.large-8.columns
+										- if @order.comment.present?
+											.panel
+												label Bemerkung
+											p = @order.comment
+									.small-12.medium-6.large-4.columns
+										.panel
+											p.text-right
+												label Warenwert
+												= number_to_currency(@order.price_total, unit: "€")
+												br
+												label + Mehrwertsteuer
+												= number_to_currency(@order.vat_total, unit: "€")
+												hr
+												h3.bold.text-right = number_to_currency(@order.gross_price_total, unit: "€")
 						.content#tab-invoice
 							p Some Text
 						.content#tab-shipping

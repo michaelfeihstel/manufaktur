@@ -129,13 +129,10 @@ div.fields {
 }
 
 @mixin input {
+	background-color: $secondary-color;
 	outline: none;
 	@include appearance(none);
-	border: none;
-	border-bottom: 1px solid darken($secondary-color, 10%);
 	margin: 0;
-	padding-left: 0;
-	padding-right: 0;
 }
 
 input[type="text"],
@@ -153,12 +150,12 @@ input[type="time"],
 input[type="url"],
 textarea {
 	@include input;
+	height: 2.5rem;
 	display: inline !important;
-	background: none;
 
 	&:hover,
 	&:focus {
-		border-bottom: 1px solid $primary-color;
+		border: 1px solid $primary-color;
 	}
 }
 
@@ -212,12 +209,11 @@ input[type="checkbox"]:not(:checked):hover {
 select,
 .selectize-input.full {
 	@include input;
-	background-color: transparent;
 }
 
 .selectize-input,
 .selectize-control.single {
-
+	height: 2.5rem;
 	.selectize-input.input-active {
 		background-color: transparent;
 	}
@@ -237,8 +233,7 @@ select:focus {
 .selectize-input,
 .selectize-input.focus {
 	@include input;
-	background-color: transparent;
-	padding: 0;
+	padding: 0 0.5rem;
 	font-family: inherit;
 	font-size: inherit;
 	color: inherit;
@@ -248,7 +243,6 @@ select:focus {
 }
 
 .selectize-input > input {
-	max-height: 38px !important;
 	position: relative !important;
 }
 
@@ -414,7 +408,6 @@ tfoot > tr {
 .bar-icon {
 	margin-left: 1rem;
 }
-
 
 
 // BREADCRUMBS

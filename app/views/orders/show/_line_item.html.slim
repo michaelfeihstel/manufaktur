@@ -108,10 +108,10 @@
 
 			.small-2.columns
 				ul#totals.small-block-grid-1.medium-block-grid-1.large-block-grid-2
-					li
+					li.text-right
 						= label(:line_item, :quantity, "Gesamt" )
 						span#quantity.quantity= li.quantity
-					li
+					li.text-right
 						= label(:line_item, :price, "Summe" )
 						span#price_total= number_to_currency(li.try(:price_total), unit: "€ ")
 		hr

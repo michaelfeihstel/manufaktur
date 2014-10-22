@@ -90,6 +90,14 @@ class Order < ActiveRecord::Base
   end
 
   def price_total
+    self.line_items.to_a.sum(&:price_total)
+  end
+
+  def vat_total
+    self.line_items.to_a.sum(&:vat_total)
+  end
+
+  def gross_price_total
     self.line_items.to_a.sum(&:gross_price_total)
   end
 

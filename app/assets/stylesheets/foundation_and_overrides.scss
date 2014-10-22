@@ -47,7 +47,7 @@ $default-float: left;
 // We use these as default colors throughout
 $primary-color: #d82b4e;
 // $primary-color: #4F5263;
-$secondary-color: #f3f3f3;
+$secondary-color: #f5f5f5;
 $highlight-color: #FF3F66;
 // $highlight-color: #7BACCC;
 $alert-color: #E40D46;
@@ -343,7 +343,7 @@ $form-label-font-color: #999;
 $input-font-size: rem-calc(16);
 $input-bg-color: transparent;
 $input-focus-bg-color: transparent;
-// $input-border-color: scale-color(#fff, $lightness: -20%);
+$input-border-color: $secondary-color;
 $input-focus-border-color: $primary-color;
 // $input-border-style: solid;
 $input-border-width: 1px;

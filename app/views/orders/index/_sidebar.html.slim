@@ -12,8 +12,3 @@
               span.label.round = @orders.marked_as_favorite.count
           li = link_to "Terminlieferungen", "#"
           li = link_to "Rückstände", marked_orders_path
-
-    // section
-    //   label Kalender
-    //   = month_calendar start_date: @date, table: {class: "calendar"} do |date|
-    //     = link_to (l date, format: :day_of_month), created_at_orders_path(year: date.year, month: date.month, day: date.day)
