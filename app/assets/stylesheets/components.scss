@@ -109,14 +109,8 @@
 	letter-spacing: 2px;
 }
 
-.button.dense {
-	@include button;
+.dense {
 	padding: 0.5rem 1rem;
-
-	&:hover {
-		background-color: $primary-color;
-		color: #fff;
-	}
 }
 
 
@@ -392,21 +386,34 @@ tfoot > tr {
 
 
 // PANELS
-.bar {
-	@include display(flex);
+.outline-panel {
+	@include panel;
+	margin-bottom: inherit;
+	background: none;
+	border: 2px solid $secondary-color;
+}
+
+.panel-bar {
 	padding: 1.25rem;
 }
 
-.panel-top {
-	@extend .bar;
-	@include flex-direction(row);
-	@include align-items(stretch);
-	@include justify-content(flex-start);
-	margin: -1.25rem -1.25rem 1.25rem -1.25rem !important; 
+.panel-bar-bottom {
+	margin-top: 1.25rem;
+	margin-bottom: -1.25rem !important;
+	margin-left: -1.25rem;
+	margin-right: -1.25rem;
+	background-color: $secondary-color;
 }
 
-.bar-icon {
-	margin-left: 1rem;
+.panel-bar-button {
+	margin: -1.25rem;
+	padding: 1.25rem;
+	display: inline-block;
+
+	&:hover {
+		background-color: $primary-color;
+		color: #fff;
+	}
 }
 
 
@@ -523,8 +530,10 @@ ul.breadcrumbs {
 
 .size-row li input[type="text"] {
 	background: none;
-	box-shadow: none;
-	-webkit-box-shadow: none;
+	@include box-shadow(none);
+	border: none;
+	border-bottom: 1px solid $hairline-color;
+	padding: 0;
 }
 
 .size-row li input[type="text"]:hover,

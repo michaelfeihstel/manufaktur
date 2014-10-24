@@ -7,9 +7,8 @@
 
 	section
 		h5 Adressen
-		.fields
-			= f.fields_for :addresses
-			= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "button tiny"
+		= f.fields_for :addresses
+		= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "button tiny"
 
 	section
 		h5 Kontaktdaten

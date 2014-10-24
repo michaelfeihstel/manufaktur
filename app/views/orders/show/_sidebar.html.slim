@@ -17,3 +17,7 @@
 					li = link_to icon("file", text: "Lieferschein"), "#"
 					li = link_to icon("file", text: "Rechnung"), "#"
 					li = link_to icon("mail", text: "Versandbestätigung"), "#"
+
+				label Links
+				ul.side-nav
+					li = link_to @order.contact.name, @order.contact, class: "truncated"

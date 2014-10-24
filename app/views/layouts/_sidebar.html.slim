@@ -4,7 +4,7 @@
   .small-12.columns
     label Menü
     ul.side-nav.inverted data-accordion="main-nav"
-      li class=("active" if controller_name == "contacts") = link_to "Kontakte", "#contacts-subnav"
+      li class=("active" if controller_name == "contacts") = link_to "Kontakte", contacts_path
       li class=("active" if controller_name == "orders") = link_to "Aufträge", orders_path
       li class=("active" if controller_name == "products") = link_to "Artikel", products_path
       li class=("active" if controller_name == "production_series") = link_to "Produktion", "#"

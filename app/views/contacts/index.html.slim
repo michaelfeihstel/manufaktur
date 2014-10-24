@@ -8,6 +8,10 @@
 		.small-12.columns
 			h1 Kontakte
 
+ul.inline-list
+  li = link_to "Kontakt erstellen", new_contact_path, class: "button dense"
+hr
+
 .row
 	.small-12.columns
 		= render "contacts/index/table_contacts"

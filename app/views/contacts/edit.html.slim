@@ -3,10 +3,9 @@
 = render "contacts/edit/breadcrumbs"
 = render "contacts/edit/sidebar"
 
-- content_for :title_bar do
-	.row
-		.small-12.columns
-			h1 = @contact.name
+- content_for :title_bar
+  .row
+    .small-12.columns
+      h1 = @contact.name
 
-- content_for :content do
-	= render "contacts/form"
+= render "contacts/form"

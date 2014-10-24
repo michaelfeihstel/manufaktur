@@ -1,4 +1,10 @@
 = form_for @letter do |f|
+	
+	= f.submit "Speichern", class: "button dense "
+	= link_to "Abbrechen", :back, class: "button dense secondary"
+
+	hr
+
 	- if @letter.errors.any?
 	  #error_explanation
 			h4 = "#{pluralize(@letter.errors.count, 'error')} haben das Speichern dieses Briefes verhindert:"
@@ -9,9 +15,9 @@
 
 	section
 		.row
-			.small-12.large-6.columns
+			.small-12.large-8.columns
 				h5 Empfänger
-				.panel
+				.fields
 					= f.label :name, "Empfänger auswählen"
 					= f.collection_select(:name, Contact.all, :id, :name, {}, { class: "selectize expand" })
 				.row
@@ -44,20 +50,18 @@
 							= f.text_field :country
 
 	section
+		h5 Brief
 		.row
-			.small-12.columns
-				h5 Brief
-				.row
-					.small-12.medium-8.columns
-						.fields
-							= f.label :subject, "Betreff"
-							= f.text_field :subject
-					.small-12.medium-4.columns
-						.fields
-							= f.label :created_at, "Datum"
-							= f.date_field :created_at
+			.small-12.large-8.columns
+				.fields
+					= f.label :subject, "Betreff"
+					= f.text_field :subject
+			.small-12.large-4.columns
+				.fields
+					= f.label :created_at, "Datum"
+					= f.date_field :created_at
 		.row
-			.small-12.medium-8.columns
+			.small-12.large-8.columns
 				.fields
 					= f.label :body, "Inhalt"
 					= f.text_area :body, rows: 20

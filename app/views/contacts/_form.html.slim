@@ -1,23 +1,27 @@
 = nested_form_for @contact do |f|
-	.row
-		.small-12.columns
-			- if @contact.errors.any?
-			  #error_explanation
-					h4 = "#{pluralize(@contact.errors.count, 'error')} haben das Speichern dieses Kontakts verhindert:"
-					ul
-					- @contact.errors.full_messages.each do |msg|
-						.alert-box.alert data-alert=""
-							li = msg
+  .row
+    .small-12.columns
+      - if @contact.errors.any?
+        #error_explanation
+          h4 = "#{pluralize(@contact.errors.count, 'error')} haben das Speichern dieses Kontakts verhindert:"
+          ul
+          - @contact.errors.full_messages.each do |msg|
+            .alert-box.alert data-alert=""
+              li = msg
 
-	.row
-		.small-12.columns
-			.tabs-content
-				= render "contacts/edit/form_core_data", f: f
-				= render "contacts/edit/form_notes", f: f
-				= render "contacts/edit/form_letters", f: f
+  .row
+    .small-12.columns
+      ul.tabs data-tab=""
+        li.tab-title.active = link_to "Stammdaten", "#tab_overview"
+        li.tab-title = link_to "Bemerkungen", "#tab_notes"
+        li.tab-title = link_to "Briefe", "#tab_letters"
+      .tabs-content
+        = render "contacts/edit/form_core_data", f: f
+        = render "contacts/edit/form_notes", f: f
+        = render "contacts/edit/form_letters", f: f
 
-	.row
-		.small-12.columns
-			hr
-			= link_to 'Abbrechen', :back, class: "button secondary left"
-			= f.submit "Speichern", class: "button right"
+  .row
+    .small-12.columns
+      hr
+      = link_to 'Abbrechen', :back, class: "button secondary left"
+      = f.submit "Speichern", class: "button right"

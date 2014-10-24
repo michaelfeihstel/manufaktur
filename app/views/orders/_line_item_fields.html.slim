@@ -1,12 +1,11 @@
 section
-	.panel
+	.outline-panel
 		.line_item data-item-temp-id=f.object.temp_id
 			.fields
 				= f.collection_select(:product_id, @products, :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } )
 
 			.row
 				.small-12.columns
-					= f.label "Größenlauf"
 					.row
 						.small-10.columns
 							ul.inline-list.size-row
@@ -103,14 +102,18 @@ section
 
 						.small-2.columns
 							ul.small-block-grid-1.medium-block-grid-2#totals
-								li
+								li.text-right
 									= label(:line_item, :quantity, "Gesamt")
 									span.quantity#quantity= f.object.quantity
-								li
+								li.text-right
 									= label(:line_item, :price, "Summe", class: "text-right")
-									span.right#price_total= number_to_currency(f.object.try(:price_total), unit: "€ ")
+									span#price_total= number_to_currency(f.object.try(:price_total), unit: "€ ")
 
 					.row
 						.small-12.columns
 							.fields
 								= f.text_field :comment, placeholder: "Kommentar"
+		hr
+		ul.inline-list
+			li = f.link_to_remove icon("bin", text: "Löschen")
+			li = link_to icon("arrow-right", text: "Verschieben")

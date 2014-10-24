@@ -3,12 +3,13 @@
 = render "orders/edit/breadcrumbs"
 = render "orders/edit/sidebar"
 
-- content_for :title_bar do
-	.row
-	  .small-12.columns
-			h1 = @order.id
+- content_for :title_bar
+  .row
+    .small-12.columns
+      h1 = @order.id
+      h4 = @order.billing_name
 
 #content-main
-	.row
-		.small-12.columns
-			= render "orders/form"
+  .row
+    .small-12.columns
+      = render "orders/form"

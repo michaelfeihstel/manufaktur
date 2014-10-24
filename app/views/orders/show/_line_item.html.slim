@@ -1,117 +1,117 @@
-.row
-	.small-12.columns
-		.row
-			.small-9.columns
-				div.color-tile style="#{product_color(li.product)}"
-				= " #{li.product.name}"
-				ul.inline-list.small.light
-					li
-						span= "Artikelnummer: #{li.product.sku}"
-					li
-						span= "Farbe: #{li.product.color_text}"
-					li
-						span= "Preis: #{number_to_currency(li.product.price)}"
+section
+	.row
+		.small-9.columns
+			div.color-tile style="#{product_color(li.product)}"
+			= " #{li.product.name}"
+			ul.inline-list.small.light
+				li
+					span= "Artikelnummer: #{li.product.sku}"
+				li
+					span= "Farbe: #{li.product.color_text}"
+				li
+					span= "Preis: #{number_to_currency(li.product.price)}"
 
-		.row
-			.small-10.columns
-				ul.inline-list.size-row
-					li
-						= label :g1, li.get_size("g1")
-						= li.g1
-					li
-						= label :g1h, li.get_size("g1h")
-						= li.g1h
-					li
-						= label :g2, li.get_size("g2")
-						= li.g2
-					li
-						= label :g2h, li.get_size("g2h")
-						= li.g2h
-					li
-						= label :g3, li.get_size("g3")
-						= li.g3
-					li
-						= label :g3h, li.get_size("g3h")
-						= li.g3h
-					li
-						= label :g4, li.get_size("g4")
-						= li.g4
-					li
-						= label :g4h, li.get_size("g4h")
-						= li.g4h
-					li
-						= label :g5, li.get_size("g5")
-						= li.g5
-					li
-						= label :g5h, li.get_size("g5h")
-						= li.g5h
-					li
-						= label :g6, li.get_size("g6")
-						= li.g6
-					li
-						= label :g6h, li.get_size("g6h")
-						= li.g6h
-					li
-						= label :g7, li.get_size("g7")
-						= li.g7
-					li
-						= label :g7h, li.get_size("g7h")
-						= li.g7h
-					li
-						= label :g8, li.get_size("g8")
-						= li.g8
-					li
-						= label :g8h, li.get_size("g8h")
-						= li.g8h
-					li
-						= label :g9, li.get_size("g9")
-						= li.g9
-					li
-						= label :g9h, li.get_size("g9h")
-						= li.g9h
-					li
-						= label :g10, li.get_size("g10")
-						= li.g10
-					li
-						= label :g10h, li.get_size("g10h")
-						= li.g10h
-					li
-						= label :g11, li.get_size("g11")
-						= li.g11
-					li
-						= label :g11h, li.get_size("g11h")
-						= li.g11h
-					li
-						= label :g12, li.get_size("g12")
-						= li.g12
-					li
-						= label :g12h, li.get_size("g12h")
-						= li.g12h
-					li
-						= label :g13, li.get_size("g13")
-						= li.g13
-					li
-						= label :g13h, li.get_size("g13h")
-						= li.g13h
-					li
-						= label :g14, li.get_size("g14")
-						= li.g14
-					li
-						= label :g14h, li.get_size("g14h")
-						= li.g14h
-					li
-						= label :g15, li.get_size("g15")
-						= li.g15
-					li
-						= label :g16, li.get_size("g16")
-						= li.g16
+	.row
+		.small-10.columns
+			ul.inline-list.size-row
+				li
+					= label :g1, li.get_size("g1")
+					= li.g1
+				li
+					= label :g1h, li.get_size("g1h")
+					= li.g1h
+				li
+					= label :g2, li.get_size("g2")
+					= li.g2
+				li
+					= label :g2h, li.get_size("g2h")
+					= li.g2h
+				li
+					= label :g3, li.get_size("g3")
+					= li.g3
+				li
+					= label :g3h, li.get_size("g3h")
+					= li.g3h
+				li
+					= label :g4, li.get_size("g4")
+					= li.g4
+				li
+					= label :g4h, li.get_size("g4h")
+					= li.g4h
+				li
+					= label :g5, li.get_size("g5")
+					= li.g5
+				li
+					= label :g5h, li.get_size("g5h")
+					= li.g5h
+				li
+					= label :g6, li.get_size("g6")
+					= li.g6
+				li
+					= label :g6h, li.get_size("g6h")
+					= li.g6h
+				li
+					= label :g7, li.get_size("g7")
+					= li.g7
+				li
+					= label :g7h, li.get_size("g7h")
+					= li.g7h
+				li
+					= label :g8, li.get_size("g8")
+					= li.g8
+				li
+					= label :g8h, li.get_size("g8h")
+					= li.g8h
+				li
+					= label :g9, li.get_size("g9")
+					= li.g9
+				li
+					= label :g9h, li.get_size("g9h")
+					= li.g9h
+				li
+					= label :g10, li.get_size("g10")
+					= li.g10
+				li
+					= label :g10h, li.get_size("g10h")
+					= li.g10h
+				li
+					= label :g11, li.get_size("g11")
+					= li.g11
+				li
+					= label :g11h, li.get_size("g11h")
+					= li.g11h
+				li
+					= label :g12, li.get_size("g12")
+					= li.g12
+				li
+					= label :g12h, li.get_size("g12h")
+					= li.g12h
+				li
+					= label :g13, li.get_size("g13")
+					= li.g13
+				li
+					= label :g13h, li.get_size("g13h")
+					= li.g13h
+				li
+					= label :g14, li.get_size("g14")
+					= li.g14
+				li
+					= label :g14h, li.get_size("g14h")
+					= li.g14h
+				li
+					= label :g15, li.get_size("g15")
+					= li.g15
+				li
+					= label :g16, li.get_size("g16")
+					= li.g16
 
-			.small-2.columns
-				ul#totals.small-block-grid-1.medium-block-grid-1.large-block-grid-2
-					li.text-right
-						= label(:line_item, :quantity, "Gesamt" )
-						span#quantity.quantity= li.quantity
-					li.text-right
-						= label(:line_item, :price, "Summe" )
-						span#price_total= number_to_currency(li.try(:price_total), unit: "€ ")
-		hr
+		.small-2.columns
+			ul#totals.small-block-grid-1.medium-block-grid-1.large-block-grid-2
+				li.text-right
+					= label(:line_item, :quantity, "Gesamt" )
+					span#quantity.quantity= li.quantity
+				li.text-right
+					= label(:line_item, :price, "Summe" )
+					span#price_total= number_to_currency(li.try(:price_total), unit: "€ ")
+
+	hr

@@ -4,9 +4,10 @@
 = render "letters/edit/sidebar"
 
 - content_for :title_bar
-	.row
-		.small-12.columns
-			h1.truncated = @letter.subject
+  .row
+    .small-12.columns
+      h1.truncated = @letter.subject
+      h4 = @letter.name
 
 section
-	= render "letters/common/form"
+  = render "letters/common/form"

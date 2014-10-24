@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Filialen::Application.load_tasks
+Manufaktur::Application.load_tasks

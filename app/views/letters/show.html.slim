@@ -4,6 +4,12 @@
 
 - content_for :title_bar
 	h1.truncated = @letter.subject
+	h4 = @letter.name
+
+= link_to "Bearbeiten", edit_letter_path(@letter), class: "button dense"
+= link_to "Drucken", "#", class: "button dense"
+
+hr
 
 section
 	label Empfänger

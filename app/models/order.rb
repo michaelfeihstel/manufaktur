@@ -70,8 +70,8 @@ class Order < ActiveRecord::Base
   end
 
   # SCOPES
-
   scope :marked_as_favorite, -> { where(marked: true) }
+  scope :ordered_by, ->(contact_id) { where(contact_id: contact_id) }
   
   # METHODS
 

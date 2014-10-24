@@ -1,15 +1,10 @@
 class OrdersController < ApplicationController
 	respond_to :html, :js, :json
+	before_action :initialize_search
 	
 	def index
-		@search = Order.includes(:line_items, :products, :contact).order(created_at: :desc).search(params[:q])
-		@orders = @search.result(distinct: true).page(params[:page]).per(100)
+		@orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page]).per(100)
 		@filter_selected = "all"
-
-		respond_to do |format|
-			format.html # index.html.erb
-  		format.json { render json: @orders }
-		end
 	end
 
 	def search
@@ -18,7 +13,6 @@ class OrdersController < ApplicationController
 	end
 
 	def index_created_at
-		@search = Order.search(params[:q])
 		@date = "#{params[:year]}-#{params[:month]}-#{params[:day]}".to_date
 		@orders = Order.where(created_at: @date).order(created_at: :desc)
 		render "index"
@@ -33,8 +27,6 @@ class OrdersController < ApplicationController
 
 
 	def show
-		@search = Order.search(params[:q])
-		@orders = @search.result(distinct: true).order(id: :desc).includes(:contact).page(params[:page]).per(50)
 		@order = Order.includes(:line_items, :contact, {:products => :size}).find(params[:id])
 	end
 
@@ -131,6 +123,10 @@ class OrdersController < ApplicationController
 
 
 	private
+	def initialize_search
+		@search = Order.search(params[:q])
+	end
+
 	def order_params
 		params.require(:order).permit(
 			:id,

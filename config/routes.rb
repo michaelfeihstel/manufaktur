@@ -1,26 +1,32 @@
-Filialen::Application.routes.draw do
+Manufaktur::Application.routes.draw do
+
+  # concerns
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, :as => ''
+    get '(search/page/:page)', action: :search, on: :collection, :as => 'search_page'
+  end
+
+  concern :searchable do
+    match '(search)', action: :search, on: :collection, via: [:get, :post], as: :search
+  end
 
   # orders
-
   get "orders/marked_orders" => "orders#get_marked_orders", :as => "marked_orders"
 
   # resources
-
-  resources :product_images
+  resources :addresses
   resources :brands
-  
-  resources :products do
-    collection do
-      match "search" => "products#search", via: [:get, :post], as: "search"
-    end
+  resources :contacts, concerns: [:paginatable, :searchable] do
+    resources :orders
   end
-
+  resources :letters, concerns: [:paginatable, :searchable]
+  resources :line_items
+  resources :product_images
+  resources :products, concerns: [:paginatable, :searchable]
   resources :sizes
   resources :variations
   resources :variation_sets
-  resources :contacts
-  resources :addresses
-  resources :orders do
+  resources :orders, concerns: [:paginatable, :searchable] do
     member do
       post :update_addresses
       put :mark
@@ -28,14 +34,6 @@ Filialen::Application.routes.draw do
     end
     collection do
       get "created/:year/:month/:day" => "orders#index_created_at", :as => "created_at"
-      match "search" => "orders#search", via: [:get, :post], as: "search"
-    end
-  end
-  resources :line_items
-  resources :letters do
-    collection do
-      post "search", as: "search"
-      get 'page/:page', action: :index
     end
   end
 

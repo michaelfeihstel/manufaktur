@@ -2,13 +2,12 @@ class LettersController < ApplicationController
   before_action :initialize_search
 
   def index
-    @search = Letter.search(params[:q])
     @letters = @search.result(distinct: true).order_by_date_desc.page(params[:page]).per(50)
   end
 
   def search
     index
-    render "new"
+    render "index"
   end
 
   def show

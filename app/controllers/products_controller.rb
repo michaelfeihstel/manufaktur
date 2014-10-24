@@ -1,13 +1,8 @@
 class ProductsController < ApplicationController
+  before_action :initialize_search, only: [:index, :search, :show, :edit, :new]
 
   def index
-    @search = Product.search(params[:q])
     @products = @search.result(distinct: true).includes(:product_images).order(:name)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
-    end
   end
 
 
@@ -17,12 +12,8 @@ class ProductsController < ApplicationController
     render "index"
   end
 
-
-
   def show
-    @search = Product.search(params[:q])
     @product = Product.find(params[:id])
-    @products = Product.all
   end
 
 
@@ -85,6 +76,10 @@ class ProductsController < ApplicationController
 
 
   private
+  def initialize_search
+    @search = Product.search(params[:q])
+  end
+
   def product_params
     params.require(:product).permit(
       :name,
