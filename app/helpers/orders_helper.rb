@@ -20,7 +20,7 @@ module OrdersHelper
 		if order.completed_at
 			icon("check2-fill", text: status_label || action_label)
 		else
-			icon("check2", text: status_label || action_label)
+			icon("clock", text: status_label || action_label)
 		end
 	end
 

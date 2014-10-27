@@ -1,7 +1,7 @@
 // DEBUG
 .columns,
 .row {
-	border: 0px solid #ccc;
+  border: 0px solid #ccc;
 }
 
 .full-width {
@@ -14,105 +14,121 @@
 
 // LAYOUT
 section {
-	margin-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 
 
 
 .container {
-	@include display(flex);
-	@include flex-direction(column);
-	@include justify-content(flex-start);
-	@include transition(all 200ms ease-in-out);
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  @include transition(all 200ms ease-in-out);
 
-	top: 45px;
-	bottom: 0px;
+  top: 45px;
+  bottom: 0px;
 
-	&.disabled {
-		@include transform(translateX(300px));
-	}
+  &.disabled {
+    @include transform(translateX(300px));
+  }
 }
 
 #header {
-	@include flex(0 0);
-	z-index: 1;
+  @include flex(0 0);
+  z-index: 1;
 
-	#title-area {
-		background-color: scale-color($primary-color, $lightness: 20%);
-		padding: 1.25rem 0 2rem 0rem;
-	}
+  #title-area {
+    background-color: scale-color($primary-color, $lightness: 20%);
+    padding: 1.25rem 0 2rem 0rem;
+  }
 }
 
 .logo {
-	height: 60px;
-	margin-bottom: 2rem;
-	position: relative;
-	text-align: center;
-	
-	img {
-		padding: 6.5px;
-	}
+  height: 60px;
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+  
+  img {
+    padding: 6.5px;
+  }
 }
 
 .logo-link {
-	background-color: $primary-color;
-	display: block;
-	width: 100%;
-	height: 100%;
+  background-color: $primary-color;
+  display: block;
+  width: 100%;
+  height: 100%;
 
-	&:hover {
-		background-color: scale-color($primary-color, $lightness: -5%)
-	}
+  &:hover {
+    background-color: scale-color($primary-color, $lightness: -5%)
+  }
 }
 
 .title {
-	padding-top: 2rem;
+  padding-top: 2rem;
 }
 
 .content-area {
-	@include flex(1 0);
-	@include display(flex);
-	@include flex-direction(row);
-	@include justify-content(flex-start);
-	@include align-items(stretch);
-	overflow: scroll;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	@media #{$small-only} {
-		@include flex-direction(column);
-	};
+  @include flex(1 0);
+  @include display(flex);
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(stretch);
+  @include transition (all 200ms ease-in-out);
+  overflow: scroll;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  @media #{$small-only} {
+    @include flex-direction(row);
+  };
+
+  &.enabled {
+    left: 0px;
+    right: -245px;
+  }
 
 
-	.sidebar {
-		@include flex(0 0 250px);
-		@include display(flex);
-		@include flex-direction(column);
-		@include justify-content(flex-start);
-		@include transition (all 200ms ease-in-out);
-		background-color: $primary-color;
-		overflow-y: scroll;
-		@media #{$medium-only} {
-			@include flex(0 0 180px);
-		};
+  .sidebar {
+    @include flex(0 0 250px);
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(flex-start);
+    @include transition (all 200ms ease-in-out);
+    background-color: $primary-color;
+    overflow-y: scroll;
+    z-index: 1;
+    @media #{$medium-only} {
+      margin-left: -245px;
+      @include flex(0 0 250px);
+    };
 
-		&.enabled {
-	    @include transform(translateX(300px));
-		}
-	}
+    &.enabled {
+      @include transform(translateX(245px));
+    }
+  }
 
-	.content-main {
-		@include flex(1 1);
-		overflow: auto;
-		-webkit-overflow-scrolling: touch;
-	}
+  .content-main {
+    @include flex(1 1);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .sidebar-right {
-	@include flex(0 0 250px);
-	background-color: $secondary-color;
+  @include flex(0 0 250px);
+  background-color: $secondary-color;
+
+  @media #{$medium-only} {
+    @include flex(0 0 200px);
+  };
+
+  &.enabled {
+    @include transform(translateX(245px));
+  }
 }
 
 footer {
@@ -124,12 +140,12 @@ footer {
 // FLEX CLASSES
 
 .flex-grow {
-	@include flex-grow(1);
-	overflow: auto;
+  @include flex-grow(1);
+  overflow: auto;
 }
 
 .flex-fixed {
-	@include flex-shrink(0);
+  @include flex-shrink(0);
 }
 
 .flex-centered {

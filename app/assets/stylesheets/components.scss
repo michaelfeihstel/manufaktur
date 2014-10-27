@@ -280,7 +280,7 @@ select:focus {
 
 // TABS
 .tabs {
-	margin-bottom: 2rem;
+	margin-top: 2rem;
 	border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
 
 	.tab-title {
@@ -326,13 +326,13 @@ table {
 	tr {
 		border-bottom: 1px solid $secondary-color;
 
-		td.first,
-		th.first {
+		td:first-child,
+		th:first-child {
 			padding-left: 0;
 		}
 
-		td.last,
-		th.last {
+		td:last-child,
+		th:last-child {
 			padding-right: 0;
 		}
 
@@ -360,8 +360,7 @@ table {
 	}
 
 	tr.link:hover {
-		background-color: $secondary-color;
-		padding: 0.5rem;
+		border-color: $primary-color;
 		cursor: pointer;
 	}
 

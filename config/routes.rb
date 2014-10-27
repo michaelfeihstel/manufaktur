@@ -22,7 +22,11 @@ Manufaktur::Application.routes.draw do
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
   resources :product_images
-  resources :products, concerns: [:paginatable, :searchable]
+  resources :products, concerns: [:paginatable, :searchable] do
+    collection do
+      get "filter/:name", action: "filter_by_model", as: "filter"
+    end
+  end
   resources :sizes
   resources :variations
   resources :variation_sets

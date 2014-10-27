@@ -1,13 +1,14 @@
-- content_for :sidebar
-  = render "products/common/quicksearch"
-  .row
-    .small-12.columns
-      label Filter
-      ul.side-nav
-        li class=("active" if @filter_selected == "all") = link_to "Alle", products_path
-        li class=("active" if @filter_selected == "adagio") = link_to "Adagio", products_path
-        li class=("active" if @filter_selected == "cdur") = link_to "C-Dur / a-Moll", products_path
-        li class=("active" if @filter_selected == "vivo") = link_to "Vivo", products_path
-        li class=("active" if @filter_selected == "fis") = link_to "Fis", products_path
-        li class=("active" if @filter_selected == "light") = link_to "Light", products_path
-        li class=("active" if @filter_selected == "gomax") = link_to "Gomax", products_path
+- content_for :sidebar_right
+  .sidebar-right
+    = render "products/common/quicksearch"
+    .row
+      .small-12.columns
+        label Filter
+        ul.side-nav
+          li class=("active" if @filter_selected == "all") = link_to "Alle", products_path
+          li class=("active" if @filter_selected == "adagio") = link_to "Adagio", filter_products_path("Adagio")
+          li class=("active" if @filter_selected == "cdur") = link_to "C-Dur / a-Moll", filter_products_path("C-Dur")
+          li class=("active" if @filter_selected == "vivo") = link_to "Vivo", filter_products_path("Vivo")
+          li class=("active" if @filter_selected == "fis") = link_to "Fis", filter_products_path("Fis")
+          li class=("active" if @filter_selected == "light") = link_to "Light", filter_products_path("Light")
+          li class=("active" if @filter_selected == "gomax") = link_to "Gomax", filter_products_path("Gomax")

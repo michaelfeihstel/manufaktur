@@ -18,6 +18,7 @@ section
 			section
 				.row
 					.small-12.columns
+						label.section-label Kunde
 						.fields
 							label Auftraggeber
 							= @order.try(:billing_name)
@@ -42,6 +43,13 @@ section
 							= "#{@order.try(:delivery_zip)} #{@order.try(:delivery_city)}"
 							br
 							= @order.try(:delivery_country)
+			section
+				.row
+					.small-12.columns
+						label.section-label Verlauf
+						.fields
+							label Erstellt am
+							= l @order.created_at, format: :date_only 
 			.row
 				.small-12.columns
 					ul.tabs data-tab=""

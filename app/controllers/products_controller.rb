@@ -1,11 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :initialize_search, only: [:index, :search, :show, :edit, :new]
+  before_action :initialize_search
 
   def index
     @products = @search.result(distinct: true).includes(:product_images).order(:name)
   end
 
-
+  def filter_by_model
+    @products = @search.result(distinct: true).only_model(params[:name]).includes(:product_images).order(:name)
+    render "index"
+  end
 
   def search
     index

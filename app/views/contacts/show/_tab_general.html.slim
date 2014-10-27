@@ -1,6 +1,6 @@
 .content.active#tab_overview
   section
-    h5 Adressen & Filialen
+    h6 Adressen & Filialen
     ul.small-block-grid-1.large-block-grid-3
       - @contact.addresses.each do |contact|
         li
@@ -18,7 +18,7 @@
               = link_to icon("print", text: "Label"), "#", class: "panel-bar-button"
 
   section
-    h5 Kontaktdaten
+    h6 Kontaktdaten
     .row
       .small-12.medium-4.columns
         label Telefon

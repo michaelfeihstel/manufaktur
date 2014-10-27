@@ -7,83 +7,23 @@
 			section
 				table
 					thead
-						tr.sticky
-							td width=70 Status
-							td width=70 Auftrag
-							td Erstellt
-							td width=200 Auftraggeber
-							td.text-center = @product.size.g1
-							td.text-center = @product.size.g1h
-							td.text-center = @product.size.g2
-							td.text-center = @product.size.g2h
-							td.text-center = @product.size.g3
-							td.text-center = @product.size.g3h
-							td.text-center = @product.size.g4
-							td.text-center = @product.size.g4h
-							td.text-center = @product.size.g5
-							td.text-center = @product.size.g5h
-							td.text-center = @product.size.g6
-							td.text-center = @product.size.g6h
-							td.text-center = @product.size.g7
-							td.text-center = @product.size.g7h
-							td.text-center = @product.size.g8
-							td.text-center = @product.size.g8h
-							td.text-center = @product.size.g9
-							td.text-center = @product.size.g9h
-							td.text-center = @product.size.g10
-							td.text-center = @product.size.g10h
-							td.text-center = @product.size.g11
-							td.text-center = @product.size.g11h
-							td.text-center = @product.size.g12
-							td.text-center = @product.size.g12h
-							td.text-center = @product.size.g13
-							td.text-center = @product.size.g13h
-							td.text-center = @product.size.g14
-							td.text-center = @product.size.g14h
-							td.text-center = @product.size.g15
-							td.text-center = @product.size.g16
-							td.text-right Gesamt
+						tr
+							th width=70 Status
+							th width=70 Auftrag
+							th Erstellt
+							th Auftraggeber
+							th.text-right Anzahl
 					tbody
 						- @product.line_items.order_by_created_desc.each do |line_item|
 							tr.link href=order_path(line_item.order)
 								td
-									span data-tooltip="" title=line_item.order.completed_label
+									span data-tooltip="" title=line_item.order.completed_status_label
 										= completed_icon(line_item.order)
 									span data-tooltip="" title=line_item.order.paid_label
 										= paid_icon(line_item.order)
 								td = line_item.order_id
 								td = l line_item.order.created_at, format: :date_only
 								td = line_item.order.billing_name
-								td.text-center = line_item.g1
-								td.text-center = line_item.g1h
-								td.text-center = line_item.g2
-								td.text-center = line_item.g2h
-								td.text-center = line_item.g3
-								td.text-center = line_item.g3h
-								td.text-center = line_item.g4
-								td.text-center = line_item.g4h
-								td.text-center = line_item.g5
-								td.text-center = line_item.g5h
-								td.text-center = line_item.g6
-								td.text-center = line_item.g6h
-								td.text-center = line_item.g7
-								td.text-center = line_item.g7h
-								td.text-center = line_item.g8
-								td.text-center = line_item.g8h
-								td.text-center = line_item.g9
-								td.text-center = line_item.g9h
-								td.text-center = line_item.g10
-								td.text-center = line_item.g10h
-								td.text-center = line_item.g11
-								td.text-center = line_item.g11h
-								td.text-center = line_item.g12
-								td.text-center = line_item.g12h
-								td.text-center = line_item.g13
-								td.text-center = line_item.g13h
-								td.text-center = line_item.g14
-								td.text-center = line_item.g14h
-								td.text-center = line_item.g15
-								td.text-center = line_item.g16
 								td.text-right = line_item.quantity
 					tfoot
 						tr
@@ -91,35 +31,5 @@
 							td
 							td
 							td
-							td.bold.text-center = @product.line_items.sum(:g1)
-							td.bold.text-center = @product.line_items.sum(:g1h)
-							td.bold.text-center = @product.line_items.sum(:g2)
-							td.bold.text-center = @product.line_items.sum(:g2h)
-							td.bold.text-center = @product.line_items.sum(:g3)
-							td.bold.text-center = @product.line_items.sum(:g3h)
-							td.bold.text-center = @product.line_items.sum(:g4)
-							td.bold.text-center = @product.line_items.sum(:g4h)
-							td.bold.text-center = @product.line_items.sum(:g5)
-							td.bold.text-center = @product.line_items.sum(:g5h)
-							td.bold.text-center = @product.line_items.sum(:g6)
-							td.bold.text-center = @product.line_items.sum(:g6h)
-							td.bold.text-center = @product.line_items.sum(:g7)
-							td.bold.text-center = @product.line_items.sum(:g7h)
-							td.bold.text-center = @product.line_items.sum(:g8)
-							td.bold.text-center = @product.line_items.sum(:g8h)
-							td.bold.text-center = @product.line_items.sum(:g9)
-							td.bold.text-center = @product.line_items.sum(:g9h)
-							td.bold.text-center = @product.line_items.sum(:g10)
-							td.bold.text-center = @product.line_items.sum(:g10h)
-							td.bold.text-center = @product.line_items.sum(:g11)
-							td.bold.text-center = @product.line_items.sum(:g11h)
-							td.bold.text-center = @product.line_items.sum(:g12)
-							td.bold.text-center = @product.line_items.sum(:g12h)
-							td.bold.text-center = @product.line_items.sum(:g13)
-							td.bold.text-center = @product.line_items.sum(:g13h)
-							td.bold.text-center = @product.line_items.sum(:g14)
-							td.bold.text-center = @product.line_items.sum(:g14h)
-							td.bold.text-center = @product.line_items.sum(:g15)
-							td.bold.text-center = @product.line_items.sum(:g16)
 							td.bold.text-right = @product.line_items.to_a.sum(&:quantity)
 

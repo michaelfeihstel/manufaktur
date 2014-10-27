@@ -15,9 +15,9 @@
 //= require foundation
 //= require jquery_nested_form
 //= require jquery.minicolors
-//= require jquery.sticky-kit
 //= require d3
 //= require c3
+//= require hammer
 //= require selectize
 //= require_tree
 
@@ -50,17 +50,6 @@ $('.sidebar-toggle').click(function() {
 
 	console.log("sidebar was triggered.");
 });
-
-
-
-
-// sticky elements
-$(".sticky").stick_in_parent({
-	parent: "#head"
-})
-
-
-
 
 // convert table rows to links
 $('tr').on("click", function() {

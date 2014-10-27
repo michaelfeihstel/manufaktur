@@ -24,6 +24,15 @@ h1 {
 	font-weight: 700;
 }
 
+h6 {
+	color: #999;
+	font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 2px;
+	margin: 0.5rem 0;
+	text-rendering: optimizeLegibility;
+}
+
 span.input {
 	display: block;
 	padding: 0.5rem 0;
@@ -87,6 +96,14 @@ span.input {
 	overflow: hidden;
 }
 
+label.section-label {
+	font-size: 1rem;
+	font-family: $header-font;
+	font-weight: 400;
+	letter-spacing: 2px;
+	margin: 0.5rem 0;
+	text-rendering: optimizeLegibility;
+}
 
 
 // INVERTED

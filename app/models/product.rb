@@ -19,16 +19,20 @@
 #
 
 class Product < ActiveRecord::Base
-  
+  # associations
   has_many :product_images, :dependent => :destroy
   belongs_to :size
   belongs_to :variation_set
   has_many :line_items
 
+  accepts_nested_attributes_for :product_images, :allow_destroy => true
+
+  # scopes
+  scope :only_model, ->(name) { where(name: name) }
+
+  # validations
   validates	:name,	presence: true
   validates	:sku,		presence: true
-
-  accepts_nested_attributes_for :product_images, :allow_destroy => true
 
   def default_image
     if self.product_images.empty?
