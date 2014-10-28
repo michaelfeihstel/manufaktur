@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 
 	def get_marked_orders
 		@search = Order.marked_as_favorite.search(params[:q])
-		@orders = @search.result(distinct: true)
+		@orders = @search.result(distinct: true).page(params[:page]).per(100)
 		@filter_selected = "favorites"
 		render "index"
 	end

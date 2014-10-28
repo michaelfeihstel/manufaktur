@@ -1,17 +1,17 @@
 .content.active#tab_overview
 	section
-		h5 Kontakt
+		h6 Kontakt
 		.fields
 			= f.label :name
 			= f.text_field :name
 
 	section
-		h5 Adressen
+		h6 Adressen
 		= f.fields_for :addresses
 		= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "button tiny"
 
 	section
-		h5 Kontaktdaten
+		h6 Kontaktdaten
 		label eMail
 		table
 			thead

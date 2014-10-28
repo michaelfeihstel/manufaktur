@@ -4,7 +4,7 @@
     ul.small-block-grid-1.large-block-grid-3
       - @contact.addresses.each do |contact|
         li
-          .outline-panel
+          .panel
             label = contact.description
             p
               = contact.name
@@ -14,7 +14,7 @@
               = "#{contact.zip} #{contact.city}"
               br
               = contact.country
-            .panel-bar.panel-bar-bottom
+            .panel-bar.bottom
               = link_to icon("print", text: "Label"), "#", class: "panel-bar-button"
 
   section

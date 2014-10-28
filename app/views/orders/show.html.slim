@@ -6,11 +6,9 @@
 	h1 = @order.id
 	h4 = @order.billing_name
 
-.row
-	.small-12.columns
-		= link_to "Auftrag Bearbeiten", edit_order_path(@order), class: "button dense"
-		= link_to "Suchen", "#", id: "search-toggle", class: "button dense"
-		hr
+= link_to "Bearbeiten", edit_order_path(@order), class: "button dense"
+= link_to "Suchen", "#", id: "search-toggle", class: "button dense"
+hr
 
 section
 	.row

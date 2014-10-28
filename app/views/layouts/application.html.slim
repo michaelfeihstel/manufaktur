@@ -26,21 +26,20 @@ html lang="en"
     = csrf_meta_tags
 
   body
-    .container
-      .content-area#touch-target
-        .sidebar
-          = render "layouts/sidebar"
-        = yield :sidebar_right
-        .content-main
-          = yield :search
-          = yield :breadcrumbs
-          = render "layouts/flash"
-          .row
-            .small-12.columns
-              section.title
-                = yield :title_bar
-              = yield
-              footer
-                = yield :footer
+    .content-area#touch-target
+      .sidebar
+        = render "layouts/sidebar"
+      = yield :sidebar_right
+      .content-main
+        = yield :search
+        = yield :breadcrumbs
+        = render "layouts/flash"
+        .row
+          .small-12.columns
+            section.title
+              = yield :title_bar
+            = yield
+            footer
+              = yield :footer
 
     = javascript_include_tag "application"

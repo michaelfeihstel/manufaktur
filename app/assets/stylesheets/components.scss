@@ -145,7 +145,7 @@ input[type="url"],
 textarea {
 	@include input;
 	height: 2.5rem;
-	display: inline !important;
+	display: inline-block !important;
 
 	&:hover,
 	&:focus {
@@ -392,16 +392,44 @@ tfoot > tr {
 	border: 2px solid $secondary-color;
 }
 
-.panel-bar {
-	padding: 1.25rem;
+.panel {
+	@include panel;
+	@include subtle-shadow;
 }
 
-.panel-bar-bottom {
-	margin-top: 1.25rem;
-	margin-bottom: -1.25rem !important;
-	margin-left: -1.25rem;
-	margin-right: -1.25rem;
-	background-color: $secondary-color;
+.panel-bar {
+	padding: 1.25rem;
+	background-color: whitesmoke;
+	
+	&.bottom {
+		margin-top: 1.25rem;
+		margin-bottom: -1.25rem !important;
+		margin-left: -1.25rem;
+		margin-right: -1.25rem;
+	}
+}
+
+ul.panel-bar-list {
+	@include inline-list;
+	margin-bottom: 0px;
+	margin-left: 0;
+}
+
+ul.panel-bar-list > li {
+	padding: 0 1.25rem;
+	border-right: 1px solid $hairline-color;
+	margin-left: 0;
+	text-align: center;
+
+	&:first-child {
+		padding-left: 0;
+		padding-right: 1.25rem;
+	}
+
+	&:last-child {
+		border-right: none;
+		padding-right: 0;
+	}
 }
 
 .panel-bar-button {
