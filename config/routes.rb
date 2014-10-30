@@ -1,11 +1,13 @@
 Manufaktur::Application.routes.draw do
 
+  # root
+  root :to => "home#index"
+
   # concerns
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, :as => ''
     get '(search/page/:page)', action: :search, on: :collection, :as => 'search_page'
   end
-
   concern :searchable do
     match '(search)', action: :search, on: :collection, via: [:get, :post], as: :search
   end
@@ -20,7 +22,6 @@ Manufaktur::Application.routes.draw do
     resources :orders
   end
   resources :letters, concerns: [:paginatable, :searchable]
-  resources :line_items
   resources :product_images
   resources :products, concerns: [:paginatable, :searchable] do
     collection do
@@ -42,17 +43,15 @@ Manufaktur::Application.routes.draw do
   end
 
 
-
-  get "home/index"
-
-
+  # ajax
+  scope "line_items" do
+    post "change_quantity", controller: "line_items", action: "change_quantity", as: "change_quantity"
+  end
   match "line_items/select_product" => "line_items#select_product", :via => :post
-  match "line_items/change_quantity" => "line_items#change_quantity", :via => :post
 
-  root :to => "home#index"
+
 
   # /api/...
-
   namespace :api, defaults: { format: "json" } do
     resources :addresses
     resources :contacts

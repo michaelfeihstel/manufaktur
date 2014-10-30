@@ -1,19 +1,18 @@
-// input quantites
+// change any of the quantity inputs
 $('form').on('change', '.size-input', function () {
-    var product_id = $(this).closest('.line_item').find('.order_line_items_product_id').val();
-    var line_item_temp_id = $(this).closest('.line_item').data('item-temp-id');
+    var product_id = $(this).closest('section').find('.order_line_items_product_id').val();
+    var line_item_id = $(this).closest('section').data('line-item-id');
     var quantity = 0;
     
-    $(this).closest('.line_item').find('.size-input').each(function() {
+    $(this).closest('section').find('.size-input').each(function() {
         quantity += Number($(this).val());
     });
 
     console.log('line_items#change_quantity triggered');
-
     console.log(
         'quantity: ' + quantity + '\n' +
         'product_id: ' + product_id + '\n' +
-        'temp_id: ' + line_item_temp_id
+        'line_item_id: ' + line_item_id
     );
 
     $.ajax({
@@ -21,7 +20,7 @@ $('form').on('change', '.size-input', function () {
         type: "post",
         data: {
             "product_id": product_id,
-            "temp_id": line_item_temp_id,
+            "line_item_id": line_item_id,
             "quantity": quantity
         },
         error: function(data) {
@@ -36,9 +35,9 @@ $('form').on('change', '.size-input', function () {
 // select product_id
 $('body').on('change', '.order_line_items_product_id', function () {
     var order_id = $('form').data('order-id');
-    var line_item_temp_id = $(this).closest('.line_item').data('item-temp-id');
+    var line_item_temp_id = $(this).closest('section').data('item-temp-id');
     var product_id = $(this).val();
-    var quantity = $(this).closest('.line_item').find('#quantity').text();
+    var quantity = $(this).closest('section').find('#quantity').text();
 
     console.log('line_items#select_product triggered');
 

@@ -19,12 +19,14 @@
 //= require c3
 //= require hammer
 //= require selectize
+//= require rivets
+//= require ractive
 //= require_tree
 
 $(document).foundation();
 
 // Flash notice
-$('#flash').slideDown(500).delay(5000).slideUp(500);
+$('.flash').slideDown(500).delay(5000).slideUp(500);
 
 
 

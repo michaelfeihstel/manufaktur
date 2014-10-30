@@ -10,4 +10,12 @@ module ProductsHelper
 
 		"#{back} #{border} #{text}"
 	end
+
+  def horizontal_gradient(product)
+    primary_color = product.primary_color
+    secondary_color = product.secondary_color
+    text_color = product.text_color
+
+    "linear-gradient(to right, #{primary_color}, #{secondary_color})"
+  end
 end

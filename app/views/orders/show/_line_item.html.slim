@@ -6,7 +6,7 @@ section
 					span.bold = li.product.name
 					span.thin = " #{li.product.color_text}"
 				
-				hr
+				.colored_separator style = "background: #{horizontal_gradient(li.product)}"
 				
 				ul.inline-list.small.light
 					li
@@ -18,7 +18,7 @@ section
 
 		.row
 			.small-12.columns
-				ul.inline-list.size-row
+				ul.size-row
 					li
 						= label :g1, li.get_size("g1")
 						= li.g1

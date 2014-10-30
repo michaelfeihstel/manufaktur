@@ -140,10 +140,10 @@ label.section-label {
 // ICONS
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 
 .icon-text {
-	vertical-align: middle;
+	vertical-align: baseline;
 	margin-left: 5px;
 }

@@ -9,7 +9,6 @@
     font-url("manufaktur-icons.svg#manufaktur-icons") format("svg");
   font-weight: normal;
   font-style: normal;
-
 }
 
 [data-icon]:before {
@@ -36,6 +35,7 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 85%;
 }
 
 .icon-pencil:before {
