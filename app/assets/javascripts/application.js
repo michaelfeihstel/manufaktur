@@ -19,8 +19,6 @@
 //= require c3
 //= require hammer
 //= require selectize
-//= require rivets
-//= require ractive
 //= require_tree
 
 $(document).foundation();
