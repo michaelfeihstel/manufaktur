@@ -58,8 +58,8 @@ section
 					.tabs-content
 						.content.active#tab-products
 							section
-								- @order.line_items.each do |li|
-									= render "orders/show/line_item", li: li
+								- @order.line_items.each do |line_item|
+									= render "orders/show/line_item", line_item: line_item
 							section
 								.row
 									.small-12.medium-6.large-8.columns

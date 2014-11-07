@@ -28,6 +28,9 @@ Manufaktur::Application.configure do
   # Eager loading
   config.eager_load = false
 
+  # Devise needs this to be set
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Paperclip
   Paperclip.options[:command_path] = "/usr/local/bin/"
 

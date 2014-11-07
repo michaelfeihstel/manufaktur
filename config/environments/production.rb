@@ -69,6 +69,9 @@ Manufaktur::Application.configure do
   # Eager loading
   config.eager_load = true
 
+  # Devise needs thsi to be set
+  config.action_mailer.default_url_options = { host: 'manufaktur.lunge.com' }
+
 
   # Paperclip Gem
 

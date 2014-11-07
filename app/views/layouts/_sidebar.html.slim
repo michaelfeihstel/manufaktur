@@ -9,3 +9,11 @@
       li class=("active" if controller_name == "products") = link_to "Artikel", products_path
       li class=("active" if controller_name == "production_series") = link_to "Produktion", "#"
       li class=("active" if controller_name == "materials") = link_to "Material", "#"
+
+    label = try(:current_user).try(:email) || "Konto"
+    ul.side-nav.inverted
+      - if current_user
+        li = link_to "Konto bearbeiten", edit_user_registration_path(current_user)
+        li = link_to "Logout", destroy_user_session_path, method: :delete
+      - else
+        li = link_to "Login", new_user_session_path

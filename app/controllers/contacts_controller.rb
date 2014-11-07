@@ -1,8 +1,11 @@
 class ContactsController < ApplicationController
   before_action :initialize_search, only: [:index, :search, :show, :edit, :new]
+  before_action :authenticate_user!
+  after_action :verify_authorized
 
   def index
     @contacts = @search.result(distinct: true).includes(:addresses).order(:name)
+    authorize @contacts
   end
 
   def search
@@ -12,10 +15,12 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.includes(:addresses, :contact_information).find(params[:id])
+    authorize @contact
   end
 
   def new
     @contact = Contact.new
+    authorize @contact
     @contact.addresses.build
     @contact.emails.build
   end
@@ -23,6 +28,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    authorize @contact
 
     if @contact.save
       redirect_to @contact
@@ -34,11 +40,13 @@ class ContactsController < ApplicationController
 
   def edit
     @contact = Contact.find(params[:id])
+    authorize @contact
   end
 
 
   def update
     @contact = Contact.find(params[:id])
+    authorize @contact
     if @contact.update_attributes(contact_params)
       redirect_to contact_path(@contact), notice: "Kontakt aktualisiert."
     else
@@ -48,6 +56,7 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact = Contact.find(params[:id])
+    authorize @contact
     @contact.destroy
 
     redirect_to contacts_path, :flash => { :success => "Contact deleted!" }

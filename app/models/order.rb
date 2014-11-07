@@ -51,7 +51,6 @@ class Order < ActiveRecord::Base
   # VALIDATIONS
 
   # CALLBACKS
-
   before_save :get_references
 
   def get_references

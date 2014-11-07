@@ -45,16 +45,18 @@ $column-gutter: rem-calc(60);
 $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #d82b4e;
-// $primary-color: #4F5263;
-$secondary-color: #f5f5f5;
+// $primary-color: #d82b4e;
+$primary-color: #4F5263;
+$secondary-color: #DEF5EB;
+// $secondary-color: #f5f5f5;
 $highlight-color: #FF3F66;
 // $highlight-color: #7BACCC;
 $alert-color: #E40D46;
 // $success-color: #43AC6A;
 
 // We use these to control various global styles
-$body-bg: #fdfdfd;
+// $body-bg: #fdfdfd;
+$body-bg: mintcream;
 $body-font-color: #333;
 $body-font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;

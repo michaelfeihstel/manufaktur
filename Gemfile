@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.3'
 
 gem 'rails', '~> 4.1.6'
+gem 'pg'
 gem 'annotate'
 gem 'paperclip', "~> 4.2.0"
 gem 'aws-sdk'
@@ -12,6 +13,9 @@ gem 'rails-i18n'
 gem 'groupdate'
 gem 'puma'
 gem "rack-timeout"
+gem "minitest-rails"
+gem "devise"
+gem "pundit"
 
 # views and presentation
 gem "bourbon"
@@ -28,9 +32,6 @@ gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails'
 gem 'nested_form'
 
-# heroku
-gem 'pg'
-
 group :production do
 	gem 'rails_12factor'
 end
@@ -38,12 +39,6 @@ end
 group :development, :test do
   gem "foreman"
 end
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-
-gem "minitest-rails"
 
 group :test do
 	gem "minitest-rails-capybara"

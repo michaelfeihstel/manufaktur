@@ -1,120 +1,121 @@
 section
-	.panel
+	.panel-outline
+		.panel-bar.top style = "background: #{horizontal_gradient(line_item.product)}"
+			.row
+				.small-12.columns
+					h6 style = "color: #{line_item.product.text_color}"
+						span.bold = line_item.product.name
+						span.thin = " #{line_item.product.color_text}"
+
 		.row
 			.small-12.columns
-				h6 
-					span.bold = li.product.name
-					span.thin = " #{li.product.color_text}"
-				
-				.colored_separator style = "background: #{horizontal_gradient(li.product)}"
-				
 				ul.inline-list.small.light
 					li
-						span= "Artikelnummer: #{li.product.sku}"
+						span= "Artikelnummer: #{line_item.product.sku}"
 					li
-						span= "Farbe: #{li.product.color_text}"
+						span= "Farbe: #{line_item.product.color_text}"
 					li
-						span= "Preis: #{number_to_currency(li.product.price)}"
+						span= "Preis: #{number_to_currency(line_item.product.price)}"
 
 		.row
 			.small-12.columns
 				ul.size-row
 					li
-						= label :g1, li.get_size("g1")
-						= li.g1
+						= label :g1, line_item.get_size("g1")
+						= line_item.g1
 					li
-						= label :g1h, li.get_size("g1h")
-						= li.g1h
+						= label :g1h, line_item.get_size("g1h")
+						= line_item.g1h
 					li
-						= label :g2, li.get_size("g2")
-						= li.g2
+						= label :g2, line_item.get_size("g2")
+						= line_item.g2
 					li
-						= label :g2h, li.get_size("g2h")
-						= li.g2h
+						= label :g2h, line_item.get_size("g2h")
+						= line_item.g2h
 					li
-						= label :g3, li.get_size("g3")
-						= li.g3
+						= label :g3, line_item.get_size("g3")
+						= line_item.g3
 					li
-						= label :g3h, li.get_size("g3h")
-						= li.g3h
+						= label :g3h, line_item.get_size("g3h")
+						= line_item.g3h
 					li
-						= label :g4, li.get_size("g4")
-						= li.g4
+						= label :g4, line_item.get_size("g4")
+						= line_item.g4
 					li
-						= label :g4h, li.get_size("g4h")
-						= li.g4h
+						= label :g4h, line_item.get_size("g4h")
+						= line_item.g4h
 					li
-						= label :g5, li.get_size("g5")
-						= li.g5
+						= label :g5, line_item.get_size("g5")
+						= line_item.g5
 					li
-						= label :g5h, li.get_size("g5h")
-						= li.g5h
+						= label :g5h, line_item.get_size("g5h")
+						= line_item.g5h
 					li
-						= label :g6, li.get_size("g6")
-						= li.g6
+						= label :g6, line_item.get_size("g6")
+						= line_item.g6
 					li
-						= label :g6h, li.get_size("g6h")
-						= li.g6h
+						= label :g6h, line_item.get_size("g6h")
+						= line_item.g6h
 					li
-						= label :g7, li.get_size("g7")
-						= li.g7
+						= label :g7, line_item.get_size("g7")
+						= line_item.g7
 					li
-						= label :g7h, li.get_size("g7h")
-						= li.g7h
+						= label :g7h, line_item.get_size("g7h")
+						= line_item.g7h
 					li
-						= label :g8, li.get_size("g8")
-						= li.g8
+						= label :g8, line_item.get_size("g8")
+						= line_item.g8
 					li
-						= label :g8h, li.get_size("g8h")
-						= li.g8h
+						= label :g8h, line_item.get_size("g8h")
+						= line_item.g8h
 					li
-						= label :g9, li.get_size("g9")
-						= li.g9
+						= label :g9, line_item.get_size("g9")
+						= line_item.g9
 					li
-						= label :g9h, li.get_size("g9h")
-						= li.g9h
+						= label :g9h, line_item.get_size("g9h")
+						= line_item.g9h
 					li
-						= label :g10, li.get_size("g10")
-						= li.g10
+						= label :g10, line_item.get_size("g10")
+						= line_item.g10
 					li
-						= label :g10h, li.get_size("g10h")
-						= li.g10h
+						= label :g10h, line_item.get_size("g10h")
+						= line_item.g10h
 					li
-						= label :g11, li.get_size("g11")
-						= li.g11
+						= label :g11, line_item.get_size("g11")
+						= line_item.g11
 					li
-						= label :g11h, li.get_size("g11h")
-						= li.g11h
+						= label :g11h, line_item.get_size("g11h")
+						= line_item.g11h
 					li
-						= label :g12, li.get_size("g12")
-						= li.g12
+						= label :g12, line_item.get_size("g12")
+						= line_item.g12
 					li
-						= label :g12h, li.get_size("g12h")
-						= li.g12h
+						= label :g12h, line_item.get_size("g12h")
+						= line_item.g12h
 					li
-						= label :g13, li.get_size("g13")
-						= li.g13
+						= label :g13, line_item.get_size("g13")
+						= line_item.g13
 					li
-						= label :g13h, li.get_size("g13h")
-						= li.g13h
+						= label :g13h, line_item.get_size("g13h")
+						= line_item.g13h
 					li
-						= label :g14, li.get_size("g14")
-						= li.g14
+						= label :g14, line_item.get_size("g14")
+						= line_item.g14
 					li
-						= label :g14h, li.get_size("g14h")
-						= li.g14h
+						= label :g14h, line_item.get_size("g14h")
+						= line_item.g14h
 					li
-						= label :g15, li.get_size("g15")
-						= li.g15
+						= label :g15, line_item.get_size("g15")
+						= line_item.g15
 					li
-						= label :g16, li.get_size("g16")
-						= li.g16
+						= label :g16, line_item.get_size("g16")
+						= line_item.g16
 
 		.panel-bar.bottom
 			ul.panel-bar-list
 				li.text-center
-					h5.bold = li.quantity
+					h5.bold = line_item.quantity
 					label Anzahl
 				li.text-center
-					h5.bold = number_to_currency(li.try(:price_total), unit: "€ ")
+					h5.bold = number_to_currency(line_item.try(:price_total), unit: "€ ")
 					label Summe

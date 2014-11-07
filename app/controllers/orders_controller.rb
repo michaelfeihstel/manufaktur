@@ -1,9 +1,12 @@
 class OrdersController < ApplicationController
 	respond_to :html, :js, :json
 	before_action :initialize_search
-	
+	before_action :authenticate_user!
+	after_action :verify_authorized
+
 	def index
 		@orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page]).per(100)
+		authorize @orders
 		@filter_selected = "all"
 	end
 
@@ -15,12 +18,14 @@ class OrdersController < ApplicationController
 	def index_created_at
 		@date = "#{params[:year]}-#{params[:month]}-#{params[:day]}".to_date
 		@orders = Order.where(created_at: @date).order(created_at: :desc)
+		authorize @orders
 		render "index"
 	end
 
 	def get_marked_orders
 		@search = Order.marked_as_favorite.search(params[:q])
 		@orders = @search.result(distinct: true).page(params[:page]).per(100)
+		authorize @orders
 		@filter_selected = "favorites"
 		render "index"
 	end
@@ -28,12 +33,14 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.includes(:line_items, :contact, {:products => :size}).find(params[:id])
+		authorize @order
 	end
 
 
 	def new
 		@search = Order.search(params[:q])
 		@order = Order.new
+		authorize @order
 		@order.line_items.build
 		@addresses = Address.all
 		@products = Product.all.order(:name)
@@ -42,6 +49,7 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(order_params)
+		authorize @order
 
 		if @order.save
 			redirect_to @order
@@ -54,6 +62,7 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.includes([:contact, {:line_items => :product}, {:products => :size}]).find(params[:id])
+		authorize @order
 		@search = Order.includes(:contact, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
 		@orders = @search.result(distinct: true)
 		@products = Product.all.order(:name)
@@ -62,6 +71,7 @@ class OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
+		authorize @order
 
 		respond_to do |format|
 
@@ -82,6 +92,7 @@ class OrdersController < ApplicationController
 
 	def destroy
 		@order = Order.find(params[:id])
+		authorize @order
 		@order.destroy
 
 		redirect_to orders_path, :flash => { :success => "Auftrag #{@order.id} wurde gelöscht." }
@@ -98,6 +109,7 @@ class OrdersController < ApplicationController
 
 	def complete
 		@order = Order.find(params[:id])
+		authorize @order
 		@order.mark_as_completed
 
 		redirect_to order_path
