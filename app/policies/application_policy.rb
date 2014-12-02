@@ -20,7 +20,7 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    user
   end
 
   def new?

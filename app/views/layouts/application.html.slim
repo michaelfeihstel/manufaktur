@@ -3,7 +3,7 @@ doctype html
 /[if IE 7 ] <html class="ie7" lang="en">
 /[if IE 8 ] <html class="ie8" lang="en">
 /[if (gte IE 9)|!(IE)]
-html lang="en"
+html lang="de"
   head
     meta charset="utf-8"
 
@@ -25,22 +25,25 @@ html lang="en"
       try{Typekit.load();}catch(e){}
     = csrf_meta_tags
 
-  body
-    .content-area#touch-target
+  body#touch-target
+    = render "layouts/flash"
+    = render "layouts/header"
+    header
+      .row
+        .span-small-12
+          = yield :header
+          = yield :search
+    .breadcrumbs-container
+      .row
+        .span-small-12
+          = yield :breadcrumbs
+    .content
       .sidebar
-        = render "layouts/sidebar"
-      = yield :sidebar_right
-      .content-main
-        = yield :search
-        = yield :breadcrumbs
-        = render "layouts/flash"
-        .row
-          .small-12.columns
-            section.title
-              = yield :title_bar
-            = yield
-            footer
-              = yield :footer
+        = yield :sidebar
+      .main
+        = yield
+    footer
+      = yield :footer
 
     = javascript_include_tag "application"
     = yield :custom_js

@@ -1,0 +1,82 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr {
+  border: none;
+}
+
+thead th {
+  font-family: $header-font;
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.6;
+  padding: 0.5rem 0.5rem;
+  text-align: left;
+  text-rendering: geometricPrecision;
+}
+
+tr {
+  border-bottom: 1px solid $secondary-color;
+}
+
+td {
+  padding: 1rem 0.5rem;
+  vertical-align: middle;
+}
+
+td,
+th {
+  &:first-child {
+    padding-left: 0px;
+  }
+
+  &:last-child {
+    padding-right: 0px;
+  }
+}
+
+tr.no-border {
+  border: none
+}
+
+tr.link {
+}
+
+tr.link:hover {
+  padding-left: 1.25rem;
+  cursor: pointer;
+  border-color: $primary-color;
+  box-shadow: 0px 2px 0px $primary-color;
+
+  &::after {
+    @include transform(translate3d(0,0,0));
+  }
+}
+
+tr.link:hover a {
+}
+
+tr.link:hover a:hover {
+}
+
+tfoot > tr {
+  padding: 2rem 0;
+  border-top: 3px solid $secondary-color;
+  border-bottom: none;
+}
+
+// Comapct table
+table.compact {
+}
+
+table.compact td,
+table.compact th {
+  padding: 0.5rem;
+}
+
+table.compact td:first-child,
+table.compact th:first-child {
+  padding-left: 0px;
+}

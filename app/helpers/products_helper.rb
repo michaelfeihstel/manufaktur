@@ -18,4 +18,12 @@ module ProductsHelper
 
     "linear-gradient(to right, #{primary_color}, #{secondary_color})"
   end
+
+  def diagonal_gradient(product)
+    primary_color = product.primary_color
+    secondary_color = product.secondary_color
+    text_color = product.text_color
+
+    "linear-gradient(to bottom right, #{primary_color}, #{secondary_color})"
+  end
 end

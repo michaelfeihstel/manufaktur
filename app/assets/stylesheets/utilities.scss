@@ -1,0 +1,16 @@
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// mixins
+@mixin subtle-shadow {
+  box-shadow: 0 1.5px 3px rgba(50, 50, 50, 0.14), 0 2px 8px rgba(50, 50, 50, 0.04)
+} 

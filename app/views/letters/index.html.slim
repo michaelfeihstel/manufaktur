@@ -2,7 +2,7 @@
 = render "letters/index/breadcrumbs"
 = render "letters/index/sidebar"
 
-- content_for :title_bar
+.title
 	h1 Briefe
 
 ul.inline-list
@@ -13,18 +13,17 @@ hr
 table
 	thead
 		tr
-			td width=100 Datum
-			td Kontakt
-			td Subject
-			td width=100
+			th width=100 Datum
+			th Kontakt
+			th Betreff
+			th width=100
 	tbody
 		- @letters.each do |letter|
 			tr.link href=letter_path(letter)
 				td = l letter.created_at, format: :date_only
 				td = letter.name
 				td = letter.subject
-				td.text-right
-					= link_to icon("pencil"), edit_letter_path(letter)
+				td.text-right = link_to icon("pencil"), edit_letter_path(letter)
 
 - content_for :footer
 	.section.text-right

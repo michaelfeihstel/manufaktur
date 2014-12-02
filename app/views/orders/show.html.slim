@@ -2,20 +2,20 @@
 = render "orders/show/breadcrumbs"
 = render "orders/show/sidebar"
 
-- content_for :title_bar
-	h1 = @order.id
-	h4 = @order.billing_name
-
-= link_to "Bearbeiten", edit_order_path(@order), class: "button dense"
-= link_to "Suchen", "#", id: "search-toggle", class: "button dense"
-hr
+- content_for :header
+	.header-title
+		h1 = @order.id
+		h4 = @order.billing_name
+	.header-actions
+		= link_to "Bearbeiten", edit_order_path(@order), class: "button dense"
+		= link_to "Suchen", "#", id: "search-toggle", class: "button dense"
 
 section
 	.row
-		.small-12.columns
+		.span-small-12
 			section
 				.row
-					.small-12.columns
+					.span-small-12.columns
 						label.section-label Kunde
 						.fields
 							label Auftraggeber
@@ -56,7 +56,7 @@ section
 						li.tab-title = link_to "Versand", "#tab-shipping"
 
 					.tabs-content
-						.content.active#tab-products
+						.tab.active#tab-products
 							section
 								- @order.line_items.each do |line_item|
 									= render "orders/show/line_item", line_item: line_item
@@ -77,9 +77,9 @@ section
 												= number_to_currency(@order.vat_total, unit: "€")
 												hr
 												h3.bold.text-right = number_to_currency(@order.gross_price_total, unit: "€")
-						.content#tab-invoice
+						.tab#tab-invoice
 							p Some Text
-						.content#tab-shipping
+						.tab#tab-shipping
 							p Another tab
 
 

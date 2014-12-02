@@ -1,7 +1,6 @@
-- content_for :sidebar
-  = render "letters/common/quicksearch"
-		.row
-			.small-12.columns
-				label Bearbeiten
-				ul.side-nav
-					li = link_to icon("cross", text: "Abbrechen")
+- content_for :sidebar_secondary
+  .sidebar-secondary
+    = render "letters/common/quicksearch"
+  	label Bearbeiten
+  	ul.side-nav
+  		li = link_to icon("cross", text: "Abbrechen")

@@ -1,41 +1,32 @@
-.fixed
-	.top-bar data-topbar=""
-		ul.title-area
-			li.name
-				h1 = link_to "Lunge Manufaktur", :root
-			li.toggle-topbar.menu-icon
-				a href="#"
-					span menu
+nav
+	ul.main-nav
+		li.has-dropdown
+			= link_to "Kontakte", contacts_path
+			ul.dropdown
+				li = link_to "Kontakte", contacts_path
+				li = link_to "Briefe", letters_path
 
-		section.top-bar-section
-			ul.right
-				li.has-dropdown
-					= link_to "Kontakte", contacts_path
-					ul.dropdown
-						li = link_to "Kontakte", contacts_path
-						li = link_to "Briefe", letters_path
+		li.has-dropdown
+			= link_to "Aufträge", orders_path
+			ul.dropdown
+				li = link_to "Aufträge", orders_path
 
-				li.has-dropdown
-					= link_to "Aufträge", orders_path
-					ul.dropdown
-						li = link_to "Aufträge", orders_path
+		li.has-dropdown
+			= link_to "Artikel", products_path
+			ul.dropdown
+				li = link_to "Artikel", products_path
+				li = link_to "Inventuren", "#"
+				li = link_to "Größensysteme", sizes_path
 
+		li.has-dropdown
+			= link_to "Produktion", "#"
+			ul.dropdown
+				li = link_to "Produktion", "#"
+				li = link_to "Arbeitsschritte", "#"
 				li.has-dropdown
-					= link_to "Artikel", products_path
+					= link_to "Material", "#"
 					ul.dropdown
-						li = link_to "Artikel", products_path
-						li = link_to "Inventuren", "#"
-						li = link_to "Größensysteme", sizes_path
-
-				li.has-dropdown
-					= link_to "Produktion", "#"
-					ul.dropdown
-						li = link_to "Produktion", "#"
-						li = link_to "Arbeitsschritte", "#"
-						li.has-dropdown
-							= link_to "Material", "#"
-							ul.dropdown
-								li = link_to "Materialien", "#"
-								li = link_to "Eingang", "#"
-								li = link_to "Ausgang", "#"
-								li = link_to "Inventur", "#"
+						li = link_to "Materialien", "#"
+						li = link_to "Eingang", "#"
+						li = link_to "Ausgang", "#"
+						li = link_to "Inventur", "#"

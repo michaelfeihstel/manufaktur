@@ -1,33 +1,32 @@
 section
   .panel-outline
     .row
-      .small-12.large-4.columns
+      .span-small-12.span-large-4
         .fields
           = f.label "Bezeichnung"
           = f.text_field :description, placeholder: "Bezeichnung"
 
-        hr.hide-for-large-up
-      .small-12.large-8.columns data-equalizer-watch=""
+      .span-small-12.span-large-8
         .fields
           = f.label :name, "Name"
           = f.text_field :name
         
         .row
-          .small-8.columns
+          .span-small-8
             .fields
               = f.label :street, "Straße"
               = f.text_field :street
-          .small-4.columns
+          .span-small-4
             .fields
               = f.label :house_number, "Hausnummer"
               = f.text_field :house_number
 
         .row
-          .small-3.columns
+          .span-small-3
             .fields
               = f.label :zip, "Postleitzahl" 
               = f.text_field :zip
-          .small-9.columns
+          .span-small-9
             .fields
               = f.label :city, "Stadt"
               = f.text_field :city

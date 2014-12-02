@@ -31,6 +31,9 @@ Manufaktur::Application.configure do
   # Devise needs this to be set
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # proper logging in Puma
+  config.logger = Logger.new(STDOUT)
+
   # Paperclip
   Paperclip.options[:command_path] = "/usr/local/bin/"
 

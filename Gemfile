@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.1.5'
 
 gem 'rails', '~> 4.1.6'
 gem 'pg'
@@ -19,6 +19,7 @@ gem "pundit"
 
 # views and presentation
 gem "bourbon"
+gem "neat"
 gem "simple_calendar", "~> 1.1.0"
 gem "selectize-rails"
 gem "slim-rails"

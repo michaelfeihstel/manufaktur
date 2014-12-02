@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require jquery_nested_form
 //= require jquery.minicolors
 //= require d3
@@ -20,8 +19,6 @@
 //= require hammer
 //= require selectize
 //= require_tree
-
-$(document).foundation();
 
 // Flash notice
 $('.flash').slideDown(500).delay(5000).slideUp(500);

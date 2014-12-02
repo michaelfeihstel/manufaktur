@@ -2,7 +2,7 @@
 = render "letters/show/breadcrumbs"
 = render "letters/show/sidebar"
 
-- content_for :title_bar
+.title
 	h1.truncated = @letter.subject
 	h4 = @letter.name
 
@@ -13,27 +13,26 @@ hr
 
 section
 	label Empfänger
-	p
-		= @letter.name
-		br
-		= "#{@letter.street} #{@letter.house_number}"
-		br
-		= "#{@letter.zip} #{@letter.city}"
-		br
-		= @letter.country
+	= @letter.name
+	br
+	= "#{@letter.street} #{@letter.house_number}"
+	br
+	= "#{@letter.zip} #{@letter.city}"
+	br
+	= @letter.country
 
 section
 	.row
-		.small-12.medium-8.columns
+		.span-small-12.span-medium-8
 			label Betreff
 			= @letter.subject
-		.small-12.medium-4.columns
+		.span-small-12.span-medium-4
 			label Datum
 			= l @letter.created_at, format: :date_only
 
 section
 	.row
-		.small-12.medium-8.columns
+		.span-small-12.span-medium-8
 			label Inhalt
 			= simple_format(@letter.body)
 

@@ -1,4 +1,4 @@
-.content.active#tab_overview
+.tab.active#tab_general
 	section
 		h6 Kontakt
 		.fields
@@ -13,12 +13,12 @@
 	section
 		h6 Kontaktdaten
 		label eMail
-		table
+		table.compact
 			thead
 				tr
-					td.first Bezeichnung
-					td eMail
-					td.last 
+					th.first Bezeichnung
+					th eMail
+					th.last 
 			tbody id="emails"
 				= f.fields_for :emails, wrapper: false do |email_form|
 					= render "email_fields", f: email_form
@@ -26,12 +26,12 @@
 
 	section
 		label Telefon & Fax
-		table
+		table.compact
 			thead
 				tr
-					td.first Bezeichnung
-					td Nummer
-					td.last 
+					th Bezeichnung
+					th Nummer
+					th.text-right Löschen 
 			tbody id="phones"
 				= f.fields_for :phones, wrapper: false do |phone_form|
 					= render "phone_fields", f: phone_form

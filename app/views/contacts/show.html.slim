@@ -2,30 +2,18 @@
 = render "contacts/show/breadcrumbs"
 = render "contacts/show/sidebar"
 
-- content_for :title_bar do
-  .row
-    .small-12.columns
-      h1 = @contact.name
+- content_for :header
+  .header-title
+    h1 = @contact.name
+  .header-actions
+    = link_to "Bearbeiten", edit_contact_path, class: "button dense inverted"
 
-= link_to "Bearbeiten", edit_contact_path, class: "button dense"
+.tabs-content
+  = render "/contacts/show/tab_general"
+  = render "/contacts/show/tab_orders"
+  = render "/contacts/show/tab_letters"
 
 hr
-
-.row
-  .small-12.columns
-    ul.tabs data-tab=""
-      li.tab-title.active = link_to "Stammdaten", "#tab_overview"
-      li.tab-title = link_to "Verkauf", "#tab_orders"
-      li.tab-title = link_to "Bemerkungen", "#tab_notes"
-      li.tab-title = link_to "Briefe", "#tab_letters"
-    .tabs-content
-      = render "/contacts/show/tab_general"
-      = render "/contacts/show/tab_orders"
-      = render "/contacts/show/tab_letters"
-
-.row
-  .small-12.columns
-    hr
-    = link_to 'Zurück', contacts_path, class: "button secondary left"
-    = link_to "Löschen", @contact, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button right alert"
-    = link_to "Bearbeiten", edit_contact_path, class: "button right"
+= link_to 'Zurück', contacts_path, class: "button secondary left"
+= link_to "Löschen", @contact, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button right alert"
+= link_to "Bearbeiten", edit_contact_path, class: "button right"

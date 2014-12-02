@@ -1,0 +1,75 @@
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+label.list-header {
+  font-family: $header-font;
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.6;
+  padding: 0.5rem 0;
+  text-align: left;
+  text-rendering: geometricPrecision;
+}
+
+
+// inline list
+ul.inline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.inline-list li {
+  display: inline-block;
+  margin-right: 1.25rem;
+}
+
+
+
+// sizes-list
+ul.sizes-list {
+}
+
+ul.sizes-list li {
+  min-width: 2rem;
+  min-height: 3rem;
+  margin-top: 0.25rem;
+  display: inline-table;
+  padding: 0 0.25rem;
+  text-align: center;
+}
+
+ul.sizes-list li:first-child {
+  margin-left: -0.25rem;
+}
+
+
+
+// side nav
+ul.side-nav {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  list-style: none;
+}
+
+ul.side-nav li {
+  padding: 0.25rem 0;
+
+  &:hover,
+  &:focus,
+  &.active {
+    padding: 0.25rem 1.25rem;
+    margin: 0 -1.25rem;
+    background-color: $secondary-color;
+  }
+}
+
+ul.side-nav li a {
+  display: block;
+  width: 100%;
+  color: $primary-color;
+}

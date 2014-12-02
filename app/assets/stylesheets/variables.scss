@@ -1,0 +1,32 @@
+// typography
+$body-font: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$header-font: "futura-pt", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$font-base-size: 16;
+@function rem-calc($size) {
+  $pixel-size: $size / $font-base-size + rem;
+  @return $pixel-size
+}
+
+// colors
+$primary-color: #4F5263;
+$secondary-color: #F2F2F2;
+$background-color: #FDFDFD; 
+$font-color: #333;
+$hairline-color: #e2e2e2;
+$highlight-color: #FF3F66;
+$alert-color: #E40D46;
+
+// breakpoints
+$end-small: 767px;
+$start-medium: 768px;
+$end-medium: 1024px;
+$start-large: 1025px;
+
+// layout
+$sidebar-offset: 250px;
+$sidebar-secondary-offset: 250px;
+
+// hide outline on focus
+*:focus {
+  outline: none;
+}

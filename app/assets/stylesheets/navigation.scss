@@ -1,0 +1,49 @@
+nav {
+  background-color: scale-color($primary-color, $lightness: -10%);
+  color: $background-color;
+}
+
+// main sidebar navigation
+ul.main-nav {
+  list-style: none;
+  float: right;
+}
+
+ul.main-nav > li {
+  display: inline-block;
+}
+
+nav ul li {
+  padding: 1rem;
+
+  &:hover,
+  &:focus,
+  &.active {
+    background-color: $primary-color
+  }
+}
+
+ul.main-nav li a {
+  display: block;
+  width: 100%;
+  color: $background-color;
+}
+
+li.has-dropdown {
+  position: relative;
+}
+
+li.has-dropdown:hover > ul.dropdown {
+  display: block;
+}
+
+ul.dropdown {
+  position: absolute;
+  top: 0;
+  list-style: none;
+  display: none;
+}
+
+ul.dropdown.show {
+  display: block;
+}

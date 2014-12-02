@@ -1,8 +1,10 @@
 Manufaktur::Application.routes.draw do
 
-  devise_for :users
   # root
   root to: "home#index"
+
+  # devise
+  devise_for :users
 
   # concerns
   concern :paginatable do

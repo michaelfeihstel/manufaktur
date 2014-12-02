@@ -1,42 +1,41 @@
-.content.active#tab_overview
+.tab.active#tab_general
   section
-    h6 Adressen & Filialen
-    ul.small-block-grid-1.large-block-grid-3
-      - @contact.addresses.each do |contact|
-        li
-          .panel-outline
-            label = contact.description
-            p
-              = contact.name
-              br
-              = "#{contact.street} #{contact.house_number}"
-              br
-              = "#{contact.zip} #{contact.city}"
-              br
-              = contact.country
-            .panel-bar.bottom
-              = link_to icon("print", text: "Label"), "#", class: "panel-bar-button"
+    .row
+      .span-small-12
+        h6 Adressen & Filialen
+        ul.small-block-1.medium-block-2.large-block-4
+          - @contact.addresses.each do |contact|
+              li.panel
+                label = contact.description
+                p
+                  = contact.name
+                  br
+                  = "#{contact.street} #{contact.house_number}"
+                  br
+                  = "#{contact.zip} #{contact.city}"
+                  br
+                  = contact.country
+                .panel-bar.bottom
+                  = link_to icon("print", text: "Label"), "#", class: "panel-bar-button"
 
   section
     h6 Kontaktdaten
     .row
-      .small-12.medium-4.columns
+      .span-small-12.span-medium-4
         label Telefon
         ul.no-bullet
           - @contact.contact_information.phone.each do |contact_information|
             li
-              span.inline-label.light
-                = "#{contact_information.name} "
-              span
-                = contact_information.value
+              span.inline-label.light = contact_information.name
+              span = contact_information.value
 
-      .small-12.medium-4.columns
+      .span-small-12.span-medium-4
         label E-Mail
         ul.no-bullet
           - @contact.contact_information.email.each do |contact_information|
             li = link_to contact_information.value, "mailto:#{contact_information.value}", class: "link"
 
-      .small-12.medium-4.columns
+      .span-small-12.span-medium-4
         label Personen
         ul.no-bullet
           - @contact.contact_information.people.each do |contact_information|

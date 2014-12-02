@@ -3,15 +3,12 @@
 = render "contacts/index/sidebar"
 = render "contacts/index/breadcrumbs"
 
-- content_for :title_bar do
-	.row
-		.small-12.columns
-			h1 Kontakte
-
-ul.inline-list
-  li = link_to "Kontakt erstellen", new_contact_path, class: "button dense"
-hr
+- content_for :header
+  .header-title
+    h1 Kontakte
+  .header-actions
+    = link_to "Kontakt erstellen", new_contact_path, class: "button dense inverted"
 
 .row
-	.small-12.columns
-		= render "contacts/index/table_contacts"
+  .span-small-12.span-medium-6.span-large-12
+    = render "contacts/index/table_contacts"

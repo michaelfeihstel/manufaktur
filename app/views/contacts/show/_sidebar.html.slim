@@ -1,13 +1,16 @@
-- content_for :sidebar_right
-  .sidebar-right
-    = render "contacts/common/quicksearch"
-    .row
-      .small-12.columns
-        label Aufgaben
-        ul.side-nav
-          li = link_to icon("pencil", text: "Bearbeiten"), edit_contact_path(@contact)
-          li = link_to icon("bin", text: "Löschen"), @contact, method: :delete, data: { confirm: "#{@contact.name} wirklich löschen?" }
+- content_for :sidebar
+  label.list-header Menü
+  ul.side-nav data-tab=""
+    li.tab-title.active = link_to "Stammdaten", "#tab_general"
+    li.tab-title = link_to "Verkauf", "#tab_orders"
+    li.tab-title = link_to "Bemerkungen", "#tab_notes"
+    li.tab-title = link_to "Briefe", "#tab_letters"
 
-        label Links
-        ul.side-nav
-          li = link_to "Aufträge", orders_path
+  label.list-header Aufgaben
+  ul.side-nav
+    li = link_to icon("pencil", text: "Bearbeiten"), edit_contact_path(@contact)
+    li = link_to icon("bin", text: "Löschen"), @contact, method: :delete, data: { confirm: "#{@contact.name} wirklich löschen?" }
+
+  label.list-header Links
+  ul.side-nav
+    li = link_to "Aufträge", orders_path

@@ -3,23 +3,26 @@ section
 		.panel-bar.top style = "background: #{horizontal_gradient(line_item.product)}"
 			.row
 				.small-12.columns
-					h6 style = "color: #{line_item.product.text_color}"
+					h5 style = "color: #{line_item.product.text_color}"
 						span.bold = line_item.product.name
 						span.thin = " #{line_item.product.color_text}"
 
 		.row
-			.small-12.columns
-				ul.inline-list.small.light
+			.span-small-12
+				ul.inline-list.small
 					li
-						span= "Artikelnummer: #{line_item.product.sku}"
+						span.inline-label Artikelnummer 
+						span = line_item.product.sku
 					li
-						span= "Farbe: #{line_item.product.color_text}"
+						span.inline-label Farbe
+						span = line_item.product.color_text
 					li
-						span= "Preis: #{number_to_currency(line_item.product.price)}"
+						span.inline-label Preis
+						span = number_to_currency(line_item.product.price)
 
 		.row
-			.small-12.columns
-				ul.size-row
+			.span-small-12
+				ul.sizes-list
 					li
 						= label :g1, line_item.get_size("g1")
 						= line_item.g1
