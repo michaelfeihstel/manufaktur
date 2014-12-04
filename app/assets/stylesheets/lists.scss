@@ -4,16 +4,6 @@ ul, ol {
   list-style: none;
 }
 
-label.list-header {
-  font-family: $header-font;
-  font-size: 1.1rem;
-  font-weight: 400;
-  opacity: 0.6;
-  padding: 0.5rem 0;
-  text-align: left;
-  text-rendering: geometricPrecision;
-}
-
 
 // inline list
 ul.inline-list {
@@ -62,8 +52,8 @@ ul.side-nav li {
   &:hover,
   &:focus,
   &.active {
-    padding: 0.25rem 1.25rem;
-    margin: 0 -1.25rem;
+    padding: 0.25rem $gutter;
+    margin: 0 -1 * $gutter;
     background-color: $secondary-color;
   }
 }

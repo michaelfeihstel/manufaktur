@@ -33,15 +33,18 @@ html lang="de"
         .span-small-12
           = yield :header
           = yield :search
-    .breadcrumbs-container
+    .container.breadcrumbs-container
       .row
         .span-small-12
           = yield :breadcrumbs
-    .content
-      .sidebar
-        = yield :sidebar
-      .main
-        = yield
+    .container
+      .row
+        .span-small-12
+          .content
+            .sidebar
+              = yield :sidebar
+            .main
+              = yield
     footer
       = yield :footer
 

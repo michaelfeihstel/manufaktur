@@ -1,9 +1,7 @@
-- content_for :sidebar_secondary
-  .sidebar-secondary
-    = render "letters/common/quicksearch"
-		h4.light.small Filter
-		ul.side-nav
-			li.active = link_to "Alle", contacts_path
-			li = link_to "Händler", "#"
-			li = link_to "Mitarbeiter", "#"
-			li = link_to "Shop Kunden", "#"
+- content_for :sidebar
+	label Filter
+	ul.side-nav
+		li.active = link_to "Alle", contacts_path
+		li = link_to "Händler", "#"
+		li = link_to "Mitarbeiter", "#"
+		li = link_to "Shop Kunden", "#"

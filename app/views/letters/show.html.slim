@@ -2,14 +2,13 @@
 = render "letters/show/breadcrumbs"
 = render "letters/show/sidebar"
 
-.title
-	h1.truncated = @letter.subject
-	h4 = @letter.name
-
-= link_to "Bearbeiten", edit_letter_path(@letter), class: "button dense"
-= link_to "Drucken", "#", class: "button dense"
-
-hr
+- content_for :header
+	.header-title
+		h1.truncated = @letter.subject
+		h4 = @letter.name
+	.header-actions
+		= link_to "Bearbeiten", edit_letter_path(@letter), class: "button dense"
+		= link_to "Drucken", "#", class: "button dense"
 
 section
 	label Empfänger
@@ -23,10 +22,10 @@ section
 
 section
 	.row
-		.span-small-12.span-medium-8
+		.span-small-8
 			label Betreff
 			= @letter.subject
-		.span-small-12.span-medium-4
+		.span-small-4
 			label Datum
 			= l @letter.created_at, format: :date_only
 
@@ -36,9 +35,7 @@ section
 			label Inhalt
 			= simple_format(@letter.body)
 
-- content_for :footer
-	hr
-		= link_to "Zurück", :back, class: "button secondary"
-		= link_to "Drucken", "#", class: "button right"
-		= link_to "Bearbeiten", edit_letter_path(@letter), class: "button right"
-		= link_to "Löschen", "#", class: "button alert right"
+	= link_to "Zurück", :back, class: "button secondary"
+	= link_to "Drucken", "#", class: "button right"
+	= link_to "Bearbeiten", edit_letter_path(@letter), class: "button right"
+	= link_to "Löschen", "#", class: "button alert right"

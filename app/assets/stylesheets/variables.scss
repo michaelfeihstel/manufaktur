@@ -13,7 +13,7 @@ $secondary-color: #F2F2F2;
 $background-color: #FDFDFD; 
 $font-color: #333;
 $hairline-color: #e2e2e2;
-$highlight-color: #FF3F66;
+$highlight-color: #EBF7A4;
 $alert-color: #E40D46;
 
 // breakpoints
@@ -22,7 +22,11 @@ $start-medium: 768px;
 $end-medium: 1024px;
 $start-large: 1025px;
 
+$start-tablet-portrait: 768px;
+$end-tablet-portrait: 1023px; 
+
 // layout
+$gutter: 1.618rem;
 $sidebar-offset: 250px;
 $sidebar-secondary-offset: 250px;
 

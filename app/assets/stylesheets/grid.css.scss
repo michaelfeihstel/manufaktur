@@ -1,465 +1,448 @@
+$susy: (
+  flow: ltr,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  container: 80em,
+  container-position: center,
+  columns: 12,
+  gutters: 1/4,
+  column-width: false,
+  global-box-sizing: border-box,
+  last-flow: from,
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  ),
+);
+
+
 .row {
-  @include outer-container;
-  max-width: 80em;
-  padding: 0 1.25rem;
+  @include container;
+  width: 100%;
 }
 
-.row .row {
-  padding: 0;
-}
 
-// small spans
+
+// small devices
+//spans
+
 .span-small-1 {
-  @include span-columns(1);
+  @include span(1);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-2 {
-  @include span-columns(2);
+  @include span(2);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-3 {
-  @include span-columns(3);
+  @include span(3);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-4 {
-  @include span-columns(4);
+  @include span(4);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-5 {
-  @include span-columns(5);
+  @include span(5);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-6 {
-  @include span-columns(6);
+  @include span(6);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-7 {
-  @include span-columns(7);
+  @include span(7);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-8 {
-  @include span-columns(8);
+  @include span(8);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-9 {
-  @include span-columns(9);
+  @include span(9);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-10 {
-  @include span-columns(10);
+  @include span(10);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-11 {
-  @include span-columns(11);
+  @include span(11);
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .span-small-12 {
-  @include span-columns(12);
-}
-
-
-
-// medium spans
-.span-medium-1 {
-  @include media(min-width $start-medium) {
-    @include span-columns(1);
+  @include span(12);
+  &:last-child {
+    margin-right: 0;
   }
 }
 
-.span-medium-2 {
-  @include media(min-width $start-medium) {
-    @include span-columns(2);
-  }
+// block grid
+[class*="small-block-"] > li,
+[class*="medium-block-"] > li,
+[class*="large-block-"] > li, {
+  margin-bottom: 1rem;
 }
 
-.span-medium-3 {
-  @include media(min-width $start-medium) {
-    @include span-columns(3);
-  }
-}
-
-.span-medium-4 {
-  @include media(min-width $start-medium) {
-    @include span-columns(4);
-  }
-}
-
-.span-medium-5 {
-  @include media(min-width $start-medium) {
-    @include span-columns(5);
-  }
-}
-
-.span-medium-6 {
-  @include media(min-width $start-medium) {
-    @include span-columns(6);
-  }
-}
-
-.span-medium-7 {
-  @include media(min-width $start-medium) {
-    @include span-columns(7);
-  }
-}
-
-.span-medium-8 {
-  @include media(min-width $start-medium) {
-    @include span-columns(8);
-  }
-}
-
-.span-medium-9 {
-  @include media(min-width $start-medium) {
-    @include span-columns(9);
-  }
-}
-
-.span-medium-10 {
-  @include media(min-width $start-medium) {
-    @include span-columns(10);
-  }
-}
-
-.span-medium-11 {
-  @include media(min-width $start-medium) {
-    @include span-columns(11);
-  }
-}
-
-.span-medium-12 {
-  @include media(min-width $start-medium) {
-    @include span-columns(12);
-  }
-}
-
-
-
-// large spans
-.span-large-1 {
-  @include media(min-width $start-large) {
-    @include span-columns(1);
-  }
-}
-
-.span-large-2 {
-  @include media(min-width $start-large) {
-    @include span-columns(2);
-  }
-}
-
-.span-large-3 {
-  @include media(min-width $start-large) {
-    @include span-columns(3);
-  }
-}
-
-.span-large-4 {
-  @include media(min-width $start-large) {
-    @include span-columns(4);
-  }
-}
-
-.span-large-5 {
-  @include media(min-width $start-large) {
-    @include span-columns(5);
-  }
-}
-
-.span-large-6 {
-  @include media(min-width $start-large) {
-    @include span-columns(6);
-  }
-}
-
-.span-large-7 {
-  @include media(min-width $start-large) {
-    @include span-columns(7);
-  }
-}
-
-.span-large-8 {
-  @include media(min-width $start-large) {
-    @include span-columns(8);
-  }
-}
-
-.span-large-9 {
-  @include media(min-width $start-large) {
-    @include span-columns(9);
-  }
-}
-
-.span-large-10 {
-  @include media(min-width $start-large) {
-    @include span-columns(10);
-  }
-}
-
-.span-large-11 {
-  @include media(min-width $start-large) {
-    @include span-columns(11);
-  }
-}
-
-.span-large-12 {
-  @include media(min-width $start-large) {
-    @include span-columns(12);
-  }
-}
-
-
-
-// small block grid
 .small-block-1 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(12);
-    @include omega(1n);
-  }
+  @include gallery(12/1 before);
+  float: none;
 }
 
 .small-block-2 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(6);
-    @include omega(2n);
-  }
+  @include gallery(12/2 before);
 }
 
 .small-block-3 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(4);
-    @include omega(3n);
-  }
+  @include gallery(12/3 before);
 }
 
 .small-block-4 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(3);
-    @include omega(4n);
-  }
+  @include gallery(12/4 before);
 }
 
 .small-block-5 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(12/5);
-    @include omega(5n);
-  }
+  @include gallery(12/5 before);
 }
 
 .small-block-6 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(2);
-    @include omega(6n);
-  }
+  @include gallery(12/6 before);
 }
 
 .small-block-7 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(12/7);
-    @include omega(7n);
-  }
+  @include gallery(12/7 before);
 }
 
 .small-block-8 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(12/8);
-    @include omega(8n);
-  }
+  @include gallery(12/8 before);
 }
 
 .small-block-9 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(12/9);
-    @include omega(9n);
-  }
+  @include gallery(12/9 before);
 }
 
 .small-block-10 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(12/10);
-    @include omega(10n);
-  }
+  @include gallery(12/10 before);
 }
 
 .small-block-11 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(12/11);
-    @include omega(11n);
-  }
+  @include gallery(12/11 before);
 }
 
 .small-block-12 > li {
-  @include media(max-width $end-small) {
-    @include span-columns(1);
-    @include omega(12n);
+  @include gallery(12/12 before);
+}
+
+// medium devices
+@media (min-width: $start-medium) {
+  // spans
+  .span-medium-1 {
+    @include span(1);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-2 {
+    @include span(2);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-3 {
+    @include span(3);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-4 {
+    @include span(4);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-5 {
+    @include span(5);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-6 {
+    @include span(6);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-7 {
+    @include span(7);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-8 {
+    @include span(8);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-9 {
+    @include span(9);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-10 {
+    @include span(10);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-11 {
+    @include span(11);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .span-medium-12 {
+    @include span(12);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  // block grid
+  .medium-block-1 > li {
+    @include gallery(12/1 before);
+  }
+
+  .medium-block-2 > li {
+    @include gallery(12/2 before);
+  }
+
+  .medium-block-3 > li {
+    @include gallery(12/3 before);
+  }
+
+  .medium-block-4 > li {
+    @include gallery(12/4 before);
+  }
+
+  .medium-block-5> li {
+    @include gallery(12/5 before);
+  }
+
+  .medium-block-6 > li {
+    @include gallery(12/6 before);
+  }
+
+  .medium-block-7 > li {
+    @include gallery(12/7 before);
+  }
+
+  .medium-block-8 > li {
+    @include gallery(12/8 before);
+  }
+
+  .medium-block-9 > li {
+    @include gallery(12/9 before);
+  }
+
+  .medium-block-10 > li {
+    @include gallery(12/10 before);
+  }
+
+  .medium-block-11 > li {
+    @include gallery(12/11 before);
+  }
+
+  .medium-block-12 > li {
+    @include gallery(12/12 before);
   }
 }
 
-// medium block grid
-.medium-block-1 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(12);
-    @include omega(1n);
-  }
-}
 
-.medium-block-2 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(6);
-    @include omega(2n);
-  }
-}
 
-.medium-block-3 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(4);
-    @include omega(3n);
+// large devices
+@media (min-width: $start-large) {
+  // spans
+  .span-large-1 {
+    @include span(1);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-4 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(3);
-    @include omega(4n);
+  .span-large-2 {
+    @include span(2);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-5> li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(12/5);
-    @include omega(5n);
+  .span-large-3 {
+    @include span(3);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-6 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(2);
-    @include omega(6n);
+  .span-large-4 {
+    @include span(4);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-7 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(12/7);
-    @include omega(7n);
+  .span-large-5 {
+    @include span(5);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-8 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(12/8);
-    @include omega(8n);
+  .span-large-6 {
+    @include span(6);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-9 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(12/9);
-    @include omega(9n);
+  .span-large-7 {
+    @include span(7);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-10 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(12/10);
-    @include omega(10n);
+  .span-large-8 {
+    @include span(8);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-11 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(12/11);
-    @include omega(11n);
+  .span-large-9 {
+    @include span(9);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.medium-block-12 > li {
-  @include media(min-width $start-medium max-width $end-medium) {
-    @include span-columns(1);
-    @include omega(12n);
+  .span-large-10 {
+    @include span(10);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-// large block grid
-.large-block-1 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(12);
-    @include omega(1n);
+  .span-large-11 {
+    @include span(11);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.large-block-2 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(6);
-    @include omega(2n);
+  .span-large-12 {
+    @include span(12);
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.large-block-3 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(4);
-    @include omega(3n);
+
+
+  // block grid
+  .large-block-1 > li {
+    @include gallery(12 before);
   }
-}
 
-.large-block-4 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(3);
-    @include omega(4n);
+  .large-block-2 > li {
+    @include gallery(6 before);
   }
-}
 
-.large-block-5 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(12/5);
-    @include omega(5n);
+  .large-block-3 > li {
+    @include gallery(4 before);
   }
-}
 
-.large-block-6 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(2);
-    @include omega(6n);
+  .large-block-4 > li {
+    @include gallery(12/4 before);
   }
-}
 
-.large-block-7 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(12/7);
-    @include omega(7n);
+  .large-block-5 > li {
+    @include gallery(12/5 before);
   }
-}
 
-.large-block-8 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(12/8);
-    @include omega(8n);
+  .large-block-6 > li {
+    @include gallery(2 before);
   }
-}
 
-.large-block-9 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(12/9);
-    @include omega(9n);
+  .large-block-7 > li {
+    @include gallery(12/7 before);
   }
-}
 
-.large-block-10 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(12/10);
-    @include omega(10n);
+  .large-block-8 > li {
+    @include gallery(12/8 before);
   }
-}
 
-.large-block-11 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(12/11);
-    @include omega(11n);
+  .large-block-9 > li {
+    @include gallery(12/9 before);
   }
-}
 
-.large-block-12 > li {
-  @include media(min-width $start-large) {
-    @include span-columns(1);
-    @include omega(12n);
+  .large-block-10 > li {
+    @include gallery(12/10 before);
+  }
+
+  .large-block-11 > li {
+    @include gallery(12/11 before);
+  }
+
+  .large-block-12 > li {
+    @include gallery(12/12 before);
   }
 }

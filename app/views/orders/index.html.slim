@@ -3,14 +3,14 @@
 = render "orders/index/breadcrumbs"
 = render "orders/index/sidebar"
 
-.title
-  h1 Aufträge
-  - if @date
-    h4.thin = l @date, format: :weekday_default
-
-= link_to "Auftrag erstellen", new_order_path, class: "button dense"
-= link_to "Suchen", "#", id: "search-toggle", class: "button dense"
-hr
+- content_for :header
+  .header-title
+    h1 Aufträge
+    - if @date
+      h4 = l @date, format: :weekday_default
+  .header-actions
+    = link_to "Auftrag erstellen", new_order_path, class: "button dense"
+    = link_to "Suchen", "#", id: "search-toggle", class: "button dense"
 
 
 = render "orders/index/table_orders"

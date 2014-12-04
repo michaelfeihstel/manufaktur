@@ -1,12 +1,10 @@
-- content_for :sidebar_secondary
-  .sidebar-secondary
-    = render "orders/common/quicksearch"
-    label Filter
-    ul.side-nav
-      li class=("active" if @filter_selected == "all") = link_to "Alle", orders_path
-      li class=("active" if @filter_selected == "favorites")
-        a href=marked_orders_path
-          span Favoriten 
-          span.label.round = @orders.marked_as_favorite.count
-      li = link_to "Terminlieferungen", "#"
-      li = link_to "Rückstände", marked_orders_path
+- content_for :sidebar
+  label Filter
+  ul.side-nav
+    li class=("active" if @filter_selected == "all") = link_to "Alle", orders_path
+    li class=("active" if @filter_selected == "favorites")
+      a href=marked_orders_path
+        span Favoriten 
+        span.label.round = @orders.marked_as_favorite.count
+    li = link_to "Terminlieferungen", "#"
+    li = link_to "Rückstände", marked_orders_path

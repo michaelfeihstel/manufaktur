@@ -34,136 +34,9 @@
 
 // CHARTS
 .highlighted-region {
-  fill: $highlight-color;
+  fill: $primary-color;
 }
 
-
-
-
-
-// FORMS
-div.fields {
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-@mixin input {
-  background: transparent;
-  border: 2px solid $secondary-color;
-  outline: none;
-  @include appearance(none);
-  margin: 0;
-}
-
-
-input[type="checkbox"] {
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  margin: 0;
-  display: inline-block;
-  outline: none;
-  padding: 0.25rem;
-  background-color: scale-color($secondary-color, $lightness: -10%);
-  color: transparent;
-  vertical-align: middle;
-  text-align: center;
-  font-family: "manufaktur-icons";
-}
-
-input[type="checkbox"].large {
-  font-size: 1.5rem;
-  padding: 0.5rem;
-}
-
-input[type="checkbox"]:after {
-  content: "S";
-}
-
-input[type="checkbox"]:checked,
-input[type="checkbox"]:active {
-  border: none;
-  color: $primary-color;
-}
-
-input[type="checkbox"]:hover,
-input[type="checkbox"]:focus {
-  border: none;
-}
-
-input[type="checkbox"]:not(:checked):hover {
-  color: scale-color($secondary-color, $lightness: -30%);
-}
-
-
-
-
-
-select,
-.selectize-input.full {
-  @include input;
-}
-
-.selectize-input,
-.selectize-control.single {
-  height: 2.5rem;
-  .selectize-input.input-active {
-    background-color: transparent;
-  }
-
-}
-
-
-select:hover,
-select:focus {
-  background-color: transparent;
-}
-
-.selectize-input {
-  z-index: 0;
-}
-
-.selectize-input,
-.selectize-input.focus {
-  @include input;
-  padding: 0 0.5rem;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  line-height: inherit;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.selectize-input > input {
-  position: relative !important;
-}
-
-.selectize-dropdown {
-  background: #ffffff;
-  // border:none;
-  border: 1px solid $secondary-color; 
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.selectize-dropdown-content {
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  border:none;
-  box-shadow: none;
-  border-radius: 0;
-
-    .option {
-      padding: 0.5rem 0.25rem;
-      border-bottom: 1px solid $secondary-color;
-    }
-
-    .option-text {
-      vertical-align: middle;
-    }
-}
 
 
 
@@ -297,7 +170,7 @@ ul.panel-bar-list > li {
 
 
 // BREADCRUMBS
-div.breadcrumbs-container {
+.breadcrumbs-container {
   background-color: #EBF7A4;
 }
 
@@ -400,7 +273,6 @@ ul.breadcrumbs li a {
 
 .size-row li input[type="text"] {
   background: none;
-  @include box-shadow(none);
   border: none;
   border-bottom: 1px solid $hairline-color;
   padding: 0;

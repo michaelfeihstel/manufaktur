@@ -20,10 +20,11 @@ gem "pundit"
 # views and presentation
 gem "bourbon"
 gem "neat"
+gem "susy"
 gem "simple_calendar", "~> 1.1.0"
 gem "selectize-rails"
 gem "slim-rails"
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass'

@@ -2,13 +2,11 @@
 = render "letters/index/breadcrumbs"
 = render "letters/index/sidebar"
 
-.title
-	h1 Briefe
-
-ul.inline-list
-	li = link_to "Neuer Brief", new_letter_path, class: "button dense"
-
-hr
+- content_for :header
+	.header-title
+		h1 Briefe
+	.header-actions
+		= link_to "Neuer Brief", new_letter_path, class: "button dense"
 
 table
 	thead

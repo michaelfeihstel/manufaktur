@@ -12,75 +12,72 @@
 
 section
 	.row
-		.span-small-12
-			section
-				.row
-					.span-small-12.columns
-						label.section-label Kunde
-						.fields
-							label Auftraggeber
-							= @order.try(:billing_name)
-				.row
-					.small-12.medium-6.columns
-						.fields
-							label Rechnungsansschrift
-							= @order.try(:billing_name)
-							br
-							= "#{@order.try(:billing_street)} #{@order.try(:billing_house_number)}"
-							br
-							= "#{@order.try(:billing_zip)} #{@order.try(:billing_city)}"
-							br
-							= @order.try(:billing_country)
-					.small-12.medium-6.columns
-						.fields
-							label Lieferanschrift
-							= @order.try(:delivery_name)
-							br
-							= "#{@order.try(:delivery_street)} #{@order.try(:delivery_house_number)}"
-							br
-							= "#{@order.try(:delivery_zip)} #{@order.try(:delivery_city)}"
-							br
-							= @order.try(:delivery_country)
-			section
-				.row
-					.small-12.columns
-						label.section-label Verlauf
-						.fields
-							label Erstellt am
-							= l @order.created_at, format: :date_only 
-			.row
-				.small-12.columns
-					ul.tabs data-tab=""
-						li.tab-title.active = link_to "Artikel", "#tab-products"
-						li.tab-title = link_to "Rechnung & Zahlung", "#tab-invoice"
-						li.tab-title = link_to "Versand", "#tab-shipping"
+		.span-small-12.columns
+			label.section-label Kunde
+			.fields
+				label Auftraggeber
+				= @order.try(:billing_name)
+	.row
+		.span-small-12.span-medium-6
+			.fields
+				label Rechnungsansschrift
+				= @order.try(:billing_name)
+				br
+				= "#{@order.try(:billing_street)} #{@order.try(:billing_house_number)}"
+				br
+				= "#{@order.try(:billing_zip)} #{@order.try(:billing_city)}"
+				br
+				= @order.try(:billing_country)
+		.small-12.medium-6.columns
+			.fields
+				label Lieferanschrift
+				= @order.try(:delivery_name)
+				br
+				= "#{@order.try(:delivery_street)} #{@order.try(:delivery_house_number)}"
+				br
+				= "#{@order.try(:delivery_zip)} #{@order.try(:delivery_city)}"
+				br
+				= @order.try(:delivery_country)
+section
+	.row
+		.small-12.columns
+			label.section-label Verlauf
+			.fields
+				label Erstellt am
+				= l @order.created_at, format: :date_only 
+.row
+	.small-12.columns
+		ul.tabs data-tab=""
+			li.tab-title.active = link_to "Artikel", "#tab-products"
+			li.tab-title = link_to "Rechnung & Zahlung", "#tab-invoice"
+			li.tab-title = link_to "Versand", "#tab-shipping"
 
-					.tabs-content
-						.tab.active#tab-products
-							section
-								- @order.line_items.each do |line_item|
-									= render "orders/show/line_item", line_item: line_item
-							section
-								.row
-									.small-12.medium-6.large-8.columns
-										- if @order.comment.present?
-											.panel
-												label Bemerkung
-											p = @order.comment
-									.small-12.medium-6.large-4.columns
-										.panel
-											p.text-right
-												label Warenwert
-												= number_to_currency(@order.price_total, unit: "€")
-												br
-												label + Mehrwertsteuer
-												= number_to_currency(@order.vat_total, unit: "€")
-												hr
-												h3.bold.text-right = number_to_currency(@order.gross_price_total, unit: "€")
-						.tab#tab-invoice
-							p Some Text
-						.tab#tab-shipping
-							p Another tab
+		.tabs-content
+			.tab.active#tab-products
+				section
+					- @order.line_items.each do |line_item|
+						= render "orders/show/line_item", line_item: line_item
+				section
+					.row
+						.span-small-12.span-medium-6.span-large-8
+							- if @order.comment.present?
+								.panel
+									label Bemerkung
+								p = @order.comment
+						.span-small-12.span-medium-6.span-large-4
+							.panel
+								p.text-right
+									label Warenwert
+									= number_to_currency(@order.price_total, unit: "€")
+									br
+									label + Mehrwertsteuer
+									= number_to_currency(@order.vat_total, unit: "€")
+									hr
+									h3.bold.text-right = number_to_currency(@order.gross_price_total, unit: "€")
+			.tab#tab-invoice
+				p Some Text
+			.tab#tab-shipping
+				p Another tab
 
 
 .row
