@@ -8,20 +8,32 @@
 	.header-actions
 		= link_to "Neuer Brief", new_letter_path, class: "button dense"
 
-table
-	thead
-		tr
-			th width=100 Datum
-			th Kontakt
-			th Betreff
-			th width=100
-	tbody
-		- @letters.each do |letter|
-			tr.link href=letter_path(letter)
-				td = l letter.created_at, format: :date_only
-				td = letter.name
-				td = letter.subject
-				td.text-right = link_to icon("pencil"), edit_letter_path(letter)
+.flex-head-row
+	.flex-head-fixed-100 Datum
+	.flex-head-2 Kontakt
+	.flex-head-4 Betreff
+	.flex-head-fixed-50.text-right
+- @letters.each do |letter|
+	.flex-row href=letter_path(letter)
+		.flex-item-fixed-100 = l letter.created_at, format: :date_only
+		.flex-item-2 = letter.name
+		.flex-item-4 = letter.subject
+		.flex-item-fixed-50.text-right = link_to icon("pencil"), edit_letter_path(letter)
+
+/ table
+/ 	thead
+/ 		tr
+/ 			th width=100 Datum
+/ 			th Kontakt
+/ 			th Betreff
+/ 			th width=100
+/ 	tbody
+/ 		- @letters.each do |letter|
+/ 			tr.link href=letter_path(letter)
+/ 				td = l letter.created_at, format: :date_only
+/ 				td = letter.name
+/ 				td = letter.subject
+/ 				td.text-right = link_to icon("pencil"), edit_letter_path(letter)
 
 - content_for :footer
 	.section.text-right

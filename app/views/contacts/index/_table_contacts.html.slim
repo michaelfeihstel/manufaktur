@@ -1,19 +1,16 @@
-table
-  thead
-    tr
-      th width="100" Kundennummer
-      th Name / Firma
-      th width="120" Kategorie
-      th Tags
-      th.text-right width="100" Aktionen
+.flex-head-row
+  .flex-head-fixed-100 Kundennummer
+  .flex-head-2 Name / Firma
+  .flex-head-fixed-150 Kategorie
+  .flex-head-1 Tags
+  .flex-head-fixed-50.text-right
 
-  tbody
-    - @contacts.each do |contact|
-      = render partial: "contacts/index/item_contact", locals: { contact: contact }
+- @contacts.each do |contact|
+  = render partial: "contacts/index/item_contact", locals: { contact: contact }
 
-  tfoot
-    tr
-      td class="text-right" colspan=5
-        h4
-          span.bold = @contacts.count
-          span.thin Kontakte gefunden
+tfoot
+  tr
+    td class="text-right" colspan=5
+      h4
+        span.bold = @contacts.count
+        span.thin Kontakte gefunden

@@ -48,15 +48,6 @@ $('.sidebar-toggle').click(function() {
 	console.log("sidebar was triggered.");
 });
 
-// convert table rows to links
-$('tr').on("click", function() {
-    if($(this).attr('href') !== undefined){
-        document.location = $(this).attr('href');
-    }
-});
-
-
-
 // remove required attribute for deleted nested_forms
 $(document).on('nested:fieldRemoved', function (event) {
 	console.log("field removed");
