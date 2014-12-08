@@ -9,10 +9,10 @@ thead tr {
 
 thead th {
   font-family: $header-font;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   opacity: 0.6;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 0.25rem 0 0.25rem;
   text-align: left;
   text-rendering: geometricPrecision;
 }
@@ -26,15 +26,14 @@ td {
   vertical-align: middle;
 }
 
-td,
-th {
-  &:first-child {
-    padding-left: 0px;
-  }
+td:first-child,
+th:first-child {
+  padding-left: 0.5rem;
+}
 
-  &:last-child {
-    padding-right: 0px;
-  }
+td:last-child,
+th:last-child {
+  padding-right: 0.5rem;
 }
 
 tr.no-border {
@@ -42,17 +41,12 @@ tr.no-border {
 }
 
 tr.link {
+  @include transition(ease 200ms);
 }
 
 tr.link:hover {
-  padding-left: 1.25rem;
   cursor: pointer;
-  border-color: $primary-color;
-  box-shadow: 0px 2px 0px $primary-color;
-
-  &::after {
-    @include transform(translate3d(0,0,0));
-  }
+  background-color: $highlight-color;
 }
 
 tr.link:hover a {
@@ -79,4 +73,54 @@ table.compact th {
 table.compact td:first-child,
 table.compact th:first-child {
   padding-left: 0px;
+}
+
+
+// small devices
+@media (max-width: 767px) {
+  table {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: block;
+  }
+
+  tr {
+    display: block;
+    margin: 0 -1.618rem;
+    padding: 1.618rem;
+  }
+
+  tr.link:hover {
+  }
+
+  td {
+    display: block;
+    padding: 0;
+    margin-bottom: 0.5rem;
+
+    &:before {
+      content: attr(data-title);
+      display: block;
+      font-family: $header-font;
+      opacity: 0.6;
+      text-rendering: geometricPrecision;
+      width: 100%;
+    }
+  }
+
+  td:first-child,
+  th:first-child {
+    padding-left: 0;
+  }
+
+  td:last-child,
+  th:last-child {
+    padding-right: 0;
+  }
 }

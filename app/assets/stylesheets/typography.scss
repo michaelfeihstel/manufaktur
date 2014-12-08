@@ -77,8 +77,13 @@ p {
 a {
 	color: $primary-color;
 	text-decoration: none;
+}
+
+a.link {
+	border-bottom: 2px solid $hairline-color;
+
 	&:hover {
-		color: $highlight-color;
+		border-color: $primary-color;
 	}
 }
 

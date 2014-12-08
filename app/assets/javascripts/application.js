@@ -16,7 +16,7 @@
 //= require jquery.minicolors
 //= require d3
 //= require c3
-//= require hammer
+//= require snap
 //= require selectize
 //= require_tree
 
@@ -34,19 +34,6 @@ $('#search-toggle').click(function() {
 	$('#search-toggle').toggleClass("enabled")
 });
 
-
-
-
-// sidebar toggle
-$('.sidebar-toggle').click(function() {
- 	var order_id = $(this).data("id");
-
-	$('#sidebar').toggleClass('enabled');
-	$('#content').toggleClass('disabled');
-	$(this).toggleClass('enabled');
-
-	console.log("sidebar was triggered.");
-});
 
 // remove required attribute for deleted nested_forms
 $(document).on('nested:fieldRemoved', function (event) {

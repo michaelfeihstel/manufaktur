@@ -1,8 +1,8 @@
-.flex-row href=contact_path(contact)
-	.flex-item-fixed-100 = contact.id
-	.flex-item-2 = contact.name
-	.flex-item-fixed-150 = "Händler"
-	.flex-item-1
-	.flex-item-fixed-50.text-right
+tr.link href=contact_path(contact)
+	td width="100" data-title="Kundennummer" = contact.id
+	td data-title="Kontakt" = contact.name
+	td width="150" = "Händler"
+	td
+	td.text-right
 		span.tip-left data-tooltip="" title="Bearbeiten"
 		= link_to icon("pencil"), edit_contact_path(contact)

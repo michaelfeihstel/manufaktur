@@ -8,6 +8,10 @@
   padding-top: 1rem;
   transition: ease 0.25s;
 
+  @media (max-width: $end-small) {
+    @include flex-direction(column);
+  }
+
   &:hover {
     background-color: $highlight-color;
     cursor: pointer;

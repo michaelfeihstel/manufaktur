@@ -25,28 +25,29 @@ html lang="de"
       try{Typekit.load();}catch(e){}
     = csrf_meta_tags
 
-  body#touch-target
-    = render "layouts/flash"
-    = render "layouts/header"
-    header
-      .row
-        .span-small-12
-          = yield :header
-          = yield :search
-    .container.breadcrumbs-container
-      .row
-        .span-small-12
-          = yield :breadcrumbs
-    .container
-      .row
-        .span-small-12
-          .content
-            .sidebar
-              = yield :sidebar
-            .main
-              = yield
-    footer
-      = yield :footer
+  body
+    #touch-target
+      = render "layouts/flash"
+      = render "layouts/header"
+      header
+        .row
+          .span-small-12
+            = yield :header
+            = yield :search
+      .container.breadcrumbs-container
+        .row
+          .span-small-12
+            = yield :breadcrumbs
+      .container
+        .row
+          .span-small-12
+            .content
+              .sidebar
+                = yield :sidebar
+              .main
+                = yield
+      footer
+        = yield :footer
 
     = javascript_include_tag "application"
     = yield :custom_js
