@@ -2,32 +2,20 @@
 = render "products/show/breadcrumbs"
 = render "products/show/sidebar"
 
-- content_for :title_bar
-	.row
-		.small-12.columns
-			h1
-				span = @product.name
-				|  
-				span.thin = @product.color_text
-			h4 = @product.sku
+- content_for :header
+	.header-title
+		h1
+			span = "#{@product.name} " 
+			span.thin = @product.color_text
+		h4 = @product.sku
+	.header-actions
+		= link_to "Bearbeiten", edit_product_path(@product), class: "button dense"
 
-= link_to "Bearbeiten", edit_product_path(@product), class: "button dense"
+.tabs-content
+	= render "/products/show/tab_general"
+	= render "/products/show/tab_sales"
 
-#content-main
-	.row
-		.small-12.columns
-			ul.tabs data-tab=""
-				li.tab-title.active = link_to "Artikeldaten", "#tab-general"
-				li.tab-title = link_to "Verkäufe", "#tab-sales"
-				li.tab-title = link_to "Produktion", "#tab-production"
-				li.tab-title = link_to "Material", "#tab-material"
-			.tabs-content
-				= render "/products/show/tab_general"
-				= render "/products/show/tab_sales"
-
-	.row
-		.small-12.columns
-			hr
-			= link_to 'Zurück', products_path, class: "button secondary"
-			= link_to "Bearbeiten", edit_product_path, class: "button right"
-			= link_to "Löschen", @product, method: :delete, class: "button alert right", data: { confirm: "Wirklich löschen?" }
+hr
+= link_to 'Zurück', products_path, class: "button secondary"
+= link_to "Bearbeiten", edit_product_path, class: "button right"
+= link_to "Löschen", @product, method: :delete, class: "button alert right", data: { confirm: "Wirklich löschen?" }

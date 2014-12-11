@@ -1,10 +1,10 @@
 .row
-	.small-12.medium-6.large-6.columns
+	.span-small-12.span-medium-6
 		.fields
 			= label :billing_address_id, "Rechnungsanschrift"
 			= collection_select(:order, :billing_address_id, @addresses || Address.where(contact_id: @order.contact_id), :id, :name, prompt: "Rechnungsanschrift auswählen...")
 
-	.small-12.medium-6.large-6.columns
+	.span-small-12.span-medium-6
 		.fields
 		  = label :delivery_address_id, "Lieferanschrift"
 		  = collection_select(:order, :delivery_address_id, @addresses || Address.where(contact_id: @order.contact_id), :id, :name)

@@ -20,11 +20,12 @@ body {
 }
 
 header {
-  padding-top: 4rem;
+  background-color: $primary-color;
+  margin-top: 55px;
   padding-bottom: 2rem;
   padding-left: $gutter;
   padding-right: $gutter;
-  background-color: $primary-color;
+  padding-top: 4rem;
 }
 
 .container {

@@ -3,10 +3,11 @@
 = render "letters/new/breadcrumbs"
 = render "letters/edit/sidebar"
 
-- content_for :title_bar
-  .row
-    .small-12.columns
-      h1.truncated Neuer Brief
+- content_for :header
+  .header-title
+    h1.truncated Neuer Brief
+  .header-action
+    = button_tag "Speichern", class: "button dense", data: { submit: "new_letter" }
 
 section
   = render "letters/common/form"

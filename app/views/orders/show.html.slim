@@ -28,7 +28,7 @@ section
 				= "#{@order.try(:billing_zip)} #{@order.try(:billing_city)}"
 				br
 				= @order.try(:billing_country)
-		.small-12.medium-6.columns
+		.span-small-12.span-medium-6
 			.fields
 				label Lieferanschrift
 				= @order.try(:delivery_name)

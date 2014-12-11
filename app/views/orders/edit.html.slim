@@ -3,13 +3,12 @@
 = render "orders/edit/breadcrumbs"
 = render "orders/edit/sidebar"
 
-- content_for :title_bar
-  .row
-    .small-12.columns
-      h1 = @order.id
-      h4 = @order.billing_name
+- content_for :header
+  .header-title
+    h1 = @order.id
+    h4 = @order.billing_name
+  .header-actions
+    = button_tag "Speichern", data: { submit: "edit_order" }
+    = link_to "Abbrechen", :back, class: "button light"
 
-#content-main
-  .row
-    .small-12.columns
-      = render "orders/form"
+= render "orders/form"

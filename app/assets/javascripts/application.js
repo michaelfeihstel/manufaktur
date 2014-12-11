@@ -16,23 +16,17 @@
 //= require jquery.minicolors
 //= require d3
 //= require c3
-//= require snap
-//= require selectize
+//= require stickykit
 //= require_tree
+
+$(".subnav-container").stick_in_parent({
+  offset_top: 55
+})
 
 // Flash notice
 $('.flash').slideDown(500).delay(5000).slideUp(500);
 
 
-
-
-// search-toggle
-$('#search-toggle').click(function() {
-	console.log('search-toggle clicked');
-
-	$('#search').slideToggle(200);
-	$('#search-toggle').toggleClass("enabled")
-});
 
 
 // remove required attribute for deleted nested_forms

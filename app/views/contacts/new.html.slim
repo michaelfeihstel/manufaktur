@@ -1,10 +1,10 @@
 = render "contacts/edit/sidebar"
-= render "contacts/common/toolbar"
 
-- content_for :title_bar do
-  section
+- content_for :header
+  .header-title
     h1 Kontakt hinzufügen
+  .header-actions
+    = button_tag "Speichern", class: "button dense", data: { submit: "new_contact" } 
 
 
-- content_for :main_content do
-  = render "contacts/form"
+= render "contacts/form"

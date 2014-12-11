@@ -57,6 +57,7 @@ class LettersController < ApplicationController
     params.require(:letter).permit(
       :contact_id,
       :address_id,
+      :created_at,
       :name,
       :street,
       :house_number,

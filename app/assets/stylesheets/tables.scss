@@ -9,10 +9,11 @@ thead tr {
 
 thead th {
   font-family: $header-font;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   opacity: 0.6;
-  padding: 0.5rem 0.25rem 0 0.25rem;
+  padding: 0.5rem;
+  padding-bottom: 0;
   text-align: left;
   text-rendering: geometricPrecision;
 }
@@ -46,7 +47,7 @@ tr.link {
 
 tr.link:hover {
   cursor: pointer;
-  background-color: $highlight-color;
+  background-color: $secondary-color;
 }
 
 tr.link:hover a {

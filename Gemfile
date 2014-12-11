@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '~> 4.1.6'
+gem 'rails', '~> 4.1.8'
 gem 'pg'
 gem 'annotate'
 gem 'paperclip', "~> 4.2.0"
@@ -28,7 +28,6 @@ gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass'
-gem 'foundation-rails', '~> 5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails'

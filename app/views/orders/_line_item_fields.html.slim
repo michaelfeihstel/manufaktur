@@ -1,101 +1,100 @@
 section data-line-item-id = f.object.temp_id id = f.object.temp_id
-  .panel
+  .panel-outline
+    .panel-bar-top style = "background: #{horizontal_gradient(f.object.product) if f.object.product}"
     .fields
       = f.collection_select(:product_id, @products, :id, :sku_name_color, { prompt: "Wähle einen Artikel aus..." }, { class: "order_line_items_product_id" } )
 
-    .row
-      .small-12.columns
-        ul.size-row
-          li
-            = f.label :g1, f.object.get_size("g1"), class: "size-label"
-            = f.text_field :g1, size: 2, class: "size-input", data: { size: :g1 }
-          li
-            = f.label :g1h, f.object.get_size("g1h"), class: "size-label"
-            = f.text_field :g1h, size: 2, class: "size-input", data: { size: :g1h }
-          li
-            = f.label :g2, f.object.get_size("g2"), class: "size-label"
-            = f.text_field :g2, size: 2, class: "size-input", data: { size: :g2 }
-          li
-            = f.label :g2h, f.object.get_size("g2h"), class: "size-label"
-            = f.text_field :g2h, size: 2, class: "size-input", data: { size: :g2h }
-          li
-            = f.label :g3, f.object.get_size("g3"), class: "size-label"
-            = f.text_field :g3, size: 2, class: "size-input", data: { size: :g3 }
-          li
-            = f.label :g3h, f.object.get_size("g3h"), class: "size-label"
-            = f.text_field :g3h, size: 2, class: "size-input", data: { size: :g3h }
-          li
-            = f.label :g4, f.object.get_size("g4"), class: "size-label"
-            = f.text_field :g4, size: 2, class: "size-input", data: { size: :g4 }
-          li
-            = f.label :g4h, f.object.get_size("g4h"), class: "size-label"
-            = f.text_field :g4h, size: 2, class: "size-input", data: { size: :g4h }
-          li
-            = f.label :g5, f.object.get_size("g5"), class: "size-label"
-            = f.text_field :g5, size: 2, class: "size-input", data: { size: :g5 }
-          li
-            = f.label :g5h, f.object.get_size("g5h"), class: "size-label"
-            = f.text_field :g5h, size: 2, class: "size-input", data: { size: :g5h }
-          li
-            = f.label :g6, f.object.get_size("g6"), class: "size-label"
-            = f.text_field :g6, size: 2, class: "size-input", data: { size: :g6 }
-          li
-            = f.label :g6h, f.object.get_size("g6h"), class: "size-label"
-            = f.text_field :g6h, size: 2, class: "size-input", data: { size: :g6h }
-          li
-            = f.label :g7, f.object.get_size("g7"), class: "size-label"
-            = f.text_field :g7, size: 2, class: "size-input", data: { size: :g7 }
-          li
-            = f.label :g7h, f.object.get_size("g7h"), class: "size-label"
-            = f.text_field :g7h, size: 2, class: "size-input", data: { size: :g7h }
-          li
-            = f.label :g8, f.object.get_size("g8"), class: "size-label"
-            = f.text_field :g8, size: 2, class: "size-input", data: { size: :g8 }
-          li
-            = f.label :g8h, f.object.get_size("g8h"), class: "size-label"
-            = f.text_field :g8h, size: 2, class: "size-input", data: { size: :g8h }
-          li
-            = f.label :g9, f.object.get_size("g9"), class: "size-label"
-            = f.text_field :g9, size: 2, class: "size-input", data: { size: :g9 }
-          li
-            = f.label :g9h, f.object.get_size("g9h"), class: "size-label"
-            = f.text_field :g9h, size: 2, class: "size-input", data: { size: :g9h }
-          li
-            = f.label :g10, f.object.get_size("g10"), class: "size-label"
-            = f.text_field :g10, size: 2, class: "size-input", data: { size: :g10 }
-          li
-            = f.label :g10h, f.object.get_size("g10h"), class: "size-label"
-            = f.text_field :g10h, size: 2, class: "size-input", data: { size: :g10h }
-          li
-            = f.label :g11, f.object.get_size("g11"), class: "size-label"
-            = f.text_field :g11, size: 2, class: "size-input", data: { size: :g11 }
-          li
-            = f.label :g11h, f.object.get_size("g11h"), class: "size-label"
-            = f.text_field :g11h, size: 2, class: "size-input", data: { size: :g11h }
-          li
-            = f.label :g12, f.object.get_size("g12"), class: "size-label"
-            = f.text_field :g12, size: 2, class: "size-input", data: { size: :g12 }
-          li
-            = f.label :g12h, f.object.get_size("g12h"), class: "size-label"
-            = f.text_field :g12h, size: 2, class: "size-input", data: { size: :g12h }
-          li
-            = f.label :g13, f.object.get_size("g13"), class: "size-label"
-            = f.text_field :g13, size: 2, class: "size-input", data: { size: :g13 }
-          li
-            = f.label :g13h, f.object.get_size("g13h"), class: "size-label"
-            = f.text_field :g13h, size: 2, class: "size-input", data: { size: :g13h }
-          li
-            = f.label :g14, f.object.get_size("g14"), class: "size-label"
-            = f.text_field :g14, size: 2, class: "size-input", data: { size: :g14 }
-          li
-            = f.label :g14h, f.object.get_size("g14h"), class: "size-label"
-            = f.text_field :g14h, size: 2, class: "size-input", data: { size: :g14h }
-          li
-            = f.label :g15, f.object.get_size("g15"), class: "size-label"
-            = f.text_field :g15, size: 2, class: "size-input", data: { size: :g15 }
-          li
-            = f.label :g16, f.object.get_size("g16"), class: "size-label"
-            = f.text_field :g16, size: 2, class: "size-input", data: { size: :g16 }
+    ul.sizes-list
+      li
+        = f.label :g1, f.object.get_size("g1"), class: "size-label"
+        = f.text_field :g1, size: 2, class: "size-input", data: { size: :g1 }
+      li
+        = f.label :g1h, f.object.get_size("g1h"), class: "size-label"
+        = f.text_field :g1h, size: 2, class: "size-input", data: { size: :g1h }
+      li
+        = f.label :g2, f.object.get_size("g2"), class: "size-label"
+        = f.text_field :g2, size: 2, class: "size-input", data: { size: :g2 }
+      li
+        = f.label :g2h, f.object.get_size("g2h"), class: "size-label"
+        = f.text_field :g2h, size: 2, class: "size-input", data: { size: :g2h }
+      li
+        = f.label :g3, f.object.get_size("g3"), class: "size-label"
+        = f.text_field :g3, size: 2, class: "size-input", data: { size: :g3 }
+      li
+        = f.label :g3h, f.object.get_size("g3h"), class: "size-label"
+        = f.text_field :g3h, size: 2, class: "size-input", data: { size: :g3h }
+      li
+        = f.label :g4, f.object.get_size("g4"), class: "size-label"
+        = f.text_field :g4, size: 2, class: "size-input", data: { size: :g4 }
+      li
+        = f.label :g4h, f.object.get_size("g4h"), class: "size-label"
+        = f.text_field :g4h, size: 2, class: "size-input", data: { size: :g4h }
+      li
+        = f.label :g5, f.object.get_size("g5"), class: "size-label"
+        = f.text_field :g5, size: 2, class: "size-input", data: { size: :g5 }
+      li
+        = f.label :g5h, f.object.get_size("g5h"), class: "size-label"
+        = f.text_field :g5h, size: 2, class: "size-input", data: { size: :g5h }
+      li
+        = f.label :g6, f.object.get_size("g6"), class: "size-label"
+        = f.text_field :g6, size: 2, class: "size-input", data: { size: :g6 }
+      li
+        = f.label :g6h, f.object.get_size("g6h"), class: "size-label"
+        = f.text_field :g6h, size: 2, class: "size-input", data: { size: :g6h }
+      li
+        = f.label :g7, f.object.get_size("g7"), class: "size-label"
+        = f.text_field :g7, size: 2, class: "size-input", data: { size: :g7 }
+      li
+        = f.label :g7h, f.object.get_size("g7h"), class: "size-label"
+        = f.text_field :g7h, size: 2, class: "size-input", data: { size: :g7h }
+      li
+        = f.label :g8, f.object.get_size("g8"), class: "size-label"
+        = f.text_field :g8, size: 2, class: "size-input", data: { size: :g8 }
+      li
+        = f.label :g8h, f.object.get_size("g8h"), class: "size-label"
+        = f.text_field :g8h, size: 2, class: "size-input", data: { size: :g8h }
+      li
+        = f.label :g9, f.object.get_size("g9"), class: "size-label"
+        = f.text_field :g9, size: 2, class: "size-input", data: { size: :g9 }
+      li
+        = f.label :g9h, f.object.get_size("g9h"), class: "size-label"
+        = f.text_field :g9h, size: 2, class: "size-input", data: { size: :g9h }
+      li
+        = f.label :g10, f.object.get_size("g10"), class: "size-label"
+        = f.text_field :g10, size: 2, class: "size-input", data: { size: :g10 }
+      li
+        = f.label :g10h, f.object.get_size("g10h"), class: "size-label"
+        = f.text_field :g10h, size: 2, class: "size-input", data: { size: :g10h }
+      li
+        = f.label :g11, f.object.get_size("g11"), class: "size-label"
+        = f.text_field :g11, size: 2, class: "size-input", data: { size: :g11 }
+      li
+        = f.label :g11h, f.object.get_size("g11h"), class: "size-label"
+        = f.text_field :g11h, size: 2, class: "size-input", data: { size: :g11h }
+      li
+        = f.label :g12, f.object.get_size("g12"), class: "size-label"
+        = f.text_field :g12, size: 2, class: "size-input", data: { size: :g12 }
+      li
+        = f.label :g12h, f.object.get_size("g12h"), class: "size-label"
+        = f.text_field :g12h, size: 2, class: "size-input", data: { size: :g12h }
+      li
+        = f.label :g13, f.object.get_size("g13"), class: "size-label"
+        = f.text_field :g13, size: 2, class: "size-input", data: { size: :g13 }
+      li
+        = f.label :g13h, f.object.get_size("g13h"), class: "size-label"
+        = f.text_field :g13h, size: 2, class: "size-input", data: { size: :g13h }
+      li
+        = f.label :g14, f.object.get_size("g14"), class: "size-label"
+        = f.text_field :g14, size: 2, class: "size-input", data: { size: :g14 }
+      li
+        = f.label :g14h, f.object.get_size("g14h"), class: "size-label"
+        = f.text_field :g14h, size: 2, class: "size-input", data: { size: :g14h }
+      li
+        = f.label :g15, f.object.get_size("g15"), class: "size-label"
+        = f.text_field :g15, size: 2, class: "size-input", data: { size: :g15 }
+      li
+        = f.label :g16, f.object.get_size("g16"), class: "size-label"
+        = f.text_field :g16, size: 2, class: "size-input", data: { size: :g16 }
 
 
     .row
@@ -117,10 +116,3 @@ section data-line-item-id = f.object.temp_id id = f.object.temp_id
         li
           h5 = link_to icon("arrow-right")
           label Verschieben
-
-- content_for :custom_js
-  javascript:
-    var ractive = new Ractive({
-      el: 'test',
-      data: { greeting: 'Hello', recipient: 'world' }
-    });

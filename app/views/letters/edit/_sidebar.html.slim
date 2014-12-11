@@ -1,6 +1,5 @@
-- content_for :sidebar_secondary
-  .sidebar-secondary
-    = render "letters/common/quicksearch"
-  	label Bearbeiten
-  	ul.side-nav
-  		li = link_to icon("cross", text: "Abbrechen")
+- content_for :sidebar
+  label Bearbeiten
+  ul.side-nav
+    li = link_to icon("check", text: "Speichern"), data: { submit: "letter-form" }
+    li = link_to icon("cross", text: "Abbrechen")

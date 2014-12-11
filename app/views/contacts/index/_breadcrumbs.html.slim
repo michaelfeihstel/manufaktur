@@ -1,4 +1,6 @@
 - content_for :breadcrumbs do
-  ul.breadcrumbs
-    li = link_to "Home", :root
-    li = link_to "Kontakte", contacts_path
+  .flex-row
+    ul.breadcrumbs
+      li = link_to "Home", :root
+      li = link_to "Kontakte", contacts_path
+    = render "contacts/common/quicksearch"

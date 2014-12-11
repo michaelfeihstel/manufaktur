@@ -3,7 +3,9 @@ require "test_helper"
 class ContactsControllerTest < ActionController::TestCase
 
   setup do
+    @user = users(:default_user)
     @contact = contacts(:default_contact)
+    sign_in @user
   end
 
   test "should get index" do

@@ -2,10 +2,9 @@
 = render "products/index/breadcrumbs"
 = render "products/index/sidebar"
 
-- content_for :title_bar
-	.row
-		.small-12.columns
-			h1 Artikel
+- content_for :header
+	.header-title
+		h1 Artikel
 
 #content-main
 	.row
@@ -19,19 +18,12 @@
 						th Farbe
 						th.last.text-right Preis
 				tbody
-					tr.panel
-						= search_form_for @search, url: search_products_path, method: :post do |f|
-							th = icon("search")
-							th = f.search_field :sku_cont
-							th = f.search_field :name_cont
-							th = f.search_field :color_text_cont
-							th = f.search_field :price_eq, class: "text-right"
 					- @products.each do |product|
 						tr.link href=product_path(product)
 							td = image_tag product.default_image
 							td = product.sku
 							td = product.name
 							td
-								span.label style=product_color(product)
+								span.label class="product-label" style=product_color(product)
 									= product.color_text
 							td.text-right = number_to_currency(product.price, unit:"€ ")

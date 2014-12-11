@@ -117,8 +117,8 @@ section
 		.panel-bar.bottom
 			ul.panel-bar-list
 				li.text-center
-					h5.bold = line_item.quantity
+					h5 = line_item.quantity
 					label Anzahl
 				li.text-center
-					h5.bold = number_to_currency(line_item.try(:price_total), unit: "€ ")
+					h5 = number_to_currency(line_item.try(:price_total), unit: "€ ")
 					label Summe

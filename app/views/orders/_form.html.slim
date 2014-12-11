@@ -1,32 +1,24 @@
 = nested_form_for @order, data: { "order-id" => @order.id } do |f|
-  .row
-    .small-12.columns
-      - if @order.errors.any?
-        #error_explanation
-          h4= "#{pluralize(@order.errors.count, "error")} prohibited this post from being saved:"
-          ul
-            - @order.errors.full_messages.each do |msg|
-              .alert-box.alert data-alert=""
-                li= msg
-
-  .row
-    .small-12.columns
-      = f.submit "Speichern", class: "button dense"
-      = link_to "Abbrechen", :back, class: "button dense secondary"
-      hr
+  - if @order.errors.any?
+    #error_explanation
+      h4= "#{pluralize(@order.errors.count, "error")} prohibited this post from being saved:"
+      ul
+        - @order.errors.full_messages.each do |msg|
+          .alert-box.alert data-alert=""
+            li= msg
 
   section
     .row
-      .small-12.medium-9.columns
-        h4 Händler
+      .span-small-12.span-medium-9
+        h5 Händler
         .fields
           = f.label :contact_id, "Händler"
           = f.collection_select(:contact_id, Contact.order(:name), :id, :name, class: "submittable")
         #select_addresses
           = render "orders/select_addresses", :f => f
 
-      .small-12.medium-3.large-3.columns
-        h4 Status
+      .span-small-12.span-medium-3
+        h5 Status
         .fields
           = f.label :delivered_on, "Liefertermin"
           = f.date_field :delivered_on
@@ -40,12 +32,12 @@
       li.tab-title = link_to "Rechnung & Zahlung", "#tab-invoice"
       li.tab-title = link_to "Versand", "#tab-shipping"
     .tabs-content
-      .content.active#tab-products
+      .tab.active#tab-products
         #line_item_target = f.fields_for :line_items
         ul.inline-list
           li= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, data: { target: "#line_item_target" }, class: "button small"
 
-      .content#tab-invoice
+      .tab#tab-invoice
         .row
           .small-12.medium-6.columns
             section
@@ -110,7 +102,7 @@
                       span.thin offen: 
                       span.bold = number_to_currency(Order.where(contact_id: @order.contact_id, paid_on: nil).includes(:line_items).to_a.sum(&:price_total), unit: "€")
 
-      .content#tab-shipping
+      .tab#tab-shipping
         p
           | Third panel content goes here
 

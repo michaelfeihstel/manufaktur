@@ -12,7 +12,7 @@ Manufaktur::Application.routes.draw do
     get '(search/page/:page)', action: :search, on: :collection, :as => 'search_page'
   end
   concern :searchable do
-    match '(search)', action: :search, on: :collection, via: [:get, :post], as: :search
+    match 'search', action: :search, on: :collection, via: [:get, :post], as: :search
   end
 
   # orders

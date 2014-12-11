@@ -1,6 +1,7 @@
 button, .button {
   @include appearance(none);
   @include transition (all 100ms ease-in-out);
+  font-size: 1rem;
   background-color: transparent;
   border: 2px solid $primary-color;
   color: $primary-color;
@@ -9,7 +10,7 @@ button, .button {
   font-family: $header-font;
   height: auto;
   letter-spacing: 1px;
-  margin-right: 1rem;
+  line-height: 1.45rem;
   margin: 0 1rem 1rem 0;
   outline: none;
   padding: .5em 1rem;
@@ -19,6 +20,13 @@ button, .button {
   &:hover {
     background-color: $primary-color;
     color: $background-color;
+  }
+
+  @media (max-width: $end-small) {
+    width: 100%;
+    display: block;
+    margin-right: 0;
+    text-align: center;
   }
 }
 

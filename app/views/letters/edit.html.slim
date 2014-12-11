@@ -3,9 +3,13 @@
 = render "letters/edit/breadcrumbs"
 = render "letters/edit/sidebar"
 
-.title
-  h1.truncated = @letter.subject
-  h4 = @letter.name
+- content_for :header
+  .header-title
+    h1.truncated = @letter.subject
+    h4 = @letter.name
+  .header-actions
+    = button_tag "Speichern", class: "button dense", data: { submit: "edit_letter" }
+    = link_to "Abbrechen", :back, class: "button dense"
 
 section
   = render "letters/common/form"

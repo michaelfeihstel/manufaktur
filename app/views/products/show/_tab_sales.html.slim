@@ -1,35 +1,42 @@
-.content#tab-sales
-	.row
-		.small-12.columns
-			h5 Verkauf
-			section
-				= render "products/common/chart_bar_sales"
-			section
-				table
-					thead
-						tr
-							th width=70 Status
-							th width=70 Auftrag
-							th Erstellt
-							th Auftraggeber
-							th.text-right Anzahl
-					tbody
-						- @product.line_items.order_by_created_desc.each do |line_item|
-							tr.link href=order_path(line_item.order)
-								td
-									span data-tooltip="" title=line_item.order.completed_status_label
-										= completed_icon(line_item.order)
-									span data-tooltip="" title=line_item.order.paid_label
-										= paid_icon(line_item.order)
-								td = line_item.order_id
-								td = l line_item.order.created_at, format: :date_only
-								td = line_item.order.billing_name
-								td.text-right = line_item.quantity
-					tfoot
-						tr
-							td
-							td
-							td
-							td
-							td.bold.text-right = @product.line_items.to_a.sum(&:quantity)
+.tab#tab-sales
+	label Verkauf
+	section
+		.panel-outline
+			= render "products/common/chart_bar_sales"
+			.panel-bar.bottom
+				ul.panel-bar-list
+					li
+						h5 = @product.line_items.to_a.sum(&:quantity)
+						label Gesamt
+					li
+						h5 = number_to_currency(@product.line_items.to_a.sum(&:price_total), unit: "€")
+						label Umsatz
+	section
+		table
+			thead
+				tr
+					th width=70 Status
+					th width=70 Auftrag
+					th Erstellt
+					th Auftraggeber
+					th.text-right Anzahl
+			tbody
+				- @product.line_items.order_by_created_desc.each do |line_item|
+					tr.link href=order_path(line_item.order)
+						td
+							span data-tooltip="" title=line_item.order.completed_status_label
+								= completed_icon(line_item.order)
+							span data-tooltip="" title=line_item.order.paid_label
+								= paid_icon(line_item.order)
+						td = line_item.order_id
+						td = l line_item.order.created_at, format: :date_only
+						td = line_item.order.billing_name
+						td.text-right = line_item.quantity
+			tfoot
+				tr
+					td
+					td
+					td
+					td
+					td.bold.text-right = @product.line_items.to_a.sum(&:quantity)
 

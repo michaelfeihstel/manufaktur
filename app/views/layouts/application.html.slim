@@ -18,7 +18,6 @@ html lang="de"
     = javascript_include_tag "d3"
     = javascript_include_tag "c3"
     = stylesheet_link_tag "application"
-    = javascript_include_tag "vendor/modernizr"
 
     script type="text/javascript" src="//use.typekit.net/vyp8igb.js"
     javascript:
@@ -26,28 +25,30 @@ html lang="de"
     = csrf_meta_tags
 
   body
-    #touch-target
-      = render "layouts/flash"
-      = render "layouts/header"
-      header
-        .row
-          .span-small-12
-            = yield :header
-            = yield :search
-      .container.breadcrumbs-container
-        .row
-          .span-small-12
-            = yield :breadcrumbs
-      .container
-        .row
-          .span-small-12
-            .content
-              .sidebar
-                = yield :sidebar
-              .main
-                = yield
-      footer
-        = yield :footer
+    = render "layouts/flash"
+    = render "layouts/header"
+    header
+      .row
+        .span-small-12
+          = yield :header
+    .container.subnav-container
+      .row
+        .span-small-12
+          = yield :breadcrumbs
+    .container#search
+      .row
+        .span-small-12
+          = yield :search
+    .container
+      .row
+        .span-small-12
+          .content
+            .sidebar
+              = yield :sidebar
+            .main
+              = yield
+    footer
+      = yield :footer
 
     = javascript_include_tag "application"
     = yield :custom_js

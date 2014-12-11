@@ -5,6 +5,6 @@
     li class=("active" if @filter_selected == "favorites")
       a href=marked_orders_path
         span Favoriten 
-        span.label.round = @orders.marked_as_favorite.count
+        span.badge.float-right = @orders.marked_as_favorite.count
     li = link_to "Terminlieferungen", "#"
     li = link_to "Rückstände", marked_orders_path

@@ -1,60 +1,57 @@
 - content_for :search do
-	
-	#search.inverted style="display:none;"
-
-		= search_form_for @search, url: search_orders_path, method: :post do |f|
-			section
-				.row
-					.small-12.medium-6.large-4.columns
-						h4 Auftrag
-						.fields
-							= f.label :id_eq, "Auftragsnummer"
-							= f.text_field :id_eq
-						.fields
-							= f.label "Erstellt"
-							.row
-								.small-6.columns
-									= f.date_field :created_at_gteq, class: "searchbar-input"
-								.small-6.columns
-									= f.date_field :created_at_lteq, class: "searchbar-input"
-						.fields
-							= f.label "Liefertermin"
-							.row
-								.small-6.columns
-									= f.date_field :delivered_on_gteq, class: "searchbar-input"
-								.small-6.columns
-									= f.date_field :delivered_on_lteq, class: "searchbar-input"		
-						.fields
-							= f.label "Abgeschlossen"
-							.row
-								.small-6.columns
-									= f.date_field :completed_at_gteq, class: "searchbar-input"
-								.small-6.columns
-									= f.date_field :completed_at_lteq, class: "searchbar-input"
-
-					.small-12.medium-6.large-4.columns
-						h4 Auftraggeber
-						.fields
-							= f.label :name, "Name / Firma"
-							= f.text_field :contact_name_cont
-						.fields
-							= f.label :billing_address_street_or_delivery_address_street_cont, "Straße"
-							= f.text_field :billing_address_street_or_delivery_address_street_cont
-						.fields
-							.row
-								.small-4.columns
-									= f.label :billing_address_zip_or_delivery_address_zip_cont, "PLZ"
-									= f.text_field :billing_address_zip_or_delivery_address_zip_cont
-								.small-8.columns
-									= f.label :billing_address_city_or_delivery_address_city_cont, "Stadt"
-									= f.text_field :billing_address_city_or_delivery_address_city_cont
-						.fields
-							= f.label :billing_address_country_or_delivery_address_country_cont, "Land"
-							= f.text_field :billing_address_country_or_delivery_address_country_cont
-
-					.small-12.medium-6.large-4.columns
-
+	= search_form_for @search, url: search_orders_path, method: :post do |f|
+		section
 			.row
-				.small-12.columns
-						button type="submit" class="button inverted" Suchen
-						= link_to "Alle anzeigen", orders_path, class: "button secondary"
+				.span-small-12.span-medium-6.span-large-4
+					h6 Auftrag
+					.fields
+						= f.label :id_eq, "Auftragsnummer"
+						= f.text_field :id_eq
+					.fields
+						= f.label "Erstellt"
+						.row
+							.span-small-6
+								= f.date_field :created_at_gteq
+							.span-small-6
+								= f.date_field :created_at_lteq
+					.fields
+						= f.label "Liefertermin"
+						.row
+							.span-small-6
+								= f.date_field :delivered_on_gteq
+							.span-small-6
+								= f.date_field :delivered_on_lteq
+					.fields
+						= f.label "Abgeschlossen"
+						.row
+							.span-small-6
+								= f.date_field :completed_at_gteq
+							.span-small-6
+								= f.date_field :completed_at_lteq
+
+				.span-small-12.span-medium-6.span-large-4
+					h6 Auftraggeber
+					.fields
+						= f.label :name, "Name / Firma"
+						= f.text_field :contact_name_cont
+					.fields
+						= f.label :billing_address_street_or_delivery_address_street_cont, "Straße"
+						= f.text_field :billing_address_street_or_delivery_address_street_cont
+					.fields
+						.row
+							.span-small-4
+								= f.label :billing_address_zip_or_delivery_address_zip_cont, "PLZ"
+								= f.text_field :billing_address_zip_or_delivery_address_zip_cont
+							.span-small-8
+								= f.label :billing_address_city_or_delivery_address_city_cont, "Stadt"
+								= f.text_field :billing_address_city_or_delivery_address_city_cont
+					.fields
+						= f.label :billing_address_country_or_delivery_address_country_cont, "Land"
+						= f.text_field :billing_address_country_or_delivery_address_country_cont
+
+				.span-small-12.span-medium-6.span-large-4
+
+		.row
+			.small-12
+					button type="submit" class="button" Suchen
+					= link_to "Alle anzeigen", orders_path, class: "button secondary"

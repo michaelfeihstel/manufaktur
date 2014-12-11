@@ -1,26 +1,14 @@
 // SEARCH
 #search {
-  background-color: $highlight-color;
-  padding: 1.25rem 0;
+  display: none;
+  background-color: $secondary-color;
+  padding-top: 1.618rem;
+  padding-bottom: 1.618rem;
 }
 
-.sidebar-search-form {
-  height: 60px;
-  margin: 0 -1.25rem 2rem -1.25rem;
+#search.enabled {
+  display: block;
 }
-
-.sidebar-search-field {
-  height: 100% !important;
-  width: 100%;
-  padding: 1.25rem;
-  border: none;
-  background-color: scale-color($secondary-color, $lightness: -5%) !important;
-
-  &:hover, &:focus {
-    background-color: scale-color($secondary-color, $lightness: -8%) !important;
-  }
-}
-
 
 // PRODCUTS
 .colored_separator {
@@ -35,6 +23,11 @@
 // CHARTS
 .highlighted-region {
   fill: $primary-color;
+}
+
+// images
+img {
+  max-width: 100%;
 }
 
 
@@ -140,7 +133,7 @@ ul.panel-bar-list {
 }
 
 ul.panel-bar-list > li {
-  border-right: 1px solid $hairline-color;
+  border-right: 1px solid scale-color($hairline-color, $lightness: -5%);
   display: inline-block;
   margin-left: 0;
   padding: 0 1.25rem;
@@ -157,6 +150,17 @@ ul.panel-bar-list > li {
   }
 }
 
+ul.panel-bar-list h4 {
+  color: $font-color;
+  margin: 0.5rem 0;
+}
+
+ul.panel-bar-list h5 {
+  color: $font-color;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
 .panel-bar-button {
   margin: -1.25rem;
   padding: 1.25rem;
@@ -170,11 +174,14 @@ ul.panel-bar-list > li {
 
 
 // BREADCRUMBS
-.breadcrumbs-container {
+.subnav-container {
   background-color: #EBF7A4;
+  z-index: 98;
 }
 
 ul.breadcrumbs {
+  @include flex(1 1);
+  @include align-self(center);
   font-size: rem(13);
   list-style: none;
   line-height: 1.5rem;
@@ -207,9 +214,39 @@ ul.breadcrumbs li a {
   }
 }
 
+.subnav-search-form {
+  @include flex(0 1 200px);
+  @include align-self(center);
+}
+
+input.subnav-search-field {
+  background-color: $background-color;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  height: 2.5rem;
+  width: 100%;
+
+  @include placeholder {
+    display: inline;
+    font-family: "manufaktur-icons";
+    content: "P";
+    color: scale-color($secondary-color, $lightness: -20%);
+    padding: 0.25rem 0;
+  }
+
+  &:before {
+    padding: 1rem;
+  }
+
+  &:hover, &:focus {
+    background-color: $background-color;
+  }
+}
+
 
 // Flash messages
 .flash {
+  z-index: 999;
   position: fixed;
   top: 1.25rem;
   right: 1.25rem;
@@ -417,7 +454,13 @@ nav.pagination {
 }
 
 
-// CALENDAR
+
+
+
+/*---------------------*\
+        CALENDAR
+\*---------------------*/
+
 .fixed-bottom { 
   bottom: 0;
   position: fixed;
@@ -500,4 +543,16 @@ table.calendar {
     opacity: 0.4;
   }
 
+}
+
+
+
+/*-------------------*\
+        BADGES
+\*-------------------*/
+.badge {
+  background-color: $primary-color;
+  color: $background-color;
+  font-size: 0.8125rem;
+  padding: 0 0.5rem;
 }

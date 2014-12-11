@@ -1,25 +1,39 @@
-nav {
+nav.main-nav {
   background-color: scale-color($primary-color, $lightness: -10%);
   color: $background-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
 }
 
 // main sidebar navigation
 ul.main-nav {
-  list-style: none;
   float: right;
+  list-style: none;
+  margin-right: 1.618rem;
 }
 
 ul.main-nav > li {
   display: inline-block;
 }
 
-nav ul li {
+nav.main-nav li {
+  position: relative;
+}
+
+nav.main-nav li.has-dropdown {
+  padding-right: 2rem;
+}
+
+nav.main-nav li {
   padding: 1rem;
 
   &:hover,
   &:focus,
   &.active {
-    background-color: $primary-color
+    background-color: scale-color($primary-color, $lightness: 5%)
   }
 }
 
@@ -29,21 +43,53 @@ ul.main-nav li a {
   color: $background-color;
 }
 
-li.has-dropdown {
-  position: relative;
+ul.main-nav > li.has-dropdown > a:after {
+  color: scale-color($secondary-color, $lightness: -20%);
+  content: "E";
+  display: inline;
+  font-family: "manufaktur-icons";
+  font-size: 0.625rem;
+  position: absolute;
+  right: 0.5rem;
+}
+
+ul.dropdown {
+  min-width: 100%;
 }
 
 li.has-dropdown:hover > ul.dropdown {
   display: block;
 }
 
-ul.dropdown {
-  position: absolute;
-  top: 0;
-  list-style: none;
+// second level
+ul > li > ul.dropdown {
+  background-color: scale-color($primary-color, $lightness: 10%);
   display: none;
+  left: 0;
+  list-style: none;
+  position: absolute;
+  top: 100%;
 }
 
-ul.dropdown.show {
-  display: block;
+// third level
+ul.dropdown > li.has-dropdown > a:after {
+  color: scale-color($secondary-color, $lightness: -20%);
+  content: "D";
+  display: inline;
+  font-family: "manufaktur-icons";
+  font-size: 0.625rem;
+  position: absolute;
+  right: 0.5rem;
+}
+
+ul > li > ul > li > ul.dropdown {
+  left: 100%;
+  top: 0;
+  width: 100%;
+}
+
+ul > li > ul > li > ul.dropdown.attach-left {
+  left: -100%;
+  top: 0;
+  width: 100%;
 }

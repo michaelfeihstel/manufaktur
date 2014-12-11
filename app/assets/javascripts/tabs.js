@@ -1,4 +1,5 @@
-$('[data-tab] .tab-title').on('click', function() {
+$('[data-tab] .tab-title').on('click', function(e) {
+  e.preventDefault();
   var target = $(this).children('a').attr('href');
   
   // refresh tab titles
@@ -10,6 +11,4 @@ $('[data-tab] .tab-title').on('click', function() {
   $('.tab' + target).addClass("active");
 
   console.log("Tabs: Selected " + target);
-  
-  return false;
 });

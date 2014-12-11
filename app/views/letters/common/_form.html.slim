@@ -1,8 +1,4 @@
 = form_for @letter do |f|
-	= f.submit "Speichern", class: "button dense "
-	= link_to "Abbrechen", :back, class: "button dense secondary"
-
-	hr
 
 	- if @letter.errors.any?
 	  #error_explanation
