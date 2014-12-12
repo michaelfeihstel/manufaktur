@@ -28,13 +28,18 @@ nav.main-nav li.has-dropdown {
 }
 
 nav.main-nav li {
-  padding: 1rem;
-
   &:hover,
-  &:focus,
-  &.active {
+  &:focus {
     background-color: scale-color($primary-color, $lightness: 5%)
   }
+
+  &.active {
+    background-color: $primary-color;
+  }
+}
+
+nav.main-nav li a {
+  padding: 1rem;
 }
 
 ul.main-nav li a {

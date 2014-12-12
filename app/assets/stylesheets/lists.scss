@@ -21,19 +21,23 @@ ul.inline-list li {
 
 // sizes-list
 ul.sizes-list {
+  @include display(flex);
+  padding-bottom: 1rem;
+  overflow: overlay;
+  -webkit-overflow-scrolling: touch;
 }
 
 ul.sizes-list li {
-  min-width: 2rem;
+  @include flex(1 0.5 2rem);
+  min-width: 1.5rem;
   min-height: 3rem;
   margin-top: 0.25rem;
-  display: inline-table;
-  padding: 0 0.25rem;
+  margin-right: 0.25rem;
   text-align: center;
 }
 
-ul.sizes-list li:first-child {
-  margin-left: -0.25rem;
+ul.sizes-list li:last-child {
+  margin-right: 0;
 }
 
 

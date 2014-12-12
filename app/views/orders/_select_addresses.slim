@@ -1,10 +1,12 @@
 .row
-	.span-small-12.span-medium-6
-		.fields
-			= label :billing_address_id, "Rechnungsanschrift"
-			= collection_select(:order, :billing_address_id, @addresses || Address.where(contact_id: @order.contact_id), :id, :name, prompt: "Rechnungsanschrift auswählen...")
+  .span-small-12.span-medium-6
+    .fields
+      = label :billing_address_id, "Rechnungsanschrift"
+      .select-container
+        = collection_select(:order, :billing_address_id, @addresses || Address.where(contact_id: @order.contact_id), :id, :name, prompt: "Rechnungsanschrift auswählen...")
 
-	.span-small-12.span-medium-6
-		.fields
-		  = label :delivery_address_id, "Lieferanschrift"
-		  = collection_select(:order, :delivery_address_id, @addresses || Address.where(contact_id: @order.contact_id), :id, :name)
+  .span-small-12.span-medium-6
+    .fields
+      = label :delivery_address_id, "Lieferanschrift"
+      .select-container
+        = collection_select(:order, :delivery_address_id, @addresses || Address.where(contact_id: @order.contact_id), :id, :name)

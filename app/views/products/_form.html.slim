@@ -1,0 +1,65 @@
+= nested_form_for @product, :html => { :multipart => true } do |f|
+  - if @product.errors.any?
+    #error_explanation
+      h4 
+        span = pluralize(@product.errors.count, "error")
+        span = " prohibited this post from being saved:"
+      ul
+      - @product.errors.full_messages.each do |msg|
+        .alert-box.alert
+          li = msg
+  section
+    h6 Allgemein
+    .fields
+      = f.label :name, "Bezeichnung"
+      = f.text_field :name, :placeholder => "z.B. Adagio W"
+   
+    .fields
+      = f.label :sku, "Artikelnummer"
+      = f.text_field :sku, :placeholder => "z.B. GLS100AAS"
+
+    .fields
+      = f.label :color_text, "Farbe"
+      = f.text_field :color_text, :placeholder => "z.B. Anthrazit/Schwarz"
+
+    .fields
+      = f.label :variation_set_id, "Größensystem"
+      .select-container
+        = f.collection_select(:size_id, Size.all, :id, :name)
+
+  section
+    h6 Darstellung
+    .fields
+      = f.label :primary_color, "Primäre Farbe"
+      = f.text_field :primary_color, class: "color-picker"
+      = @product.primary_color
+
+    .fields
+      = f.label :secondary_color, "Sekundäre Farbe"
+      = f.text_field :secondary_color, class: "color-picker"
+      = @product.secondary_color
+
+    .fields
+      = f.label :text_color, "Text Farbe"
+      = f.text_field :text_color, class: "color-picker"
+      = @product.text_color
+
+  section
+    h6 Preis
+    .fields
+      = f.label :price, "Preis zzgl. MwSt."
+      = f.text_field :price, :placeholder => "z.B. 200", :step => "10"
+
+    .fields
+      = f.label :vat, "MwSt."
+      = f.number_field :vat, :step => "0.01"
+
+  section
+    h6 Bilder
+    .fields
+      = f.fields_for :product_images
+      = f.link_to_add "Add", :product_images, class: "tiny button"
+
+  section
+    = link_to 'Zurück', products_path, class: "button secondary"
+    = f.submit "Speichern", class: "button"

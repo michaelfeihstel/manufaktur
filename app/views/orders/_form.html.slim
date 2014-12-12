@@ -13,7 +13,8 @@
         h5 Händler
         .fields
           = f.label :contact_id, "Händler"
-          = f.collection_select(:contact_id, Contact.order(:name), :id, :name, class: "submittable")
+          .select-container
+            = f.collection_select(:contact_id, Contact.order(:name), :id, :name, class: "submittable")
         #select_addresses
           = render "orders/select_addresses", :f => f
 

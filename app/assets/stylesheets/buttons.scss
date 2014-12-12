@@ -22,6 +22,10 @@ button, .button {
     color: $background-color;
   }
 
+  &:last-child {
+    margin-right: 0;
+  }
+
   @media (max-width: $end-small) {
     width: 100%;
     display: block;

@@ -1,5 +1,5 @@
 section
-  .panel-outline
+  .panel--outline
     .row
       .span-small-12.span-large-4
         .fields
@@ -35,5 +35,5 @@ section
           = f.label :country, "Land"
           = f.text_field :country
 
-    .panel-bar.bottom
-      = f.link_to_remove icon("bin", text: "Löschen"), class: "panel-bar-button"
+    .panel__bar.panel__bar--bottom
+      = f.link_to_remove icon("bin", text: "Löschen"), class: "panel__bar__button"

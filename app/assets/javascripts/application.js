@@ -14,8 +14,6 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require jquery.minicolors
-//= require d3
-//= require c3
 //= require stickykit
 //= require_tree
 

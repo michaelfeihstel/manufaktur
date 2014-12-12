@@ -91,14 +91,6 @@ img {
 
 
 // PANELS
-.panel-outline {
-  background: transparent;
-  border: 3px solid $secondary-color;
-  display: block;
-  margin-bottom: inherit;
-  padding: 1.25rem;
-}
-
 .panel {
   display: block;
   background-color: $secondary-color;
@@ -108,31 +100,39 @@ img {
   padding: 1.25rem;
 }
 
-.panel-bar {
-  padding: 1rem;
-  background-color: $secondary-color;
-  
-  &.bottom {
-    margin-top: 1.25rem;
-    margin-bottom: -1.25rem !important;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-  }
-
-  &.top {
-    margin-top: -1.25rem;
-    margin-bottom: 1.25rem;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-  }
+.panel--outline {
+  background: transparent;
+  border: 3px solid $secondary-color;
+  display: block;
+  margin-bottom: inherit;
+  padding: 1.25rem;
 }
 
-ul.panel-bar-list {
+.panel__bar {
+  padding: 1rem 1.25rem;
+  background-color: $secondary-color;
+}
+  
+.panel__bar--bottom {
+  margin-top: 1.25rem;
+  margin-bottom: -1.25rem !important;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
+
+.panel__bar--top {
+  margin-top: -1.25rem;
+  margin-bottom: 1.25rem;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
+
+ul.panel__bar__list {
   margin: 0px;
   margin-left: 0;
 }
 
-ul.panel-bar-list > li {
+ul.panel__bar__list > li {
   border-right: 1px solid scale-color($hairline-color, $lightness: -5%);
   display: inline-block;
   margin-left: 0;
@@ -150,20 +150,20 @@ ul.panel-bar-list > li {
   }
 }
 
-ul.panel-bar-list h4 {
+ul.panel__bar__list h4 {
   color: $font-color;
   margin: 0.5rem 0;
 }
 
-ul.panel-bar-list h5 {
+ul.panel__bar__list h5 {
   color: $font-color;
   font-weight: 700;
   margin: 0.5rem 0;
 }
 
-.panel-bar-button {
-  margin: -1.25rem;
-  padding: 1.25rem;
+.panel__bar__button {
+  margin: -1rem -1.25rem;
+  padding: 1rem 1.25rem;
   display: inline-block;
 
   &:hover {
@@ -327,7 +327,6 @@ input.subnav-search-field {
 
 .size-label {
   font-size: 0.8em;
-  color: #999;
 }
 
 .size-input {

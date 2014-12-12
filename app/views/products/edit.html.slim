@@ -1,0 +1,13 @@
+= render "products/sidebar"
+
+- content_for :header
+  .header-title
+    h1
+      span = "#{@product.name} " 
+      span.thin = @product.color_text
+    h4 = @product.sku
+  .header-actions
+    = button_tag "Speichern", data: { submit: "edit_product" }
+    = link_to "Abbrechen", @product, class: "button light"
+
+= render "products/form"

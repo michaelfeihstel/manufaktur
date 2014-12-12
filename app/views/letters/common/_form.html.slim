@@ -14,7 +14,8 @@
 				h6 Empfänger
 				.fields
 					= f.label :name, "Empfänger auswählen"
-					= f.collection_select(:name, Contact.all, :id, :name, {}, { class: "selectize expand" })
+					.select-container
+						= f.collection_select(:name, Contact.all, :id, :name, {}, { class: "selectize expand" })
 				.row
 					.span-small-12
 						.fields
