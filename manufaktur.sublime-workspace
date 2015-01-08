@@ -195,30 +195,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app/views/products/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 619,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/contacts_controller.rb",
-			"settings":
-			{
-				"buffer_size": 1926,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/policies/application_policy.rb",
-			"settings":
-			{
-				"buffer_size": 712,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -227,15 +203,15 @@
 		"selected_items":
 		[
 			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
 				"pack",
 				"Package Control: Install Package"
 			],
 			[
 				"install",
-				"Package Control: Install Package"
-			],
-			[
-				"inst",
 				"Package Control: Install Package"
 			],
 			[
@@ -273,27 +249,70 @@
 	"expanded_folders":
 	[
 		"/Users/ulflunge/projects/manufaktur",
-		"/Users/ulflunge/projects/manufaktur/app",
 		"/Users/ulflunge/projects/manufaktur/app/assets",
-		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts",
-		"/Users/ulflunge/projects/manufaktur/app/controllers",
-		"/Users/ulflunge/projects/manufaktur/app/views/letters/common",
-		"/Users/ulflunge/projects/manufaktur/app/views/orders/show",
-		"/Users/ulflunge/projects/manufaktur/app/views/products",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets",
+		"/Users/ulflunge/projects/manufaktur/app/views",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show",
 		"/Users/ulflunge/projects/manufaktur/config",
-		"/Users/ulflunge/projects/manufaktur/vendor",
-		"/Users/ulflunge/projects/manufaktur/vendor/assets",
-		"/Users/ulflunge/projects/manufaktur/vendor/assets/javascripts",
-		"/Users/ulflunge/projects/manufaktur/vendor/assets/stylesheets"
+		"/Users/ulflunge/projects/manufaktur/config/environments"
 	],
 	"file_history":
 	[
-		"/Users/ulflunge/projects/manufaktur/config/database.yml",
-		"/Users/ulflunge/projects/manufaktur/config/environments/development.rb",
-		"/Users/ulflunge/projects/manufaktur/app/policies/order_policy.rb",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_letters.html.slim",
+		"/Users/ulflunge/projects/manufaktur/config/environments/test.rb",
+		"/Users/ulflunge/projects/manufaktur/config/application.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/_form.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_general.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_tab_general.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/_address_fields.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/components.scss",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/forms.scss",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/show/_line_item.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/_line_item_fields.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/buttons.scss",
+		"/Users/ulflunge/projects/manufaktur/app/views/products/show.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/products/_form.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/products/edit.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/letters/common/_form.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/navigation.scss",
+		"/Users/ulflunge/projects/manufaktur/app/views/layouts/application.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/lists.scss",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/_form.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/_select_addresses.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/typography.scss",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_orders.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/edit.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/application.js",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/index/_item_order.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/_list_item.html.slim",
+		"/Users/ulflunge/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/foundation-rails-5.4.5.0/vendor/assets/javascripts/foundation/foundation.tab.js",
+		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/tabs.js",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index/_table_contacts.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/orders/index/_sidebar.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/utilities.scss",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/controllers/orders_controller.rb",
+		"/Users/ulflunge/projects/manufaktur/app/policies/order_policy.rb",
+		"/Users/ulflunge/projects/manufaktur/app/policies/application_policy.rb",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/new.html.slim",
+		"/Users/ulflunge/projects/manufaktur/config/routes.rb",
+		"/Users/ulflunge/projects/manufaktur/Gemfile",
+		"/Users/ulflunge/projects/manufaktur/test/test_helper.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/contacts_controller.rb",
+		"/Users/ulflunge/projects/manufaktur/app/controllers/application_controller.rb",
+		"/Users/ulflunge/projects/manufaktur/test/controllers/orders_controller_test.rb",
+		"/Users/ulflunge/projects/manufaktur/test/controllers/contacts_controller_test.rb",
+		"/Users/ulflunge/projects/manufaktur/test/fixtures/users.yml",
+		"/Users/ulflunge/projects/manufaktur/config/environment.rb",
+		"/Users/ulflunge/projects/manufaktur/Procfile",
+		"/Users/ulflunge/projects/manufaktur/config.ru",
+		"/Users/ulflunge/projects/manufaktur/app/controllers/product_images_controller.rb",
+		"/Users/ulflunge/projects/manufaktur/app/views/products/new.html.erb",
+		"/Users/ulflunge/projects/manufaktur/config/database.yml",
+		"/Users/ulflunge/projects/manufaktur/.env",
+		"/Users/ulflunge/projects/manufaktur/config/environments/development.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/variations_controller.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/variation_sets_controller.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/sizes_controller.rb",
@@ -303,63 +322,43 @@
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/new.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/letters_controller.rb",
 		"/Users/ulflunge/projects/manufaktur/app/models/letter.rb",
-		"/Users/ulflunge/projects/manufaktur/app/views/letters/common/_form.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/lists.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/edit/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/edit.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/buttons.scss",
-		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/application.js",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/tables.scss",
 		"/Users/ulflunge/projects/manufaktur/vendor/assets/javascripts/stickykit.js",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/forms.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/touch.js",
 		"/Users/ulflunge/projects/manufaktur/vendor/assets/stylesheets/c3.css.old",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/components.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/show/_tab_sales.html.slim",
 		"/Users/ulflunge/projects/manufaktur/vendor/assets/stylesheets/c3.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/utilities.js",
-		"/Users/ulflunge/projects/manufaktur/app/views/orders/show/_line_item.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/index.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/kaminari/_paginator.html.erb",
 		"/Users/ulflunge/projects/manufaktur/app/views/layouts/_header.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/navigation.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/variables.scss",
 		"/Users/ulflunge/projects/manufaktur/app/models/line_item.rb",
-		"/Users/ulflunge/projects/manufaktur/app/views/products/show.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/show/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/show/_tab_general.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_general.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/common/_quicksearch.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/common/_quicksearch.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/index/_breadcrumbs.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/index/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/index.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index/_breadcrumbs.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/orders/index/_item_order.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/typography.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/navigation.js",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/layout.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/icons.css.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/show.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/search.js",
-		"/Users/ulflunge/projects/manufaktur/app/views/layouts/application.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/common/_search.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/flex.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index/_item_contact.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/_list_item.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/offcanvas.js",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index/_table_contacts.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/grid.css.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/index/_sidebar.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/utilities.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/index.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/orders/index/_sidebar.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/_email_fields.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_tab_general.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/_address_fields.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/basscss.css",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/application.css.scss",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show.html.slim",
@@ -367,55 +366,27 @@
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/show.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/letters/show/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/flexgrid.scss",
-		"/Users/ulflunge/projects/manufaktur/config/application.rb",
-		"/Users/ulflunge/projects/manufaktur/Gemfile",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_sidebar.html.slim",
 		"/Users/ulflunge/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/foundation-rails-5.4.5.0/vendor/assets/stylesheets/foundation/components/_top-bar.scss",
 		"/Users/ulflunge/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/foundation-rails-5.4.5.0/vendor/assets/javascripts/foundation/foundation.topbar.js",
 		"/Users/ulflunge/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/foundation-rails-5.4.5.0/vendor/assets/stylesheets/foundation/components/_toolbar.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/products.js.erb",
-		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/tabs.js",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/foundation_and_overrides.scss",
 		"/Users/ulflunge/projects/manufaktur/app/helpers/products_helper.rb",
-		"/Users/ulflunge/projects/manufaktur/app/views/orders/_line_item_fields.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_tab_letters.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_tab_notes.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_letters.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_form_core_data.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/mixins.scss",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_orders.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/layouts/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/grid.scss",
 		"/Users/ulflunge/projects/manufaktur/tmp/cache/assets/development/sass/05aadf55b9e419e6f0821550833ff2c7efe83d37/_html5-input-types.scssc",
 		"/Users/ulflunge/projects/manufaktur/app/helpers/product_images_helper.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/shared/_navigation.html.slim",
 		"/Users/ulflunge/projects/manufaktur/db/migrate/20141107071649_devise_create_users.rb",
-		"/Users/ulflunge/projects/manufaktur/.env",
-		"/Users/ulflunge/projects/manufaktur/Procfile",
-		"/Users/ulflunge/projects/manufaktur/config/routes.rb",
 		"/Users/ulflunge/projects/manufaktur/config/initializers/secret_token.rb",
 		"/Users/ulflunge/projects/manufaktur/.foreman",
-		"/Users/ulflunge/projects/manufaktur/Gemfile.lock",
-		"/Users/ulflunge/projects/manufaktur/config/s3.yml",
-		"/Users/ulflunge/projects/manufaktur/config/s3.example.yml",
-		"/Users/ulflunge/projects/manufaktur/test/fixtures/contacts.yml",
-		"/Users/ulflunge/projects/manufaktur/tmp/cache/assets/development/sass/baef7eecb768824b0aa354a3a66782c2015d7d05/_transition-property-name.scssc",
-		"/Users/ulflunge/projects/manufaktur/tmp/cache/assets/development/sass/c35947477c0a85202eb0e5a64eb68a3f41e5cd94/_retina-image.scssc",
-		"/Users/ulflunge/projects/manufaktur/db/seeds.rb",
-		"/Users/ulflunge/projects/manufaktur/db/migrate/20141119073437_add_devise_to_users.rb",
-		"/Users/ulflunge/projects/manufaktur/config/initializers/devise.rb",
-		"/Users/ulflunge/projects/manufaktur/config/environments/production.rb",
-		"/Users/ulflunge/projects/manufaktur/config/initializers/backtrace_silencers.rb",
-		"/Users/ulflunge/projects/manufaktur/config/initializers/inflections.rb",
-		"/Users/ulflunge/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/ulflunge/projects/manufaktur/app/assets/fonts/manufaktur-icons.eot",
-		"/Users/ulflunge/assets/vis/dist/vis.min.js",
-		"/Users/ulflunge/projects/manufaktur/app/policies/contact_policy.rb",
-		"/Users/ulflunge/projects/manufaktur/app/policies/application_policy.rb",
-		"/Users/ulflunge/Library/Caches/Cleanup At Startup/Transmit/9E1F28C8-F636-46C9-A6E6-CD7EA6D867F3/form-login.php",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/charts/_order_chart.html.slim",
-		"/Users/ulflunge/projects/manufaktur/vendor/assets/stylesheets/c3.css"
+		"/Users/ulflunge/projects/manufaktur/Gemfile.lock"
 	],
 	"find":
 	{
@@ -434,6 +405,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"size-label",
+			"\")",
 			"nested",
 			");",
 			"nest);",
@@ -559,9 +532,7 @@
 			"<li>",
 			"</li>",
 			"<td>",
-			"</p>",
-			"%>",
-			"<p>"
+			"</p>"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -586,98 +557,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/views/products/new.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 619,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/controllers/contacts_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1926,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								323,
-								323
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 8.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/policies/application_policy.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 712,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],

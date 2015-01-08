@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.0'
 
-gem 'rails', '~> 4.1.8'
+gem 'rails', '~> 4.2'
 gem 'pg'
 gem 'annotate'
 gem 'paperclip', "~> 4.2.0"
@@ -24,7 +24,7 @@ gem "susy"
 gem "simple_calendar", "~> 1.1.0"
 gem "selectize-rails"
 gem "slim-rails"
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass'
