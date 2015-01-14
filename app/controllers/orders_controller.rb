@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 	after_action :verify_authorized
 
 	def index
-		@orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page]).per(100)
+		@orders = @search.result(distinct: true).includes(:line_items, :products, :customer).order(created_at: :desc).page(params[:page]).per(100)
 		authorize @orders
 		@filter_selected = "all"
 	end
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
 
 
 	def show
-		@order = Order.includes(:line_items, :contact, {:products => :size}).find(params[:id])
+		@order = Order.includes(:line_items, :customer, {:products => :size}).find(params[:id])
 		authorize @order
 	end
 
@@ -61,9 +61,9 @@ class OrdersController < ApplicationController
 
 
 	def edit
-		@order = Order.includes([:contact, {:line_items => :product}, {:products => :size}]).find(params[:id])
+		@order = Order.includes([:customer, {:line_items => :product}, {:products => :size}]).find(params[:id])
 		authorize @order
-		@search = Order.includes(:contact, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
+		@search = Order.includes(:customer, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
 		@orders = @search.result(distinct: true)
 		@products = Product.all.order(:name)
 	end
@@ -99,7 +99,7 @@ class OrdersController < ApplicationController
 	end
 
 	def update_addresses
-		@addresses = Address.where(contact_id: params[:contact_id])
+		@addresses = Address.where(customer_id: params[:contact_id])
 
 		respond_to do |format|
 			format.js

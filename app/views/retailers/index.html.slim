@@ -1,0 +1,13 @@
+= render "retailers/common/search"
+= render "retailers/index/sidebar"
+= render "retailers/index/breadcrumbs"
+
+- content_for :header
+  .header-title
+    h1 Kontakte
+  .header-actions
+    = link_to "Kontakt erstellen", new_retailer_path, class: "button dense inverted"
+
+.row
+  .span-small-12
+    = render "retailers/index/table_contacts"

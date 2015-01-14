@@ -19,7 +19,6 @@
 
 class Letter < ActiveRecord::Base
 	# associations
-  belongs_to :contact
   belongs_to :address
 
   # scopes

@@ -2,9 +2,11 @@
 = render "orders/common/search"
 = render "orders/edit/sidebar"
 
-- content_for :title_bar do
-	.row
-		.small-12.columns
-			h1 Auftrag hinzufügen
+- content_for :header do
+  .header-title
+    h1 Auftrag erstellen
+  .header-actions
+    = link_to "Abbrechen", orders_path, class: "button"
+    = button_tag "Speichern", class: "button", data: { submit: "order-form" }
 
 = render "orders/form"

@@ -1,0 +1,19 @@
+= render "retailers/common/search"
+= render "retailers/show/breadcrumbs"
+= render "retailers/show/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @retailer.name
+  .header-actions
+    = link_to "Bearbeiten", edit_retailer_path, class: "button dense inverted"
+
+.tabs-content
+  = render "/retailers/show/tab_general"
+  = render "/retailers/show/tab_orders"
+  = render "/retailers/show/tab_letters"
+
+hr
+= link_to 'Zurück', retailers_path, class: "button secondary left"
+= link_to "Löschen", @retailer, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button right alert"
+= link_to "Bearbeiten", edit_retailer_path, class: "button right"

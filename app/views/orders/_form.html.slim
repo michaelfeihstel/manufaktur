@@ -10,11 +10,11 @@
   section
     .row
       .span-small-12.span-medium-9
-        h5 Händler
+        h5 Kunde
         .fields
-          = f.label :contact_id, "Händler"
+          = f.label :customer_id, "Auftraggeber"
           .select-container
-            = f.collection_select(:contact_id, Contact.order(:name), :id, :name, class: "submittable")
+            = f.collection_select(:customer_id, Retailer.order(:name), :id, :name, class: "submittable")
         #select_addresses
           = render "orders/select_addresses", :f => f
 
@@ -90,7 +90,7 @@
                   th Status
                   th.text-right width="120" Betrag
               tbody
-                - Order.where(contact_id: @order.contact_id).where.not(id: @order.id, completed_at: nil).includes(:line_items).order(created_at: :desc).each do |other_order|
+                - Order.where(customer_id: @order.customer_id).where.not(id: @order.id, completed_at: nil).includes(:line_items).order(created_at: :desc).each do |other_order|
                   tr
                     td= link_to other_order.id, order_path(other_order), class: "link"
                     td= l other_order.completed_at, format: :date_only
@@ -101,7 +101,7 @@
                   td class="text-right" colspan=4
                     h4
                       span.thin offen: 
-                      span.bold = number_to_currency(Order.where(contact_id: @order.contact_id, paid_on: nil).includes(:line_items).to_a.sum(&:price_total), unit: "€")
+                      span.bold = number_to_currency(Order.where(customer_id: @order.customer_id, paid_on: nil).includes(:line_items).to_a.sum(&:price_total), unit: "€")
 
       .tab#tab-shipping
         p

@@ -9,5 +9,5 @@
 #  updated_at :datetime
 #
 
-default_contact:
+default_retailer:
   name: Johnny McSampleton

@@ -21,7 +21,7 @@ Manufaktur::Application.routes.draw do
   # resources
   resources :addresses
   resources :brands
-  resources :contacts, concerns: [:paginatable, :searchable] do
+  resources :retailers, concerns: [:paginatable, :searchable] do
     resources :orders
   end
   resources :letters, concerns: [:paginatable, :searchable]
@@ -57,7 +57,7 @@ Manufaktur::Application.routes.draw do
   # /api/...
   namespace :api, defaults: { format: "json" } do
     resources :addresses
-    resources :contacts
+    resources :retailers
     resources :contact_information
     resources :letters
     resources :line_items

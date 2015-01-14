@@ -1,8 +1,0 @@
-tr.link href=contact_path(contact)
-	td width="100" data-title="Kundennummer" = contact.id
-	td data-title="Kontakt" = contact.name
-	td width="150" = "Händler"
-	td
-	td.text-right
-		span.tip-left data-tooltip="" title="Bearbeiten"
-		= link_to icon("bracket-right"), edit_contact_path(contact)

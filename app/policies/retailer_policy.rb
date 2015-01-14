@@ -1,0 +1,2 @@
+class RetailerPolicy < ApplicationPolicy
+end

@@ -6,7 +6,7 @@
 #  delivered_on          :date
 #  invoiced_at           :datetime
 #  completed_at          :datetime
-#  contact_id            :integer
+#  customer_id           :integer
 #  billing_address_id    :integer
 #  delivery_address_id   :integer
 #  billing_name          :string(255)
@@ -25,16 +25,17 @@
 #  is_webshop            :boolean
 #  created_at            :datetime
 #  updated_at            :datetime
-#  marked                :boolean          default(FALSE), not null
+#  marked                :boolean          default("false"), not null
 #  fmid                  :integer
 #  comment               :text
-#  is_free               :boolean          default(FALSE)
-#  is_vat_exempt         :boolean          default(FALSE)
+#  is_free               :boolean          default("false")
+#  is_vat_exempt         :boolean          default("false")
 #  paid_on               :date
 #  paid_amount           :decimal(8, 2)
-#  is_scheduled_delivery :boolean          default(FALSE)
+#  is_scheduled_delivery :boolean          default("false")
 #  cashback_until        :date
-#  cashback_percent      :decimal(2, 2)    default(0.03)
+#  cashback_percent      :decimal(2, 2)    default("0.03")
+#  customer_type         :string
 #
 
 require 'spec_helper'

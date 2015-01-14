@@ -1,10 +1,10 @@
-= nested_form_for @contact do |f|
+= nested_form_for @retailer do |f|
 
-  - if @contact.errors.any?
+  - if @retailer.errors.any?
     #error_explanation
-      h4 = "#{pluralize(@contact.errors.count, 'error')} haben das Speichern dieses Kontakts verhindert:"
+      h4 = "#{pluralize(@retailer.errors.count, 'error')} haben das Speichern dieses Kontakts verhindert:"
       ul
-      - @contact.errors.full_messages.each do |msg|
+      - @retailer.errors.full_messages.each do |msg|
         .alert-box.alert data-alert=""
           li = msg
 
@@ -13,9 +13,9 @@
     li.tab-title = link_to "Bemerkungen", "#tab_notes"
     li.tab-title = link_to "Briefe", "#tab_letters"
   .tabs-content
-    = render "contacts/edit/tab_general", f: f
-    = render "contacts/edit/tab_notes", f: f
-    = render "contacts/edit/tab_letters", f: f
+    = render "retailers/edit/tab_general", f: f
+    = render "retailers/edit/tab_notes", f: f
+    = render "retailers/edit/tab_letters", f: f
 
     = link_to 'Abbrechen', :back, class: "button secondary left"
     = f.submit "Speichern", class: "button right"

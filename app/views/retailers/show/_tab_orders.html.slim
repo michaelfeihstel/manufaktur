@@ -11,10 +11,10 @@
         th.text-right width="150" Betrag
 
     tbody
-  	 - @contact.orders.includes(:line_items, :products).order(created_at: :desc).each do |order|
-  	   = render partial: "contacts/show/item_order", locals: { order: order }
+  	 - @retailer.orders.includes(:line_items, :products).order(created_at: :desc).each do |order|
+  	   = render partial: "retailers/show/item_order", locals: { order: order }
 
     tfoot
       tr
         td.text-right colspan=6
-          h4.bold = number_to_currency(@contact.line_items.to_a.sum(&:price_total))
+          h4.bold = number_to_currency(@retailer.line_items.to_a.sum(&:price_total))

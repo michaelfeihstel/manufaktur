@@ -1,0 +1,12 @@
+= render "retailers/common/search"
+= render "retailers/edit/breadcrumbs"
+= render "retailers/edit/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @retailer.name
+  .header-actions
+    = button_tag "Speichern", data: { submit: "edit_retailer" }
+    = link_to "Abbrechen", :back, class: "button light"
+
+= render "retailers/form"
