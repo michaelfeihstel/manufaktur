@@ -13,9 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require react
+//= require react_ujs
 //= require jquery.minicolors
 //= require stickykit
-//= require_tree
+//= require_tree 
+//= require_tree ./components
+
 
 $(".subnav-container").stick_in_parent({
   offset_top: 55
@@ -32,8 +36,3 @@ $(document).on('nested:fieldRemoved', function (event) {
 	console.log("field removed");
   $('[required]', event.field).removeAttr('required');
 });
-
-
-
-// selectize.js for select boxes
-$('.selectize').selectize();

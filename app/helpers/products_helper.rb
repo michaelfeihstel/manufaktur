@@ -26,4 +26,12 @@ module ProductsHelper
 
     "linear-gradient(to bottom right, #{primary_color}, #{secondary_color})"
   end
+
+  def line_item_header(product)
+    primary_color = product.primary_color
+    secondary_color = product.secondary_color
+    text_color = product.text_color
+
+    "background-color: #{primary_color}; border-bottom: 10px solid #{secondary_color};"
+  end
 end

@@ -80,9 +80,7 @@ section
         p Another tab
 
 
-.row
-  .small-12.columns
-    hr
-    = link_to "Zurück", :back, class: "button secondary left"
-    = link_to "Bearbeiten", edit_order_path, class: "button right"
-    = button_to "Löschen", @order, method: :delete, data: { confirm: "Wirklich löschen?" }, class: "button right alert"
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path
+    li = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Wirklich löschen?" }

@@ -18,6 +18,10 @@
   float: left;
 }
 
+.no-padding {
+  padding: 0;
+}
+
 
 // mixins
 @mixin subtle-shadow {

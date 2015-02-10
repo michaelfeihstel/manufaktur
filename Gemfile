@@ -33,6 +33,9 @@ gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails'
 gem 'nested_form'
 
+# React
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
 group :production do
 	gem 'rails_12factor'
 end
@@ -46,7 +49,8 @@ group :test do
 end
 
 group :development do
-	gem 'pry-rails'
+  gem 'awesome_print'
+  gem 'web-console', '~> 2.0'
 end
 
 

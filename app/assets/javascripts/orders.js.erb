@@ -14,19 +14,3 @@ $('#order_contact_id').change(function() {
 
 	$('#order_billing_address_id, #order_delivery_address_id').selectize({});
 });
-
-// selectize.js
-
-$('#order_contact_id').selectize();
-
-$('.order_line_items_product_id').selectize({
-	dropdownParent: "body"
-	// labelField: 'name',
-	// render: {
-		// option: function(item, escape) {
-			// return '<div class="option"><span class="color-tile" style="background-color: yellow"> <span class="option-text">' + escape(item.name) + '</span></div>';
-		// }
-	// }
-});
-
-$('#order_billing_address_id, #order_delivery_address_id').selectize({});

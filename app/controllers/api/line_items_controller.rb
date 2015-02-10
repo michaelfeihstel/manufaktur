@@ -5,7 +5,8 @@ module Api
 
 		# GET /api/line_items/
 		def index
-			respond_with LineItem.all
+			order_id = params[:order_id]
+			respond_with LineItem.where(order_id: order_id), include: :product
 		end
 
 		# GET /api/line_items/1

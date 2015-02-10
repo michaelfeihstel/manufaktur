@@ -1,6 +1,7 @@
 // TYPOGRAPHY
 html {
 	font-size: 1rem;
+	text-rendering: geometricPrecision;
 }
 
 body {
@@ -52,7 +53,6 @@ h5 {
 	font-size: 1rem;
 	font-weight: 400;
 	margin: 0.5rem 0;
-	text-rendering: optimizeLegibility;
 	text-transform: uppercase;
 }
 
@@ -62,7 +62,6 @@ h6 {
 	font-weight: 400;
 	letter-spacing: 2px;
 	margin: 0.5rem 0;
-	text-rendering: optimizeLegibility;
 }
 
 small, .font_small {
@@ -134,7 +133,6 @@ label.section-label {
 	font-family: $header-font;
 	font-weight: 400;
 	letter-spacing: 2px;
-	margin: 0.5rem 0;
 	text-rendering: optimizeLegibility;
 }
 

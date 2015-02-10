@@ -1,14 +1,21 @@
-// set line_item.price input field
-$('section[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_single_input').val(
-    <%= @price_single %>
-);
+// // set line_item.price input field
+// $('section[data-line-item-id="' + <%= @data["line_item_id"] %> + '"]').find('#price-single-input').val(
+//     <%= @product.price %>
+// );
 
-// set #price_total span
-$('section[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('#price_total').text(
-    "<%= j (number_to_currency(@price_total, unit: "€ ")) %>"
-);
+// // set #price_total span
+// $('section[data-line-item-id="' + <%= @line_item_id %> + '"]').find('#price_total').text();
 
-// set topbar styling
-$('section[data-item-temp-id="' + <%= @line_item_temp_id %> + '"]').find('.bar-top').attr({
-    style: "<%= j ( product_color(@product) ) %>"
-});
+// // set topbar styling
+// $('section[data-line-item-id="' + <%= @line_item_temp_id %> + '"]').find('.bar-top').attr({
+//     style: "<%= j ( product_color(@product) ) %>"
+// });
+
+// console.log("<%= @product.price %>")
+
+// Knockout Playground
+var product = <%= raw @product.to_json %>
+console.log(product.price);
+function LineItemViewModel() {
+  LineItemViewModel.price("product.price")
+}

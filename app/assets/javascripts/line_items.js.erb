@@ -1,4 +1,4 @@
-// change any of the quantity inputs
+/*// change any of the quantity inputs
 $('form').on('change', '.size-input', function () {
     var product_id = $(this).closest('section').find('.order_line_items_product_id').val();
     var line_item_id = $(this).closest('section').data('line-item-id');
@@ -28,34 +28,48 @@ $('form').on('change', '.size-input', function () {
         },
         success: function(data) {}
     });
+});*/
+
+
+// submit on change
+$('form').on('change', '.size-input', function () {
+    var key = $(this).data('key');
+    var value = $(this).val();
+    var line_item_id = $(this).closest('section').data('line-item-id');
+
+    var data = {}
+    data['line_items']["key"] = value;
+    data['line_items']["id"] = line_item_id;
+    console.log(data);
+
+    $.ajax({
+        url: "/api/line_items/" + line_item_id,
+        type: "patch",
+        data: data,
+        error: function(data) {
+            console.log("Fehler");
+        },
+        success: function(data) {}
+    });
 });
+
 
 
 
 // select product_id
 $('body').on('change', '.order_line_items_product_id', function () {
-    var order_id = $('form').data('order-id');
-    var line_item_temp_id = $(this).closest('section').data('item-temp-id');
-    var product_id = $(this).val();
-    var quantity = $(this).closest('section').find('#quantity').text();
+    var data = {
+        "line_item_id": $(this).closest('section').data('line-item-id'),
+        "product_id": $(this).val(),
+        "quantity": $(this).closest('section').find('#quantity').text().toFloat
+    }
 
     console.log('line_items#select_product triggered');
-
-    console.log(
-        'order_id: ' + order_id + '\n' +
-        'line_item_temp_id: ' + line_item_temp_id + '\n' +
-        'product_id: ' + product_id + '\n' +
-        'quantity: ' + quantity
-    );
-
+    console.log(data);
 
     $.ajax({
         url: "/line_items/select_product",
-        data: { 
-            "product_id": product_id,
-            "temp_id": line_item_temp_id,
-            "quantity": quantity
-        },
+        data: data,
         type: "post",
         
         success: function(data) {

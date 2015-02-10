@@ -150,7 +150,7 @@ class OrdersController < ApplicationController
 			:is_vat_exempt,
 			:cashback_percent,
 			:cashback_until,
-			:contact_id,
+			:customer_id,
 			:billing_address_id,
 			:delivery_address_id,
 			:marked,

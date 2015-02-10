@@ -1,25 +1,27 @@
 section
-	.panel--outline
-		.panel__bar.panel__bar--top style = "background: #{horizontal_gradient(line_item.product)};"
+	.panel
+		.panel__bar.panel__bar--top style = "#{line_item_header(line_item.product)};"
 			.row
 				.small-12.columns
 					h5 style = "color: #{line_item.product.text_color}"
-						span.bold = line_item.product.name
-						span.thin = " #{line_item.product.color_text}"
+						span.bold = "#{line_item.product.name} "
+						span.thin = "#{line_item.product.color_text}"
 
 		.panel__body
 			.row
 				.span-small-12
-					ul.inline-list.small
+					ul.inline-list
 						li
-							span.inline-label Artikelnummer 
+							label.no-padding Artikelnummer 
 							span = line_item.product.sku
 						li
-							span.inline-label Farbe
+							label.no-padding Farbe
 							span = line_item.product.color_text
 						li
-							span.inline-label Preis
+							label.no-padding Preis
 							span = number_to_currency(line_item.product.price)
+
+					hr
 
 			.row
 				.span-small-12
@@ -116,10 +118,10 @@ section
 							= line_item.g16
 
 		.panel__bar.panel__bar--bottom
-			ul.panel__bar__list
-				li.text-center
-					h5 = line_item.quantity
-					label Anzahl
-				li.text-center
-					h5 = number_to_currency(line_item.try(:price_total), unit: "€ ")
-					label Summe
+			ul.panel__bar__list.text-right
+				li.text-right
+					label.no-padding Anzahl
+					= line_item.quantity
+				li.text-right
+					label.no-padding Summe
+					= number_to_currency(line_item.try(:price_total), unit: "€ ")

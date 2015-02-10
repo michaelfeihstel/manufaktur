@@ -33,6 +33,10 @@ header {
   padding-right: $gutter;
 }
 
+.container--main {
+  padding-bottom: 60px;
+}
+
 .header-title {
   margin-bottom: 4rem;
 }
@@ -57,11 +61,11 @@ header {
 }
 
 .sidebar {
-  @include flex(0 0 200px);
+  @include flex(0 0 250px);
   border: none;
-  border-right: 1px solid $hairline-color;
-  margin-left: $gutter * -1;
-  margin-right: $gutter;
+  border-left: 1px solid $hairline-color;
+  margin-left: $gutter;
+  margin-right: $gutter * -1;
   padding: 0 $gutter;
 
   @media (screen and max-width: $end-tablet-portrait) {
@@ -102,9 +106,15 @@ header {
 }
 
 footer {
+  @include hard-shadow--top;
+  background-color: $secondary-color;
+  bottom: 0;
+  flex: 0;
+  padding: 1.1rem 1.618rem;
+  position: fixed;
+  width: 100%;
 }
 
 section {
-  margin-bottom: 4rem;
-  overflow: auto;
+  margin-bottom: 5rem;
 }

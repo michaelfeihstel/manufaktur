@@ -3,7 +3,9 @@ require "test_helper"
 class OrdersControllerTest < ActionController::TestCase
 
   setup do
+    @user = users(:default_user)
     @order = orders(:default_order)
+    sign_in @user
   end
 
   test "should get index" do

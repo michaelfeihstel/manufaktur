@@ -1,3 +1,8 @@
+hr {
+  border: none;
+  border-bottom: 1px solid scale-color($secondary-color, $lightness: -5%);
+}
+
 // SEARCH
 #search {
   display: none;
@@ -45,7 +50,10 @@ img {
 
 // TABS
 .tabs {
-  border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
+  @include display(flex);
+  flex-direction: row;
+  flex-flow: row wrap;
+  border-bottom: 3px solid $secondary-color;
   list-style: none;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -53,28 +61,28 @@ img {
 }
 
 .tabs .tab-title {
-  border: 1px solid $background-color;
-  border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
-  color: #999;
-  display: inline-block;
-  margin-bottom: -1px;
-  padding: 0.5rem 1rem;
+  color: #AAA;
+  cursor: pointer;
+  display: block;
+  flex: 0 0 auto;
+  font-family: $header-font;
+  font-size: 1.1rem;
+  margin-bottom: -3px;
+  padding: 0.5rem 1.618rem 0.5rem 0;
 }
 
 .tabs .tab-title > a {
-  border: 1px solid $background-color;
   color: inherit;
-
-  &:hover {
-    background-color: transparent;
-    color: scale-color(#999, $lightness: -30%);
-  }
 }
 
 .tabs .tab-title.active {
-  border: 1px solid scale-color($secondary-color, $lightness: -10%);
-  border-bottom: 1px solid $background-color;
-  color: #333;
+  border-bottom: 3px solid $primary-color;
+  color: $primary-color;
+}
+
+.tabs .tab-title:hover {
+  border-bottom: 3px solid $primary-color;
+  color: $primary-color;
 }
 
 
@@ -92,9 +100,8 @@ img {
 
 // PANELS
 .panel {
-  display: block;
-  background-color: $secondary-color;
-  border: 3px solid $secondary-color;
+  @include hard-shadow;
+  background-color: $panel-background;
   display: block;
   margin-bottom: inherit;
   padding: 1.25rem;
@@ -127,17 +134,19 @@ img {
   margin-right: -1.25rem;
 }
 
+.panel__bar--bottom label {
+  padding: 0;
+}
+
 ul.panel__bar__list {
   margin: 0px;
   margin-left: 0;
 }
 
 ul.panel__bar__list > li {
-  border-right: 1px solid scale-color($hairline-color, $lightness: -5%);
   display: inline-block;
   margin-left: 0;
   padding: 0 1.25rem;
-  text-align: center;
 
   &:first-child {
     padding-left: 0;
@@ -175,7 +184,8 @@ ul.panel__bar__list h5 {
 
 // BREADCRUMBS
 .subnav-container {
-  background-color: #EBF7A4;
+  @include hard-shadow;
+  background-color: #F2F2F2;
   z-index: 98;
 }
 
@@ -554,4 +564,27 @@ table.calendar {
   color: $background-color;
   font-size: 0.8125rem;
   padding: 0 0.5rem;
+}
+
+
+/*-------------------*\
+        ICON
+\*-------------------*/
+
+.icon__container {
+  @include display(flex);
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(stretch);
+  transition: ease 0.25s;
+}
+
+.icon__icon {
+  @include flex(0 0 auto);
+  margin-right: 0.8rem;
+}
+
+.icon__text {
+  @include truncated;
+  @include flex(1 auto);
 }

@@ -22,9 +22,15 @@ module IconHelper
 		text = " #{options[:text]}" || ""
 		tooltip = "data-tooltip title='#{options[:tooltip]}'" if options[:tooltip]
 
-		icon_span = content_tag(:span, "", class: "#{icon_class} #{additional_classes}", style: "#{color_attribute}")
-		text_span = content_tag(:span, text, class: "icon-text #{additional_classes}", style: "#{color_attribute}")
-		(icon_span + text_span).html_safe
+		# icon_span = content_tag(:span, "", class: "#{icon_class} #{additional_classes}", style: "#{color_attribute}")
+		# text_span = content_tag(:span, text, class: "icon-text #{additional_classes}", style: "#{color_attribute}")
+		icon_div = content_tag(:div, "", class: "flex-item #{icon_class} #{additional_classes}", style: "#{color_attribute}")
+		text_div = content_tag(:div, text, class: "flex-item #{additional_classes}", style: "#{color_attribute}")
+
+		content_tag :div, class: "icon__container" do
+			content_tag(:div, "", class: "icon__icon #{icon_class} #{additional_classes}", style: "#{color_attribute}") +
+			content_tag(:div, "#{text}", class: "icon__text #{additional_classes}", style: "#{color_attribute}")
+		end
 	end
 
 	def boolean_icon(value)

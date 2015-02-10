@@ -37,16 +37,20 @@ html lang="de"
       .row
         .span-small-12
           = yield :search
-    .container
+    .container.container--main
       .row
         .span-small-12
           .content
-            .sidebar
-              = yield :sidebar
             .main
               = yield
-    footer
-      = yield :footer
+            - if content_for?(:sidebar)
+              .sidebar
+                = yield :sidebar
+    - if content_for?(:footer)
+      footer
+        .row
+          .span-small-12
+            = yield :footer
 
     = javascript_include_tag "application"
     = yield :custom_js

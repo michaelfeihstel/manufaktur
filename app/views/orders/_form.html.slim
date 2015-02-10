@@ -1,4 +1,4 @@
-= nested_form_for @order, data: { "order-id" => @order.id } do |f|
+= nested_form_for @order, data: { "order-id": @order.id } do |f|
   - if @order.errors.any?
     #error_explanation
       h4= "#{pluralize(@order.errors.count, "error")} prohibited this post from being saved:"
@@ -34,6 +34,7 @@
       li.tab-title = link_to "Versand", "#tab-shipping"
     .tabs-content
       .tab.active#tab-products
+        = react_component('LineItemSection', {})
         #line_item_target = f.fields_for :line_items
         ul.inline-list
           li= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, data: { target: "#line_item_target" }, class: "button small"
@@ -106,9 +107,3 @@
       .tab#tab-shipping
         p
           | Third panel content goes here
-
-  .row
-    .small-12.columns
-      hr
-      = link_to 'Abbrechen', :back, class: "button secondary left"
-      = f.submit "Speichern", class: "button right"

@@ -61,7 +61,9 @@ Manufaktur::Application.routes.draw do
     resources :contact_information
     resources :letters
     resources :line_items
-    resources :orders
+    resources :orders do
+      resources :line_items
+    end
     resources :products
     resources :sizes
   end

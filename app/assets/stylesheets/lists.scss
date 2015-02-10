@@ -18,7 +18,6 @@ ul.inline-list li {
 }
 
 
-
 // sizes-list
 ul.sizes-list {
   @include display(flex);
@@ -51,6 +50,7 @@ ul.side-nav {
 }
 
 ul.side-nav li {
+  @include truncated;
   padding: 0.25rem 0;
 
   &:hover,

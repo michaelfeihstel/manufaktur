@@ -120,6 +120,14 @@ $susy: (
   margin-bottom: 1rem;
 }
 
+[class*="small-block-"]:after {
+  content: ".";
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0px;
+}
+
 .small-block-1 > li {
   @include gallery(12/1 before);
   float: none;
