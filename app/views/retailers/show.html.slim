@@ -8,6 +8,12 @@
   .header-actions
     = link_to "Bearbeiten", edit_retailer_path, class: "button dense inverted"
 
+ul.tabs data-tab=""
+  li.tab-title.active = link_to "Stammdaten", "#tab_general"
+  li.tab-title = link_to "Aufträge", "#tab_orders"
+  li.tab-title = link_to "Bemerkungen", "#tab_notes"
+  li.tab-title = link_to "Briefe", "#tab_letters"
+
 .tabs-content
   = render "/retailers/show/tab_general"
   = render "/retailers/show/tab_orders"

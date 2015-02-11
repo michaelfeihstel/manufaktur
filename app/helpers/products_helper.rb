@@ -32,6 +32,6 @@ module ProductsHelper
     secondary_color = product.secondary_color
     text_color = product.text_color
 
-    "background-color: #{primary_color}; border-bottom: 10px solid #{secondary_color};"
+    "background-color: #{primary_color}; border-bottom: 5px solid #{secondary_color};"
   end
 end

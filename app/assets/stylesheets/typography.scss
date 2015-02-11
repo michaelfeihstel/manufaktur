@@ -1,17 +1,17 @@
 // TYPOGRAPHY
 html {
-	font-size: 1rem;
-	text-rendering: geometricPrecision;
+  font-size: 1rem;
+  text-rendering: geometricPrecision;
 }
 
 body {
-	font-family: $body-font;
-	line-height: 1.45rem;
-	color: $font-color;
+  font-family: $body-font;
+  line-height: 1.45rem;
+  color: $font-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $header-font;
+  font-family: $header-font;
 }
 
 h1, h2, h3, h4 {
@@ -33,107 +33,126 @@ header h3,
 header h4, 
 header h5, 
 header h6 {
-	color: $background-color;
+  color: $background-color;
+  position: relative;
 }
 
 h2 {
-	font-size: 2.369rem;
+  font-size: 2.369rem;
 }
 
 h3 {
-	font-size: 1.777rem;
+  font-size: 1.777rem;
 }
 
 h4 {
-	font-size: 1.333rem;
+  font-size: 1.333rem;
 }
 
 h5 {
-	color: #999;
-	font-size: 1rem;
-	font-weight: 400;
-	margin: 0.5rem 0;
-	text-transform: uppercase;
+  color: #999;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0.5rem 0;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h5.panel-title {
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 h6 {
-	color: #999;
-	font-size: 1rem;
-	font-weight: 400;
-	letter-spacing: 2px;
-	margin: 0.5rem 0;
+  color: #999;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0.5rem 0;
+}
+
+.section-header {
+  &:before {
+      position: absolute;
+      top: 50%;
+      left: -4rem;
+      content: '';
+      border-bottom: 1px solid scale-color($secondary-color, $lightness: -10%);
+      width: 3rem;
+  }
 }
 
 small, .font_small {
-	font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 p {
-	margin-bottom: 1.3em;
+  margin-bottom: 1.3em;
 }
 
 a {
-	color: $primary-color;
-	text-decoration: none;
+  color: $primary-color;
+  text-decoration: none;
 }
 
 a.link {
-	border-bottom: 2px solid $hairline-color;
+  border-bottom: 2px solid $hairline-color;
 
-	&:hover {
-		border-color: $primary-color;
-	}
+  &:hover {
+    border-color: $primary-color;
+  }
 }
 
 .light {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .italic {
-	font-style: italic;
+  font-style: italic;
 }
 
 .thin {
-	font-weight: 100;
+  font-weight: 100;
 }
 
 .bold {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 .small {
-	font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 .push-up {
-	margin-top: -0.5rem;
+  margin-top: -0.5rem;
 }
 
 .truncated {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .product-label {
-	background-color: $primary-color;
-	font-size: 0.75rem;
-	font-weight: normal;
-	margin-bottom: inherit;
-	padding: 0.25rem 0.5rem;
-	white-space: nowrap;
-	display: inline-block;
-	text-align: center;
-	margin: 0.1rem 0;
-	overflow: hidden;
+  background-color: $primary-color;
+  font-size: 0.75rem;
+  font-weight: normal;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  margin: 0.1rem 0;
+  overflow: hidden;
 }
 
 label.section-label {
-	font-size: 1rem;
-	font-family: $header-font;
-	font-weight: 400;
-	letter-spacing: 2px;
-	text-rendering: optimizeLegibility;
+  font-size: 1rem;
+  font-family: $header-font;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-rendering: optimizeLegibility;
 }
 
 
@@ -148,21 +167,21 @@ label.section-label {
 .inverted input,
 .inverted p,
 .inverted a {
-	color: #fff;
+  color: #fff;
 }
 
 .inverted input:hover,
 .inverted input:focus {
-	border-color: #fff
+  border-color: #fff
 }
 
 .inverted a:hover {
-	color: $highlight-color;
+  color: $highlight-color;
 }
 
 .inverted label {
-	color: #fff;
-	opacity: 0.6;
+  color: #fff;
+  opacity: 0.6;
 }
 
 
@@ -174,6 +193,6 @@ label.section-label {
 }
 
 .icon-text {
-	vertical-align: baseline;
-	margin-left: 5px;
+  vertical-align: baseline;
+  margin-left: 5px;
 }

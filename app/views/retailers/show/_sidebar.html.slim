@@ -1,11 +1,4 @@
 - content_for :sidebar
-  label.list-header Menü
-  ul.side-nav data-tab=""
-    li.tab-title.active = link_to "Stammdaten", "#tab_general"
-    li.tab-title = link_to "Aufträge", "#tab_orders"
-    li.tab-title = link_to "Bemerkungen", "#tab_notes"
-    li.tab-title = link_to "Briefe", "#tab_letters"
-
   label.list-header Aufgaben
   ul.side-nav
     li = link_to icon("pencil", text: "Bearbeiten"), edit_retailer_path(@retailer)

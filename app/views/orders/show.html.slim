@@ -13,7 +13,7 @@
 section
   .row
     .span-small-12.columns
-      label.section-label Kunde
+      h5.section-header Kunde
       .fields
         label Auftraggeber
         = @order.try(:billing_name)
@@ -41,7 +41,7 @@ section
 section
   .row
     .small-12.columns
-      label.section-label Verlauf
+      h5.section-header Verlauf
       .fields
         label Erstellt am
         = l @order.created_at, format: :date_only 

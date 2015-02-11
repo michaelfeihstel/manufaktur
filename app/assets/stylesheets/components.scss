@@ -568,7 +568,7 @@ table.calendar {
 
 
 /*-------------------*\
-        ICON
+        ICONS
 \*-------------------*/
 
 .icon__container {
@@ -576,6 +576,7 @@ table.calendar {
   @include flex-direction(row);
   @include justify-content(flex-start);
   @include align-items(stretch);
+  flaot: left;
   transition: ease 0.25s;
 }
 
