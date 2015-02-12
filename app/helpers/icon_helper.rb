@@ -27,9 +27,9 @@ module IconHelper
 		icon_div = content_tag(:div, "", class: "flex-item #{icon_class} #{additional_classes}", style: "#{color_attribute}")
 		text_div = content_tag(:div, text, class: "flex-item #{additional_classes}", style: "#{color_attribute}")
 
-		content_tag :div, class: "icon__container" do
-			content_tag(:div, "", class: "icon__icon #{icon_class} #{additional_classes}", style: "#{color_attribute}") +
-			content_tag(:div, "#{text}", class: "icon__text #{additional_classes}", style: "#{color_attribute}")
+		content_tag :span, class: "icon__container" do
+			content_tag(:span, "", class: "icon__icon #{icon_class} #{additional_classes}", style: "#{color_attribute}") +
+			content_tag(:span, "#{text}", class: "icon__text #{additional_classes}", style: "#{color_attribute}") unless text.nil?
 		end
 	end
 

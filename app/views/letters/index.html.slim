@@ -24,6 +24,4 @@ table
 				td.text-right width=50 = link_to icon("bracket-right"), letter
 
 - content_for :footer
-	.section.text-right
-		hr
-		= paginate @letters
+	= paginate @letters

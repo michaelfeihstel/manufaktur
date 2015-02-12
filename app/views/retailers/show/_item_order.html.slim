@@ -1,4 +1,4 @@
-tr.link href=order_path(order)
+tr
   td = link_to order.try(:id), order_path(order), class: "link"
   td = l order.created_at, format: :date_only
   td = order.completed? ? (l order.completed_at, format: :date_only) : "-"

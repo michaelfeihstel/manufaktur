@@ -9,6 +9,7 @@ $('[data-tab] .tab-title').on('click', function(e) {
   // switch to correct tab
   $('.tab').removeClass("active");
   $('.tab' + target).addClass("active");
+  $(document.body).trigger("sticky_kit:recalc")
 
   console.log("Tabs: Selected " + target);
 });

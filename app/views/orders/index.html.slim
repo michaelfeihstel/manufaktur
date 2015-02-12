@@ -16,4 +16,4 @@
 = render "orders/index/table_orders"
 
 - content_for :footer
-  = paginate @orders
+  = paginate @orders, window: 3, outer_window: 1
