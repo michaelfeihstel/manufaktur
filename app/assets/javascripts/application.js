@@ -13,12 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
-//= require react
-//= require react_ujs
 //= require jquery.minicolors
 //= require stickykit
-//= require_tree 
-//= require_tree ./components
+//= require selectize
+//= require_tree
 
 
 $(".subnav-container").stick_in_parent({

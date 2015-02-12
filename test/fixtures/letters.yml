@@ -3,7 +3,6 @@
 # Table name: letters
 #
 #  id           :integer          not null, primary key
-#  contact_id   :integer
 #  address_id   :integer
 #  name         :string(255)
 #  street       :string(255)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114072418) do
+ActiveRecord::Schema.define(version: 20150212122538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20150114072418) do
   add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
 
   create_table "letters", force: :cascade do |t|
-    t.integer  "contact_id"
     t.integer  "address_id"
     t.string   "name",         limit: 255
     t.string   "street",       limit: 255
@@ -75,7 +74,6 @@ ActiveRecord::Schema.define(version: 20150114072418) do
   end
 
   add_index "letters", ["address_id"], name: "index_letters_on_address_id", using: :btree
-  add_index "letters", ["contact_id"], name: "index_letters_on_contact_id", using: :btree
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "order_id"

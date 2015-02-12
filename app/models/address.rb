@@ -22,7 +22,7 @@ class Address < ActiveRecord::Base
 
 
 
-  def full_address(hide_name)
+  def full_address(hide_name=false)
   	(hide_name == 1 ? "" : self.name + " / ") + self.street + " " + self.house_number + " / " + self.zip + " " + self.city + " / " + self.country
   end
   

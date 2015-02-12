@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: contacts
+# Table name: retailers
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)

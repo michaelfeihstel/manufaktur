@@ -134,3 +134,49 @@ label {
   margin-right: 0.5rem;
   text-transform: lowercase;
 }
+
+
+/*-------------------*\
+        SELECTIZE
+\*-------------------*/
+
+.selectize-input {
+  height: 2.25rem;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0 0.5rem;
+  border: none;
+  border: 1px solid $hairline-color;
+}
+
+.selectize-input.focus {
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  border: 1px solid $primary-color;
+}
+
+.selectize-input .item {
+  height: 100%;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+}
+
+.selectize-control {
+  height: 2.25rem;
+}
+
+.selectize-dropdown {
+  @include hard-shadow;
+  width: 100% !important;
+  border: 1px solid $primary-color;
+  border-radius: 0;
+}
+
+.selectize-dropdown-content .option.active {
+  background-color: $primary-color;
+  color: #fff;
+}
+
+.selectize-control.single .selectize-input:after {
+}

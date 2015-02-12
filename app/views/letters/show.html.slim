@@ -35,7 +35,8 @@ section
 			label Inhalt
 			= simple_format(@letter.body)
 
-	= link_to "Zurück", :back, class: "button secondary"
-	= link_to "Drucken", "#", class: "button right"
-	= link_to "Bearbeiten", edit_letter_path(@letter), class: "button right"
-	= link_to "Löschen", "#", class: "button alert right"
+- content_for :footer
+	ul.inline-list
+		li = link_to icon("print", text: "Drucken"), "#"
+		li = link_to icon("pencil", text: "Bearbeiten"), edit_letter_path(@letter)
+		li = link_to icon("bin", text: "Löschen"), "#"
