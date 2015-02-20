@@ -1,0 +1,10 @@
+= render "series/new/breadcrumbs"
+
+- content_for :header
+  .header-title
+    h1 Neue Serie
+  .header-actions
+    = link_to "Speichern", "#", class: "button", data: { submit: "new_series" }
+    = link_to "Abbrechen", "#", class: "button secondary"
+
+= render "series/shared/form"

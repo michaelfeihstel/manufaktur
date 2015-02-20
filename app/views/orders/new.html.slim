@@ -1,5 +1,4 @@
-= render "orders/common/toolbar"
-= render "orders/common/search"
+= render "orders/shared/search"
 = render "orders/edit/sidebar"
 
 - content_for :header do
@@ -9,4 +8,9 @@
     = link_to "Abbrechen", orders_path, class: "button"
     = button_tag "Speichern", class: "button", data: { submit: "order-form" }
 
-= render "orders/form"
+= render "orders/shared/form"
+
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("check", text: "Speichern"), "#", data: { submit: "new_order" }
+    li = link_to icon("cross", text: "Abbrechen"), orders_path

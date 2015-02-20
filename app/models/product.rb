@@ -20,10 +20,11 @@
 
 class Product < ActiveRecord::Base
   # associations
-  has_many :product_images, :dependent => :destroy
   belongs_to :size
   belongs_to :variation_set
   has_many :line_items
+  has_many :product_images, dependent: :destroy
+  has_many :series, dependent: :destroy
 
   accepts_nested_attributes_for :product_images, :allow_destroy => true
 
@@ -42,9 +43,9 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def sku_name_color
+  def full_name
     full_name = [ sku, name, color_text ]
-    full_name.join(" - ")
+    full_name.join(" / ")
   end
 
   def sales_per_size

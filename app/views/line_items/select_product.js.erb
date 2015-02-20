@@ -1,21 +1,8 @@
-// // set line_item.price input field
-// $('section[data-line-item-id="' + <%= @data["line_item_id"] %> + '"]').find('#price-single-input').val(
-//     <%= @product.price %>
-// );
+var current_item = $('section[data-line-item-id="' + <%= @data["line_item_id"] %> + '"]')
 
-// // set #price_total span
-// $('section[data-line-item-id="' + <%= @line_item_id %> + '"]').find('#price_total').text();
+// set line_item.price input field
+current_item.find('#price-single-input').val(<%= @product.price %>);
 
-// // set topbar styling
-// $('section[data-line-item-id="' + <%= @line_item_temp_id %> + '"]').find('.bar-top').attr({
-//     style: "<%= j ( product_color(@product) ) %>"
-// });
-
-// console.log("<%= @product.price %>")
-
-// Knockout Playground
-var product = <%= raw @product.to_json %>
-console.log(product.price);
-function LineItemViewModel() {
-  LineItemViewModel.price("product.price")
-}
+// set #price_total span
+var price_total = <%= j @data["quantity"] * @product.price %>
+current_item.find('#price_total').text(price_total);

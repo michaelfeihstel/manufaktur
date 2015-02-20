@@ -1,0 +1,11 @@
+#select_addresses
+  = f.hidden_field :customer_id
+  = f.hidden_field :customer_type
+
+  .fields
+    = f.label :billing_address_id, "Rechnungsanschrift"
+    = f.collection_select(:billing_address_id, Address.order(:name), :id, :full_address, prompt: "Rechnungsanschrift auswählen...")
+
+  .fields
+    = label :delivery_address_id, "Lieferanschrift"
+    = f.collection_select(:delivery_address_id, Address.order(:name), :id, :full_address, prompt: "Lieferanschrift auswählen")

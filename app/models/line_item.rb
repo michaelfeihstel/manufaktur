@@ -52,7 +52,17 @@ class LineItem < ActiveRecord::Base
   scope :completed, -> { where(completed_at.present) }
   scope :order_by_created_desc, -> { order(created_at: :desc) }
 
+  # callbacks
+  before_save :get_product_references
+
   # methods
+  def get_product_references
+    unless self.persisted?
+      self.price = product.price
+      self.vat = product.vat
+    end
+  end
+
   def temp_id
     rand(1000000)
   end
@@ -82,22 +92,19 @@ class LineItem < ActiveRecord::Base
     width = line_item_total / order_total * 100
   end
 
-
-
   def price_total
     q = quantity || 0
     p = price || 0
-    q * p
+    (q * p).round(2)
   end
 
   def vat_total
     price_total * vat
   end
 
-  def gross_price_total
-    vat = 1 + (vat || 0)
-
-    price_total * vat
+  def gross_total
+    vat_factor = 1 + vat
+    price_total * vat_factor
   end
 
 

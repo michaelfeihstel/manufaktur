@@ -27,9 +27,8 @@ ul.sizes-list {
 }
 
 ul.sizes-list li {
-  @include flex(1 0.5 2rem);
+  @include flex(1 1 auto);
   min-width: 1.5rem;
-  min-height: 3rem;
   margin-top: 0.25rem;
   margin-right: 0.25rem;
   text-align: center;
@@ -66,4 +65,53 @@ ul.side-nav li a {
   display: block;
   width: 100%;
   color: $primary-color;
+}
+
+// flex lists
+.flex__list {
+  @include display(flex);
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 0px;
+  margin-left: 0;
+
+  @media (max-width: $end-small) {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+  }
+}
+
+.flex__list--right {
+  justify-content: flex-end;
+  text-align: right;
+  @media (max-width: $end-small) {
+    align-items: flex-end;
+  }
+}
+
+.flex__list__item {
+  flex: 0 1 auto;
+  margin-left: 0;
+  padding: 0 1.25rem;
+
+  @media (max-width: $end-small) {
+    margin-bottom: 1rem;
+  }
+
+  &:first-child {
+    @media (min-width: $start-medium) {
+      padding-left: 0;
+      padding-right: 1.25rem;
+    }
+  }
+
+  &:last-child {
+    @media (min-width: $start-medium) {
+      padding-right: 0;
+    }
+
+    @media (max-width: $end-small) {
+      margin-bottom: 0;
+    }
+  }
 }

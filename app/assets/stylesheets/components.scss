@@ -122,7 +122,6 @@ img {
 }
   
 .panel__bar--bottom {
-  margin-top: 1.25rem;
   margin-bottom: -1.25rem !important;
   margin-left: -1.25rem;
   margin-right: -1.25rem;
@@ -130,7 +129,6 @@ img {
 
 .panel__bar--top {
   margin-top: -1.25rem;
-  margin-bottom: 1.25rem;
   margin-left: -1.25rem;
   margin-right: -1.25rem;
 }
@@ -139,36 +137,9 @@ img {
   padding: 0;
 }
 
-ul.panel__bar__list {
-  margin: 0px;
-  margin-left: 0;
-}
-
-ul.panel__bar__list > li {
-  display: inline-block;
-  margin-left: 0;
-  padding: 0 1.25rem;
-
-  &:first-child {
-    padding-left: 0;
-    padding-right: 1.25rem;
-  }
-
-  &:last-child {
-    border-right: none;
-    padding-right: 0;
-  }
-}
-
-ul.panel__bar__list h4 {
-  color: $font-color;
-  margin: 0.5rem 0;
-}
-
-ul.panel__bar__list h5 {
-  color: $font-color;
-  font-weight: 700;
-  margin: 0.5rem 0;
+.panel__bar--actions {
+  background-color: $primary-color;
+  color: $background-color;
 }
 
 .panel__bar__button {
@@ -230,9 +201,9 @@ ul.breadcrumbs li a {
   @include align-self(center);
 }
 
-input.subnav-search-field {
+input[type="search"].subnav-search-field {
   background-color: $background-color;
-  border: 2px solid $primary-color;
+  border: 1px solid $hairline-color;
   color: $primary-color;
   height: 2.5rem;
   width: 100%;
@@ -251,6 +222,8 @@ input.subnav-search-field {
 
   &:hover, &:focus {
     background-color: $background-color;
+    border-width: 1px;
+    border: 1px solid $primary-color;
   }
 }
 

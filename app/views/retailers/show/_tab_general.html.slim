@@ -18,28 +18,40 @@
 
 
   section
-    h5.section-header Kontaktdaten
-    ul.small-block-1.medium-block-3
-      li
-        label Telefon
-        ul.no-bullet
-          - @retailer.contact_information.phone.each do |contact_information|
-            li
-              span.inline-label.light = contact_information.name
-              span = contact_information.value
+    h5.section-header Telefon & Fax
+    table
+      thead
+        tr
+          th Nummer
+          th Beschreibung
+      tbody
+        - @retailer.contact_information.phone.each do |contact_information|
+          tr
+            td width="50%" = contact_information.value
+            td width="50%" = contact_information.name
+            
+  section
+    h5.section-header E-Mail
+    table
+      thead
+        tr
+          th E-Mail
+          th Beschreibung
+      tbody
+        - @retailer.contact_information.email.each do |contact_information|
+          tr
+            td width="50%" = link_to contact_information.value, "mailto:#{contact_information.value}", class: "link"
+            td width="50%" = contact_information.name
 
-      li
-        label E-Mail
-        ul.no-bullet
-          - @retailer.contact_information.email.each do |contact_information|
-            li = link_to contact_information.value, "mailto:#{contact_information.value}", class: "link"
-
-      li
-        label Personen
-        ul.no-bullet
-          - @retailer.contact_information.people.each do |contact_information|
-            li
-              span.inline-label.light
-                = "#{contact_information.name} "
-              span
-                = contact_information.value
+  section
+    h5.section-header Personen
+    table
+      thead
+        tr
+          th width="50%" Name
+          th width="50%" Beschreibung
+      tbody
+        - @retailer.contact_information.people.each do |contact_information|
+          tr
+            td width="50%" = "#{contact_information.name} "
+            td width="50%" = contact_information.value

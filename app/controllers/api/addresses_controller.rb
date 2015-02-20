@@ -5,7 +5,13 @@ module Api
 
 		# GET /api/addresses/
 		def index
-			respond_with Address.all
+			@addresses = Address.all
+		end
+
+		def search
+			query = "%" + params[:query] + "%"
+			@addresses = Address.where("name ILIKE ?", query)
+			render "index"
 		end
 
 		# GET /api/addresses/1

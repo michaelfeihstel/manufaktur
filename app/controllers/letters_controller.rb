@@ -55,8 +55,6 @@ class LettersController < ApplicationController
 
   def letter_params
     params.require(:letter).permit(
-      :receiver_id,
-      :receiver_type,
       :address_id,
       :created_at,
       :name,

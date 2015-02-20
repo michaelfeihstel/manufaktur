@@ -6,12 +6,16 @@ div.fields {
 input,
 select,
 textarea {
-  @include transition(all 0.25s ease-in-out);
   background: transparent;
   border-radius: 0;
   font-family: inherit;
   font-size: 100%;
   max-width: 100%;
+}
+
+input,
+textarea {
+  @include transition(all 0.25s ease-in-out);
 }
 
 input[type=text],
@@ -40,6 +44,19 @@ input[type=week] {
     border-color: $primary-color;
     box-shadow: 0 1px $primary-color;
   }
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: inline;
+}
+
+label.label--inline {
+  display: inline;
+}
+
+select {
+  transition: none;
 }
 
 .select-container {
@@ -76,7 +93,6 @@ input[type=week] {
 select {
   @include appearance(none);
   @include flex(1 1);
-  @include transition(all 0.25s ease-in-out);
   padding: .25rem 0;
   background-color: $background-color;
   border: none;
@@ -141,25 +157,42 @@ label {
 \*-------------------*/
 
 .selectize-input {
-  height: 2.25rem;
-  box-shadow: none;
+  @include transition(all 0.25s ease-in-out);
+  background-color: transparent;
   border-radius: 0;
-  padding: 0 0.5rem;
   border: none;
-  border: 1px solid $hairline-color;
+  border-bottom: 1px solid $hairline-color;
+  box-shadow: none;
+  font-size: 1rem;
+  height: 2.25rem;
+  line-height: 1rem;
+  padding: 0;
+}
+
+.selectize-input.full,
+.selectize-input.input-active {
+  background-color: transparent;
+}
+
+.selectize-input input {
+  transition: none;
+}
+
+.selectize-input:hover, {
+  border-color: $primary-color;
+  box-shadow: 0 1px $primary-color;
 }
 
 .selectize-input.focus {
   box-shadow: none;
   border-radius: 0;
   border: none;
-  border: 1px solid $primary-color;
+  border-bottom: 1px solid $primary-color;
 }
 
 .selectize-input .item {
   height: 100%;
   padding: 0.625rem 0;
-  font-size: 1rem;
 }
 
 .selectize-control {
@@ -173,10 +206,12 @@ label {
   border-radius: 0;
 }
 
-.selectize-dropdown-content .option.active {
+.selectize-dropdown-content .option.active,
+.selectize-dropdown-content .selected {
   background-color: $primary-color;
   color: #fff;
 }
 
-.selectize-control.single .selectize-input:after {
+.selectize-control.single .selectize-input.input-active {
+  background: transparent;
 }

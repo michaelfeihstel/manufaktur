@@ -10,3 +10,7 @@
     = link_to "Abbrechen", :back, class: "button light"
 
 = render "retailers/form"
+
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("check", text: "Speichern")

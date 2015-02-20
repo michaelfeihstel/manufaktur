@@ -1,0 +1,37 @@
+= nested_form_for @order, data: { "order-id": @order.id } do |f|
+  - if @order.errors.any?
+    #error_explanation
+      h4= "#{pluralize(@order.errors.count, "error")} prohibited this post from being saved:"
+      ul
+        - @order.errors.full_messages.each do |msg|
+          .alert-box.alert data-alert=""
+            li= msg
+
+  section
+    .row
+      .span-small-12.span-medium-9
+        h5.section-header Kunde
+        = render "orders/shared/select_addresses", f: f
+
+      .span-small-12.span-medium-3
+        h5.section-header Status
+        .fields
+          = f.label :delivered_on, "Liefertermin"
+          = f.date_field :delivered_on
+        .fields
+          = f.label :completed_at, "Abgeschlossen am"
+          = f.date_field :completed_at
+
+  section
+    ul.tabs data-tab=""
+      li.tab-title.active = link_to "Artikel", "#tab-products"
+      li.tab-title = link_to "Rechnung & Zahlung", "#tab-invoice"
+      li.tab-title = link_to "Versand", "#tab-shipping"
+    .tabs-content
+      .tab.active#tab-products
+        = render "orders/edit/tab_products", f: f
+      .tab#tab-invoice
+        = render "orders/edit/tab_invoice", f: f
+      .tab#tab-shipping
+        p
+          | Third panel content goes here

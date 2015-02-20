@@ -1,11 +1,4 @@
 - content_for :sidebar
-	label Menü
-	ul.side-nav data-tab=""
-		li.tab-title.active = link_to "Artikeldaten", "#tab-general"
-		li.tab-title = link_to "Verkäufe", "#tab-sales"
-		li.tab-title = link_to "Produktion", "#tab-production"
-		li.tab-title = link_to "Material", "#tab-material"
-
 	label Aufgaben
 	ul.side-nav
 		li = link_to icon("pencil", text: "Bearbeiten"), edit_product_path(@product)

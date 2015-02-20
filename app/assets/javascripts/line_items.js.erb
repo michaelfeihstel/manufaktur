@@ -1,4 +1,4 @@
-/*// change any of the quantity inputs
+// change any of the quantity inputs
 $('form').on('change', '.size-input', function () {
     var product_id = $(this).closest('section').find('.order_line_items_product_id').val();
     var line_item_id = $(this).closest('section').data('line-item-id');
@@ -8,49 +8,31 @@ $('form').on('change', '.size-input', function () {
         quantity += Number($(this).val());
     });
 
-    console.log('line_items#change_quantity triggered');
-    console.log(
-        'quantity: ' + quantity + '\n' +
-        'product_id: ' + product_id + '\n' +
-        'line_item_id: ' + line_item_id
-    );
-
     $.ajax({
         url: "/line_items/change_quantity",
-        type: "post",
+        type: "POST",
         data: {
             "product_id": product_id,
             "line_item_id": line_item_id,
             "quantity": quantity
         },
         error: function(data) {
-            alert("Fehler");
+            console.log(data);
         },
-        success: function(data) {}
+        success: function(data) {
+            data
+        }
     });
-});*/
+});
 
 
-// submit on change
-$('form').on('change', '.size-input', function () {
-    var key = $(this).data('key');
-    var value = $(this).val();
-    var line_item_id = $(this).closest('section').data('line-item-id');
-
-    var data = {}
-    data['line_items']["key"] = value;
-    data['line_items']["id"] = line_item_id;
-    console.log(data);
-
-    $.ajax({
-        url: "/api/line_items/" + line_item_id,
-        type: "patch",
-        data: data,
-        error: function(data) {
-            console.log("Fehler");
-        },
-        success: function(data) {}
-    });
+// configure product_id select box
+product_id_select = $('.order_line_items_product_id').selectize({
+    valueField: "id",
+    labelField: "full_name",
+    sortField: "full_name",
+    searchField: "full_name",
+    maxOptions: 100,
 });
 
 
@@ -58,24 +40,47 @@ $('form').on('change', '.size-input', function () {
 
 // select product_id
 $('body').on('change', '.order_line_items_product_id', function () {
-    var data = {
-        "line_item_id": $(this).closest('section').data('line-item-id'),
-        "product_id": $(this).val(),
-        "quantity": $(this).closest('section').find('#quantity').text().toFloat
-    }
+    var current_item = $(this).closest('section')
+    // var order_id = $('form.edit_order').data('order-id')
+    // var data = $('form.edit_order').serialize();
 
-    console.log('line_items#select_product triggered');
-    console.log(data);
+    // $(this).closest('section').addClass('item-to-refresh')
+
+    var product_id = $(this).val();
+    var line_item_id = current_item.data('line-item-id')
+    var quantity = current_item.find('#quantity').text()
+    
+    var data = {
+        "line_item_id": line_item_id,
+        "product_id": product_id,
+        "quantity": quantity
+    }
 
     $.ajax({
         url: "/line_items/select_product",
         data: data,
-        type: "post",
-        
+        type: "POST",
+        error: function(response) {
+            response
+        },
         success: function(data) {
             data
         }
     });
+
+    // $.ajax({
+    //     url: "/orders/" + order_id,
+    //     data: data,
+    //     dataType: "script",
+    //     type: "patch",
+    //     error: function(response) {
+    //         response
+    //     },
+    //     success: function(response){
+    //         response
+    //     }
+    // });
+
 });
 
 

@@ -26,4 +26,8 @@ class Retailer < ActiveRecord::Base
 
 	validates :name, presence: true
 
+	def billing_address
+		self.addresses.first.full_address
+	end
+
 end

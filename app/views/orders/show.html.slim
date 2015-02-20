@@ -1,4 +1,4 @@
-= render "orders/common/search"
+= render "orders/shared/search"
 = render "orders/show/breadcrumbs"
 = render "orders/show/sidebar"
 
@@ -73,7 +73,7 @@ section
                   label + Mehrwertsteuer
                   = number_to_currency(@order.vat_total, unit: "€")
                   hr
-                  h3.bold.text-right = number_to_currency(@order.gross_price_total, unit: "€")
+                  h3.bold.text-right = number_to_currency(@order.gross_total, unit: "€")
       .tab#tab-invoice
         p Some Text
       .tab#tab-shipping

@@ -1,0 +1,40 @@
+.row
+  .span-small-12.span-medium-6
+    section
+      h5.section-header Optionen
+      .fields
+        = f.check_box :is_free
+        = f.label :is_free, "Kostenloser Auftrag", class: "label--inline"
+      .fields
+        = f.check_box :is_vat_exempt
+        = f.label :is_vat_exempt, "Mehrwertsteuerbefreit", class: "label--inline"
+    section
+      h5.section-header Rechnung
+      ul.small-block-grid-2.medium-block-grid-3
+        li.fields
+          = f.label :invoiced_at, "Rechnungsdatum"
+          = f.date_field :invoiced_at
+        li.fields
+          = f.label :price_total, "Rechnungsbetrag"
+          span.input = number_to_currency(@order.price_total, unit: "€")
+      h5 Skonto
+      ul.small-block-grid-2.medium-block-grid-3
+        li.fields
+          = f.label :cashback_until, "Skontofrist"
+          = f.date_field :cashback_until
+        li.fields
+          = f.label "Skontobetrag"
+          span.input= number_to_currency(@order.price_cashback, unit: "€")
+      h5 Zahlung
+      ul.small-block-grid-2.medium-block-grid-3
+        li.fields
+          = f.label :paid_on, "Zahlung erhalten am"
+          = f.date_field :paid_on
+        li.fields
+          = f.label :time_for_payment, "Status"
+          - if @order.paid_on && @order.invoiced_at
+            span.input = "Bezahlt nach #{distance_of_time_in_words(@order.invoiced_at, @order.paid_on)}"
+          - elsif @order.invoiced_at.nil?
+            span.input.light = "Rechnung noch nicht gedruckt"
+          - else
+            span.input = "Ausstehend seit #{time_ago_in_words(@order.invoiced_at)}"

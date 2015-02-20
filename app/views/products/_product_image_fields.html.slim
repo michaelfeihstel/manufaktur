@@ -1,0 +1,8 @@
+.panel
+  p
+    - if f.object.new_record?
+      = f.file_field :image
+    - else
+      = image_tag (f.object.image.url(:medium))
+  hr
+  = f.link_to_remove icon("bin", text: "Entfernen")

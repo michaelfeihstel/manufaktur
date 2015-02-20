@@ -19,7 +19,7 @@ ul.tabs data-tab=""
   = render "/retailers/show/tab_orders"
   = render "/retailers/show/tab_letters"
 
-hr
-= link_to 'Zurück', retailers_path, class: "button secondary left"
-= link_to "Löschen", @retailer, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "button right alert"
-= link_to "Bearbeiten", edit_retailer_path, class: "button right"
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("pencil", text: "Bearbeiten"), edit_retailer_path
+    li = link_to icon("bin", text: "Löschen"), @retailer, data: { confirm: "Wirklich löschen?" }, method: :delete

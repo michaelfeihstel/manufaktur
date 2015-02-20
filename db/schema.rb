@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212122538) do
+ActiveRecord::Schema.define(version: 20150220090727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -194,6 +194,46 @@ ActiveRecord::Schema.define(version: 20150212122538) do
     t.datetime "updated_at"
   end
 
+  create_table "series", force: :cascade do |t|
+    t.integer  "product_id"
+    t.date     "finished_on"
+    t.text     "comment"
+    t.integer  "us1"
+    t.integer  "us1h"
+    t.integer  "us2"
+    t.integer  "us2h"
+    t.integer  "us3"
+    t.integer  "us3h"
+    t.integer  "us4"
+    t.integer  "us4h"
+    t.integer  "us5"
+    t.integer  "us5h"
+    t.integer  "us6"
+    t.integer  "us6h"
+    t.integer  "us7"
+    t.integer  "us7h"
+    t.integer  "us8"
+    t.integer  "us8h"
+    t.integer  "us9"
+    t.integer  "us9h"
+    t.integer  "us10"
+    t.integer  "us10h"
+    t.integer  "us11"
+    t.integer  "us11h"
+    t.integer  "us12"
+    t.integer  "us12h"
+    t.integer  "us13"
+    t.integer  "us13h"
+    t.integer  "us14"
+    t.integer  "us14h"
+    t.integer  "us15"
+    t.integer  "us16"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "series", ["product_id"], name: "index_series_on_product_id", using: :btree
+
   create_table "sizes", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "g1",         limit: 255
@@ -262,4 +302,5 @@ ActiveRecord::Schema.define(version: 20150212122538) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "series", "products"
 end

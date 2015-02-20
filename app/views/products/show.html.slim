@@ -11,11 +11,16 @@
 	.header-actions
 		= link_to "Bearbeiten", edit_product_path(@product), class: "button dense"
 
+ul.tabs data-tab=""
+  li.tab-title.active = link_to "Artikeldaten", "#tab-general"
+  li.tab-title = link_to "Verkäufe", "#tab-sales"
+  li.tab-title = link_to "Produktion", "#tab-production"
+  li.tab-title = link_to "Material", "#tab-material"
 .tabs-content
 	= render "/products/show/tab_general"
 	= render "/products/show/tab_sales"
 
-hr
-= link_to 'Zurück', products_path, class: "button secondary"
-= link_to "Bearbeiten", edit_product_path, class: "button right"
-= link_to "Löschen", @product, method: :delete, class: "button alert right", data: { confirm: "Wirklich löschen?" }
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("pencil", text: "Bearbeiten"), edit_product_path
+    li = link_to icon("bin", text: "Löschen"), @product, method: :delete, data: { confirm: "Wirklich löschen?" }

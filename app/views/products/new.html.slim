@@ -1,0 +1,13 @@
+- content_for :header
+  .header-title
+    h1 Artikel erstellen
+  .header-actions
+    = link_to "Speichern", "#", class: "button", data: { submit: "new_product" }
+    = link_to "Abbrechen", products_path, class: "button secondary"
+
+= render "products/form"
+
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("check", text: "Speichern"), "#", data: { submit: "new_product" }
+    li = link_to icon("cross", text: "Abbrechen"), products_path

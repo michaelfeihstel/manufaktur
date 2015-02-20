@@ -25,12 +25,14 @@ Manufaktur::Application.routes.draw do
     resources :orders
   end
   resources :letters, concerns: [:paginatable, :searchable]
+  resources :line_items
   resources :product_images
   resources :products, concerns: [:paginatable, :searchable] do
     collection do
       get "filter/:name", action: "filter_by_model", as: "filter"
     end
   end
+  resources :series
   resources :sizes
   resources :variations
   resources :variation_sets
@@ -49,14 +51,21 @@ Manufaktur::Application.routes.draw do
   # ajax
   scope "line_items" do
     post "change_quantity", controller: "line_items", action: "change_quantity", as: "change_quantity"
+    post "select_product", controller: "line_items", action: "select_product"
   end
-  match "line_items/select_product" => "line_items#select_product", :via => :post
 
 
 
   # /api/...
   namespace :api, defaults: { format: "json" } do
-    resources :addresses
+
+    # concerns
+    concern :searchable do
+      get 'search/:query', action: "search", on: :collection
+    end
+
+    # routes
+    resources :addresses, concerns: [:searchable]
     resources :retailers
     resources :contact_information
     resources :letters
@@ -64,7 +73,8 @@ Manufaktur::Application.routes.draw do
     resources :orders do
       resources :line_items
     end
-    resources :products
+    resources :products, concerns: [:searchable]
+    resources :series
     resources :sizes
   end
 

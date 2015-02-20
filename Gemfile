@@ -33,9 +33,6 @@ gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails'
 gem 'nested_form'
 
-# React
-gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
-
 group :production do
 	gem 'rails_12factor'
 end
@@ -53,12 +50,11 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+# API
+gem 'jbuilder'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
 
 # Use unicorn as the app server
 # gem 'unicorn'

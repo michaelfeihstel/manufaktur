@@ -55,18 +55,18 @@ class Order < ActiveRecord::Base
   before_save :get_references
 
   def get_references
-    self.billing_name ||= try(:billing_address).try(:name)
-    self.billing_street ||= try(:billing_address).try(:street)
-    self.billing_house_number ||= try(:billing_address).try(:house_number)
-    self.billing_zip ||= try(:billing_address).try(:zip)
-    self.billing_city ||= try(:billing_address).try(:city)
-    self.billing_country ||= try(:billing_address).try(:country)
-    self.delivery_name ||= try(:delivery_address).try(:name)
-    self.delivery_street ||= try(:delivery_address).try(:street)
-    self.delivery_house_number ||= try(:delivery_address).try(:house_number)
-    self.delivery_zip ||= try(:delivery_address).try(:zip)
-    self.delivery_city ||= try(:delivery_address).try(:city)
-    self.delivery_country ||= try(:delivery_address).try(:country)
+    self.billing_name = try(:billing_address).try(:name)
+    self.billing_street = try(:billing_address).try(:street)
+    self.billing_house_number = try(:billing_address).try(:house_number)
+    self.billing_zip = try(:billing_address).try(:zip)
+    self.billing_city = try(:billing_address).try(:city)
+    self.billing_country = try(:billing_address).try(:country)
+    self.delivery_name = try(:delivery_address).try(:name)
+    self.delivery_street = try(:delivery_address).try(:street)
+    self.delivery_house_number = try(:delivery_address).try(:house_number)
+    self.delivery_zip = try(:delivery_address).try(:zip)
+    self.delivery_city = try(:delivery_address).try(:city)
+    self.delivery_country = try(:delivery_address).try(:country)
   end
 
   # SCOPES
@@ -96,8 +96,8 @@ class Order < ActiveRecord::Base
     self.line_items.to_a.sum(&:vat_total)
   end
 
-  def gross_price_total
-    self.line_items.to_a.sum(&:gross_price_total)
+  def gross_total
+    self.line_items.to_a.sum(&:gross_total)
   end
 
   def price_cashback

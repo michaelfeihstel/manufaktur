@@ -65,7 +65,6 @@ class OrdersController < ApplicationController
 		authorize @order
 		@search = Order.includes(:customer, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
 		@orders = @search.result(distinct: true)
-		@products = Product.all.order(:name)
 	end
 
 
@@ -74,14 +73,11 @@ class OrdersController < ApplicationController
 		authorize @order
 
 		respond_to do |format|
-
 			if @order.update_attributes(order_params)
 				format.html do
 					redirect_to order_path
 					flash[:success] = "Auftrag #{@order.id} wurde bearbeitet"
 				end
-
-				format.json { render json: @order }
 				format.js
 			else
 				render 'edit'
@@ -99,7 +95,7 @@ class OrdersController < ApplicationController
 	end
 
 	def update_addresses
-		@addresses = Address.where(customer_id: params[:contact_id])
+		@addresses = Address.where(addressable_id: params[:customer_id], addressable_type: params[:customer_type])
 
 		respond_to do |format|
 			format.js
@@ -142,18 +138,20 @@ class OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(
 			:id,
-			:delivered_on,
-			:invoiced_at,
-			:completed_at,
-			:is_scheduled_delivery,
-			:is_free,
-			:is_vat_exempt,
+			:billing_address_id,
 			:cashback_percent,
 			:cashback_until,
+			:completed_at,
 			:customer_id,
-			:billing_address_id,
+			:customer_type,
+			:delivered_on,
 			:delivery_address_id,
+			:invoiced_at,
+			:is_free,
+			:is_scheduled_delivery,
+			:is_vat_exempt,
 			:marked,
+			:paid_on,
 			line_items_attributes: [
 				:id,
 				:order_id,

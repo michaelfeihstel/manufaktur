@@ -1,11 +1,12 @@
 - content_for :sidebar
-	label.list-header Filter
+  = render "retailers/common/quicksearch"
+	label Filter
 	ul.side-nav
 		li.active = link_to "Alle", retailers_path
 		li = link_to "Händler", "#"
 		li = link_to "Mitarbeiter", "#"
 		li = link_to "Shop Kunden", "#"
 
-	label.list-header Aufgaben
+	label Aufgaben
 	ul.side-nav
 		li = link_to icon("add", text: "Neuer Kontakt"), new_retailer_path

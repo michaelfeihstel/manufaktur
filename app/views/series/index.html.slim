@@ -1,0 +1,8 @@
+= render "series/index/sidebar"
+= render "series/index/breadcrumbs"
+
+- content_for :header
+  .header-title
+    h1 Serien
+  .header-actions
+    = link_to "Neue Serie", new_series_path, class: "button"

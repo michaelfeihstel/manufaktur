@@ -1,5 +1,5 @@
-= render "orders/common/search"
-= render "orders/common/toolbar"
+= render "orders/shared/search"
+= render "orders/shared/toolbar"
 = render "orders/edit/breadcrumbs"
 = render "orders/edit/sidebar"
 
@@ -11,7 +11,7 @@
     = button_tag "Speichern", data: { submit: "edit_order" }
     = link_to "Abbrechen", :back, class: "button light"
 
-= render "orders/form"
+= render "orders/shared/form"
 
 - content_for :footer
   ul.inline-list

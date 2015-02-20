@@ -5,7 +5,13 @@ module Api
 
 		# GET /api/products/
 		def index
-			respond_with Product.all
+			@products = Product.all
+		end
+
+		def search
+			query = "%" + params[:query] + "%"
+			@products = Product.where("sku ILIKE ? OR name ILIKE ? OR color_text ILIKE ?", query, query, query)
+			render "index"
 		end
 
 		# GET /api/products/1

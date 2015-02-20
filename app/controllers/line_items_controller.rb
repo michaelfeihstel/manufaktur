@@ -30,4 +30,15 @@ class LineItemsController < ApplicationController
     end
   end
 
+
+
+
+
+  private
+  def line_item_params
+    params.require(:line_item).permit(
+      :id,
+      :product_id
+    )
+  end
 end

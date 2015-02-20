@@ -82,6 +82,7 @@ class ProductsController < ApplicationController
       :color_text,
       :primary_color,
       :secondary_color,
+      :text_color,
       :price,
       :vat,
       :size_id,

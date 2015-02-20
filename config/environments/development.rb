@@ -59,7 +59,4 @@ Rails.application.configure do
     :s3_endpoint => "s3-eu-west-1.amazonaws.com",
     :path => "#{Rails.env}/:class/:attachment/:id/:basename_:style.:extension"
   }
-
-  # React.js
-  config.react.variant = :development
 end
