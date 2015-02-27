@@ -45,7 +45,7 @@ class Product < ActiveRecord::Base
 
   def full_name
     full_name = [ sku, name, color_text ]
-    full_name.join(" / ")
+    full_name.join(" - ")
   end
 
   def sales_per_size

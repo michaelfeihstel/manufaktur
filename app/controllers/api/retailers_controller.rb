@@ -1,32 +1,32 @@
 module Api
-	class ContactsController < ApplicationController
+	class RetailersController < ApplicationController
 		respond_to :json
 		protect_from_forgery except: [:create, :update]
 
 		# GET /api/contacts/
 		def index
-			respond_with Contact.all, :include => :addresses
+			@retailers = respond_with Retailer.all, :include => :addresses
 		end
 
 		# GET /api/contacts/1/
 		def show
-			respond_with Contact.find(params[:id]), :include => :addresses
+			@retailer = respond_with Retailer.find(params[:id]), :include => :addresses
 		end
 
 		# POST /api/contacts/
 		def create
-			respond_with Contact.create(contact_params)
+			@retailer = respond_with Retailer.create(retailer_params)
 		end
 
 		# PUT /api/contacts/1
 		def update
-			respond_with Contact.update(params[:id], contact_params)
+			@retailer = respond_with Retailer.update(params[:id], retailer_params)
 		end
 
 
 		private
-		def contact_params
-			params.require(:contact).permit(
+		def retailer_params
+			params.require(:retailer).permit(
 				:id,
 				:created_at,
 				:updated_at,

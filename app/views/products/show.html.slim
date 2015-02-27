@@ -3,13 +3,13 @@
 = render "products/show/sidebar"
 
 - content_for :header
-	.header-title
-		h1
-			span = "#{@product.name} " 
-			span.thin = @product.color_text
-		h4 = @product.sku
-	.header-actions
-		= link_to "Bearbeiten", edit_product_path(@product), class: "button dense"
+  .header-title
+    h1
+      span = "#{@product.name} " 
+      span.thin = @product.color_text
+    h4 = @product.sku
+  .header-actions
+    = link_to "Bearbeiten", edit_product_path(@product), class: "button dense"
 
 ul.tabs data-tab=""
   li.tab-title.active = link_to "Artikeldaten", "#tab-general"
@@ -17,8 +17,9 @@ ul.tabs data-tab=""
   li.tab-title = link_to "Produktion", "#tab-production"
   li.tab-title = link_to "Material", "#tab-material"
 .tabs-content
-	= render "/products/show/tab_general"
-	= render "/products/show/tab_sales"
+  = render "/products/show/tab_general"
+  = render "/products/show/tab_sales"
+  = render "/products/show/tab_production"
 
 - content_for :footer
   ul.inline-list

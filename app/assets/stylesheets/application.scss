@@ -11,6 +11,7 @@
 *= require jquery.minicolors
 *= require icons
 *= require selectize
+*= require c3
 *= require_self
 */
 
@@ -30,3 +31,4 @@
 @import "tables";
 @import "typography";
 @import "utilities";
+@import "charts";

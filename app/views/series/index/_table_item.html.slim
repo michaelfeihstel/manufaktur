@@ -1,0 +1,6 @@
+tr.link href=series_path(series)
+  td = series.name
+  td
+    span.product-label style=(product_color(series.product) if series.product) = series.product.full_name
+  td = ( l series.finished_on, format: :default ) unless series.finished_on.nil?
+  td.text-right = series.total_quantity

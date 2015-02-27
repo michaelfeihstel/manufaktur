@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: material_properties
+#
+#  id          :integer          not null, primary key
+#  material_id :integer
+#  name        :string
+#  value       :string
+#  use_in_name :boolean          default("false")
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+default_material_property:
+  name: Length
+  value: Test
+  use_in_name: true

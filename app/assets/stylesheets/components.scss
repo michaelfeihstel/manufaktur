@@ -153,17 +153,22 @@ img {
   }
 }
 
+.panel__body {
+  padding: 1rem 0;
+}
+
 
 // BREADCRUMBS
 .subnav-container {
   @include hard-shadow;
-  background-color: #F2F2F2;
+  background-color: $breadcrumb-background-color;
   z-index: 98;
 }
 
 ul.breadcrumbs {
   @include flex(1 1);
   @include align-self(center);
+  color: #fff;
   font-size: rem(13);
   list-style: none;
   line-height: 1.5rem;

@@ -1,0 +1,36 @@
+.c3 svg {
+  font-family: $body-font;
+}
+
+// AXIS LABELS
+g.tick {
+  color: #999;
+}
+
+// TOOLTIPS
+.c3-tooltip {
+  @include hard-shadow;
+}
+
+.c3-tooltip th {
+  background-color: $primary-color;
+  font-family: $header-font;
+  font-size: 13px;
+  text-align: left;
+  color: #fff;
+}
+
+.c3-tooltip td,
+.c3-tooltip th {
+  padding: 0.25rem 0.5rem;
+}
+
+.c3-tooltip td:first-child,
+.c3-tooltip th:first-child {
+  padding-left: 0.5rem;
+}
+
+.c3-tooltip td:last-child,
+.c3-tooltip th:last-child {
+  padding-right: 0.5rem;
+}

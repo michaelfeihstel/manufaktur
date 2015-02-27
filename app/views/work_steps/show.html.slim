@@ -1,0 +1,8 @@
+= render "work_steps/show/breadcrumbs"
+= render "work_steps/show/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @work_step.name
+  .header-actions
+    = link_to "Bearbeiten", edit_work_step_path(@work_step), class: "button" 

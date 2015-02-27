@@ -1,0 +1,10 @@
+= render "materials/edit/breadcrumbs"
+= render "materials/edit/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = "#{@material.name} bearbeiten"
+  .header-actions
+    = button_to "Speichern", "#", data: { submit: "edit_material" }
+
+= render "materials/shared/form"

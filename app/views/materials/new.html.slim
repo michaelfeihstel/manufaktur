@@ -1,0 +1,11 @@
+= render "materials/new/breadcrumbs"
+= render "materials/new/sidebar"
+
+- content_for :header
+  .header-title
+    h1 Material erstellen
+  .header-actions
+    = link_to "Speichern", "#", class: "button", data: { submit: "new_material" }
+    = link_to "Abbrechen", materials_path, class: "button secondary"
+
+= render "materials/shared/form"

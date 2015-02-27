@@ -1,0 +1,17 @@
+= render "materials/index/breadcrumbs"
+= render "materials/index/sidebar"
+
+- content_for :header
+  .header-title
+    h1 Materialien
+  .header-actions
+    = link_to "Neues Material", new_material_path, class: "button"
+
+table
+  thead
+    tr
+      th Bezeichnung
+      th Zulieferer
+  tbody
+    - @materials.each do |material|
+      = render "materials/index/material", material: material

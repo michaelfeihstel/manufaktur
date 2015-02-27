@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: work_steps
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  active     :boolean          default("true")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+default_work_step:
+  name: A work step
+  active: true
+
+inactive_work_step:
+  name: An inactive work step
+  active: false

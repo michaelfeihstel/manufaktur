@@ -1,4 +1,4 @@
-#chart_sales
+.chart#chart_sales
 
 javascript:
 	var de = d3.locale({
@@ -24,18 +24,17 @@ javascript:
 					#{raw @product.sales_per_size.map{|k,v| v}.prepend("Anzahl")}
 				],
 				type: 'bar',
-				labels: true,
-				labels: {
-					format: { }
-				},
 				colors: {
-					"Anzahl": '#d82b4e'
+					"Anzahl": '#8BABBB'
 				}
 			},
 			axis: {
 				x: {
 					type: 'category',
-					categories: #{raw @product.size.sizes_as_array}
+					categories: #{raw @product.size.sizes_as_array},
+					tick: {
+						centered: true
+					}
 				},
 				y: {
 					show: false,

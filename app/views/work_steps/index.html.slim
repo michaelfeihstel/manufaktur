@@ -1,0 +1,19 @@
+= render "work_steps/index/sidebar"
+= render "work_steps/index/breadcrumbs"
+
+- content_for :header
+  .header-title
+    h1 Arbeitsschritte
+  .header-actions
+    = link_to "Neuer Arbeitsschritt", new_work_step_path, class: "button"
+
+table
+  thead
+    tr
+      th Bezeichnung
+      th.text-right width=200 Status
+  tbody
+    - @work_steps.each do |work_step|
+      tr
+        td = link_to work_step.name, work_step, class: "link"
+        td.text-right = work_step.active

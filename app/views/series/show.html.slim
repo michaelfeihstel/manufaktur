@@ -1,0 +1,33 @@
+= render "series/show/breadcrumbs"
+= render "series/show/sidebar"
+
+- content_for :header
+  .header-title
+    h1
+      span.thin Serie 
+      span = @series.name
+    h4 = @series.product.full_name
+  .header-actions
+    = link_to "Bearbeiten", edit_series_path(@series), class: "button"
+
+section
+  h5.section-header Artikel
+  .panel
+    .panel__bar.panel__bar--top style=product_color(@series.product)
+      h5.panel__title style="color: #{@series.product.text_color}" = @series.product.name
+    .panel__body
+      .row
+        .span-small-12.span-medium-3
+          .fields
+            label Artikelnummer
+            span = @series.product.sku
+          .fields
+            label Bezeichnung
+            span = @series.product.name
+          .fields
+            label Farbe
+            span = @series.product.color_text
+    .panel__bar.panel__bar--bottom
+
+section
+  h5.section-header Fortschritt

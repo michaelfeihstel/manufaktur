@@ -1,0 +1,5 @@
+- content_for :sidebar
+  label Menü
+  ul.side-nav
+    li = button_to "Speichern", "#", data: { submit: "edit_material" }
+    li = link_to "Abbrechen", @material 

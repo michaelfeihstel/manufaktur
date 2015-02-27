@@ -1,0 +1,9 @@
+= form_for @work_step do |f|
+  section
+    .fields
+      = f.label :name, "Bezeichnung"
+      = f.text_field :name
+
+    .fields
+      = f.check_box :active
+      = f.label :active, "Aktiv", class: "checkbox"

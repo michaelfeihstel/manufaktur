@@ -1,0 +1,20 @@
+.tab#tab-production
+  = render "products/common/chart_bar_sales"
+  - @product.series.each do |series|
+    section
+      .panel
+        .panel__bar.panel__bar--top
+          h5.panel__title
+            span.thin Serie 
+            span.bold = series.name
+        .panel__body
+          ul.sizes-list
+            - series.quantities_to_hash.each do |size, quantity|
+              li 
+                label.size-label = size
+                = quantity
+        .panel__bar.panel__bar--bottom
+          .flex__list.flex__list--right
+            .flex__list__item
+              label Gesamt
+              = series.total_quantity

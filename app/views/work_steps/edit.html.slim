@@ -1,0 +1,11 @@
+= render "work_steps/edit/breadcrumbs"
+= render "work_steps/edit/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @work_step.name
+  .header-actions
+    = link_to "Speichern", "#", class: "button", data: { submit: "edit_work_step" }
+    = link_to "Abbrechen", @work_step, class: "button secondary"
+
+= render "work_steps/shared/form"

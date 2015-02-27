@@ -1,16 +1,19 @@
 .tab#tab-sales
 	label Verkauf
 	section
-		.panel-outline
-			= render "products/common/chart_bar_sales"
-			.panel-bar.bottom
-				ul.panel-bar-list
-					li
-						h5 = @product.line_items.to_a.sum(&:quantity)
+		.panel
+			.panel__bar.panel__bar--top
+				h5.panel__title Verkäufe je Größe
+			.panel__body
+				= render "products/common/chart_bar_sales"
+			.panel__bar.panel__bar--bottom
+				.flex__list.flex__list--right
+					.flex__list__item
 						label Gesamt
-					li
-						h5 = number_to_currency(@product.line_items.to_a.sum(&:price_total), unit: "€")
+						span = @product.line_items.to_a.sum(&:quantity)
+					.flex__list__item
 						label Umsatz
+						span = number_to_currency(@product.line_items.to_a.sum(&:price_total), unit: "€")
 	section
 		table
 			thead

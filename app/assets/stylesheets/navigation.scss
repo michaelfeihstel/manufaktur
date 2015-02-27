@@ -1,5 +1,6 @@
 nav.main-nav {
-  background-color: scale-color($primary-color, $lightness: -10%);
+  @include hard-shadow;
+  background-color: scale-color($primary-color, $lightness: 10%);
   color: $background-color;
   position: fixed;
   top: 0;
@@ -8,7 +9,7 @@ nav.main-nav {
   z-index: 99;
 }
 
-// main sidebar navigation
+// main navigation
 ul.main-nav {
   float: right;
   list-style: none;
@@ -30,7 +31,7 @@ nav.main-nav li.has-dropdown {
 nav.main-nav li {
   &:hover,
   &:focus {
-    background-color: scale-color($primary-color, $lightness: 5%)
+    background-color: scale-color($primary-color, $lightness: -5%)
   }
 
   &.active {
@@ -49,7 +50,7 @@ ul.main-nav li a {
 }
 
 ul.main-nav > li.has-dropdown > a:after {
-  color: scale-color($secondary-color, $lightness: -20%);
+  color: $background-color;
   content: "E";
   display: inline;
   font-family: "manufaktur-icons";
@@ -68,6 +69,7 @@ li.has-dropdown:hover > ul.dropdown {
 
 // second level
 ul > li > ul.dropdown {
+  @include hard-shadow;
   background-color: scale-color($primary-color, $lightness: 10%);
   display: none;
   left: 0;
@@ -78,7 +80,7 @@ ul > li > ul.dropdown {
 
 // third level
 ul.dropdown > li.has-dropdown > a:after {
-  color: scale-color($secondary-color, $lightness: -20%);
+  color: $background-color;
   content: "D";
   display: inline;
   font-family: "manufaktur-icons";

@@ -1,0 +1,5 @@
+- content_for :sidebar
+  label Menü
+  ul.side-nav
+    li = link_to icon("check", text: "Speichern"), "#", data: { submit: "edit_work_step" }
+    li = link_to icon("cross", text: "Abbrechen"), @work_step

@@ -1,0 +1,5 @@
+- content_for :sidebar
+  label Menü
+  ul.side-nav
+    li = link_to icon("pencil", text: "Bearbeiten"), edit_material_path(@material)
+    li = button_to icon("bin", text: "Löschen"), material_path(@material), method: :delete, data: { confirm: true }

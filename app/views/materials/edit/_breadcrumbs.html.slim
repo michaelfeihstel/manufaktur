@@ -1,0 +1,7 @@
+- content_for :breadcrumbs
+  ul.breadcrumbs
+    li = link_to "Home", :root
+    li = link_to "Produktion", "#"
+    li = link_to "Materialien", materials_path
+    li = link_to @material.name, @material
+    li.light Bearbeiten

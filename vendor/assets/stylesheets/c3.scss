@@ -1,7 +1,7 @@
 /*-- Chart --*/
-
 .c3 svg {
   font: 14px sans-serif;
+  width: 100%;
 }
 .c3 path, .c3 line {
   fill: none;
@@ -11,7 +11,6 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-          font-family: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 .c3-legend-item-tile,
@@ -100,6 +99,7 @@
 /*-- Arc --*/
 
 .c3-chart-arcs-title {
+  dominant-baseline: middle;
   font-size: 1.3em;
 }
 
@@ -160,26 +160,16 @@
   border-spacing:0;
   background-color:#fff;
   empty-cells:show;
-  -webkit-box-shadow: 7px 7px 12px -9px rgb(119,119,119);
-     -moz-box-shadow: 7px 7px 12px -9px rgb(119,119,119);
-          box-shadow: 7px 7px 12px -9px rgb(119,119,119);
-  opacity: 0.9;
+  width:auto;
 }
 .c3-tooltip tr {
-  border:1px solid #CCC;
 }
 .c3-tooltip th {
-  background-color: #aaa;
-  font-size:14px;
-  padding:2px 5px;
-  text-align:left;
-  color:#FFF;
 }
 .c3-tooltip td {
   font-size:13px;
-  padding: 3px 6px;
   background-color:#fff;
-  border-left:1px dotted #999;
+  color: #000;
 }
 .c3-tooltip td > span {
   display: inline-block;

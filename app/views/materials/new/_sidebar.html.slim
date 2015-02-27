@@ -1,0 +1,4 @@
+- content_for :sidebar
+  ul.side-nav
+    li = link_to icon("check", text: "Speichern"), "#", data: { submit: "new_material" }
+    li = link_to icon("cross", text: "Abbrechen"), materials_path

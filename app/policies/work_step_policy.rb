@@ -1,0 +1,2 @@
+class WorkStepPolicy < ApplicationPolicy
+end

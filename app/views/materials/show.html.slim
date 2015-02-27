@@ -1,0 +1,13 @@
+= render "materials/show/breadcrumbs"
+= render "materials/show/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @material.name
+  .header-actions
+    = link_to "Bearbeiten", edit_material_path(@material), class: "button"
+
+ul.tabs
+  li.tab-title.active Material
+  li.tab-title Zugehörige Artikel
+  li.tab-title Einkauf

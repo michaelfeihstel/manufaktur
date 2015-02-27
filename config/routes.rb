@@ -26,16 +26,7 @@ Manufaktur::Application.routes.draw do
   end
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
-  resources :product_images
-  resources :products, concerns: [:paginatable, :searchable] do
-    collection do
-      get "filter/:name", action: "filter_by_model", as: "filter"
-    end
-  end
-  resources :series
-  resources :sizes
-  resources :variations
-  resources :variation_sets
+  resources :materials
   resources :orders, concerns: [:paginatable, :searchable] do
     member do
       post :update_addresses
@@ -46,6 +37,17 @@ Manufaktur::Application.routes.draw do
       get "created/:year/:month/:day" => "orders#index_created_at", :as => "created_at"
     end
   end
+  resources :product_images
+  resources :products, concerns: [:paginatable, :searchable] do
+    collection do
+      get "filter/:name", action: "filter_by_model", as: "filter"
+    end
+  end
+  resources :series
+  resources :sizes
+  resources :variations
+  resources :variation_sets
+  resources :work_steps
 
 
   # ajax
@@ -70,6 +72,8 @@ Manufaktur::Application.routes.draw do
     resources :contact_information
     resources :letters
     resources :line_items
+    resources :materials
+    resources :material_properties
     resources :orders do
       resources :line_items
     end

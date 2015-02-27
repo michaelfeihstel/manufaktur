@@ -1,8 +1,9 @@
 $('[data-tab] .tab-title').on('click', function(e) {
   e.preventDefault();
+
   var target = $(this).children('a').attr('href');
   
-  // refresh tab titles
+  // add active class to tab titles
   $('.tab-title').removeClass("active");
   $(this).addClass("active");
 
@@ -11,5 +12,8 @@ $('[data-tab] .tab-title').on('click', function(e) {
   $('.tab' + target).addClass("active");
   $(document.body).trigger("sticky_kit:recalc")
 
-  console.log("Tabs: Selected " + target);
+  // resize charts if any present
+  if (typeof chart !== 'undefined') {
+    chart.resize();
+  }
 });

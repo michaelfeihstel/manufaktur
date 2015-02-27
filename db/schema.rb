@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220090727) do
+ActiveRecord::Schema.define(version: 20150227071212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,27 @@ ActiveRecord::Schema.define(version: 20150220090727) do
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
+  create_table "material_properties", force: :cascade do |t|
+    t.integer  "material_id"
+    t.string   "name"
+    t.string   "value"
+    t.boolean  "use_in_name", default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "material_properties", ["material_id"], name: "index_material_properties_on_material_id", using: :btree
+
+  create_table "materials", force: :cascade do |t|
+    t.string   "name"
+    t.string   "supplier_sku"
+    t.string   "unit"
+    t.decimal  "price",        precision: 8, scale: 2
+    t.text     "comment"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.date     "delivered_on"
     t.datetime "invoiced_at"
@@ -198,38 +219,39 @@ ActiveRecord::Schema.define(version: 20150220090727) do
     t.integer  "product_id"
     t.date     "finished_on"
     t.text     "comment"
-    t.integer  "us1"
-    t.integer  "us1h"
-    t.integer  "us2"
-    t.integer  "us2h"
-    t.integer  "us3"
-    t.integer  "us3h"
-    t.integer  "us4"
-    t.integer  "us4h"
-    t.integer  "us5"
-    t.integer  "us5h"
-    t.integer  "us6"
-    t.integer  "us6h"
-    t.integer  "us7"
-    t.integer  "us7h"
-    t.integer  "us8"
-    t.integer  "us8h"
-    t.integer  "us9"
-    t.integer  "us9h"
-    t.integer  "us10"
-    t.integer  "us10h"
-    t.integer  "us11"
-    t.integer  "us11h"
-    t.integer  "us12"
-    t.integer  "us12h"
-    t.integer  "us13"
-    t.integer  "us13h"
-    t.integer  "us14"
-    t.integer  "us14h"
-    t.integer  "us15"
-    t.integer  "us16"
+    t.integer  "g1"
+    t.integer  "g1h"
+    t.integer  "g2"
+    t.integer  "g2h"
+    t.integer  "g3"
+    t.integer  "g3h"
+    t.integer  "g4"
+    t.integer  "g4h"
+    t.integer  "g5"
+    t.integer  "g5h"
+    t.integer  "g6"
+    t.integer  "g6h"
+    t.integer  "g7"
+    t.integer  "g7h"
+    t.integer  "g8"
+    t.integer  "g8h"
+    t.integer  "g9"
+    t.integer  "g9h"
+    t.integer  "g10"
+    t.integer  "g10h"
+    t.integer  "g11"
+    t.integer  "g11h"
+    t.integer  "g12"
+    t.integer  "g12h"
+    t.integer  "g13"
+    t.integer  "g13h"
+    t.integer  "g14"
+    t.integer  "g14h"
+    t.integer  "g15"
+    t.integer  "g16"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "name"
   end
 
   add_index "series", ["product_id"], name: "index_series_on_product_id", using: :btree
@@ -302,5 +324,13 @@ ActiveRecord::Schema.define(version: 20150220090727) do
     t.datetime "updated_at"
   end
 
+  create_table "work_steps", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_foreign_key "material_properties", "materials"
   add_foreign_key "series", "products"
 end

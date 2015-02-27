@@ -1,0 +1,31 @@
+= nested_form_for @material do |f|
+  section
+    h5.section-header Material
+    .row
+      .span-small-12.span-medium-8
+        .fields
+          = f.label :name, "Bezeichnung"
+          = f.text_field :name
+        .fields
+          = f.label :supplier_sku, "Hersteller Artikelnummer"
+          = f.text_field :supplier_sku
+        .fields
+          = f.label :unit, "Einheit"
+          = f.text_field :unit
+        .fields
+          = f.label :price, "Preis / Einheit"
+          = f.text_field :price
+
+  section
+    h5.section-header Eigenschaften
+    table
+      thead
+        tr
+          th Eigenschaft
+          th Wert
+          th Teil der Bezeichnung
+          th.text-right
+      tbody id="material_property_fields"
+        = f.fields_for :material_properties, wrapper: false do |material_properties_form|
+          = render "materials/shared/material_property_fields", f: material_properties_form
+    = f.link_to_add "Eigenschaft hinzufügen", :material_properties, class: "tiny button", data: { target: "#material_property_fields" }
