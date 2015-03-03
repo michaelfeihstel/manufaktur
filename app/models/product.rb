@@ -24,9 +24,14 @@ class Product < ActiveRecord::Base
   belongs_to :variation_set
   has_many :line_items
   has_many :product_images, dependent: :destroy
+  has_many :materials, through: :material_consumptions
+  has_many :material_consumptions, dependent: :destroy
   has_many :series, dependent: :destroy
+  has_many :series_steps, through: :series
 
-  accepts_nested_attributes_for :product_images, :allow_destroy => true
+  accepts_nested_attributes_for :product_images, allow_destroy: true
+  accepts_nested_attributes_for :material_consumptions, allow_destroy: true
+  accepts_nested_attributes_for :series, allow_destroy: true
 
   # scopes
   scope :only_model, ->(name) { where(name: name) }

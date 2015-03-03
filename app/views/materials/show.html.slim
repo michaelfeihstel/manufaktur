@@ -4,10 +4,15 @@
 - content_for :header
   .header-title
     h1 = @material.name
+    h4 = @material.properties_only_name
   .header-actions
     = link_to "Bearbeiten", edit_material_path(@material), class: "button"
 
-ul.tabs
-  li.tab-title.active Material
-  li.tab-title Zugehörige Artikel
+ul.tabs data-tab=""
+  li.tab-title.active = link_to "Material", "#tab-data"
+  li.tab-title = link_to "Zugehörige Artikel", "#tab-products"
   li.tab-title Einkauf
+
+.tabs-content
+  = render "materials/show/tab_data"
+  = render "materials/show/tab_products"

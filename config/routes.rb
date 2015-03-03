@@ -68,17 +68,20 @@ Manufaktur::Application.routes.draw do
 
     # routes
     resources :addresses, concerns: [:searchable]
+    resources :employees
     resources :retailers
     resources :contact_information
     resources :letters
     resources :line_items
     resources :materials
+    resources :material_consumptions
     resources :material_properties
     resources :orders do
       resources :line_items
     end
     resources :products, concerns: [:searchable]
     resources :series
+    resources :series_steps
     resources :sizes
   end
 

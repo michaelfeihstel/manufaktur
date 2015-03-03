@@ -31,3 +31,14 @@ section
 
 section
   h5.section-header Fortschritt
+  table
+    thead
+      tr
+        th Arbeitsschritt
+        th.text-right Fortschritt
+    tbody
+      - @series.series_steps.each do |step|
+        tr
+          td = step.work_step.name
+          td.text-right
+

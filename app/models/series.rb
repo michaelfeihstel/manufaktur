@@ -44,6 +44,9 @@
 class Series < ActiveRecord::Base
   # associations
   belongs_to :product
+  has_many :series_steps, dependent: :destroy
+
+  accepts_nested_attributes_for :series_steps, allow_destroy: true
 
   # scopes
   scope :newest, -> { order(name: :desc) }

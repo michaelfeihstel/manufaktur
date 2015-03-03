@@ -29,7 +29,11 @@ class Api::MaterialPropertiesControllerTest < ActionController::TestCase
 
   test "should create material property" do
     assert_difference "MaterialProperty.count" do
-      post :create, format: :json, material_property: @material_property.attributes
+      post :create, format: :json, material_property: {
+        name: @material_property.name,
+        value: @material_property.value,
+        use_in_name: @material_property.use_in_name
+      }
     end
   end
 

@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: material_consumptions
+#
+#  id             :integer          not null, primary key
+#  product_id     :integer
+#  material_id    :integer
+#  yield_per_unit :decimal(, )
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+default:
+  product: default_product 
+  material: default_material
+  yield_per_unit: 9.99

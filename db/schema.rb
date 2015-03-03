@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227071212) do
+ActiveRecord::Schema.define(version: 20150303134100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20150227071212) do
   add_index "contact_informations", ["contactable_id"], name: "index_contact_informations_on_contactable_id", using: :btree
   add_index "contact_informations", ["contactable_type"], name: "index_contact_informations_on_contactable_type", using: :btree
   add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "active",     default: true
+  end
 
   create_table "letters", force: :cascade do |t|
     t.integer  "address_id"
@@ -119,6 +126,17 @@ ActiveRecord::Schema.define(version: 20150227071212) do
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
+  create_table "material_consumptions", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "material_id"
+    t.decimal  "yield_per_unit"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "material_consumptions", ["material_id"], name: "index_material_consumptions_on_material_id", using: :btree
+  add_index "material_consumptions", ["product_id"], name: "index_material_consumptions_on_product_id", using: :btree
+
   create_table "material_properties", force: :cascade do |t|
     t.integer  "material_id"
     t.string   "name"
@@ -129,6 +147,7 @@ ActiveRecord::Schema.define(version: 20150227071212) do
   end
 
   add_index "material_properties", ["material_id"], name: "index_material_properties_on_material_id", using: :btree
+  add_index "material_properties", ["use_in_name"], name: "index_material_properties_on_use_in_name", using: :btree
 
   create_table "materials", force: :cascade do |t|
     t.string   "name"
@@ -256,6 +275,17 @@ ActiveRecord::Schema.define(version: 20150227071212) do
 
   add_index "series", ["product_id"], name: "index_series_on_product_id", using: :btree
 
+  create_table "series_steps", force: :cascade do |t|
+    t.integer  "series_id"
+    t.integer  "work_step_id"
+    t.text     "comment"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "series_steps", ["series_id"], name: "index_series_steps_on_series_id", using: :btree
+  add_index "series_steps", ["work_step_id"], name: "index_series_steps_on_work_step_id", using: :btree
+
   create_table "sizes", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "g1",         limit: 255
@@ -331,6 +361,10 @@ ActiveRecord::Schema.define(version: 20150227071212) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "material_consumptions", "materials"
+  add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"
   add_foreign_key "series", "products"
+  add_foreign_key "series_steps", "series"
+  add_foreign_key "series_steps", "work_steps"
 end

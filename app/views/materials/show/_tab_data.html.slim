@@ -1,0 +1,34 @@
+.tab.active#tab-data
+  section
+    h5.section-header Daten
+    
+    .fields
+      label Bezeichnung
+      span = @material.name
+    
+    .fields
+      label Hersteller Artikelnummer
+      span = @material.supplier_sku
+
+    .fields
+      label Einheit
+      span = @material.unit
+
+    .fields
+      label =  "Preis je #{@material.unit}"
+      span = number_to_currency @material.price, unit: "€"
+
+  section
+    h5.section-header Eigenschaften
+    table
+      thead
+        tr
+          th Bezeichnung
+          th Wert
+          th Teil der Bezeichnung
+      tbody
+        - @material.material_properties.each do |property|
+          tr
+            td = property.name
+            td = property.value
+            td = icon("check") if property.use_in_name?

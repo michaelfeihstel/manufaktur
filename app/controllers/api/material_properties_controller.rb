@@ -16,7 +16,8 @@ module Api
     end
 
     def create
-      respond_with MaterialProperty.create(material_property_params)
+      @material_property = MaterialProperty.create(material_property_params)
+      respond_with :api, @material_property
     end
 
 
@@ -26,6 +27,7 @@ module Api
     private
     def material_property_params
       params.require(:material_property).permit(
+        :id,
         :name,
         :value,
         :use_in_name

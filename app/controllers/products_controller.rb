@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.includes(:line_items, :material_consumptions).find(params[:id])
   end
 
   def edit

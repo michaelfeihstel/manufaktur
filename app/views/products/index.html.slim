@@ -26,3 +26,8 @@ table
 					span.label class="product-label" style=product_color(product)
 						= product.color_text
 				td.text-right = number_to_currency(product.price, unit:"€ ")
+	tfoot
+		tr
+			td colspan=5
+				span = "#{@products.count} "
+				span.light Artikel gefunden

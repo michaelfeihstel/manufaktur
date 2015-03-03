@@ -31,7 +31,7 @@ module Api
         :unit,
         :price,
         :comment,
-        material_properties: [
+        material_properties_attributes: [
           :id,
           :name,
           :value,

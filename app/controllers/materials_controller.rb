@@ -5,12 +5,12 @@ class MaterialsController < ApplicationController
 
 
   def index
-    @materials = Material.all.includes(:material_properties)
+    @materials = Material.includes(:material_properties).all
     authorize @materials
   end
 
   def show
-    @material = Material.find(params[:id])
+    @material = Material.includes(material_consumptions: [:product]).find(params[:id])
     authorize @material
   end
 

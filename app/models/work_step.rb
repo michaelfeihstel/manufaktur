@@ -10,4 +10,6 @@
 #
 
 class WorkStep < ActiveRecord::Base
+  # associations
+  has_many :series_steps, dependent: :destroy
 end

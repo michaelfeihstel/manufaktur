@@ -2,4 +2,4 @@
   label Menü
   ul.side-nav
     li = link_to icon("pencil", text: "Bearbeiten"), edit_material_path(@material)
-    li = button_to icon("bin", text: "Löschen"), material_path(@material), method: :delete, data: { confirm: true }
+    li = link_to icon("bin", text: "Löschen"), material_path(@material), method: :delete, data: { confirm: "Willst Du dieses Material wirklich löschen?" }

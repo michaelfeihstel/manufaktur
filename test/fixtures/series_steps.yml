@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: series_steps
+#
+#  id           :integer          not null, primary key
+#  series_id    :integer
+#  work_step_id :integer
+#  comment      :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+default:
+  series: default_series 
+  work_step: default_work_step
+  comment: A comment
