@@ -13,9 +13,12 @@
 //= require jquery_ujs
 //= require jquery.minicolors
 //= require stickykit
+//= require turbolinks
 //= require selectize
 //= require jquery_nested_form
 //= require_tree
+
+Turbolinks.enableProgressBar();
 
 
 $(".subnav-container").stick_in_parent({

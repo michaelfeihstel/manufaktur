@@ -1,0 +1,8 @@
+- content_for :breadcrumbs do
+	.row
+		.small-12.columns
+			ul.breadcrumbs
+				li = link_to "Home", :root
+				li = link_to "Kontakte", contacts_path
+				li = link_to @contact.name , contact_path(@contact.id)
+				li.light Bearbeiten

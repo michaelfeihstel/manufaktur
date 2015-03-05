@@ -34,7 +34,7 @@ module Api
     def employee_params
       params.require(:employee).permit(
         :id,
-        :name,
+        :contact_id,
         :active
       )
     end

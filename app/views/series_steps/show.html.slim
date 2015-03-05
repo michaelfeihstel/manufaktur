@@ -1,0 +1,24 @@
+= render "series_steps/show/breadcrumbs"
+
+- content_for :header
+  .header-title
+    h1
+      span.thin = "Serie "
+      span = @series_step.name
+    h4 = @series_step.work_step.name
+  .header-actions
+    = link_to "Bearbeiten", edit_series_step_path(@series_step), class: "button"
+
+section
+  h5.section-header Einträge
+  table.responsive
+    thead
+      tr
+        th Datum
+        th Mitarbeiter
+        - @series_step.product.size.sizes_as_array.each do |size|
+          th.text-center.small = size
+        th.text-right Gesamt
+    tbody
+      - @series_step.series_step_entries.order(:date).each do |entry|
+        = render "series_steps/show/series_step_entry", entry: entry

@@ -45,6 +45,7 @@ class Series < ActiveRecord::Base
   # associations
   belongs_to :product
   has_many :series_steps, dependent: :destroy
+  has_many :series_step_entries, through: :series_steps
 
   accepts_nested_attributes_for :series_steps, allow_destroy: true
 

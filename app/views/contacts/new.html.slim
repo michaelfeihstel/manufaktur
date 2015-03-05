@@ -1,0 +1,10 @@
+= render "contacts/new/sidebar"
+
+- content_for :header
+  .header-title
+    h1 Kontakt hinzufügen
+  .header-actions
+    = button_tag "Speichern", class: "button dense", data: { submit: "new_contact" } 
+
+
+= render "contacts/form"

@@ -1,3 +1,9 @@
+// PROGRESS BAR
+html.turbolinks-progress-bar::before {
+  background-color: $breadcrumb-background-color !important;
+  height: 2px !important;
+}
+
 .full-width {
   display: table;
   width: 100%;

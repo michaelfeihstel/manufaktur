@@ -11,25 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303134100) do
+ActiveRecord::Schema.define(version: 20150305133350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string  "description",      limit: 255
-    t.integer "addressable_id"
-    t.string  "name",             limit: 255
-    t.string  "street",           limit: 255
-    t.string  "house_number",     limit: 255
-    t.string  "zip",              limit: 255
-    t.string  "city",             limit: 255
-    t.string  "country",          limit: 255
+    t.string  "description",  limit: 255
+    t.integer "contact_id"
+    t.string  "name",         limit: 255
+    t.string  "street",       limit: 255
+    t.string  "house_number", limit: 255
+    t.string  "zip",          limit: 255
+    t.string  "city",         limit: 255
+    t.string  "country",      limit: 255
     t.integer "fmid"
-    t.string  "addressable_type"
   end
 
-  add_index "addresses", ["addressable_id"], name: "index_addresses_on_addressable_id", using: :btree
+  add_index "addresses", ["contact_id"], name: "index_addresses_on_contact_id", using: :btree
 
   create_table "admin_notes", force: :cascade do |t|
     t.string   "resource_id",     limit: 255, null: false
@@ -45,25 +44,33 @@ ActiveRecord::Schema.define(version: 20150303134100) do
   add_index "admin_notes", ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id", using: :btree
 
   create_table "contact_informations", force: :cascade do |t|
-    t.integer  "contactable_id"
+    t.integer  "contact_id"
+    t.string   "name",       limit: 255
+    t.string   "value",      limit: 255
+    t.string   "info_type",  limit: 255
+    t.boolean  "default",                default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_informations", ["contact_id"], name: "index_contact_informations_on_contact_id", using: :btree
+  add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
+
+  create_table "contacts", force: :cascade do |t|
     t.string   "name",             limit: 255
-    t.string   "value",            limit: 255
-    t.string   "info_type",        limit: 255
-    t.boolean  "default",                      default: false
+    t.integer  "fmid"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "contactable_type"
   end
 
-  add_index "contact_informations", ["contactable_id"], name: "index_contact_informations_on_contactable_id", using: :btree
-  add_index "contact_informations", ["contactable_type"], name: "index_contact_informations_on_contactable_type", using: :btree
-  add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
+  add_index "contacts", ["contactable_type"], name: "index_contacts_on_contactable_type", using: :btree
 
   create_table "employees", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.boolean  "active",     default: true
+    t.integer  "contact_id",                null: false
   end
 
   create_table "letters", force: :cascade do |t|
@@ -163,7 +170,7 @@ ActiveRecord::Schema.define(version: 20150303134100) do
     t.date     "delivered_on"
     t.datetime "invoiced_at"
     t.datetime "completed_at"
-    t.integer  "customer_id"
+    t.integer  "contact_id"
     t.integer  "billing_address_id"
     t.integer  "delivery_address_id"
     t.string   "billing_name",          limit: 255
@@ -192,11 +199,9 @@ ActiveRecord::Schema.define(version: 20150303134100) do
     t.boolean  "is_scheduled_delivery",                                     default: false
     t.date     "cashback_until"
     t.decimal  "cashback_percent",                  precision: 2, scale: 2, default: 0.03
-    t.string   "customer_type"
   end
 
-  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
-  add_index "orders", ["customer_type"], name: "index_orders_on_customer_type", using: :btree
+  add_index "orders", ["contact_id"], name: "index_orders_on_contact_id", using: :btree
 
   create_table "product_images", force: :cascade do |t|
     t.integer  "product_id"
@@ -225,13 +230,6 @@ ActiveRecord::Schema.define(version: 20150303134100) do
     t.string   "primary_color",    limit: 255
     t.string   "secondary_color",  limit: 255
     t.string   "text_color",       limit: 255,                         default: "#fff"
-  end
-
-  create_table "retailers", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "fmid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "series", force: :cascade do |t|
@@ -274,6 +272,49 @@ ActiveRecord::Schema.define(version: 20150303134100) do
   end
 
   add_index "series", ["product_id"], name: "index_series_on_product_id", using: :btree
+
+  create_table "series_step_entries", force: :cascade do |t|
+    t.integer  "series_step_id"
+    t.integer  "employee_id"
+    t.date     "date"
+    t.boolean  "b_stock",        default: false
+    t.integer  "g1"
+    t.integer  "g1h"
+    t.integer  "g2"
+    t.integer  "g2h"
+    t.integer  "g3"
+    t.integer  "g3h"
+    t.integer  "g4"
+    t.integer  "g4h"
+    t.integer  "g5"
+    t.integer  "g5h"
+    t.integer  "g6"
+    t.integer  "g6h"
+    t.integer  "g7"
+    t.integer  "g7h"
+    t.integer  "g8"
+    t.integer  "g8h"
+    t.integer  "g9"
+    t.integer  "g9h"
+    t.integer  "g10"
+    t.integer  "g10h"
+    t.integer  "g11"
+    t.integer  "g11h"
+    t.integer  "g12"
+    t.integer  "g12h"
+    t.integer  "g13"
+    t.integer  "g13h"
+    t.integer  "g14"
+    t.integer  "g14h"
+    t.integer  "g15"
+    t.integer  "g16"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "series_step_entries", ["date"], name: "index_series_step_entries_on_date", using: :btree
+  add_index "series_step_entries", ["employee_id"], name: "index_series_step_entries_on_employee_id", using: :btree
+  add_index "series_step_entries", ["series_step_id"], name: "index_series_step_entries_on_series_step_id", using: :btree
 
   create_table "series_steps", force: :cascade do |t|
     t.integer  "series_id"
@@ -365,6 +406,8 @@ ActiveRecord::Schema.define(version: 20150303134100) do
   add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"
   add_foreign_key "series", "products"
+  add_foreign_key "series_step_entries", "employees"
+  add_foreign_key "series_step_entries", "series_steps"
   add_foreign_key "series_steps", "series"
   add_foreign_key "series_steps", "work_steps"
 end

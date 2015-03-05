@@ -21,7 +21,7 @@ Manufaktur::Application.routes.draw do
   # resources
   resources :addresses
   resources :brands
-  resources :retailers, concerns: [:paginatable, :searchable] do
+  resources :contacts, concerns: [:paginatable, :searchable] do
     resources :orders
   end
   resources :letters, concerns: [:paginatable, :searchable]
@@ -43,7 +43,11 @@ Manufaktur::Application.routes.draw do
       get "filter/:name", action: "filter_by_model", as: "filter"
     end
   end
-  resources :series
+  resources :series do
+    member do
+      resources :series_steps
+    end
+  end
   resources :sizes
   resources :variations
   resources :variation_sets
@@ -69,7 +73,7 @@ Manufaktur::Application.routes.draw do
     # routes
     resources :addresses, concerns: [:searchable]
     resources :employees
-    resources :retailers
+    resources :contacts
     resources :contact_information
     resources :letters
     resources :line_items
@@ -82,6 +86,7 @@ Manufaktur::Application.routes.draw do
     resources :products, concerns: [:searchable]
     resources :series
     resources :series_steps
+    resources :series_step_entries
     resources :sizes
   end
 

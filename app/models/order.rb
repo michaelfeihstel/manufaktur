@@ -6,7 +6,7 @@
 #  delivered_on          :date
 #  invoiced_at           :datetime
 #  completed_at          :datetime
-#  customer_id           :integer
+#  contact_id            :integer
 #  billing_address_id    :integer
 #  delivery_address_id   :integer
 #  billing_name          :string(255)
@@ -35,13 +35,12 @@
 #  is_scheduled_delivery :boolean          default("false")
 #  cashback_until        :date
 #  cashback_percent      :decimal(2, 2)    default("0.03")
-#  customer_type         :string
 #
 
 class Order < ActiveRecord::Base
   
   # RELATIONS
-  belongs_to :customer, polymorphic: true
+  belongs_to :contact
   belongs_to :billing_address, foreign_key: "billing_address_id", class_name: "Address"
   belongs_to :delivery_address, foreign_key: "delivery_address_id", class_name: "Address"
   has_many :line_items, :dependent => :destroy

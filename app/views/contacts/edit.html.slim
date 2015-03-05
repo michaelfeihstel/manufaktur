@@ -1,0 +1,16 @@
+= render "contacts/shared/search"
+= render "contacts/edit/breadcrumbs"
+= render "contacts/edit/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @contact.name
+  .header-actions
+    = button_tag "Speichern", data: { submit: "edit_contact" }
+    = link_to "Abbrechen", :back, class: "button light"
+
+= render "contacts/form"
+
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("check", text: "Speichern")

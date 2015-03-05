@@ -1,0 +1,7 @@
+- content_for :breadcrumbs
+  ul.breadcrumbs
+    li = link_to "Home", :root
+    li = link_to "Produktion", "#"
+    li = link_to "Serien", series_index_path
+    li = link_to @series_step.name, @series_step.series
+    li.light = @series_step.work_step.name

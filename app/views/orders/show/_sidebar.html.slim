@@ -16,6 +16,6 @@
 
   label Links
   ul.side-nav
-    - if @order.customer
-      li = link_to @order.customer.name, @order.customer, class: "truncated"
+    - if @order.contact
+      li = link_to @order.contact.name, @order.contact, class: "truncated"
     li = link_to "Rückstände", "#"

@@ -6,7 +6,7 @@
 #  delivered_on          :date
 #  invoiced_at           :datetime
 #  completed_at          :datetime
-#  customer_id           :integer
+#  contact_id            :integer
 #  billing_address_id    :integer
 #  delivery_address_id   :integer
 #  billing_name          :string(255)
@@ -35,14 +35,13 @@
 #  is_scheduled_delivery :boolean          default("false")
 #  cashback_until        :date
 #  cashback_percent      :decimal(2, 2)    default("0.03")
-#  customer_type         :string
 #
 
 default_order:
   delivered_on: <%= 2.days.from_now %>
   invoiced_at: <%= Time.now %>
   completed_at: <%= 1.day.from_now %>
-  customer: default_retailer
+  contact: default_contact
   billing_address: default_address
   delivery_address: default_address
   is_webshop: false

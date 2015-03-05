@@ -10,4 +10,4 @@ tr.order-item.link href=order_path(order) data-id= order.id
       span.product-label style= (product_color(li.product) if li.product)
         = li.quantity_label
       '
-  td.cell-right= number_to_currency(order.try(:line_items).to_a.sum(&:price_total))
+  td.text-right= number_to_currency(order.try(:line_items).to_a.sum(&:price_total))

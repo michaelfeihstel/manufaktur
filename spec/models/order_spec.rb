@@ -6,7 +6,7 @@
 #  delivered_on          :date
 #  invoiced_at           :datetime
 #  completed_at          :datetime
-#  customer_id           :integer
+#  contact_id            :integer
 #  billing_address_id    :integer
 #  delivery_address_id   :integer
 #  billing_name          :string(255)
@@ -35,7 +35,6 @@
 #  is_scheduled_delivery :boolean          default("false")
 #  cashback_until        :date
 #  cashback_percent      :decimal(2, 2)    default("0.03")
-#  customer_type         :string
 #
 
 require 'spec_helper'

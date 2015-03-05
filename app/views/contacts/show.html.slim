@@ -1,0 +1,29 @@
+= render "contacts/shared/search"
+= render "contacts/show/breadcrumbs"
+= render "contacts/show/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @contact.name
+  .header-actions
+    = link_to "Bearbeiten", edit_contact_path, class: "button dense inverted"
+
+ul.tabs data-tab=""
+  li.tab-title.active = link_to "Stammdaten", "#tab_general"
+  li.tab-title = link_to "Aufträge", "#tab_orders"
+  li.tab-title = link_to "Bemerkungen", "#tab_notes"
+  li.tab-title = link_to "Briefe", "#tab_letters"
+  - if @contact.employee
+    li.tab-title = link_to "Mitarbeiter", "#tab-employee"
+
+.tabs-content
+  = render "/contacts/show/tab_general"
+  = render "/contacts/show/tab_orders"
+  = render "/contacts/show/tab_letters"
+  - if @contact.employee
+    = render "/contacts/show/tab_employee"
+
+- content_for :footer
+  ul.inline-list
+    li = link_to icon("pencil", text: "Bearbeiten"), edit_contact_path
+    li = link_to icon("bin", text: "Löschen"), @contact, data: { confirm: "Wirklich löschen?" }, method: :delete

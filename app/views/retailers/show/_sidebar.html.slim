@@ -1,9 +1,0 @@
-- content_for :sidebar
-  label.list-header Aufgaben
-  ul.side-nav
-    li = link_to icon("pencil", text: "Bearbeiten"), edit_retailer_path(@retailer)
-    li = link_to icon("bin", text: "Löschen"), @retailer, method: :delete, data: { confirm: "#{@retailer.name} wirklich löschen?" }
-
-  label.list-header Links
-  ul.side-nav
-    li = link_to "Aufträge", orders_path

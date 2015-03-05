@@ -1,0 +1,38 @@
+.tab.active#tab_general
+	section
+		h5.section-header Kontakt
+		.fields
+			= f.label :name
+			= f.text_field :name
+
+	section
+		h5.section-header Adressen
+		= f.fields_for :addresses
+		= f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "button tiny"
+
+	section
+		h5.section-header Kontaktdaten
+		label eMail
+		table.compact
+			thead
+				tr
+					th.first Bezeichnung
+					th eMail
+					th.last 
+			tbody id="emails"
+				= f.fields_for :emails, wrapper: false do |email_form|
+					= render "email_fields", f: email_form
+		= f.link_to_add icon("add", text: "eMail hinzufügen"), :emails, class: "button tiny", data:  { target: "#emails" }
+
+	section
+		label Telefon & Fax
+		table.compact
+			thead
+				tr
+					th Bezeichnung
+					th Nummer
+					th.text-right Löschen 
+			tbody id="phones"
+				= f.fields_for :phones, wrapper: false do |phone_form|
+					= render "phone_fields", f: phone_form
+		= f.link_to_add icon("add", text: "Nummer hinzufügen"), :phones, class: "button tiny", data:  { target: "#phones" }

@@ -1,0 +1,14 @@
+.tab#tab_letters
+  table
+    thead
+      tr
+        th width=100 Datum
+        th Betreff
+        th width=100
+    tbody
+      - @contact.letters.each do |letter|
+        tr.link href=letter_path(letter)
+          td = l letter.created_at, format: :date_only
+          td = letter.subject
+          td.text-right
+            = icon("bracket-right")
