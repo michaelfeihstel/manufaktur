@@ -7,7 +7,7 @@
       span = @series_step.name
     h4 = @series_step.work_step.name
   .header-actions
-    = link_to "Bearbeiten", edit_series_step_path(@series_step), class: "button"
+    = link_to "Bearbeiten", edit_series_series_step_path(@series_step.series, @series_step), class: "button"
 
 section
   h5.section-header Einträge

@@ -9,7 +9,7 @@ class SeriesController < ApplicationController
   end
 
   def show
-    @series = Series.find(params[:id])
+    @series = Series.includes(series_steps: [:work_step]).find(params[:id])
     authorize @series
   end
 

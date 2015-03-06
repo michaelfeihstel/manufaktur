@@ -44,9 +44,7 @@ Manufaktur::Application.routes.draw do
     end
   end
   resources :series do
-    member do
-      resources :series_steps
-    end
+    resources :series_steps
   end
   resources :sizes
   resources :variations

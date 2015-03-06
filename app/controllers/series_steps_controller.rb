@@ -5,7 +5,7 @@ class SeriesStepsController < ApplicationController
   end
 
   def show
-    @series_step = SeriesStep.includes(:series_step_entries, :series, :work_step).find(params[:id])
+    @series_step = SeriesStep.includes({series_step_entries: [employee: [:contact]]}, :series, :work_step).find(params[:id])
     authorize @series_step
   end
 end
