@@ -4,8 +4,8 @@
     li = link_to icon("pencil", text: "Bearbeiten"), edit_letter_path(@letter)
     li = link_to icon("print", text: "Drucken"), "#"
     li = link_to icon("bin", text: "Löschen"), @letter, method: :delete, data: { confirm: "Willst Du diesen Brief wirklich löschen?" }
-  - if @letter.address.addressable
+  - if @letter.address.contact
     label Links
     ul.side-nav
       li = link_to icon("arrow-left", text: "Zurück"), :back
-      li = link_to icon("user", text: @letter.address.addressable.name), polymorphic_url(@letter.address.addressable), class: "truncated"
+      li = link_to icon("user", text: @letter.address.contact.name), polymorphic_url(@letter.address.contact), class: "truncated"

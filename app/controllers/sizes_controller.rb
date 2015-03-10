@@ -1,4 +1,5 @@
 class SizesController < ApplicationController
+	after_action :verify_authorized
 
 	def index
 		@sizes = Size.all

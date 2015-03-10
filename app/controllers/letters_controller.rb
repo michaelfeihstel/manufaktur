@@ -1,8 +1,10 @@
 class LettersController < ApplicationController
   before_action :initialize_search
+  after_action :verify_authorized
 
   def index
     @letters = @search.result(distinct: true).order_by_date_desc.page(params[:page]).per(50)
+    authorize @letters
   end
 
   def search
@@ -12,16 +14,20 @@ class LettersController < ApplicationController
 
   def show
     @letter = Letter.find(params[:id])
+    authorize @letter
   end
 
   def new
     @letter = Letter.new
+    authorize @letter
   end
 
   def create
     @letter = Letter.create(letter_params)
+    authorize @letter
+
     if @letter.save
-      redirect_to letter_path(@letter)
+      redirect_to @letter
     else
       render "new"
     end
@@ -29,12 +35,15 @@ class LettersController < ApplicationController
 
   def edit
     @letter = Letter.find(params[:id])
+    authorize @letter
   end
 
   def update
     @letter = Letter.find(params[:id])
+    authorize @letter
+
     if @letter.update_attributes(letter_params)
-      redirect_to letter_path(@letter), notice: "Brief aktualisiert"
+      redirect_to @letter, notice: "Brief aktualisiert"
     else
       render "edit"
     end
@@ -42,6 +51,8 @@ class LettersController < ApplicationController
 
   def destroy
     @letter = Letter.find(params[:id])
+    authorize @letter
+    
     @letter.destroy
     redirect_to letters_path
   end

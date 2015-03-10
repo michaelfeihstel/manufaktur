@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  after_action :verify_authorized
   
   def get_quantity
     @line_item = LineItem.find(params[:id])

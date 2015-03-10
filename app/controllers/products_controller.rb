@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :initialize_search
+  after_action :verify_authorized
 
   def index
     @products = @search.result(distinct: true).includes(:product_images).order(:name)
