@@ -19,6 +19,7 @@
 class Letter < ActiveRecord::Base
 	# associations
   belongs_to :address
+  has_one :contact, through: :address
 
   # scopes
   scope :order_by_date_desc, -> { order(created_at: :desc) }

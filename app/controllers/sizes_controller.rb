@@ -3,6 +3,7 @@ class SizesController < ApplicationController
 
 	def index
 		@sizes = Size.all
+		authorize @sizes
 
 		respond_to do |format|
   		format.html # index.html.erb
@@ -12,10 +13,12 @@ class SizesController < ApplicationController
 
 	def new
 		@size = Size.new
+		authorize @size
 	end
 
 	def create
 		@size = Size.new(size_params)
+		authorize @size
 
 		if @size.save
 			redirect_to sizes_path
