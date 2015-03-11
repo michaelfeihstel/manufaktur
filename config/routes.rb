@@ -71,6 +71,7 @@ Manufaktur::Application.routes.draw do
     # routes
     resources :addresses, concerns: [:searchable]
     resources :employees
+    resources :retailers
     resources :contacts
     resources :contact_information
     resources :letters

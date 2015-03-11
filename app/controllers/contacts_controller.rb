@@ -21,7 +21,6 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     authorize @contact
-    @contact.build_employee
     @contact.addresses.build
     @contact.emails.build
   end
@@ -42,7 +41,6 @@ class ContactsController < ApplicationController
   def edit
     @contact = Contact.find(params[:id])
     authorize @contact
-    @contact.build_employee
   end
 
 

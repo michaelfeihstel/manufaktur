@@ -4,6 +4,8 @@ class LettersControllerTest < ActionController::TestCase
 
   setup do
     @letter = letters(:default_letter)
+    @user = users(:default_user)
+    sign_in @user
   end
 
   test "should get index" do

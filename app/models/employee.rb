@@ -6,12 +6,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  active     :boolean          default("true")
-#  contact_id :integer          not null
 #
 
 class Employee < ActiveRecord::Base
   # associations
-  belongs_to :contact
+  has_one :contact, as: :contact_role
   has_many :addresses, through: :contact
   has_many :contact_information, through: :contact
   has_many :orders, through: :customer

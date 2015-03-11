@@ -28,6 +28,8 @@ module Api
 		def contact_params
 			params.require(:contact).permit(
 				:id,
+				:contact_role_id,
+				:contact_role_type,
 				:created_at,
 				:updated_at,
 				:name,
@@ -45,7 +47,6 @@ module Api
 				],
 				employee_attributes: [
 					:id,
-					:contact_id,
 					:active
 				]
 			)

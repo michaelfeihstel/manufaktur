@@ -26,7 +26,7 @@ class Api::EmployeesControllerTest < ActionController::TestCase
   test "should create new employee" do
     assert_difference "Employee.count" do
       post :create, format: :json, employee: {
-        contact_id: @employee.contact_id
+        active: true
       }
     end
     assert_response :success

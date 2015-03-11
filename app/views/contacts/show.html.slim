@@ -13,14 +13,14 @@ ul.tabs data-tab=""
   li.tab-title = link_to "Aufträge", "#tab_orders"
   li.tab-title = link_to "Bemerkungen", "#tab_notes"
   li.tab-title = link_to "Briefe", "#tab_letters"
-  - if @contact.employee
+  - if @contact.employee?
     li.tab-title = link_to "Mitarbeiter", "#tab-employee"
 
 .tabs-content
   = render "/contacts/show/tab_general"
   = render "/contacts/show/tab_orders"
   = render "/contacts/show/tab_letters"
-  - if @contact.employee
+  - if @contact.employee?
     = render "/contacts/show/tab_employee"
 
 - content_for :footer

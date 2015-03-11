@@ -4,6 +4,9 @@ class ProductsControllerTest < ActionController::TestCase
   
   setup do
     @product = products(:default_product)
+    @user = users(:default_user)
+    
+    sign_in @user
   end
 
   test "should get index" do
