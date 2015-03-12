@@ -573,3 +573,31 @@ span.icon__text {
   @include truncated;
   display: inline;
 }
+
+/*-------------------*\
+        COMMENTS
+\*-------------------*/
+
+.comment {
+}
+
+.comment--important {
+  
+}
+
+.comment__meta {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.comment__text {
+  margin-top: 0px;
+}
+
+.comment__action {
+  visibility: hidden;
+}
+
+.comment:hover .comment__action {
+  visibility: visible;
+}

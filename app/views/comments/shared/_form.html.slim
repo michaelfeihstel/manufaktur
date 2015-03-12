@@ -1,0 +1,7 @@
+= form_for [commentable, @comment], remote: true do |f|
+  .fields
+    = f.text_area :text
+    = f.check_box :important
+    = f.label :important, "Hervorheben", class: "label--inline"
+
+  = f.submit "Speichern", class: "button tiny"

@@ -1,0 +1,9 @@
+.comment data-comment-id=comment.id
+  .comment__meta
+    span.comment__author = comment.user.email
+    br
+    span.comment__time = l comment.created_at, format: :short
+  p.comment__text 
+    = comment.text
+    br
+    = link_to "Entfernen", [comment.commentable, comment], method: :delete, remote: true, class: "comment__action link small"

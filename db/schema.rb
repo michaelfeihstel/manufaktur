@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311092929) do
+ActiveRecord::Schema.define(version: 20150311131541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 20150311092929) do
 
   add_index "admin_notes", ["admin_user_type", "admin_user_id"], name: "index_admin_notes_on_admin_user_type_and_admin_user_id", using: :btree
   add_index "admin_notes", ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "text"
+    t.integer  "commentable_id",                   null: false
+    t.string   "commentable_type",                 null: false
+    t.boolean  "important",        default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "contact_informations", force: :cascade do |t|
     t.integer  "contact_id"
@@ -409,6 +422,7 @@ ActiveRecord::Schema.define(version: 20150311092929) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "material_consumptions", "materials"
   add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"

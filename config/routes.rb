@@ -11,9 +11,17 @@ Manufaktur::Application.routes.draw do
     get '(page/:page)', action: :index, on: :collection, :as => ''
     get '(search/page/:page)', action: :search, on: :collection, :as => 'search_page'
   end
+  
   concern :searchable do
     match 'search', action: :search, on: :collection, via: [:get, :post], as: :search
   end
+
+  concern :commentable do
+    resources :comments do
+      get :cancel, controller: "comments", action: "cancel", as: "cancel"
+    end
+  end
+
 
   # orders
   get "orders/marked_orders" => "orders#get_marked_orders", :as => "marked_orders"
@@ -21,9 +29,7 @@ Manufaktur::Application.routes.draw do
   # resources
   resources :addresses
   resources :brands
-  resources :contacts, concerns: [:paginatable, :searchable] do
-    resources :orders
-  end
+  resources :contacts, concerns: [:paginatable, :searchable, :commentable]
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
   resources :materials

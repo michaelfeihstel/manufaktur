@@ -8,7 +8,7 @@
         .alert-box.alert data-alert=""
           li = msg
 
-  .fields
+  .panel.fields
     = f.fields_for :employee do |employee_fields|
       = employee_fields.check_box :active 
       = employee_fields.label :active, "Aktiv?", class: "label--inline"

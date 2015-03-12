@@ -7,3 +7,9 @@
   label.list-header Links
   ul.side-nav
     li = link_to "Aufträge", orders_path
+
+  hr
+  sectiom
+    label Kommentare
+    = render "comments/index", comments: @contact.comments
+    = render "comments/add_comment_link", commentable: @contact
