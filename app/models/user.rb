@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime
 #  updated_at             :datetime
+#  first_name             :string
+#  last_name              :string
 #
 
 class User < ActiveRecord::Base
@@ -25,4 +27,9 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :comments, dependent: :destroy
+
+  # methods
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

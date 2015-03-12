@@ -49,6 +49,7 @@ end
 group :development do
   gem 'awesome_print'
   gem 'web-console', '~> 2.0'
+  gem 'meta_request'
 end
 
 # API

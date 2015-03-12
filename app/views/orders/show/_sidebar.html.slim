@@ -19,3 +19,9 @@
     - if @order.contact
       li = link_to @order.contact.name, @order.contact, class: "truncated"
     li = link_to "Rückstände", "#"
+
+  hr
+  section
+    label Kommentare
+    = render "comments/index", comments: @order.comments
+    = render "comments/add_comment_link", commentable: @order

@@ -1,7 +1,7 @@
 .comment data-comment-id=comment.id
   .comment__meta
-    span.comment__author = comment.user.email
-    br
+    span.comment__author = comment.user.first_name
+    span , 
     span.comment__time = l comment.created_at, format: :short
   p.comment__text 
     = comment.text

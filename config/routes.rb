@@ -33,7 +33,7 @@ Manufaktur::Application.routes.draw do
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
   resources :materials
-  resources :orders, concerns: [:paginatable, :searchable] do
+  resources :orders, concerns: [:paginatable, :searchable, :commentable] do
     member do
       post :update_addresses
       put :mark
