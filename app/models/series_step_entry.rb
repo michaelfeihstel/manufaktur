@@ -51,6 +51,10 @@ class SeriesStepEntry < ActiveRecord::Base
 
 
   # methods
+  def total
+    sizes_as_array.compact.sum
+  end
+
   def sizes_as_array
     [
       g1,

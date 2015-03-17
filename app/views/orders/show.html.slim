@@ -45,6 +45,9 @@ section
       .fields
         label Erstellt am
         = l @order.created_at, format: :date_only 
+      .fields
+        label Abgeschlossen
+        = @order_presenter.completed_status 
 .row
   .small-12.columns
     ul.tabs data-tab=""

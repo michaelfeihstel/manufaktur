@@ -1,19 +1,23 @@
 .tab#tab_orders
-  table
-    thead
-      tr.header
-        th width="100" Auftrag
-        th width="120" Erstellt
-        th width="120" Abgeschlossen
-        th Artikel
-        th width="80" Status
-        th.text-right width="150" Betrag
+  - if @contact.orders.any?
+    table
+      thead
+        tr.header
+          th width="100" Auftrag
+          th width="120" Erstellt
+          th width="120" Abgeschlossen
+          th Artikel
+          th width="80" Status
+          th.text-right width="150" Betrag
 
-    tbody
-     - @contact.orders.includes(:line_items, :products).order(created_at: :desc).each do |order|
-       = render partial: "contacts/show/item_order", locals: { order: order }
+      tbody
+        = render "contacts/show/orders", orders: @contact.orders.includes(:line_items, :products)
 
-    tfoot
-      tr
-        td.text-right colspan=6
-          h4.bold = number_to_currency(@contact.line_items.to_a.sum(&:price_total))
+      tfoot
+        tr
+          td.text-right colspan=6
+            h4.bold = number_to_currency(@contact.line_items.to_a.sum(&:price_total))
+  - else
+    p.text-center 
+      span.light = "#{@contact.name} hat noch keine Aufträge. "
+      span = link_to "Auftrag erstellen...", new_order_path, class: "link"

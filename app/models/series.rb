@@ -44,6 +44,7 @@
 class Series < ActiveRecord::Base
   # associations
   belongs_to :product
+  has_many :comments, as: :commentable
   has_many :series_steps, dependent: :destroy
   has_many :series_step_entries, through: :series_steps
 

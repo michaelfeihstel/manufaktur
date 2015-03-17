@@ -1,4 +1,5 @@
 - content_for :sidebar
   section
-    label Notizen
-    p = @series.comment
+    label Kommentare
+    = render "comments/index", comments: @series.comments
+    = render "comments/add_comment_link", commentable: @series

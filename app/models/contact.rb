@@ -30,7 +30,12 @@ class Contact < ActiveRecord::Base
   accepts_nested_attributes_for :emails, allow_destroy: true
   accepts_nested_attributes_for :phones, allow_destroy: true
 
+  # validations
   validates :name, presence: true
+
+  # scopes
+  scope :employees, -> { where(contact_role_type: "Employee") }
+  scope :retailers, -> { where(contact_role_type: "Retailer") }
 
   # methods
   def billing_address
@@ -39,6 +44,10 @@ class Contact < ActiveRecord::Base
 
   def employee?
     contact_role_type == "Employee"
+  end
+
+  def retailer?
+    contact_role_type == "Retailer"
   end
 
 end
