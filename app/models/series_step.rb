@@ -13,9 +13,9 @@
 class SeriesStep < ActiveRecord::Base
   belongs_to :series
   belongs_to :work_step
-  has_many :series_step_entries, dependent: :destroy
+  has_many :entries, dependent: :destroy, class_name: "SeriesStepEntry"
 
-  accepts_nested_attributes_for :series_step_entries, allow_destroy: true
+  accepts_nested_attributes_for :entries, allow_destroy: true
 
   delegate :product, to: :series
   delegate :name, to: :series

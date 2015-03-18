@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.includes(:line_items, :contact, {:products => :size}).find(params[:id])
     authorize @order
+    @order_presenter = OrdersPresenter.new(@order)
   end
 
 

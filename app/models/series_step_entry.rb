@@ -46,6 +46,9 @@ class SeriesStepEntry < ActiveRecord::Base
   belongs_to :series_step
   belongs_to :employee
 
+  # scopes
+  scope :sized, -> (size) { where("? > 0", size) }
+
 
 
 

@@ -27,6 +27,15 @@ td {
   vertical-align: middle;
 }
 
+table.table--bordered th,
+table.table--bordered td {
+  border-right: 1px solid $secondary-color;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
 td:first-child,
 th:first-child {
   padding-left: 0;
@@ -56,10 +65,9 @@ tr.link:hover a {
 tr.link:hover a:hover {
 }
 
-tfoot > tr {
+tfoot {
   padding: 2rem 0;
   border-top: 3px solid $secondary-color;
-  border-bottom: none;
 }
 
 // Comapct table
@@ -128,7 +136,7 @@ table.compact th:first-child {
 
 
 // RESPONSIVE TABLES
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1023px) {
   
   table.responsive { margin-bottom: 0; }
   
@@ -141,6 +149,7 @@ table.compact th:first-child {
     overflow: hidden;
     overflow-x: scroll;
     box-shadow: 1px 0px 2px rgba(0,0,0,0.07);
+    border-right: 1px solid $hairline-color;
   }
 
   .pinned table {

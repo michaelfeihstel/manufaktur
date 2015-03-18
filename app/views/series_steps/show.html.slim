@@ -11,7 +11,7 @@
 
 section
   h5.section-header Einträge
-  table.responsive
+  table.table--bordered.responsive
     thead
       tr
         th Datum
@@ -20,5 +20,74 @@ section
           th.text-center.small = size
         th.text-right Gesamt
     tbody
-      - @series_step.series_step_entries.order(:date).each do |entry|
+      - @series_step.entries.order(:date).each do |entry|
         = render "series_steps/show/series_step_entry", entry: entry
+    tfoot
+      tr
+        td Geplant
+        td
+        td.text-center = @series_step.series.g1
+        td.text-center = @series_step.series.g1h
+        td.text-center = @series_step.series.g2
+        td.text-center = @series_step.series.g2h
+        td.text-center = @series_step.series.g3
+        td.text-center = @series_step.series.g3h
+        td.text-center = @series_step.series.g4
+        td.text-center = @series_step.series.g4h
+        td.text-center = @series_step.series.g5
+        td.text-center = @series_step.series.g5h
+        td.text-center = @series_step.series.g6
+        td.text-center = @series_step.series.g6h
+        td.text-center = @series_step.series.g7
+        td.text-center = @series_step.series.g7h
+        td.text-center = @series_step.series.g8
+        td.text-center = @series_step.series.g8h
+        td.text-center = @series_step.series.g9
+        td.text-center = @series_step.series.g9h
+        td.text-center = @series_step.series.g10
+        td.text-center = @series_step.series.g10h
+        td.text-center = @series_step.series.g11
+        td.text-center = @series_step.series.g11h
+        td.text-center = @series_step.series.g12
+        td.text-center = @series_step.series.g12h
+        td.text-center = @series_step.series.g13
+        td.text-center = @series_step.series.g13h
+        td.text-center = @series_step.series.g14
+        td.text-center = @series_step.series.g14h
+        td.text-center = @series_step.series.g15
+        td.text-center = @series_step.series.g16
+        td.text-right = @series_step.series.total_quantity
+      tr
+        td Fertiggestellt
+        td
+        td.text-center = @series_step.entries.sum(:g1)
+        td.text-center = @series_step.entries.sum(:g1h)
+        td.text-center = @series_step.entries.sum(:g2)
+        td.text-center = @series_step.entries.sum(:g2h)
+        td.text-center = @series_step.entries.sum(:g3)
+        td.text-center = @series_step.entries.sum(:g3h)
+        td.text-center = @series_step.entries.sum(:g4)
+        td.text-center = @series_step.entries.sum(:g4h)
+        td.text-center = @series_step.entries.sum(:g5)
+        td.text-center = @series_step.entries.sum(:g5h)
+        td.text-center = @series_step.entries.sum(:g6)
+        td.text-center = @series_step.entries.sum(:g6h)
+        td.text-center = @series_step.entries.sum(:g7)
+        td.text-center = @series_step.entries.sum(:g7h)
+        td.text-center = @series_step.entries.sum(:g8)
+        td.text-center = @series_step.entries.sum(:g8h)
+        td.text-center = @series_step.entries.sum(:g9)
+        td.text-center = @series_step.entries.sum(:g9h)
+        td.text-center = @series_step.entries.sum(:g10)
+        td.text-center = @series_step.entries.sum(:g10h)
+        td.text-center = @series_step.entries.sum(:g11)
+        td.text-center = @series_step.entries.sum(:g11h)
+        td.text-center = @series_step.entries.sum(:g12)
+        td.text-center = @series_step.entries.sum(:g12h)
+        td.text-center = @series_step.entries.sum(:g13)
+        td.text-center = @series_step.entries.sum(:g13h)
+        td.text-center = @series_step.entries.sum(:g14)
+        td.text-center = @series_step.entries.sum(:g14h)
+        td.text-center = @series_step.entries.sum(:g15)
+        td.text-center = @series_step.entries.sum(:g16)
+        td.text-right = @series_step.entries.to_a.sum(&:total)

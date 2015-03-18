@@ -49,7 +49,7 @@ Manufaktur::Application.routes.draw do
       get "filter/:name", action: "filter_by_model", as: "filter"
     end
   end
-  resources :series do
+  resources :series, concerns: [:commentable] do
     resources :series_steps
   end
   resources :sizes
