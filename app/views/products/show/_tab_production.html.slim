@@ -1,5 +1,5 @@
 .tab#tab-production
-  - @product.series.each do |series|
+  - @product.series.newest.each do |series|
     section
       .panel
         .panel__bar.panel__bar--top
@@ -14,6 +14,9 @@
                 = quantity
         .panel__bar.panel__bar--bottom
           .flex__list.flex__list--right
+            .flex__list__item
+              label Termin
+              = l series.finished_on, format: :default
             .flex__list__item
               label Gesamt
               = series.total_quantity

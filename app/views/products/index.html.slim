@@ -1,33 +1,33 @@
-= render "products/common/search"
+= render "products/shared/search"
 = render "products/index/breadcrumbs"
 = render "products/index/sidebar"
 
 - content_for :header
-	.header-title
-		h1 Artikel
-	.header-actions
-		= link_to "Neuer Artikel", new_product_path, class: "button"
+  .header-title
+    h1 Artikel
+  .header-actions
+    = link_to "Neuer Artikel", new_product_path, class: "button"
 
 table
-	thead
-		tr
-			th.first width=100 Bild
-			th width=150 Artikelnummer
-			th Bezeichnung
-			th Farbe
-			th.last.text-right Preis
-	tbody
-		- @products.each do |product|
-			tr.link href=product_path(product)
-				td = image_tag product.default_image
-				td = product.sku
-				td = product.name
-				td
-					span.label class="product-label" style=product_color(product)
-						= product.color_text
-				td.text-right = number_to_currency(product.price, unit:"€ ")
-	tfoot
-		tr
-			td colspan=5
-				span = "#{@products.count} "
-				span.light Artikel gefunden
+  thead
+    tr
+      th width=100 Bild
+      th width=150 Artikelnummer
+      th Bezeichnung
+      th Farbe
+      th.text-right Preis
+  tbody
+    - @products.each do |product|
+      tr.link href=product_path(product)
+        td = image_tag product.default_image
+        td = product.sku
+        td = product.name
+        td
+          span.label class="product-label" style=product_color(product)
+            = product.color_text
+        td.text-right = number_to_currency(product.price, unit:"€ ")
+  tfoot
+    tr
+      td colspan=5
+        span = "#{@products.count} "
+        span.light Artikel gefunden

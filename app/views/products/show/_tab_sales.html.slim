@@ -1,44 +1,45 @@
 .tab#tab-sales
-	label Verkauf
-	section
-		.panel
-			.panel__bar.panel__bar--top
-				h5.panel__title Verkäufe je Größe
-			.panel__body
-			.panel__bar.panel__bar--bottom
-				.flex__list.flex__list--right
-					.flex__list__item
-						label Gesamt
-						span = @product.line_items.to_a.sum(&:quantity)
-					.flex__list__item
-						label Umsatz
-						span = number_to_currency(@product.line_items.to_a.sum(&:price_total), unit: "€")
-	section
-		table
-			thead
-				tr
-					th width=70 Status
-					th width=70 Auftrag
-					th Erstellt
-					th Auftraggeber
-					th.text-right Anzahl
-			tbody
-				- @product.line_items.order_by_created_desc.each do |line_item|
-					tr.link href=order_path(line_item.order)
-						td
-							span data-tooltip="" title=line_item.order.completed_status_label
-								= completed_icon(line_item.order)
-							span data-tooltip="" title=line_item.order.paid_label
-								= paid_icon(line_item.order)
-						td = line_item.order_id
-						td = l line_item.order.created_at, format: :date_only
-						td = line_item.order.billing_name
-						td.text-right = line_item.quantity
-			tfoot
-				tr
-					td
-					td
-					td
-					td
-					td.bold.text-right = @product.line_items.to_a.sum(&:quantity)
+  label Verkauf
+  section
+    .panel
+      .panel__bar.panel__bar--top
+        h5.panel__title Verkäufe je Größe
+      .panel__body
+        = render "products/shared/chart_bar_sales"
+      .panel__bar.panel__bar--bottom
+        .flex__list.flex__list--right
+          .flex__list__item
+            label Gesamt
+            span = @product.line_items.to_a.sum(&:quantity)
+          .flex__list__item
+            label Umsatz
+            span = number_to_currency(@product.line_items.to_a.sum(&:price_total), unit: "€")
+  section
+    table
+      thead
+        tr
+          th width=70 Status
+          th width=70 Auftrag
+          th Erstellt
+          th Auftraggeber
+          th.text-right Anzahl
+      tbody
+        - @product.line_items.order_by_created_desc.each do |line_item|
+          tr.link href=order_path(line_item.order)
+            td
+              span data-tooltip="" title=line_item.order.completed_status_label
+                = completed_icon(line_item.order)
+              span data-tooltip="" title=line_item.order.paid_label
+                = paid_icon(line_item.order)
+            td = line_item.order_id
+            td = l line_item.order.created_at, format: :date_only
+            td = line_item.order.billing_name
+            td.text-right = line_item.quantity
+      tfoot
+        tr
+          td
+          td
+          td
+          td
+          td.bold.text-right = @product.line_items.to_a.sum(&:quantity)
 

@@ -31,7 +31,7 @@ javascript:
 			axis: {
 				x: {
 					type: 'category',
-					categories: #{raw @product.size.sizes_as_array},
+					categories: #{raw @product.size_set.sizes_as_array},
 					tick: {
 						centered: true
 					}

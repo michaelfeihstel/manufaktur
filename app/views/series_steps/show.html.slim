@@ -26,7 +26,7 @@ section
           td = link_to entry.employee.name, entry.employee.contact, class: "link"
           - entry.sizes_as_array.each do |size|
             td.text-center = size
-          td.text-right = entry.total
+          td.text-right.bold = entry.total
         
     tfoot
       tr
