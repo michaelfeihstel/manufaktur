@@ -33,9 +33,10 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails'
 gem 'nested_form'
+gem 'twine-rails'
 
 group :production do
-	gem 'rails_12factor'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
@@ -43,7 +44,7 @@ group :development, :test do
 end
 
 group :test do
-	gem "minitest-rails-capybara"
+  gem "minitest-rails-capybara"
 end
 
 group :development do

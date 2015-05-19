@@ -1,0 +1,10 @@
+= render "layouts/shared/breadcrumbs", breadcrumbs: { home: :root, einstellungen: "#", größensysteme: size_sets_path, neu: new_size_set_path }
+= render "size_sets/new/sidebar"
+
+- content_for :header
+  .header-title
+    h1 Größensystem erstellen
+  .header-actions
+    = button_to "Speichern", "#", class: "button", data: { submit: "new_size_set" }
+
+= render "form"

@@ -52,7 +52,7 @@ Manufaktur::Application.routes.draw do
   resources :series, concerns: [:commentable] do
     resources :series_steps
   end
-  resources :sizes
+  resources :size_sets
   resources :variations
   resources :variation_sets
   resources :work_steps

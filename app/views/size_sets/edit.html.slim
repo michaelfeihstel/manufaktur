@@ -1,0 +1,11 @@
+= render "layouts/shared/breadcrumbs", breadcrumbs: { "Home": :root, "Einstellungen": "#", "Größensysteme": size_sets_path, "#{@size_set.name}": size_set_path(@size_set), "Bearbeiten": nil }
+= render "size_sets/edit/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = "#{@size_set.name} Bearbeiten"
+  .header-actions
+    = link_to "Speichern", "#", class: "button", data: { submit: "edit_size_set" }
+    = link_to "Abbrechen", @size_set, class: "link"
+
+= render "size_sets/form"

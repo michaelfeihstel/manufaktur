@@ -132,6 +132,7 @@ img {
 }
 
 .panel__bar--top {
+  @include transition (all 200ms ease-in-out);
   margin-top: -1.25rem;
   margin-left: -1.25rem;
   margin-right: -1.25rem;
@@ -163,7 +164,8 @@ img {
 
 
 // BREADCRUMBS
-.subnav-container {
+.container--breadcrumbs {
+  @include flex(0 0 auto);
   @include hard-shadow;
   background-color: $breadcrumb-background-color;
   z-index: 98;
@@ -238,7 +240,7 @@ input[type="search"].subnav-search-field {
 
 
 // Flash messages
-.flash {
+.notification {
   z-index: 999;
   position: fixed;
   top: 1.25rem;

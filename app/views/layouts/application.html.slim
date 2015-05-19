@@ -17,9 +17,6 @@ html lang="de"
 
     = stylesheet_link_tag "application"
 
-    = javascript_include_tag("d3.min")
-    = javascript_include_tag("c3.min")
-
     script type="text/javascript" src="//use.typekit.net/vyp8igb.js"
     javascript:
       try{Typekit.load();}catch(e){}
@@ -32,7 +29,7 @@ html lang="de"
       .row
         .span-small-12
           = yield :header
-    .container.subnav-container
+    .container.container--breadcrumbs
       .row
         .span-small-12
           = yield :breadcrumbs
@@ -51,8 +48,7 @@ html lang="de"
                 = yield :sidebar
     - if content_for?(:footer)
       footer
-        .row
-          .span-small-12
+        .footer-content
             = yield :footer
 
     = javascript_include_tag "application"

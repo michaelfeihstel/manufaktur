@@ -17,6 +17,9 @@ html.turbolinks-progress-bar::before {
   box-sizing: border-box;
 }
 
+html {
+}
+
 body {
   @include display(flex);
   @include flex-direction(column);
@@ -26,6 +29,7 @@ body {
 }
 
 header {
+  @include flex(0 0 auto);
   background-color: $primary-color;
   margin-top: 55px;
   padding-bottom: 2rem;
@@ -40,6 +44,7 @@ header {
 }
 
 .container--main {
+  @include flex(1 0 auto);
   padding-bottom: 60px;
 }
 
@@ -112,14 +117,16 @@ header {
 }
 
 footer {
-  @include hard-shadow--top;
-  background-color: $secondary-color;
-  bottom: 0;
-  flex: 0;
-  padding: 1.1rem 1.618rem;
-  position: fixed;
+  flex: 0 auto;
+  padding: 0 $gutter;
   width: 100%;
   z-index: 98;
+}
+
+.footer-content {
+  @include container;
+  border-top: 1px solid $hairline-color;
+  padding: 2rem 0;
 }
 
 section {

@@ -104,6 +104,16 @@ a.link {
   }
 }
 
+.header-actions a.link {
+  color: $background-color;
+  border-bottom: 2px solid $hairline-color;
+
+  &:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+}
+
 .light {
   opacity: 0.7;
 }

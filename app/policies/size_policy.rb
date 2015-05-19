@@ -1,2 +1,0 @@
-class SizePolicy < ApplicationPolicy
-end

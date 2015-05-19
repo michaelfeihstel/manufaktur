@@ -1,0 +1,4 @@
+- content_for :sidebar
+  label Menü
+  ul.side-nav
+    li = link_to icon("bin", text: "Bearbeiten"), edit_size_set_path(@size_set)

@@ -21,8 +21,9 @@
 Turbolinks.enableProgressBar();
 
 
-$(".subnav-container").stick_in_parent({
-  offset_top: 55
+$(".container--breadcrumbs").stick_in_parent({
+  offset_top: 55,
+  bottoming: false
 });
 
 // Flash notice

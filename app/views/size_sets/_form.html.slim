@@ -1,0 +1,46 @@
+= nested_form_for @size_set, data: { "no-turbolinks": "" } do |f|
+  section
+    .row
+      .span-small-12.span-medium-6
+        section
+          h5.section-header Größensystem
+          .fields
+            = f.label :name, "Bezeichnung"
+            = f.text_field :name
+        section
+          h5.section-header Zugeordnete Größen
+          .fields
+            = f.text_field :g1
+            = f.text_field :g1h
+            = f.text_field :g2
+            = f.text_field :g2h 
+            = f.text_field :g3
+            = f.text_field :g3h
+            = f.text_field :g4
+            = f.text_field :g4h
+            = f.text_field :g5
+            = f.text_field :g5h
+            = f.text_field :g6
+            = f.text_field :g6h
+            = f.text_field :g7
+            = f.text_field :g7h
+            = f.text_field :g8
+            = f.text_field :g8h
+            = f.text_field :g9
+            = f.text_field :g9h
+            = f.text_field :g10
+            = f.text_field :g10h
+            = f.text_field :g11
+            = f.text_field :g11h
+            = f.text_field :g12
+            = f.text_field :g12h
+            = f.text_field :g13
+            = f.text_field :g13h
+            = f.text_field :g14
+            = f.text_field :g14h
+            = f.text_field :g15
+            = f.text_field :g16
+
+  hr
+    = f.submit "Speichern", class: "button"
+    = link_to "Abbrechen", @size_set, class: "link"

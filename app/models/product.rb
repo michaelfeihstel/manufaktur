@@ -11,21 +11,21 @@
 #  vat              :decimal(, )
 #  color_text       :string(255)
 #  variation_set_id :integer
-#  size_id          :integer
 #  fmid             :integer
 #  primary_color    :string(255)
 #  secondary_color  :string(255)
 #  text_color       :string(255)      default("#fff")
+#  size_set_id      :integer
 #
 
 class Product < ActiveRecord::Base
   # associations
-  belongs_to :size
+  belongs_to :size_set
   belongs_to :variation_set
   has_many :line_items
-  has_many :product_images, dependent: :destroy
-  has_many :materials, through: :material_consumptions
   has_many :material_consumptions, dependent: :destroy
+  has_many :materials, through: :material_consumptions
+  has_many :product_images, dependent: :destroy
   has_many :series, dependent: :destroy
   has_many :series_steps, through: :series
 
@@ -55,7 +55,7 @@ class Product < ActiveRecord::Base
 
   def sales_per_size
     line_items = self.line_items
-    sizes = Size.column_names.delete_if{|column| ["id","name","created_at","updated_at"].include?(column)}
+    sizes = SizeSet.column_names.delete_if{|column| ["id","name","created_at","updated_at"].include?(column)}
 
     sizes.map{ |size| [size, line_items.sum(size)] }.to_h
   end

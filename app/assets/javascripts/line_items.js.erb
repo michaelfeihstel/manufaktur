@@ -59,6 +59,7 @@ $('body').on('change', '.order_line_items_product_id', function () {
     $.ajax({
         url: "/line_items/select_product",
         data: data,
+        dataType: "script",
         type: "POST",
         error: function(response) {
             response

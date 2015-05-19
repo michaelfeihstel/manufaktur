@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: returns
+#
+#  id                 :integer          not null, primary key
+#  contact_id         :integer
+#  billing_address_id :integer
+#  comment            :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contact: 
+  billing_address_id: 
+  comment: MyText
+
+two:
+  contact: 
+  billing_address_id: 
+  comment: MyText

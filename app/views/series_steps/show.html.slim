@@ -16,12 +16,18 @@ section
       tr
         th Datum
         th Mitarbeiter
-        - @series_step.product.size.sizes_as_array.each do |size|
+        - @series_step.product.size_set.sizes_as_array.each do |size|
           th.text-center.small = size
         th.text-right Gesamt
     tbody
       - @series_step.entries.order(:date).each do |entry|
-        = render "series_steps/show/series_step_entry", entry: entry
+        tr
+          td = l entry.date
+          td = link_to entry.employee.name, entry.employee.contact, class: "link"
+          - entry.sizes_as_array.each do |size|
+            td.text-center = size
+          td.text-right = entry.total
+        
     tfoot
       tr
         td Geplant

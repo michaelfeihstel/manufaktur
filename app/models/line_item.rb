@@ -112,16 +112,5 @@ class LineItem < ActiveRecord::Base
   def quantity_label
     badge = "#{self.try(:product).try(:sku)} (#{quantity})"
   end
-
-
-
-  def get_size(size_to_get)
-    result = eval("self.try(:product).try(:size).try(:" + size_to_get + ")")
-    if result.blank?
-      "-"
-    else
-      result
-    end 
-  end
   
 end

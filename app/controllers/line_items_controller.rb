@@ -1,5 +1,4 @@
 class LineItemsController < ApplicationController
-  after_action :verify_authorized
   
   def get_quantity
     @line_item = LineItem.find(params[:id])
@@ -11,8 +10,7 @@ class LineItemsController < ApplicationController
   end
 
   def select_product
-    @product = Product.find(params[:product_id])
-    @data = params
+    @product = Product.includes(:size_set).find(params[:product_id])
 
     respond_to do |format|
       format.js

@@ -25,9 +25,9 @@
           = f.text_field :color_text, :placeholder => "z.B. Anthrazit/Schwarz"
 
         .fields
-          = f.label :variation_set_id, "Größensystem"
+          = f.label :size_set_id, "Größensystem"
           .select-container
-            = f.collection_select(:size_id, Size.all, :id, :name)
+            = f.collection_select(:size_set_id, SizeSet.all, :id, :name)
 
       section
         h5.section-header Preis

@@ -1,52 +1,52 @@
 .tab.active#tab-general
-	.row
-		.span-small-12.span-medium-6
-			section
-				h5.section-header Allgemein
-				p
-					label Artikelnummer
-					= @product.sku
-				p
-					label Bezeichnung
-					= @product.name
-				p
-					label Farbe
-					= @product.color_text
-				p
-					label Größensystem
-					= @product.size.try(:name)
+  .row
+    .span-small-12.span-medium-6
+      section
+        h5.section-header Allgemein
+        p
+          label Artikelnummer
+          = @product.sku
+        p
+          label Bezeichnung
+          = @product.name
+        p
+          label Farbe
+          = @product.color_text
+        p
+          label Größensystem
+          = @product.size_set.try(:name)
 
-			section
-				h5.section-header Preis
-				p
-					label Einkaufspreis
-					= number_to_currency(@product.price, unit: "€")
-				p
-					label Mehrwertsteuer
-					= @product.vat
+      section
+        h5.section-header Preis
+        p
+          label Einkaufspreis
+          = number_to_currency(@product.price, unit: "€")
+        p
+          label Mehrwertsteuer
+          = @product.vat
 
-			section
-				h5.section-header Farben & Darstellung
-				p
-					label Primäre Farbe
-					= @product.primary_color
-				p
-					label Sekundäre Farbe
-					= @product.secondary_color
-				p
-					label Text Farbe
-					= @product.text_color
+      section
+        h5.section-header Farben & Darstellung
+        p
+          label Primäre Farbe
+          = @product.primary_color
+        p
+          label Sekundäre Farbe
+          = @product.secondary_color
+        p
+          label Text Farbe
+          = @product.text_color
 
-		.span-small-12.span-medium-6
-			section
-				h5.section-header Bilder
-				- if @product.product_images.any?
-					- @product.product_images.each do |product_image|
-						.panel
-							p = image_tag(product_image.image.url(:large))
-				- else
-					.panel
-						p.text-center
-							label Es gibt noch keine Bilder für diesen Artikel.
-						p.text-center
-							= link_to "Bearbeiten", edit_product_path(@product), class: "button small"
+    .span-small-12.span-medium-6
+      section
+        h5.section-header Bilder
+        - if @product.product_images.any?
+          - @product.product_images.each do |product_image|
+            .panel
+              p = image_tag(product_image.image.url(:large))
+        - else
+          .panel
+            p.text-center
+              label Es gibt noch keine Bilder für diesen Artikel.
+            p.text-center
+              = link_to "Bearbeiten", edit_product_path(@product), class: "button small"

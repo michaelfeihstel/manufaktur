@@ -1,0 +1,54 @@
+= render "layouts/shared/breadcrumbs", breadcrumbs: { "Home": :root, "Einstellungen": "#", "Größensysteme": size_sets_path, "#{@size_set.name}": nil }
+= render "size_sets/show/sidebar"
+
+- content_for :header
+  .header-title
+    h1 = @size_set.name
+  .header-actions
+    = link_to "Bearbeiten", edit_size_set_path(@size_set), class: "button"
+
+.row
+  .span-medium-12.span-large-6
+    section
+      h5.section-header Größensystem
+      .fields
+        label Bezeichnung
+        span = @size_set.name
+
+    section
+      h5.section-header Zugehörige Größen
+      p
+        = @size_set.g1
+        = @size_set.g1h
+        = @size_set.g2
+        = @size_set.g2h
+        = @size_set.g3
+        = @size_set.g3h
+        = @size_set.g4
+        = @size_set.g4h
+        = @size_set.g5
+        = @size_set.g5h
+        = @size_set.g6
+        = @size_set.g6h
+        = @size_set.g7
+        = @size_set.g7h
+        = @size_set.g8
+        = @size_set.g8h
+        = @size_set.g9
+        = @size_set.g9h
+        = @size_set.g10
+        = @size_set.g10h
+        = @size_set.g11
+        = @size_set.g11h
+        = @size_set.g12
+        = @size_set.g12h
+        = @size_set.g13
+        = @size_set.g13h
+        = @size_set.g14
+        = @size_set.g14h
+        = @size_set.g15
+        = @size_set.g16
+
+- content_for :footer
+  = link_to "Bearbeiten", edit_size_set_path(@size_set), class: "button"
+  = link_to "Alle Größensysteme", size_sets_path, class: "link"

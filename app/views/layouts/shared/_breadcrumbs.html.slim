@@ -1,0 +1,7 @@
+- content_for :breadcrumbs
+  ul.breadcrumbs
+    - breadcrumbs.each do |title, link|
+      - if link
+        li = link_to title, link
+      - else
+        li.light = title

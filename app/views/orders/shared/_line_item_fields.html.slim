@@ -1,4 +1,4 @@
-section data-line-item-id = f.object.id
+section data-line-item-id = f.object.id define='{"article": { "g1": 1, "g2": 2 }}'
   .panel
     .panel__bar.panel__bar--top
       = f.collection_select(:product_id, Product.order(:name), :id, :full_name, { prompt: "Wähle einen Artikel aus..." }, class: "order_line_items_product_id" )
@@ -11,94 +11,94 @@ section data-line-item-id = f.object.id
       label Größenlauf
       ul.sizes-list
         li
-          = f.label :g1, f.object.get_size("g1"), class: "label--small"
+          = f.label :g1, f.object.try(:product).try(:size_set).try(:g1), class: "label--small", data: { size: :g1 }
           = f.text_field :g1, size: 2, class: "size-input", data: { size: :g1 }
         li
-          = f.label :g1h, f.object.get_size("g1h"), class: "label--small"
+          = f.label :g1h, f.object.try(:product).try(:size_set).try(:g1h), class: "label--small", data: { size: :g1h }
           = f.text_field :g1h, size: 2, class: "size-input", data: { size: :g1h }
         li
-          = f.label :g2, f.object.get_size("g2"), class: "label--small"
+          = f.label :g2, f.object.try(:product).try(:size_set).try(:g2), class: "label--small", data: { size: :g2 }
           = f.text_field :g2, size: 2, class: "size-input", data: { size: :g2 }
         li
-          = f.label :g2h, f.object.get_size("g2h"), class: "label--small"
+          = f.label :g2h, f.object.try(:product).try(:size_set).try(:g2h), class: "label--small", data: { size: :g2h }
           = f.text_field :g2h, size: 2, class: "size-input", data: { size: :g2h }
         li
-          = f.label :g3, f.object.get_size("g3"), class: "label--small"
+          = f.label :g3, f.object.try(:product).try(:size_set).try(:g3), class: "label--small", data: { size: :g3 }
           = f.text_field :g3, size: 2, class: "size-input", data: { size: :g3 }
         li
-          = f.label :g3h, f.object.get_size("g3h"), class: "label--small"
+          = f.label :g3h, f.object.try(:product).try(:size_set).try(:g3h), class: "label--small", data: { size: :g3h }
           = f.text_field :g3h, size: 2, class: "size-input", data: { size: :g3h }
         li
-          = f.label :g4, f.object.get_size("g4"), class: "label--small"
+          = f.label :g4, f.object.try(:product).try(:size_set).try(:g4), class: "label--small", data: { size: :g4 }
           = f.text_field :g4, size: 2, class: "size-input", data: { size: :g4 }
         li
-          = f.label :g4h, f.object.get_size("g4h"), class: "label--small"
+          = f.label :g4h, f.object.try(:product).try(:size_set).try(:g4h), class: "label--small", data: { size: :g4h }
           = f.text_field :g4h, size: 2, class: "size-input", data: { size: :g4h }
         li
-          = f.label :g5, f.object.get_size("g5"), class: "label--small"
+          = f.label :g5, f.object.try(:product).try(:size_set).try(:g5), class: "label--small", data: { size: :g5 }
           = f.text_field :g5, size: 2, class: "size-input", data: { size: :g5 }
         li
-          = f.label :g5h, f.object.get_size("g5h"), class: "label--small"
+          = f.label :g5h, f.object.try(:product).try(:size_set).try(:g5h), class: "label--small", data: { size: :g5h }
           = f.text_field :g5h, size: 2, class: "size-input", data: { size: :g5h }
         li
-          = f.label :g6, f.object.get_size("g6"), class: "label--small"
+          = f.label :g6, f.object.try(:product).try(:size_set).try(:g6), class: "label--small", data: { size: :g6 }
           = f.text_field :g6, size: 2, class: "size-input", data: { size: :g6 }
         li
-          = f.label :g6h, f.object.get_size("g6h"), class: "label--small"
+          = f.label :g6h, f.object.try(:product).try(:size_set).try(:g6h), class: "label--small", data: { size: :g6h }
           = f.text_field :g6h, size: 2, class: "size-input", data: { size: :g6h }
         li
-          = f.label :g7, f.object.get_size("g7"), class: "label--small"
+          = f.label :g7, f.object.try(:product).try(:size_set).try(:g7), class: "label--small", data: { size: :g7 }
           = f.text_field :g7, size: 2, class: "size-input", data: { size: :g7 }
         li
-          = f.label :g7h, f.object.get_size("g7h"), class: "label--small"
+          = f.label :g7h, f.object.try(:product).try(:size_set).try(:g7h), class: "label--small", data: { size: :g7h }
           = f.text_field :g7h, size: 2, class: "size-input", data: { size: :g7h }
         li
-          = f.label :g8, f.object.get_size("g8"), class: "label--small"
+          = f.label :g8, f.object.try(:product).try(:size_set).try(:g8), class: "label--small", data: { size: :g8 }
           = f.text_field :g8, size: 2, class: "size-input", data: { size: :g8 }
         li
-          = f.label :g8h, f.object.get_size("g8h"), class: "label--small"
+          = f.label :g8h, f.object.try(:product).try(:size_set).try(:g8h), class: "label--small", data: { size: :g8h }
           = f.text_field :g8h, size: 2, class: "size-input", data: { size: :g8h }
         li
-          = f.label :g9, f.object.get_size("g9"), class: "label--small"
+          = f.label :g9, f.object.try(:product).try(:size_set).try(:g9), class: "label--small", data: { size: :g9 }
           = f.text_field :g9, size: 2, class: "size-input", data: { size: :g9 }
         li
-          = f.label :g9h, f.object.get_size("g9h"), class: "label--small"
+          = f.label :g9h, f.object.try(:product).try(:size_set).try(:g9h), class: "label--small", data: { size: :g9h }
           = f.text_field :g9h, size: 2, class: "size-input", data: { size: :g9h }
         li
-          = f.label :g10, f.object.get_size("g10"), class: "label--small"
+          = f.label :g10, f.object.try(:product).try(:size_set).try(:g10), class: "label--small", data: { size: :g10 }
           = f.text_field :g10, size: 2, class: "size-input", data: { size: :g10, key: :g10 }
         li
-          = f.label :g10h, f.object.get_size("g10h"), class: "label--small"
+          = f.label :g10h, f.object.try(:product).try(:size_set).try(:g10h), class: "label--small", data: { size: :g10h }
           = f.text_field :g10h, size: 2, class: "size-input", data: { size: :g10h }
         li
-          = f.label :g11, f.object.get_size("g11"), class: "label--small"
+          = f.label :g11, f.object.try(:product).try(:size_set).try(:g11), class: "label--small", data: { size: :g11 }
           = f.text_field :g11, size: 2, class: "size-input", data: { size: :g11 }
         li
-          = f.label :g11h, f.object.get_size("g11h"), class: "label--small"
+          = f.label :g11h, f.object.try(:product).try(:size_set).try(:g11h), class: "label--small", data: { size: :g11h }
           = f.text_field :g11h, size: 2, class: "size-input", data: { size: :g11h }
         li
-          = f.label :g12, f.object.get_size("g12"), class: "label--small"
+          = f.label :g12, f.object.try(:product).try(:size_set).try(:g12), class: "label--small", data: { size: :g12 }
           = f.text_field :g12, size: 2, class: "size-input", data: { size: :g12 }
         li
-          = f.label :g12h, f.object.get_size("g12h"), class: "label--small"
+          = f.label :g12h, f.object.try(:product).try(:size_set).try(:g12h), class: "label--small", data: { size: :g12h }
           = f.text_field :g12h, size: 2, class: "size-input", data: { size: :g12h }
         li
-          = f.label :g13, f.object.get_size("g13"), class: "label--small"
+          = f.label :g13, f.object.try(:product).try(:size_set).try(:g13), class: "label--small", data: { size: :g13 }
           = f.text_field :g13, size: 2, class: "size-input", data: { size: :g13 }
         li
-          = f.label :g13h, f.object.get_size("g13h"), class: "label--small"
+          = f.label :g13h, f.object.try(:product).try(:size_set).try(:g13h), class: "label--small", data: { size: :g13h }
           = f.text_field :g13h, size: 2, class: "size-input", data: { size: :g13h }
         li
-          = f.label :g14, f.object.get_size("g14"), class: "label--small"
+          = f.label :g14, f.object.try(:product).try(:size_set).try(:g14), class: "label--small", data: { size: :g14 }
           = f.text_field :g14, size: 2, class: "size-input", data: { size: :g14 }
         li
-          = f.label :g14h, f.object.get_size("g14h"), class: "label--small"
+          = f.label :g14h, f.object.try(:product).try(:size_set).try(:g14h), class: "label--small", data: { size: :g14h }
           = f.text_field :g14h, size: 2, class: "size-input", data: { size: :g14h }
         li
-          = f.label :g15, f.object.get_size("g15"), class: "label--small"
+          = f.label :g15, f.object.try(:product).try(:size_set).try(:g15), class: "label--small", data: { size: :g15 }
           = f.text_field :g15, size: 2, class: "size-input", data: { size: :g15 }
         li
-          = f.label :g16, f.object.get_size("g16"), class: "label--small"
+          = f.label :g16, f.object.try(:product).try(:size_set).try(:g16), class: "label--small", data: { size: :g16 }
           = f.text_field :g16, size: 2, class: "size-input", data: { size: :g16 }
 
 

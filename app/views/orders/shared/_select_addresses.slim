@@ -7,4 +7,4 @@
 
   .fields
     = label :delivery_address_id, "Lieferanschrift"
-    = f.collection_select(:delivery_address_id, Address.order(:name), :id, :full_address, prompt: "Lieferanschrift auswählen")
+    = f.collection_select(:delivery_address_id, Address.order(:name), :id, :full_address, { prompt: "Lieferanschrift auswählen" })

@@ -252,6 +252,8 @@ GEM
     tilt (1.4.1)
     turbolinks (2.5.3)
       coffee-rails
+    twine-rails (0.0.16)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.6.1)
@@ -305,5 +307,6 @@ DEPENDENCIES
   slim-rails
   susy
   turbolinks
+  twine-rails
   uglifier
   web-console (~> 2.0)

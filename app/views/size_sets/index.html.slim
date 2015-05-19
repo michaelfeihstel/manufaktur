@@ -1,0 +1,30 @@
+= render "layouts/shared/breadcrumbs", breadcrumbs: { home: :root, eisntellungen: "#", größensysteme: size_sets_path }
+= render "size_sets/index/sidebar"
+
+- content_for :header
+  .header-title
+    h1 Größensysteme
+  .header-actions
+    = link_to "Neues Größensystem", new_size_set_path, class: "button"
+
+
+- if @size_sets.any?
+  section
+    table
+      thead
+        tr
+          th Bezeichnung
+      tbody
+        - @size_sets.each do |size_set|
+          tr
+            td = link_to size_set.name, size_set, class: "link"
+
+- else
+  section.text-center
+    p 
+      | Keine Größensysteme vorhanden. 
+      = link_to "Größensystem erstellen", new_size_set_path, class: "link"
+
+- content_for :footer
+  span = "#{@size_sets.count} "
+  span.light Größensysteme gefunden

@@ -5,6 +5,6 @@
   .header-title
     h1 = "#{@material.name} bearbeiten"
   .header-actions
-    = button_to "Speichern", "#", data: { submit: "edit_material" }
+    = button_to "Speichern", "#", class: "button", data: { submit: "edit_material" }
 
 = render "materials/shared/form"

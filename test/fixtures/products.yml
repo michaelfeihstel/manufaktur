@@ -11,11 +11,11 @@
 #  vat              :decimal(, )
 #  color_text       :string(255)
 #  variation_set_id :integer
-#  size_id          :integer
 #  fmid             :integer
 #  primary_color    :string(255)
 #  secondary_color  :string(255)
 #  text_color       :string(255)      default("#fff")
+#  size_set_id      :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
@@ -26,17 +26,7 @@ default_product:
   color_text: Grau / Schwarz / Rot
   price: 120.33
   vat: 0.19
-  size: us_herren
-  primary_color: #ccc
-  secondary_color: #000
-  text_color: #00FF00
-
-womens_product:
-  name: Product without VAT
-  sku: TEST123
-  color_text: Grau / Schwarz / Rot
-  price: 120.33
-  size: us_damen
+  size_set: default
   primary_color: #ccc
   secondary_color: #000
   text_color: #00FF00

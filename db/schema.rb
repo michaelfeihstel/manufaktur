@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312133317) do
+ActiveRecord::Schema.define(version: 20150416073957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,12 @@ ActiveRecord::Schema.define(version: 20150312133317) do
     t.datetime "updated_at"
     t.integer  "contact_role_id"
     t.string   "contact_role_type"
+  end
+
+  create_table "defects", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -236,11 +242,11 @@ ActiveRecord::Schema.define(version: 20150312133317) do
     t.decimal  "vat"
     t.string   "color_text",       limit: 255
     t.integer  "variation_set_id"
-    t.integer  "size_id"
     t.integer  "fmid"
     t.string   "primary_color",    limit: 255
     t.string   "secondary_color",  limit: 255
     t.string   "text_color",       limit: 255,                         default: "#fff"
+    t.integer  "size_set_id"
   end
 
   create_table "retailers", force: :cascade do |t|
@@ -251,6 +257,28 @@ ActiveRecord::Schema.define(version: 20150312133317) do
   end
 
   add_index "retailers", ["contact_id"], name: "index_retailers_on_contact_id", using: :btree
+
+  create_table "return_line_items", force: :cascade do |t|
+    t.integer  "return_id"
+    t.integer  "product_id"
+    t.integer  "g1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "return_line_items", ["product_id"], name: "index_return_line_items_on_product_id", using: :btree
+  add_index "return_line_items", ["return_id"], name: "index_return_line_items_on_return_id", using: :btree
+
+  create_table "returns", force: :cascade do |t|
+    t.integer  "contact_id"
+    t.integer  "billing_address_id"
+    t.text     "comment"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "returns", ["billing_address_id"], name: "index_returns_on_billing_address_id", using: :btree
+  add_index "returns", ["contact_id"], name: "index_returns_on_contact_id", using: :btree
 
   create_table "series", force: :cascade do |t|
     t.integer  "product_id"
@@ -347,40 +375,40 @@ ActiveRecord::Schema.define(version: 20150312133317) do
   add_index "series_steps", ["series_id"], name: "index_series_steps_on_series_id", using: :btree
   add_index "series_steps", ["work_step_id"], name: "index_series_steps_on_work_step_id", using: :btree
 
-  create_table "sizes", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "g1",         limit: 255
-    t.string   "g1h",        limit: 255
-    t.string   "g2",         limit: 255
-    t.string   "g2h",        limit: 255
-    t.string   "g3",         limit: 255
-    t.string   "g3h",        limit: 255
-    t.string   "g4",         limit: 255
-    t.string   "g4h",        limit: 255
-    t.string   "g5",         limit: 255
-    t.string   "g5h",        limit: 255
-    t.string   "g6",         limit: 255
-    t.string   "g6h",        limit: 255
-    t.string   "g7",         limit: 255
-    t.string   "g7h",        limit: 255
-    t.string   "g8",         limit: 255
-    t.string   "g8h",        limit: 255
-    t.string   "g9",         limit: 255
-    t.string   "g9h",        limit: 255
-    t.string   "g10",        limit: 255
-    t.string   "g10h",       limit: 255
-    t.string   "g11",        limit: 255
-    t.string   "g11h",       limit: 255
-    t.string   "g12",        limit: 255
-    t.string   "g12h",       limit: 255
-    t.string   "g13",        limit: 255
-    t.string   "g13h",       limit: 255
-    t.string   "g14",        limit: 255
-    t.string   "g14h",       limit: 255
-    t.string   "g15",        limit: 255
-    t.string   "g16",        limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "size_sets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "g1"
+    t.string   "g1h"
+    t.string   "g2"
+    t.string   "g2h"
+    t.string   "g3"
+    t.string   "g3h"
+    t.string   "g4"
+    t.string   "g4h"
+    t.string   "g5"
+    t.string   "g5h"
+    t.string   "g6"
+    t.string   "g6h"
+    t.string   "g7"
+    t.string   "g7h"
+    t.string   "g8"
+    t.string   "g8h"
+    t.string   "g9"
+    t.string   "g9h"
+    t.string   "g10"
+    t.string   "g10h"
+    t.string   "g11"
+    t.string   "g11h"
+    t.string   "g12"
+    t.string   "g12h"
+    t.string   "g13"
+    t.string   "g13h"
+    t.string   "g14"
+    t.string   "g14h"
+    t.string   "g15"
+    t.string   "g16"
   end
 
   create_table "users", force: :cascade do |t|
@@ -429,6 +457,10 @@ ActiveRecord::Schema.define(version: 20150312133317) do
   add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"
   add_foreign_key "retailers", "contacts"
+  add_foreign_key "return_line_items", "products"
+  add_foreign_key "return_line_items", "returns"
+  add_foreign_key "returns", "addresses", column: "billing_address_id"
+  add_foreign_key "returns", "contacts"
   add_foreign_key "series", "products"
   add_foreign_key "series_step_entries", "employees"
   add_foreign_key "series_step_entries", "series_steps"

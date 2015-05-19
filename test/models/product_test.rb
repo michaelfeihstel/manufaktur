@@ -11,11 +11,11 @@
 #  vat              :decimal(, )
 #  color_text       :string(255)
 #  variation_set_id :integer
-#  size_id          :integer
 #  fmid             :integer
 #  primary_color    :string(255)
 #  secondary_color  :string(255)
 #  text_color       :string(255)      default("#fff")
+#  size_set_id      :integer
 #
 
 require 'test_helper'
