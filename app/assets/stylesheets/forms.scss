@@ -4,7 +4,7 @@ div.fields {
 }
 
 input,
-select,
+select.custom,
 textarea {
   background: transparent;
   border-radius: 0;
@@ -55,7 +55,7 @@ label.label--inline {
   display: inline;
 }
 
-select {
+select.custom {
   transition: none;
 }
 
@@ -90,12 +90,16 @@ select {
   }
 }
 
-select {
+select.custom {
   @include appearance(none);
   @include flex(1 1);
   padding: .25rem 0;
   background-color: $background-color;
   border: none;
+}
+
+select {
+  font-size: 100%;
 }
 
 select.transparent {
@@ -151,9 +155,49 @@ label {
   text-transform: lowercase;
 }
 
+/*-------------------*\
+        SEARCH
+\*-------------------*/
+
+form.quicksearch__form {
+  @include display(flex);
+  width: 197.25px;
+}
+
+input.quicksearch__field {
+  @include flex(1 1 auto);
+  background-color: $secondary-color;
+  border: none;
+  padding: 0.5rem;
+}
+
+input.quicksearch__field:hover,
+input.quicksearch__field:focus {
+  background-color: $background-color;
+  border: none;
+  box-shadow: none;
+} 
+
+input.quicksearch__button {
+  @include appearance(none);
+  @include flex(0 0 2.25rem);
+  background-color: $primary-color;
+  border: none;
+  color: $background-color;
+  content: "P";
+  cursor: pointer;
+  font-family: "manufaktur-icons";
+  width: 2.25rem;
+}
+
+input.quicksearch__button:hover {
+  background-color: scale-color($primary-color, $lightness: -10%)
+}
+
+
 
 /*-------------------*\
-        SELECTIZE
+      SELECTIZE
 \*-------------------*/
 
 .selectize-input {

@@ -241,14 +241,14 @@ input[type="search"].subnav-search-field {
 
 // Flash messages
 .notification {
-  z-index: 999;
   position: fixed;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: 55px;
+  right: 0;
   background-color: #d82b4e;
   color: #fff;
   padding: 1.25rem;
-  z-index: 999;
+  height: 60px;
+  z-index: 99;
   text-align: right;
 }
 

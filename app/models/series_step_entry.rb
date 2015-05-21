@@ -6,7 +6,7 @@
 #  series_step_id :integer
 #  employee_id    :integer
 #  date           :date
-#  b_stock        :boolean          default("false")
+#  b_stock        :boolean          default(FALSE)
 #  g1             :integer
 #  g1h            :integer
 #  g2             :integer
@@ -44,7 +44,7 @@
 class SeriesStepEntry < ActiveRecord::Base
   # associations
   belongs_to :series_step
-  belongs_to :employee
+  belongs_to :contact
 
   # scopes
   scope :sized, -> (size) { where("? > 0", size) }

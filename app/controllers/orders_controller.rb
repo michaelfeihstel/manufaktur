@@ -15,6 +15,11 @@ class OrdersController < ApplicationController
     render "index"
   end
 
+  def quicksearch
+    @orders = Order.where("billing_name LIKE ? OR billing_city LIKE ? OR id = ?", params[:quicksearch])
+    render "index"
+  end
+
   def index_created_at
     @date = "#{params[:year]}-#{params[:month]}-#{params[:day]}".to_date
     @orders = Order.where(created_at: @date).order(created_at: :desc)
@@ -22,9 +27,8 @@ class OrdersController < ApplicationController
     render "index"
   end
 
-  def get_marked_orders
-    @search = Order.marked_as_favorite.search(params[:q])
-    @orders = @search.result(distinct: true).page(params[:page]).per(100)
+  def favorites
+    @orders = Order.favorites.includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page]).per(100)
     authorize @orders
     @filter_selected = "favorites"
     render "index"

@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416073957) do
+ActiveRecord::Schema.define(version: 20150521114535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "addresses", force: :cascade do |t|
     t.string  "description",  limit: 255
@@ -69,6 +70,12 @@ ActiveRecord::Schema.define(version: 20150416073957) do
   add_index "contact_informations", ["contact_id"], name: "index_contact_informations_on_contact_id", using: :btree
   add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
 
+  create_table "contact_roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string   "name",              limit: 255
     t.integer  "fmid"
@@ -76,18 +83,15 @@ ActiveRecord::Schema.define(version: 20150416073957) do
     t.datetime "updated_at"
     t.integer  "contact_role_id"
     t.string   "contact_role_type"
+    t.hstore   "additional_data"
   end
+
+  add_index "contacts", ["additional_data"], name: "index_contacts_on_additional_data", using: :btree
 
   create_table "defects", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "employees", force: :cascade do |t|
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.boolean  "active",     default: true
   end
 
   create_table "letters", force: :cascade do |t|
@@ -249,15 +253,6 @@ ActiveRecord::Schema.define(version: 20150416073957) do
     t.integer  "size_set_id"
   end
 
-  create_table "retailers", force: :cascade do |t|
-    t.integer  "contact_id"
-    t.boolean  "allow_orders", default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  add_index "retailers", ["contact_id"], name: "index_retailers_on_contact_id", using: :btree
-
   create_table "return_line_items", force: :cascade do |t|
     t.integer  "return_id"
     t.integer  "product_id"
@@ -323,7 +318,6 @@ ActiveRecord::Schema.define(version: 20150416073957) do
 
   create_table "series_step_entries", force: :cascade do |t|
     t.integer  "series_step_id"
-    t.integer  "employee_id"
     t.date     "date"
     t.boolean  "b_stock",        default: false
     t.integer  "g1"
@@ -361,7 +355,6 @@ ActiveRecord::Schema.define(version: 20150416073957) do
   end
 
   add_index "series_step_entries", ["date"], name: "index_series_step_entries_on_date", using: :btree
-  add_index "series_step_entries", ["employee_id"], name: "index_series_step_entries_on_employee_id", using: :btree
   add_index "series_step_entries", ["series_step_id"], name: "index_series_step_entries_on_series_step_id", using: :btree
 
   create_table "series_steps", force: :cascade do |t|
@@ -456,13 +449,11 @@ ActiveRecord::Schema.define(version: 20150416073957) do
   add_foreign_key "material_consumptions", "materials"
   add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"
-  add_foreign_key "retailers", "contacts"
   add_foreign_key "return_line_items", "products"
   add_foreign_key "return_line_items", "returns"
   add_foreign_key "returns", "addresses", column: "billing_address_id"
   add_foreign_key "returns", "contacts"
   add_foreign_key "series", "products"
-  add_foreign_key "series_step_entries", "employees"
   add_foreign_key "series_step_entries", "series_steps"
   add_foreign_key "series_steps", "series"
   add_foreign_key "series_steps", "work_steps"

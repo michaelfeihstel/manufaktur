@@ -67,7 +67,8 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(
       :name,
-      :contactable_type,
+      :contact_role_id,
+      :test,
       addresses_attributes: [
         :id,
         :contact_id,
@@ -94,10 +95,6 @@ class ContactsController < ApplicationController
         :value,
         :_destroy
       ],
-      employee_attributes: [
-        :contact_id,
-        :active
-      ]
     )
   end
 

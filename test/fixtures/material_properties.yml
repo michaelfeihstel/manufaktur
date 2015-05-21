@@ -6,7 +6,7 @@
 #  material_id :integer
 #  name        :string
 #  value       :string
-#  use_in_name :boolean          default("false")
+#  use_in_name :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

@@ -1,5 +1,5 @@
 class OrderPolicy < ApplicationPolicy
-  def get_marked_orders?
+  def favorites?
     index?
   end
 end

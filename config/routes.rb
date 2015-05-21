@@ -40,6 +40,7 @@ Manufaktur::Application.routes.draw do
       put :complete
     end
     collection do
+      get "favorites", action: "favorites", as: "favorite"
       get "created/:year/:month/:day" => "orders#index_created_at", :as => "created_at"
     end
   end

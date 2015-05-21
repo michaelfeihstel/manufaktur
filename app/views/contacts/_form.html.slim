@@ -8,11 +8,6 @@
         .alert-box.alert data-alert=""
           li = msg
 
-  .panel.fields
-    = f.fields_for :employee do |employee_fields|
-      = employee_fields.check_box :active 
-      = employee_fields.label :active, "Aktiv?", class: "label--inline"
-
   ul.tabs data-tab=""
     li.tab-title.active = link_to "Stammdaten", "#tab_general"
     li.tab-title = link_to "Bemerkungen", "#tab_notes"

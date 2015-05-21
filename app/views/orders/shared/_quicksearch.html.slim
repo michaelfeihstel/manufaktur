@@ -1,2 +1,3 @@
-= search_form_for @search, method: :post, url: search_orders_path, class: "sidebar-search-form" do |f|
-  = f.search_field :billing_name_cont, placeholder: "Suchen", class: "sidebar-search-field"
+= search_form_for @search, method: :post, url: search_orders_path, class: "quicksearch__form" do |f|
+  = f.text_field :billing_name_or_billing_city_cont, class: "quicksearch__field"
+  = f.submit "P", class: "quicksearch__button"

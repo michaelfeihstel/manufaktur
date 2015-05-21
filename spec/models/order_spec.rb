@@ -25,16 +25,16 @@
 #  is_webshop            :boolean
 #  created_at            :datetime
 #  updated_at            :datetime
-#  marked                :boolean          default("false"), not null
+#  marked                :boolean          default(FALSE), not null
 #  fmid                  :integer
 #  comment               :text
-#  is_free               :boolean          default("false")
-#  is_vat_exempt         :boolean          default("false")
+#  is_free               :boolean          default(FALSE)
+#  is_vat_exempt         :boolean          default(FALSE)
 #  paid_on               :date
 #  paid_amount           :decimal(8, 2)
-#  is_scheduled_delivery :boolean          default("false")
+#  is_scheduled_delivery :boolean          default(FALSE)
 #  cashback_until        :date
-#  cashback_percent      :decimal(2, 2)    default("0.03")
+#  cashback_percent      :decimal(2, 2)    default(0.03)
 #
 
 require 'spec_helper'

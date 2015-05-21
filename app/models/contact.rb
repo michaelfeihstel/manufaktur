@@ -9,11 +9,14 @@
 #  updated_at        :datetime
 #  contact_role_id   :integer
 #  contact_role_type :string
+#  additional_data   :hstore
 #
 
 class Contact < ActiveRecord::Base
+  store_accessor :additional_data, :test
+
   # associations
-  belongs_to :contact_role, polymorphic: true
+  belongs_to :contact_role
   has_many :addresses, dependent: :destroy
   has_many :contact_information, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
@@ -43,11 +46,11 @@ class Contact < ActiveRecord::Base
   end
 
   def employee?
-    contact_role_type == "Employee"
+    self.try(:contact_role).try(:name) == "Mitarbeiter"
   end
 
   def retailer?
-    contact_role_type == "Retailer"
+    self.try(:contact_role).try(:name) == "Retailer"
   end
 
 end

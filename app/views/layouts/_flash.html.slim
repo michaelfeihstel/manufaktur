@@ -1,0 +1,4 @@
+- flash.each do |key, value|
+  div data-alert="" class=("notification #{flash_class(key)}")
+    = value 
+    = link_to "Schließen", "#", class: "close link small"

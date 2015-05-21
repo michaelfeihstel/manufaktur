@@ -1,0 +1,1 @@
+$(".notification").delay(10000).addClass("animated slideOutRight")

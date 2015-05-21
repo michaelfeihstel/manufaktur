@@ -7,7 +7,7 @@
 #  name       :string(255)
 #  value      :string(255)
 #  info_type  :string(255)
-#  default    :boolean          default("false")
+#  default    :boolean          default(FALSE)
 #  created_at :datetime
 #  updated_at :datetime
 #

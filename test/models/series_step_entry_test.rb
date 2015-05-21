@@ -6,7 +6,7 @@
 #  series_step_id :integer
 #  employee_id    :integer
 #  date           :date
-#  b_stock        :boolean          default("false")
+#  b_stock        :boolean          default(FALSE)
 #  g1             :integer
 #  g1h            :integer
 #  g2             :integer
