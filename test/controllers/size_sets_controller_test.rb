@@ -35,7 +35,7 @@ class SizeSetsControllerTest < ActionController::TestCase
   test "should create size_set" do
     post :create, size_set: {
       name: @size_set.name,
-      g1: @size_sez.g1
+      g1: @size_set.g1
     }
   end
 

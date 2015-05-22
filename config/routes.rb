@@ -27,6 +27,7 @@ Manufaktur::Application.routes.draw do
   get "orders/marked_orders" => "orders#get_marked_orders", :as => "marked_orders"
 
   # resources
+  resources :api_keys
   resources :addresses
   resources :brands
   resources :contacts, concerns: [:paginatable, :searchable, :commentable]
@@ -66,7 +67,6 @@ Manufaktur::Application.routes.draw do
   end
 
 
-
   # /api/...
   namespace :api, defaults: { format: "json" } do
 
@@ -79,6 +79,7 @@ Manufaktur::Application.routes.draw do
     resources :addresses, concerns: [:searchable]
     resources :employees
     resources :retailers
+    resources :comments
     resources :contacts
     resources :contact_information
     resources :letters

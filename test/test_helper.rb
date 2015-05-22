@@ -9,6 +9,16 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
+
+  def authenticate(admin: false)
+    if admin
+      @key = api_keys(:admin_api_key).key
+    else
+      @key = api_keys(:user).key
+    end
+
+    request.headers['Authorization'] = "Token token=#{@key}"
+  end
 end
 
 class PolicyTest < ActiveSupport::TestCase

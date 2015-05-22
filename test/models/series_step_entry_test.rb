@@ -4,7 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  series_step_id :integer
-#  employee_id    :integer
 #  date           :date
 #  b_stock        :boolean          default(FALSE)
 #  g1             :integer
@@ -39,6 +38,7 @@
 #  g16            :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  contact_id     :integer
 #
 
 require "test_helper"

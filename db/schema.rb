@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521114535) do
+ActiveRecord::Schema.define(version: 20150522062442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20150521114535) do
 
   add_index "admin_notes", ["admin_user_type", "admin_user_id"], name: "index_admin_notes_on_admin_user_type_and_admin_user_id", using: :btree
   add_index "admin_notes", ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id", using: :btree
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string   "key"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -352,8 +361,10 @@ ActiveRecord::Schema.define(version: 20150521114535) do
     t.integer  "g16"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "contact_id"
   end
 
+  add_index "series_step_entries", ["contact_id"], name: "index_series_step_entries_on_contact_id", using: :btree
   add_index "series_step_entries", ["date"], name: "index_series_step_entries_on_date", using: :btree
   add_index "series_step_entries", ["series_step_id"], name: "index_series_step_entries_on_series_step_id", using: :btree
 
@@ -454,6 +465,7 @@ ActiveRecord::Schema.define(version: 20150521114535) do
   add_foreign_key "returns", "addresses", column: "billing_address_id"
   add_foreign_key "returns", "contacts"
   add_foreign_key "series", "products"
+  add_foreign_key "series_step_entries", "contacts"
   add_foreign_key "series_step_entries", "series_steps"
   add_foreign_key "series_steps", "series"
   add_foreign_key "series_steps", "work_steps"

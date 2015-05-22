@@ -1,23 +1,24 @@
 # == Schema Information
 #
-# Table name: contact_roles
+# Table name: api_keys
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  key        :string
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require "test_helper"
 
-class ContactRoleTest < ActiveSupport::TestCase
+class ApiKeyTest < ActiveSupport::TestCase
 
-  def contact_role
-    @contact_role ||= ContactRole.new
+  def api_key
+    @api_key ||= ApiKey.new
   end
 
   def test_valid
-    assert contact_role.valid?
+    assert api_key.valid?
   end
 
 end

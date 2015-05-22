@@ -27,9 +27,24 @@ class User < ActiveRecord::Base
 
   # associations
   has_many :comments, dependent: :destroy
+  has_many :api_keys, dependent: :destroy
+
+  accepts_nested_attributes_for :api_keys
 
   # methods
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+
+
+
+
+  private
+
+  def generate_key
+    begin
+      self.api_key = SecureRandom.hex
+    end while self.class.exists?(api_key: key)
   end
 end

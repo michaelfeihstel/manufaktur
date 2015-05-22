@@ -27,7 +27,7 @@ class Api::SeriesStepEntriesControllerTest < ActionController::TestCase
     assert_difference "SeriesStepEntry.count" do
       post :create, format: :json, series_step_entry: {
         series_step_id: @series_step_entry.series_step_id,
-        employee_id: @series_step_entry.employee_id,
+        contact_id: @series_step_entry.contact_id,
         date: @series_step_entry.date,
         g10: @series_step_entry.g10
       }
