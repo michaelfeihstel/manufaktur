@@ -11,6 +11,18 @@ hr {
   padding-bottom: 1.618rem;
 }
 
+#search-toggle {
+  background-color: $primary-color;
+  border: none;
+  color: $background-color;
+  content: "P";
+  cursor: pointer;
+  font-family: "manufaktur-icons";
+  width: 60px;
+  height: 60px;
+  margin: 0px;
+}
+
 #search.enabled {
   display: block;
 }

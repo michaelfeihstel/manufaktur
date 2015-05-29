@@ -1,7 +1,9 @@
-tr.order-item.link href=order_path(order) data-id= order.id
+tr.order-item.link href=order_path(order) data-id=order.id
   td
-    span data-tooltip="" title = order.completed_status_label
-      = completed_icon(order)
+    - if order.completed?
+      = icon("check2-fill")
+    - else
+      = icon("clock")
   td = order.id
   td
     - if order.is_webshop?

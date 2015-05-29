@@ -39,15 +39,17 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  contact_id     :integer
+#  final_step     :boolean          default(FALSE)
 #
 
 class SeriesStepEntry < ActiveRecord::Base
   # associations
   belongs_to :series_step
   belongs_to :contact
-
+  
   # scopes
   scope :sized, -> (size) { where("? > 0", size) }
+  scope :final, -> { where(final_step: true) }
 
 
 

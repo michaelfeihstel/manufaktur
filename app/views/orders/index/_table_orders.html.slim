@@ -9,8 +9,8 @@ table
       th.text-right width="100" Betrag
 
   tbody
-	 - @orders.each do |order|
-	   = render partial: "orders/index/item_order", locals: { order: order }
+   - @orders.each do |order|
+     = render "orders/index/item_order", order: order
 
   tfoot
     tr

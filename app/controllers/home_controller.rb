@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
-  def index
+  def dashboard
+    @orders = Order.includes(:line_items, :products, :contact)
+    @line_items = LineItem.includes(:product)
+    authorize @orders
   end
 end

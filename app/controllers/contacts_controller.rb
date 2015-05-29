@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @contacts = @search.result(distinct: true).includes(:addresses).order(:name)
+    @contacts = @search.result(distinct: true).includes(:addresses, :contact_role).order(:name)
     authorize @contacts
   end
 
@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.includes(:addresses, :contact_information, orders: [:line_items]).find(params[:id])
+    @orders = @contact.orders.includes(:line_items, :products).page(params[:page]).per(25)
     authorize @contact
   end
 

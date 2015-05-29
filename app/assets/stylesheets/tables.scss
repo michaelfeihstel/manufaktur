@@ -9,7 +9,6 @@ thead tr {
 
 thead th {
   font-family: $header-font;
-  font-size: 1.1rem;
   font-weight: 400;
   opacity: 0.6;
   padding: 0.5rem;
@@ -50,13 +49,13 @@ tr.borderless {
   border: none
 }
 
-tr.link {
-  @include transition(ease 200ms);
+tr.link td {
+  @include transition(ease 140ms);
 }
 
 tr.link:hover {
   cursor: pointer;
-  background-color: $secondary-color;
+  color: $primary-color;
 }
 
 tr.link:hover a {

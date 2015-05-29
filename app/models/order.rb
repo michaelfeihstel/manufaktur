@@ -55,18 +55,18 @@ class Order < ActiveRecord::Base
   before_save :get_references
 
   def get_references
-    self.billing_name = try(:billing_address).try(:name)
-    self.billing_street = try(:billing_address).try(:street)
-    self.billing_house_number = try(:billing_address).try(:house_number)
-    self.billing_zip = try(:billing_address).try(:zip)
-    self.billing_city = try(:billing_address).try(:city)
-    self.billing_country = try(:billing_address).try(:country)
-    self.delivery_name = try(:delivery_address).try(:name)
-    self.delivery_street = try(:delivery_address).try(:street)
-    self.delivery_house_number = try(:delivery_address).try(:house_number)
-    self.delivery_zip = try(:delivery_address).try(:zip)
-    self.delivery_city = try(:delivery_address).try(:city)
-    self.delivery_country = try(:delivery_address).try(:country)
+    self.billing_name = try(:billing_address).try(:name) || billing_name
+    self.billing_street = try(:billing_address).try(:street) || billing_street
+    self.billing_house_number = try(:billing_address).try(:house_number) || billing_house_number
+    self.billing_zip = try(:billing_address).try(:zip) || billing_zip
+    self.billing_city = try(:billing_address).try(:city) || billing_city
+    self.billing_country = try(:billing_address).try(:country) || billing_country
+    self.delivery_name = try(:delivery_address).try(:name) || delivery_name
+    self.delivery_street = try(:delivery_address).try(:street) || delivery_street
+    self.delivery_house_number = try(:delivery_address).try(:house_number) || delivery_house_number
+    self.delivery_zip = try(:delivery_address).try(:zip) || delivery_zip
+    self.delivery_city = try(:delivery_address).try(:city) || delivery_city
+    self.delivery_country = try(:delivery_address).try(:country) || delivery_country
   end
 
   # SCOPES

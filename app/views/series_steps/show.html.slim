@@ -23,7 +23,7 @@ section
       - @series_step.entries.order(:date).each do |entry|
         tr
           td = l entry.date
-          td = link_to entry.employee.name, entry.employee.contact, class: "link"
+          td = link_to entry.try(:contact).try(:name), entry.try(:contact), class: "link"
           - entry.sizes_as_array.each do |size|
             td.text-center = size
           td.text-right.bold = entry.total

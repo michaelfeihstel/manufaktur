@@ -1,6 +1,6 @@
 // typography
-$body-font: "ff-meta-web-pro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-$header-font: "futura-pt", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$body-font: "franklin-gothic-urw", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+$header-font: "franklin-gothic-urw", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 $font-base-size: 16;
 @function rem-calc($size) {
   $pixel-size: $size / $font-base-size + rem;

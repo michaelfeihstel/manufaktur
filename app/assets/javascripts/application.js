@@ -37,3 +37,8 @@ $(document).on('nested:fieldRemoved', function (event) {
 	console.log("field removed");
   $('[required]', event.field).removeAttr('required');
 });
+
+// resize chart
+if (typeof chart !== 'undefined') {
+  chart.resize();
+}

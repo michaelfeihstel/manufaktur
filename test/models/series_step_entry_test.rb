@@ -39,6 +39,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  contact_id     :integer
+#  final_step     :boolean          default(FALSE)
 #
 
 require "test_helper"

@@ -33,21 +33,21 @@
 					h6 Auftraggeber
 					.fields
 						= f.label :name, "Name / Firma"
-						= f.text_field :billing_address_name_or_delivery_address_name_cont
+						= f.text_field :billing_name_or_delivery_name_cont
 					.fields
-						= f.label :billing_address_street_or_delivery_address_street_cont, "Straße"
-						= f.text_field :billing_address_street_or_delivery_address_street_cont
+						= f.label :billing_street_or_delivery_street_cont, "Straße"
+						= f.text_field :billing_street_or_delivery_street_cont
 					.fields
 						.row
 							.span-small-4
-								= f.label :billing_address_zip_or_delivery_address_zip_cont, "PLZ"
-								= f.text_field :billing_address_zip_or_delivery_address_zip_cont
+								= f.label :billing_zip_or_delivery_zip_cont, "PLZ"
+								= f.text_field :billing_zip_or_delivery_zip_cont
 							.span-small-8
-								= f.label :billing_address_city_or_delivery_address_city_cont, "Stadt"
-								= f.text_field :billing_address_city_or_delivery_address_city_cont
+								= f.label :billing_city_or_delivery_city_cont, "Stadt"
+								= f.text_field :billing_city_or_delivery_city_cont
 					.fields
-						= f.label :billing_address_country_or_delivery_address_country_cont, "Land"
-						= f.text_field :billing_address_country_or_delivery_address_country_cont
+						= f.label :billing_country_or_delivery_country_cont, "Land"
+						= f.text_field :billing_country_or_delivery_country_cont
 
 				.span-small-12.span-medium-6.span-large-4
 

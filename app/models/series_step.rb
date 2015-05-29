@@ -21,6 +21,9 @@ class SeriesStep < ActiveRecord::Base
 
   delegate :product, to: :series
   delegate :name, to: :series
+  
+  # Scopes
+
 
   # methods
   def total(size: nil)

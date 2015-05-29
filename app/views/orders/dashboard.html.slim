@@ -1,0 +1,45 @@
+= render "orders/shared/search"
+= render "orders/index/breadcrumbs"
+
+- content_for :header
+  .header-title
+    h1 Aufträge
+    - if @date
+      h4 = l @date, format: :weekday_default
+  .header-actions
+    = link_to "Auftrag erstellen", new_order_path, class: "button dense"
+
+section
+  .panel
+    .panel__bar.panel__bar--top
+      h5.panel__title Monatliche Umsätze
+    .panel__body
+      = render "orders/charts/revenue_chart"
+
+section
+  .row
+    .span-small-12.span-medium-9
+      .panel--outline
+        .panel__bar.panel__bar--top
+          h5.panel__title = link_to icon("star-fill", text: "Favoriten"), favorite_orders_path
+        .panel__body
+          table
+            thead
+              tr
+                th Auftrag
+                th Kunde
+                th.text-right Betrag
+            tbody
+              - @orders.favorites.each do |order|
+                tr
+                  td = link_to order.id, order, class: "link"
+                  td 
+                    - if order.is_webshop
+                      = icon("cart-fill")
+                    span = order.billing_name
+                  td.text-right = number_to_currency(order.price_total, unit: "€")
+        .panel__bar.panel__bar--bottom
+          .flex__list--right
+            .flex__list__item
+              label Summe
+              = number_to_currency(@orders.favorites.to_a.sum(&:price_total), unit: "€")

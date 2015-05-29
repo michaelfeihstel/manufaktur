@@ -4,6 +4,12 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   after_action :verify_authorized
 
+  def dashboard
+    @orders = Order.includes(:line_items, :products, :contact)
+    @line_items = LineItem.includes(:product)
+    authorize @orders
+  end
+
   def index
     @orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page]).per(100)
     authorize @orders

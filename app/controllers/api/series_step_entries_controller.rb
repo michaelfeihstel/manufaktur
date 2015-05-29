@@ -31,9 +31,10 @@ module Api
       params.require(:series_step_entry).permit(
         :id,
         :series_step_id,
-        :employee_id,
+        :contact_id,
         :date,
         :b_stock,
+        :final_step,
         :g1,
         :g1h,
         :g2,

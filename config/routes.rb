@@ -1,7 +1,7 @@
 Manufaktur::Application.routes.draw do
 
   # root
-  root to: "home#index"
+  root to: "home#dashboard"
 
   # devise
   devise_for :users
@@ -22,6 +22,10 @@ Manufaktur::Application.routes.draw do
     end
   end
 
+  concern :dashboardable do
+    get :dashboard, action: "dashboard", on: :collection, as: "dashboard"
+  end
+
 
   # orders
   get "orders/marked_orders" => "orders#get_marked_orders", :as => "marked_orders"
@@ -34,7 +38,7 @@ Manufaktur::Application.routes.draw do
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
   resources :materials
-  resources :orders, concerns: [:paginatable, :searchable, :commentable] do
+  resources :orders, concerns: [:paginatable, :searchable, :commentable, :dashboardable] do
     member do
       post :update_addresses
       put :mark

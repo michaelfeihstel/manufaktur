@@ -46,7 +46,7 @@ class Series < ActiveRecord::Base
   belongs_to :product
   has_many :comments, as: :commentable
   has_many :series_steps, dependent: :destroy
-  has_many :series_step_entries, through: :series_steps
+  has_many :entries, through: :series_steps, class_name: "SeriesStepEntry"
 
   accepts_nested_attributes_for :series_steps, allow_destroy: true
 
@@ -126,5 +126,17 @@ class Series < ActiveRecord::Base
 
   def total_quantity
     quantities_as_array.compact.sum
+  end
+
+  def total_quantity_per_size
+    product.size_set.sizes_as_hash.map do |k, v|
+      entries.sum(k.to_sym)
+    end
+  end
+
+  def finished_quantity_per_size
+    product.size_set.sizes_as_hash.map do |k, v|
+      entries.final.sum(k.to_sym)
+    end
   end
 end

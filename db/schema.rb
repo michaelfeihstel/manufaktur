@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522062442) do
+ActiveRecord::Schema.define(version: 20150529101353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -362,10 +362,12 @@ ActiveRecord::Schema.define(version: 20150522062442) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "contact_id"
+    t.boolean  "final_step",     default: false
   end
 
   add_index "series_step_entries", ["contact_id"], name: "index_series_step_entries_on_contact_id", using: :btree
   add_index "series_step_entries", ["date"], name: "index_series_step_entries_on_date", using: :btree
+  add_index "series_step_entries", ["final_step"], name: "index_series_step_entries_on_final_step", using: :btree
   add_index "series_step_entries", ["series_step_id"], name: "index_series_step_entries_on_series_step_id", using: :btree
 
   create_table "series_steps", force: :cascade do |t|
@@ -452,8 +454,9 @@ ActiveRecord::Schema.define(version: 20150522062442) do
   create_table "work_steps", force: :cascade do |t|
     t.string   "name"
     t.boolean  "active",     default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "final_step", default: false
   end
 
   add_foreign_key "comments", "users"
