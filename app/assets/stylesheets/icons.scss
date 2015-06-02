@@ -1,6 +1,7 @@
 
 .icon__container {
-  @include display(flex);
+  display: flex;
+  display: -webkit-flex;
   @include align-items(center);
 }
 
