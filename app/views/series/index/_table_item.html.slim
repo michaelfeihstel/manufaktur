@@ -1,6 +1,9 @@
 tr.link href=series_path(series)
   td = series.name
   td
-    span.product-label style=(product_color(series.product) if series.product) = series.product.full_name
+    span.product-label style=(product_color(series.product) if series.product) = series.product.sku
+  td = series.product.name
+  td = series.product.color_text
   td = ( l series.finished_on, format: :default ) unless series.finished_on.nil?
   td.text-right = series.total_quantity
+  td.text-right = icon("chevron_right")

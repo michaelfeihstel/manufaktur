@@ -13,8 +13,11 @@ section
       tr
         th width=80 Serie
         th Artikel
+        th
+        th
         th Termin
         th.text-right Geplante Menge
+        th
     tbody
       - @series.each do |series|
         = render "series/index/table_item", series: series

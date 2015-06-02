@@ -154,6 +154,7 @@ a.link {
   overflow: hidden;
   padding: 0.25rem 0.5rem;
   text-align: center;
+  vertical-align: middle;
   white-space: nowrap;
 }
 
@@ -206,16 +207,4 @@ label.section-label {
 .inverted label {
   color: #fff;
   opacity: 0.6;
-}
-
-
-
-// ICONS
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  vertical-align: middle;
-}
-
-.icon__text {
-  vertical-align: middle;
 }

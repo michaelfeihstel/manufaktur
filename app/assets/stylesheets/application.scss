@@ -8,11 +8,8 @@
 * You're free to add application-wide styles to this file and they'll appear at the top of the
 * compiled file, but it's generally better to create a new file per style scope.
 *
-*= require jquery.minicolors
-*= require icons
 *= require selectize
 *= require c3
-*= require animate
 *= require_self
 */
 
@@ -26,6 +23,7 @@
 @import "components";
 @import "forms";
 @import "grid";
+@import "icons";
 @import "flex";
 @import "layout";
 @import "lists";

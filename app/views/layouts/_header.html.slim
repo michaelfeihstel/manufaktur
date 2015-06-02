@@ -1,32 +1,40 @@
-nav.main-nav
-	ul.main-nav
-		li.has-dropdown
-			= link_to "Kontakte", contacts_path
-			ul.dropdown
-				li = link_to "Händler", contacts_path
-				li = link_to "Briefe", letters_path
+nav.appbar
+  .side__toggle data-toggle="side"
+    = icon("menu", size: "md-24")
+  .row
+    .span-small-12
+      = yield :toolbar
 
-		li.has-dropdown
-			= link_to "Aufträge", orders_path
-			ul.dropdown
-				li = link_to "Aufträge", orders_path
 
-		li.has-dropdown
-			= link_to "Artikel", products_path
-			ul.dropdown
-				li = link_to "Artikel", products_path
-				li = link_to "Inventuren", "#"
-				li = link_to "Größensysteme", size_sets_path
 
-		li.has-dropdown
-			= link_to "Produktion", "#"
-			ul.dropdown
-				li = link_to "Serien", series_index_path
-				li = link_to "Arbeitsschritte", work_steps_path
-				li.has-dropdown
-					= link_to "Material", "#"
-					ul.dropdown.attach-left
-						li = link_to "Materialien", materials_path
-						li = link_to "Eingang", "#"
-						li = link_to "Ausgang", "#"
-						li = link_to "Inventur", "#"
+/   ul.main-nav
+/     li.has-dropdown
+/       = link_to "Kontakte", contacts_path
+/       ul.dropdown
+/         li = link_to "Händler", contacts_path
+/         li = link_to "Briefe", letters_path
+
+/     li.has-dropdown
+/       = link_to "Aufträge", orders_path
+/       ul.dropdown
+/         li = link_to "Aufträge", orders_path
+
+/     li.has-dropdown
+/       = link_to "Artikel", products_path
+/       ul.dropdown
+/         li = link_to "Artikel", products_path
+/         li = link_to "Inventuren", "#"
+/         li = link_to "Größensysteme", size_sets_path
+
+/     li.has-dropdown
+/       = link_to "Produktion", "#"
+/       ul.dropdown
+/         li = link_to "Serien", series_index_path
+/         li = link_to "Arbeitsschritte", work_steps_path
+/         li.has-dropdown
+/           = link_to "Material", "#"
+/           ul.dropdown.attach-left
+/             li = link_to "Materialien", materials_path
+/             li = link_to "Eingang", "#"
+/             li = link_to "Ausgang", "#"
+/             li = link_to "Inventur", "#"

@@ -1,14 +1,12 @@
 = render "orders/shared/search"
 = render "orders/show/breadcrumbs"
 = render "orders/show/sidebar"
+= render "orders/show/toolbar"
 
 - content_for :header
   .header-title
     h1 = @order.id
     h4 = @order.billing_name
-  .header-actions
-    = link_to "Bearbeiten", edit_order_path(@order), class: "button dense"
-    = link_to "Suchen", "#", id: "search-toggle", class: "button dense"
 
 section
   .row

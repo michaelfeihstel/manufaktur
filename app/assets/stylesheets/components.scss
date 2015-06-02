@@ -180,7 +180,7 @@ img {
   @include flex(0 0 auto);
   @include hard-shadow;
   background-color: $breadcrumb-background-color;
-  z-index: 98;
+  z-index: 97;
 }
 
 ul.breadcrumbs {

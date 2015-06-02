@@ -16,6 +16,7 @@ html lang="de"
     title = content_for?(:title) ? yield(:title) : "Lunge Manufaktur"
 
     = stylesheet_link_tag "application"
+    = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
 
     script type="text/javascript" src="//use.typekit.net/vyp8igb.js"
     javascript:
@@ -25,33 +26,36 @@ html lang="de"
     = csrf_meta_tags
 
   body
-    = render "layouts/flash"
-    = render "layouts/header"
-    header
-      .row
-        .span-small-12
-          = yield :header
-    .container.container--breadcrumbs
-      .row
-        .span-small-12
-          = yield :breadcrumbs
-    .container#search
-      .row
-        .span-small-12
-          = yield :search
-    .container.container--main
-      .row
-        .span-small-12
-          .content
-            .main
-              = yield
-            - if content_for?(:sidebar)
-              .sidebar
-                = yield :sidebar
-    - if content_for?(:footer)
-      footer
-        .footer-content
-            = yield :footer
+    .side
+      = render "layouts/side"
+    .main__content
+      = render "layouts/flash"
+      = render "layouts/header"
+      header
+        .row
+          .span-small-12
+            = yield :header
+      .container.container--breadcrumbs
+        .row
+          .span-small-12
+            = yield :breadcrumbs
+      .container#search
+        .row
+          .span-small-12
+            = yield :search
+      .container.container--main
+        .row
+          .span-small-12
+            .content
+              .main
+                = yield
+              - if content_for?(:sidebar)
+                .sidebar
+                  = yield :sidebar
+      - if content_for?(:footer)
+        footer
+          .footer-content
+              = yield :footer
 
     = javascript_include_tag "application"
     = yield :custom_js

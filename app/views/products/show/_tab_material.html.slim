@@ -6,11 +6,13 @@
           th Bezeichnung
           th Preis
           th Ergiebigkeit
+          th.text-right
       tbody
         - @product.material_consumptions.each do |material_consumption|
-          tr
-            td = link_to material_consumption.material.full_name, material_path(material_consumption.material), class: "link"
+          tr.link href=material_path(material_consumption.material)
+            td = material_consumption.material.full_name
             td = number_to_currency(material_consumption.material.price, unit: "€") 
             td 
               span = "#{material_consumption.yield_per_unit} "
               span.light = "Paar / #{material_consumption.material.unit}"
+            td.text-right = icon "chevron_right"

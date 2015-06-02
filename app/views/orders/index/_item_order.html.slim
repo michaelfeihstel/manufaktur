@@ -1,13 +1,11 @@
 tr.order-item.link href=order_path(order) data-id=order.id
   td
     - if order.completed?
-      = icon("check2-fill")
-    - else
-      = icon("clock")
+      = icon("done")
   td = order.id
   td
     - if order.is_webshop?
-      = icon("cart-fill")
+      = icon("shopping_cart", additional_classes: "md-18")
     = order.billing_name
   td = l order.created_at, format: :date_only
   td

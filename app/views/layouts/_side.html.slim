@@ -1,0 +1,37 @@
+.side__header
+  .side__toggle data-toggle="side"
+    = icon("menu", size: "md-24")
+.side__content
+  label Menü
+  nav.vertical
+    ul
+      li.has-children
+        = link_to "Kontakte", contacts_path
+        ul
+          li = link_to "Händler", contacts_path
+          li = link_to "Briefe", letters_path
+
+      li.has-children
+        = link_to "Aufträge", orders_path
+        ul
+          li = link_to "Aufträge", orders_path
+
+      li.has-children
+        = link_to "Artikel", products_path
+        ul
+          li = link_to "Artikel", products_path
+          li = link_to "Inventuren", "#"
+          li = link_to "Größensysteme", size_sets_path
+
+      li.has-children
+        = link_to "Produktion", "#"
+        ul
+          li = link_to "Serien", series_index_path
+          li = link_to "Arbeitsschritte", work_steps_path
+          li.has-children
+            = link_to "Material", "#"
+            ul
+              li = link_to "Materialien", materials_path
+              li = link_to "Eingang", "#"
+              li = link_to "Ausgang", "#"
+              li = link_to "Inventur", "#"

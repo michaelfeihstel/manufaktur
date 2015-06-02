@@ -1,12 +1,12 @@
 - content_for :sidebar
   label.list-header Aufgaben
   ul.side-nav
-    li = link_to icon("pencil", text: "Bearbeiten"), edit_contact_path(@contact)
-    li = link_to icon("bin", text: "Löschen"), @contact, method: :delete, data: { confirm: "#{@contact.name} wirklich löschen?" }
+    li = link_to icon("create", text: "Bearbeiten"), edit_contact_path(@contact)
+    li = link_to icon("delete", text: "Löschen"), @contact, method: :delete, data: { confirm: "#{@contact.name} wirklich löschen?" }
 
   label.list-header Links
   ul.side-nav
-    li = link_to "Aufträge", orders_path
+    li = link_to icon("arrow_forward", text: "Aufträge"), orders_path
 
   hr
   sectiom

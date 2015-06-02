@@ -28,6 +28,36 @@ body {
   margin: 0;
 }
 
+.side {
+  width: 250px;
+  top: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 98;
+  background-color: $secondary-color;
+  box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.07);
+  @include transition(140ms ease-in);
+  @include transform(translate(-250px,0))
+}
+
+.side.visible {
+  @include transform(translate(0,0))
+}
+
+.side__header {
+  @include display(flex);
+  align-items: center;
+  height: 55px;
+  background-color: $primary-color;
+  padding: 0 1.25rem;
+}
+
+.side__content {
+  position: relative;
+  padding: $gutter;
+}
+
 header {
   @include flex(0 0 auto);
   background-color: $primary-color;
