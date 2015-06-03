@@ -3,7 +3,7 @@ $('[data-toggle="search"]').click(function() {
 
   $('.search').toggleClass("visible");
   $(this).toggleClass("visible");
-  $('body').addClass('inactive');
+  $('body').toggleClass('inactive');
 });
 
 
