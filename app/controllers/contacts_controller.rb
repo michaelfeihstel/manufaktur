@@ -4,12 +4,13 @@ class ContactsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @contacts = @search.result(distinct: true).includes(:addresses, :contact_role).order(:name)
+    @contacts = Contact.includes(:addresses, :contact_role).order(:name)
     authorize @contacts
   end
 
   def search
-    index
+    @contacts = @search.result(distinct: true).includes(:addresses, :contact_role).order(:name)
+    authorize @contacts
     render "index"
   end
 

@@ -1,33 +1,26 @@
 - content_for :search
-  #search.inverted style="display:none;"
-    .row
-      .small-12.columns
-        h4 Suchen
-        = search_form_for @search do |f|
-          .row
-            .small-12.medium-6.large-4.columns
-              p
-                = f.label :name_cont, "Händler"
-                = f.text_field :name_cont
-              
-              p
-                = f.label :addresses_street_cont, "Straße"
-                = f.text_field :addresses_street_cont 
+  h4 Suchen
+  = search_form_for @search, url: search_contacts_path, html: { method: "post" } do |f|
+    .fields
+      = f.label :name_cont, "Händler"
+      = f.text_field :name_cont
+    
+    .fields
+      = f.label :addresses_street_cont, "Straße"
+      = f.text_field :addresses_street_cont 
 
-              p
-                .row
-                  .small-4.columns
-                    = f.label :addresses_zip_cont, "PLZ"
-                    = f.text_field :addresses_zip_cont
+    .fields
+      .row
+        .span-small-4
+          = f.label :addresses_zip_cont, "PLZ"
+          = f.text_field :addresses_zip_cont
 
-                  .small-8.columns
-                    = f.label :addresses_city_cont, "Ort"
-                    = f.text_field :addresses_city_cont
+        .span-small-8
+          = f.label :addresses_city_cont, "Ort"
+          = f.text_field :addresses_city_cont
 
-              p
-                = f.label :addresses_country_cont, "Land"
-                = f.text_field :addresses_country_cont
+    .fields
+      = f.label :addresses_country_cont, "Land"
+      = f.text_field :addresses_country_cont
 
-          .row
-            .small-12.columns
-              = f.submit "Suchen", class: "button inverted"
+    = f.submit "Suchen", class: "button"

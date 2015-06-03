@@ -1,20 +1,27 @@
 // side toggle
 .side__toggle {
+  @include display(flex);
+  @include justify-content(center);
+  @include transition(140ms ease-in-out);
+  border-right: 1px solid $secondary-color;
   color: #fff;
   cursor: pointer;
-  @include display(flex);
   height: 55px;
-  @include justify-content(center);
   left: 0;
   padding: 0 1.618rem;
   position: absolute;
   top: 0;
-  border-right: 1px solid $secondary-color;
 
   &:hover {
     background-color: #fff;
     color: $primary-color;
   }
+}
+
+.side__toggle.visible {
+  width: 250px;
+  background-color: $background-color;
+  color: $primary-color;
 }
 
 nav.vertical > ul {

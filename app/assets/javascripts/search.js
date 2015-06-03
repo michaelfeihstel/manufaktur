@@ -1,7 +1,14 @@
 // search-toggle
-$('#search-toggle').click(function() {
-  console.log('search-toggle clicked');
+$('[data-toggle="search"]').click(function() {
 
-  $('#search').toggleClass("enabled")
-  $('#search-toggle').toggleClass("enabled")
+  $('.search').toggleClass("visible");
+  $(this).toggleClass("visible");
+  $('body').addClass('inactive');
+});
+
+
+$('.main__content__overlay').click(function(){
+  $('.search').removeClass("visible");
+  $('.search__toggle').removeClass("visible");
+  $('body').removeClass('inactive');
 });

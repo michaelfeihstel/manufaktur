@@ -26,9 +26,8 @@ html lang="de"
     = csrf_meta_tags
 
   body
-    .side
-      = render "layouts/side"
     .main__content
+      .main__content__overlay
       = render "layouts/flash"
       = render "layouts/header"
       header
@@ -39,10 +38,6 @@ html lang="de"
         .row
           .span-small-12
             = yield :breadcrumbs
-      .container#search
-        .row
-          .span-small-12
-            = yield :search
       .container.container--main
         .row
           .span-small-12
@@ -56,6 +51,12 @@ html lang="de"
         footer
           .footer-content
               = yield :footer
+    .side
+      = render "layouts/side"
+    .search
+      .search__header
+      .search__content
+        = yield :search
 
     = javascript_include_tag "application"
     = yield :custom_js

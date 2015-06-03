@@ -29,20 +29,19 @@ body {
 }
 
 .side {
-  width: 250px;
-  top: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 98;
-  background-color: $secondary-color;
-  box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.07);
   @include transition(140ms ease-in);
-  @include transform(translate(-250px,0))
+  background-color: $secondary-color;
+  bottom: 0;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.07);
+  left: -250px;
+  position: fixed;
+  top: 0;
+  width: 250px;
+  z-index: 98;
 }
 
 .side.visible {
-  @include transform(translate(0,0))
+  @include transform(translate(250px,0))
 }
 
 .side__header {
@@ -55,7 +54,27 @@ body {
 
 .side__content {
   position: relative;
-  padding: $gutter;
+  padding: 0.5rem $gutter;
+}
+
+.main__content__overlay {
+  display: none;
+}
+
+body.inactive {
+  overflow: hidden;
+}
+
+body.inactive .main__content__overlay {
+  display: block;
+  z-index: 98;
+  @include transition(140ms ease-in);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(44, 44, 44, 0.4)
 }
 
 header {

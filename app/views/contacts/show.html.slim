@@ -6,8 +6,6 @@
 - content_for :header
   .header-title
     h1 = @contact.name
-  .header-actions
-    = link_to "Bearbeiten", edit_contact_path, class: "button dense inverted"
 
 ul.tabs data-tab=""
   li.tab-title.active = link_to "Stammdaten", "#tab_general"

@@ -4,28 +4,86 @@ hr {
 }
 
 // SEARCH
-#search {
-  display: none;
+.search {
+  @include display(flex);
+  @include flex-direction(column);
+  @include transition(140ms ease-in);
   background-color: $secondary-color;
-  padding-top: 1.618rem;
-  padding-bottom: 1.618rem;
+  bottom: 0;
+  box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.07);
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 400px;
+  z-index: 98;
 }
 
-#search-toggle {
-  background-color: $primary-color;
-  border: none;
-  color: $background-color;
-  content: "P";
+.search.visible{
+  @include transform(translate(-400px,0))
+}
+
+.search__header {
+  @include flex(0 0 55px);
+}
+
+.search__content {
+  @include flex(1 0);
+  padding: 0.5rem $gutter;
+}
+
+.search__toggle {
+  @include display(flex);
+  @include justify-content(center);
+  @include transition(140ms ease-in);
+  border-left: 1px solid $secondary-color;
+  color: #fff;
   cursor: pointer;
-  font-family: "manufaktur-icons";
-  width: 60px;
-  height: 60px;
-  margin: 0px;
+  height: 55px;
+  padding: 0 1.618rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 101;
+
+  &:hover {
+    background-color: #fff;
+    color: $primary-color;
+  }
 }
 
-#search.enabled {
-  display: block;
+.search__toggle.visible {
+  width: 400px;
+  background-color: #fff;
+  color: $primary-color;
 }
+
+.search__toggle.active {
+  background-color: $alert-color;
+
+  &:hover {
+    background-color: $background-color;
+  }
+}
+
+.search__toggle.active.visible {
+  background-color: $background-color;
+}
+
+@media (max-width: $end-small) {
+  .search {
+    right: -320px;
+    width: 320px;
+  }
+
+  .search.visible {
+    width: 320px;
+  }
+
+  .search__toggle.visible {
+    @include transform(translate(-320px,0));
+  }
+}
+
 
 // PRODCUTS
 .colored_separator {
@@ -120,7 +178,7 @@ img {
   @include hard-shadow;
   background-color: $panel-background;
   display: block;
-  margin-bottom: inherit;
+  margin-bottom: $gutter;
   padding: 1.25rem;
 }
 

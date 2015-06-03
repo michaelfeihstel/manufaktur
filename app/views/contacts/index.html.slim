@@ -5,9 +5,11 @@
 - content_for :header
   .header-title
     h1 Kontakte
-  .header-actions
-    = link_to "Kontakt erstellen", new_contact_path, class: "button dense inverted"
 
-.row
-  .span-small-12
-    = render "contacts/index/table_contacts"
+- if search_active?
+  .panel
+    = icon("search", text: "#{@contacts.count} Kontakte gefunden.")
+    span = link_to "Alle Kontakte anzeigen", contacts_path, class: "link"
+
+
+= render "contacts/index/table_contacts"
