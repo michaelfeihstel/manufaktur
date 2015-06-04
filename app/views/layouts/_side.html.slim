@@ -35,3 +35,14 @@
               li = link_to "Eingang", "#"
               li = link_to "Ausgang", "#"
               li = link_to "Inventur", "#"
+
+.side__footer
+  - if current_user
+    h4 Account
+    label = current_user.full_name
+    ul
+      li = link_to "Einstellungen", edit_user_registration_path, class: "link"
+      li = link_to "Abmelden", destroy_user_session_path, method: "Delete", class: "link"
+  - else
+    ul
+      li = link_to "Anmelden", new_user_session_path, class: "link"

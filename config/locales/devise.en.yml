@@ -23,6 +23,9 @@ en:
         subject: "Reset password instructions"
       unlock_instructions:
         subject: "Unlock instructions"
+      invitation_instructions:
+        subject: 'You got an invitation!'
+        user_subject: 'You got a user invitation!'
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -58,3 +61,15 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  # Invitations
+  invitations:
+    send_instructions: 'An invitation email has been sent to %{email}.'
+    invitation_token_invalid: 'The invitation token provided is not valid!'
+    updated: 'Your password was set successfully. You are now signed in.'
+    updated_not_active: 'Your password was set successfully.'
+    user:
+      send_instructions: 'A new user invitation has been sent to %{email}.'
+      invitation_token_invalid: 'Your invitation token is not valid!'
+      updated: 'Welcome on board! You are now signed in.'
+      updated_not_active: 'Welcome on board! Sign in to continue.'

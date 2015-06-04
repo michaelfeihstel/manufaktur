@@ -1,57 +1,53 @@
-- content_for :search do
-	= search_form_for @search, url: search_orders_path, method: :post do |f|
-		section
-			.row
-				.span-small-12.span-medium-6.span-large-4
-					h6 Auftrag
-					.fields
-						= f.label :id_eq, "Auftragsnummer"
-						= f.text_field :id_eq
-					.fields
-						= f.label "Erstellt"
-						.row
-							.span-small-6
-								= f.date_field :created_at_gteq
-							.span-small-6
-								= f.date_field :created_at_lteq
-					.fields
-						= f.label "Liefertermin"
-						.row
-							.span-small-6
-								= f.date_field :delivered_on_gteq
-							.span-small-6
-								= f.date_field :delivered_on_lteq
-					.fields
-						= f.label "Abgeschlossen"
-						.row
-							.span-small-6
-								= f.date_field :completed_at_gteq
-							.span-small-6
-								= f.date_field :completed_at_lteq
+- content_for :search
+  h4 Suchen
+  = search_form_for @search, url: search_orders_path, method: :post do |f|
+    section
+      h5 Auftrag
+      .fields
+        = f.label :id_eq, "Auftragsnummer"
+        = f.text_field :id_eq
+      .fields
+        = f.label "Erstellt"
+        .row
+          .span-small-6
+            = f.date_field :created_at_gteq
+          .span-small-6
+            = f.date_field :created_at_lteq
+      .fields
+        = f.label "Liefertermin"
+        .row
+          .span-small-6
+            = f.date_field :delivered_on_gteq
+          .span-small-6
+            = f.date_field :delivered_on_lteq
+      .fields
+        = f.label "Abgeschlossen"
+        .row
+          .span-small-6
+            = f.date_field :completed_at_gteq
+          .span-small-6
+            = f.date_field :completed_at_lteq
+    
+    section
+      h5 Auftraggeber
+      .fields
+        = f.label :name, "Name / Firma"
+        = f.text_field :billing_name_or_delivery_name_cont
+      .fields
+        = f.label :billing_street_or_delivery_street_cont, "Straße"
+        = f.text_field :billing_street_or_delivery_street_cont
+      .fields
+        .row
+          .span-small-4
+            = f.label :billing_zip_or_delivery_zip_cont, "PLZ"
+            = f.text_field :billing_zip_or_delivery_zip_cont
+          .span-small-8
+            = f.label :billing_city_or_delivery_city_cont, "Stadt"
+            = f.text_field :billing_city_or_delivery_city_cont
+      .fields
+        = f.label :billing_country_or_delivery_country_cont, "Land"
+        = f.text_field :billing_country_or_delivery_country_cont
 
-				.span-small-12.span-medium-6.span-large-4
-					h6 Auftraggeber
-					.fields
-						= f.label :name, "Name / Firma"
-						= f.text_field :billing_name_or_delivery_name_cont
-					.fields
-						= f.label :billing_street_or_delivery_street_cont, "Straße"
-						= f.text_field :billing_street_or_delivery_street_cont
-					.fields
-						.row
-							.span-small-4
-								= f.label :billing_zip_or_delivery_zip_cont, "PLZ"
-								= f.text_field :billing_zip_or_delivery_zip_cont
-							.span-small-8
-								= f.label :billing_city_or_delivery_city_cont, "Stadt"
-								= f.text_field :billing_city_or_delivery_city_cont
-					.fields
-						= f.label :billing_country_or_delivery_country_cont, "Land"
-						= f.text_field :billing_country_or_delivery_country_cont
 
-				.span-small-12.span-medium-6.span-large-4
-
-		.row
-			.small-12
-					button type="submit" class="button" Suchen
-					= link_to "Alle anzeigen", orders_path, class: "button secondary"
+    = f.submit "Suchen", class: "button"
+    = link_to "Alle anzeigen", orders_path, class: "link"

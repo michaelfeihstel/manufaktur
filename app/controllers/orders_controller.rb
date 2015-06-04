@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page]).per(100)
+    @orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page])
     authorize @orders
     @filter_selected = "all"
   end

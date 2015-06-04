@@ -83,5 +83,5 @@ section
 
 - content_for :footer
   ul.inline-list
-    li = link_to icon("pencil", text: "Bearbeiten"), edit_order_path
-    li = link_to icon("bin", text: "Löschen"), @order, method: :delete, data: { confirm: "Wirklich löschen?" }
+    li = link_to "Bearbeiten", edit_order_path, class: "button"
+    li = link_to "Löschen", @order, method: :delete, data: { confirm: "Wirklich löschen?" }, class: "link"

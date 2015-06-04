@@ -10,9 +10,9 @@ table
     - @contacts.each do |contact|
       = render partial: "contacts/index/contact", locals: { contact: contact }
 
-tfoot
-  tr
-    td class="text-right" colspan=5
-      p.light
-        span = "#{@contacts.count} "
-        span.light Kontakte gefunden
+  tfoot
+    tr
+      td colspan=5
+        p.light
+          span = "#{@contacts.count} "
+          span.light Kontakte gefunden

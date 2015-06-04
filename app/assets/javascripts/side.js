@@ -1,6 +1,5 @@
-$('[data-toggle=side]').on("click", function(){
+$('[data-toggle=side]').click(function(){
   $('.side').toggleClass("visible");
-  $(this).toggleClass("visible");
   $('body').toggleClass("inactive");
 });
 

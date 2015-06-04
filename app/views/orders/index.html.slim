@@ -1,4 +1,4 @@
-= render "orders/shared/toolbar"
+= render "orders/index/toolbar"
 = render "orders/shared/search"
 = render "orders/index/breadcrumbs"
 = render "orders/index/sidebar"
@@ -15,4 +15,4 @@
 = render "orders/index/table_orders"
 
 - content_for :footer
-  = paginate @orders, window: 3, outer_window: 1
+  = paginate @orders, window: 2, outer_window: 1

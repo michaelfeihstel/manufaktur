@@ -1,4 +1,4 @@
 - content_for :toolbar
   ul.toolbar
-    li = link_to icon("create", size: "md-24", text: "Bearbeiten"), edit_order_path(@order)
-    li = link_to icon("delete", size: "md-24", text: "Löschen"), edit_order_path(@order)
+    li = link_to icon("create", text: "Bearbeiten"), edit_order_path(@order)
+    li = link_to icon("delete", text: "Löschen"), edit_order_path(@order)

@@ -1,0 +1,5 @@
+- content_for :toolbar
+  ul.toolbar
+    li = link_to icon("add", text: "Erstellen"), new_order_path
+    - if search_active?
+      li = link_to icon("clear", text: "Alle anzeigen"), orders_path

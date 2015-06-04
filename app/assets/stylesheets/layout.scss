@@ -28,46 +28,12 @@ body {
   margin: 0;
 }
 
-.side {
-  @include transition(140ms ease-in);
-  background-color: $secondary-color;
-  bottom: 0;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.07);
-  left: -250px;
-  position: fixed;
-  top: 0;
-  width: 250px;
-  z-index: 98;
-}
-
-.side.visible {
-  @include transform(translate(250px,0))
-}
-
-.side__header {
-  @include display(flex);
-  align-items: center;
-  height: 55px;
-  background-color: $primary-color;
-  padding: 0 1.25rem;
-}
-
-.side__content {
-  position: relative;
-  padding: 0.5rem $gutter;
-}
-
-.main__content__overlay {
-  display: none;
-}
-
 body.inactive {
   overflow: hidden;
 }
 
 body.inactive .main__content__overlay {
   display: block;
-  z-index: 98;
   @include transition(140ms ease-in);
   position: fixed;
   top: 0;
@@ -75,6 +41,17 @@ body.inactive .main__content__overlay {
   bottom: 0;
   left: 0;
   background-color: rgba(44, 44, 44, 0.4)
+}
+
+.main__content {
+  @include display(flex);
+  @include flex-direction(column);
+  min-height: 100vh;
+}
+
+.main__content__overlay {
+  display: none;
+  z-index: 99;
 }
 
 header {
@@ -131,11 +108,11 @@ header {
   @media (screen and max-width: $end-tablet-portrait) {
     @include flex(0 0);
     border: none;
-    border-bottom: 1px solid $hairline-color;
-    margin-bottom: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
+    margin-bottom: 1.618rem;
+    margin-left: -1 * $gutter;
+    margin-right: -1 * $gutter;
+    padding: $gutter;
+    background-color: $panel-background;
   }
 }
 
@@ -170,12 +147,14 @@ footer {
   padding: 0 $gutter;
   width: 100%;
   z-index: 98;
+  background-color: $panel-background;
+  @include hard-shadow--inset
 }
 
 .footer-content {
   @include container;
   border-top: 1px solid $hairline-color;
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 
 section {

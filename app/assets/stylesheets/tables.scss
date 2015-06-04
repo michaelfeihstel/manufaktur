@@ -69,6 +69,10 @@ tfoot {
   border-top: 3px solid $secondary-color;
 }
 
+tfoot tr {
+  border: none;
+}
+
 // Comapct table
 table.compact {
 }

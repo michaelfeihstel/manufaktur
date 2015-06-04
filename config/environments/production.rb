@@ -88,5 +88,18 @@ Rails.application.configure do
     :s3_endpoint => "s3-eu-west-1.amazonaws.com",
     :path => "#{Rails.env}/:class/:attachment/:id/:basename_:style.:extension"
   }
+
+
+
+  # Mailer configuration
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["GMAIL_DOMAIN"],
+    authentication: "login",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
   
 end

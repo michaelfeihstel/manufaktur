@@ -6,7 +6,7 @@ tr.order-item.link href=order_path(order) data-id=order.id
   td
     - if order.is_webshop?
       = icon("shopping_cart", additional_classes: "md-18")
-    = order.billing_name
+  td = order.billing_name
   td = l order.created_at, format: :date_only
   td
     - order.line_items.each do |li|

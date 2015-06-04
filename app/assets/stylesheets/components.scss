@@ -3,19 +3,25 @@ hr {
   border-bottom: 1px solid scale-color($secondary-color, $lightness: -5%);
 }
 
-// SEARCH
-.search {
+// OFFCANVAS
+.search,
+.side {
   @include display(flex);
   @include flex-direction(column);
   @include transition(140ms ease-in);
   background-color: $secondary-color;
+  z-index: 100;
+  position: fixed;
+}
+
+.search {
   bottom: 0;
   box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.07);
   position: fixed;
   right: -400px;
   top: 0;
   width: 400px;
-  z-index: 98;
+  z-index: 100;
 }
 
 .search.visible{
@@ -27,15 +33,13 @@ hr {
 }
 
 .search__content {
-  @include flex(1 0);
-  padding: 0.5rem $gutter;
+  
 }
 
 .search__toggle {
   @include display(flex);
-  @include justify-content(center);
+  @include justify-content(flex-start);
   @include transition(140ms ease-in);
-  border-left: 1px solid $secondary-color;
   color: #fff;
   cursor: pointer;
   height: 55px;
@@ -51,9 +55,9 @@ hr {
   }
 }
 
-.search__toggle.visible {
-  width: 400px;
-  background-color: #fff;
+.search__header .search__toggle {
+  width: 100%;
+  background-color: $background-color;
   color: $primary-color;
 }
 
@@ -82,6 +86,72 @@ hr {
   .search__toggle.visible {
     @include transform(translate(-320px,0));
   }
+}
+
+.side {
+  bottom: 0;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.07);
+  left: -250px;
+  top: 0;
+  width: 250px;
+  z-index: 100;
+}
+
+.side.visible {
+  @include transform(translate(250px,0))
+}
+
+.side__header,
+.search__header {
+  @include display(flex);
+  align-items: center;
+  height: 55px;
+  background-color: $background-color;
+  padding: 0 1.25rem;
+}
+
+.side__content,
+.search__content {
+  @include flex(1 1);
+  padding: 0.5rem $gutter;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.side__footer,
+.search__footer {
+  padding: $gutter;
+  @include flex(0 0 auto)
+}
+
+.side__footer {
+  background-color: $background-color;
+  border-top: 1px solid $hairline-color;
+}
+
+.side__toggle {
+  @include display(flex);
+  @include justify-content(flex-start);
+  @include transition(140ms ease-in-out);
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  left: 0;
+  padding: 0 1.618rem;
+  position: absolute;
+  top: 0;
+
+  &:hover {
+    background-color: $background-color;
+    color: $primary-color;
+  }
+}
+
+
+.side__header .side__toggle {
+  width: 250px;
+  background-color: $background-color;
+  color: $primary-color;
 }
 
 
@@ -493,6 +563,9 @@ input[type="search"].subnav-search-field {
 // PAGINATION
 nav.pagination {
   text-align: center;
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
 }
 
 nav.pagination span.page {
@@ -502,8 +575,13 @@ nav.pagination span.page {
 }
 
 span.page a {
-  padding: 0 0.5rem;
+  display: block;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
+}
+
+span.page a:hover {
+  background-color: scale-color($secondary-color, $lightness: -5%)
 }
 
 nav.pagination span.page:first-child {
@@ -521,11 +599,34 @@ span.page--current:hover a {
 }
 
 span.page--prev a {
-  padding-left: 0;
 }
 
 span.page--next a {
-  padding-right: 0;
+}
+
+.pagination__info {
+  @include align-items(center);
+  @include display(flex);
+  color: $background-color;
+  font-size: 0.8125rem;
+}
+
+.pagination__info a {
+  color: inherit;
+}
+
+.previous-page,
+.next-page {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.previous-page {
+  margin-left: -1 * $gutter;
+}
+
+.next-page {
+  margin-right: -1 * $gutter;
 }
 
 

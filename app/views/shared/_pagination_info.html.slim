@@ -1,0 +1,5 @@
+.pagination__info
+  = link_to_previous_page collection, icon("chevron_left"), class: "previous-page"
+  .info
+    = page_entries_info collection
+  = link_to_next_page collection, icon("chevron_right"), class: "next-page"

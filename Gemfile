@@ -16,6 +16,7 @@ gem 'puma'
 gem "rack-timeout"
 gem "minitest-rails"
 gem "devise"
+gem 'devise_invitable', '~> 1.3.4'
 gem "pundit"
 
 # views and presentation
@@ -30,10 +31,8 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'jquery-minicolors-rails'
 gem 'nested_form'
-gem 'twine-rails'
 
 group :production do
   gem 'rails_12factor'

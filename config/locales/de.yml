@@ -9,7 +9,6 @@ de:
     - Fr
     - Sa
     abbr_month_names:
-    -
     - Jan
     - Feb
     - Mär
@@ -197,3 +196,21 @@ de:
       long: ! '%A, %d. %B %Y, %H:%M Uhr'
       short: ! '%d. %B, %H:%M Uhr'
     pm: nachmittags
+
+
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo; Zurück"
+      next: "Weiter &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Keine %{entry_name} gefunden"
+          one: "<b>1</b> %{entry_name} gefunden"
+          other: "1 - %{count} von %{count}"
+      more_pages:
+        display_entries: "%{first}&nbsp;-&nbsp;%{last} von %{total}"

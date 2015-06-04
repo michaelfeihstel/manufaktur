@@ -104,6 +104,14 @@ a.link {
   }
 }
 
+a.link.alert {
+  border-bottom: 2px solid scale-color($alert-color, $lightness: 10%);
+
+  &:hover {
+    border-color: $alert-color;
+  }
+}
+
 .header-actions a.link {
   color: $background-color;
   border-bottom: 2px solid $hairline-color;

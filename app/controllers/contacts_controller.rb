@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @contacts = Contact.includes(:addresses, :contact_role).order(:name)
+    @contacts = Contact.includes(:addresses, :contact_role).order(:name).page(params[:page]).per(50)
     authorize @contacts
   end
 

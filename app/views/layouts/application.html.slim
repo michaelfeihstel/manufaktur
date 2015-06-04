@@ -27,7 +27,6 @@ html lang="de"
 
   body
     .main__content
-      .main__content__overlay
       = render "layouts/flash"
       = render "layouts/header"
       header
@@ -55,8 +54,11 @@ html lang="de"
       = render "layouts/side"
     .search
       .search__header
+        .search__toggle data-toggle="search"
+          = icon("search", size: "md-24")
       .search__content
         = yield :search
+    .main__content__overlay
 
     = javascript_include_tag "application"
     = yield :custom_js

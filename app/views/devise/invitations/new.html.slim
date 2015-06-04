@@ -1,0 +1,18 @@
+- content_for :header
+  .header-title
+    h1 Benutzer einladen
+
+.row
+  .span-small-6
+    section
+      = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f|
+        = devise_error_messages!
+
+        - resource.class.invite_key_fields.each do |field|
+          .fields
+            = f.label field
+            = f.text_field field
+
+- content_for :footer
+  = link_to "Einladung senden", "#", class: "button", data: { submit: "new_user" }
+  = link_to "Abbrechen", edit_user_registration_path, class: "link"

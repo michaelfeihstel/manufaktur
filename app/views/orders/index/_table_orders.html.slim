@@ -3,6 +3,7 @@ table
     tr
       th = icon("done")
       th width="100" Auftrag
+      th
       th width="300" Auftraggeber
       th width="120" Erstellt
       th.hide-for-medium-only Artikel
@@ -14,5 +15,5 @@ table
 
   tfoot
     tr
-      td.text-right colspan=6
+      td.text-right colspan=7
         h4.bold= number_to_currency(@orders.to_a.sum{|o| o.line_items.to_a.sum(&:price_total)})

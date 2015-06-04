@@ -23,5 +23,5 @@ ul.tabs data-tab=""
 
 - content_for :footer
   ul.inline-list
-    li = link_to icon("pencil", text: "Bearbeiten"), edit_contact_path
-    li = link_to icon("bin", text: "Löschen"), @contact, data: { confirm: "Wirklich löschen?" }, method: :delete
+    li = link_to "Bearbeiten", edit_contact_path, class: "button"
+    li = link_to "Löschen", @contact, data: { confirm: "Wirklich löschen?" }, method: :delete, class: "link"
