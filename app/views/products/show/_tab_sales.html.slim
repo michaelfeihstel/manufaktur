@@ -19,8 +19,8 @@
       thead
         tr
           th width=70 Status
-          th width=70 Auftrag
-          th Erstellt
+          th width=80 Auftrag
+          th width=150 Erstellt
           th Auftraggeber
           th.text-right Anzahl
       tbody
@@ -29,17 +29,11 @@
             td
               span data-tooltip="" title=line_item.order.completed_status_label
                 = completed_icon(line_item.order)
-              span data-tooltip="" title=line_item.order.paid_label
-                = paid_icon(line_item.order)
             td = line_item.order_id
             td = l line_item.order.created_at, format: :date_only
             td = line_item.order.billing_name
             td.text-right = line_item.quantity
       tfoot
         tr
-          td
-          td
-          td
-          td
-          td.bold.text-right = @product.line_items.to_a.sum(&:quantity)
+          td.bold.text-right colspan=5 = @product.line_items.to_a.sum(&:quantity)
 

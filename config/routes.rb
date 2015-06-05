@@ -1,7 +1,7 @@
 Manufaktur::Application.routes.draw do
 
   # root
-  root to: "home#dashboard"
+  root to: "contacts#index"
 
   # devise
   devise_for :users

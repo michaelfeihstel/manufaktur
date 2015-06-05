@@ -4,6 +4,10 @@
   @include align-items(center);
 }
 
+.icon__container--right {
+  @include justify-content(flex-end);
+}
+
 .material-icons {
   vertical-align: middle;
 }

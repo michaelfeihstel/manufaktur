@@ -33,10 +33,11 @@ module IconHelper
   #   end
   # end
 
-  def icon(icon, text: nil, color: nil, size: "md-18", tooltip: nil, additional_classes: nil)
+  def icon(icon, text: nil, color: nil, size: "md-18", tooltip: nil, additional_classes: nil, align: nil)
     color_attribute = "color: #{color}" unless color.nil?
+    align = "icon__container--right" if align == "right"
 
-    content_tag :span, class: "icon__container" do
+    content_tag :span, class: "icon__container #{align}" do
       content_tag(:i, icon, class: "material-icons #{additional_classes} #{size}", style: "#{color_attribute}") +
       ( content_tag(:span, text, class: "icon__text #{additional_classes}", style: "#{color_attribute}") unless text.nil? )
     end

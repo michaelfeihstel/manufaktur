@@ -1,0 +1,38 @@
+- content_for :header
+  .header-title
+    h1 Registrieren
+
+.row
+  .span-small-12.span-medium-6
+    = form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f|
+      .panel
+        p Fast geschafft. Bitte gib noch Deinen Namen an und lege Dein Passwort fest um die Anmeldung abzuschließen.
+
+      section
+        = devise_error_messages!
+        = f.hidden_field :invitation_token
+      
+      section
+        h5.section-header Name
+        .fields
+          = f.label :first_name, "Vorname"
+          = f.text_field :first_name
+
+        .fields
+          = f.label :last_name, "Nachname"
+          = f.text_field :last_name
+
+      section
+        h5.section-header Passwort
+        .fields
+          = f.label :password, "Passwort"
+          = f.password_field :password
+        
+        .fields
+          = f.label :password_confirmation, "Passwort bestätigen"
+          = f.password_field :password_confirmation
+
+      = f.submit "Account erstellen", class: "button"
+
+- content_for :footer
+  = button_to "Account erstellen", "#", data: { submit: "edit_user"}, class: "button"

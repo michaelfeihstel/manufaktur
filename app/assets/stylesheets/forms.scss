@@ -51,6 +51,15 @@ input[type=radio] {
   display: inline;
 }
 
+input[type=submit] {
+}
+
+input[type=submit].link {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 label.label--inline {
   display: inline;
 }

@@ -16,7 +16,8 @@
           .flex__list.flex__list--right
             .flex__list__item
               label Termin
-              = l series.finished_on, format: :default
+              - if series.finished_on.present?
+                = l series.finished_on, format: :default
             .flex__list__item
               label Gesamt
               = series.total_quantity
