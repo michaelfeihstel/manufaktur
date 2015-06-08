@@ -36,7 +36,7 @@ create_work_steps = WorkStep.create(
     { id: 12, name: "Außen- und Mittelsohle rauen" },
     { id: 13, name: "Schaft & Sohle Anstrich" },
     { id: 14, name: "Verheiraten" },
-    { id: 15, name: "Endkontrolle" },
+    { id: 15, name: "Endkontrolle", final_step: true },
     { id: 16, name: "Verpacken" },
     { id: 17, name: "Zunge (Finale)" }
   ]
