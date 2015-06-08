@@ -130,6 +130,8 @@ class OrdersController < ApplicationController
 
   def mark
     @order = Order.find(params[:id])
+    authorize @order
+    
     @order.mark_as_marked
 
     redirect_to order_path
