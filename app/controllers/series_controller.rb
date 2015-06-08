@@ -4,7 +4,7 @@ class SeriesController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @series = @search.result(distinct: true).includes(:product).newest
+    @series = @search.result(distinct: true).includes(:product).newest.page(params[:page])
     authorize @series
   end
 

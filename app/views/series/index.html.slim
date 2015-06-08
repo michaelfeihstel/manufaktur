@@ -21,3 +21,6 @@ section
     tbody
       - @series.each do |series|
         = render "series/index/table_item", series: series
+
+- content_for :footer
+  = paginate @series

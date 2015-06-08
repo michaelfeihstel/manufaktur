@@ -3,3 +3,4 @@
     ul.breadcrumbs
       li = link_to "Home", :root
       li = link_to "Serien", series_index_path
+    = render "shared/pagination_info", collection: @series

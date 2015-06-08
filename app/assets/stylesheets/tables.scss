@@ -64,6 +64,14 @@ tr.link:hover a {
 tr.link:hover a:hover {
 }
 
+tr.section {
+  border: none;
+}
+
+tr.section td {
+  padding-top: 4rem; 
+}
+
 tfoot {
   padding: 2rem 0;
   border-top: 3px solid $secondary-color;

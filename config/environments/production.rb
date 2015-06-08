@@ -73,7 +73,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Devise needs thsi to be set
-  config.action_mailer.default_url_options = { host: 'manufaktur.lunge.com' }
+  config.action_mailer.default_url_options = { host: 'manufaktur.herokuapp.com' }
 
 
   # Paperclip Gem
