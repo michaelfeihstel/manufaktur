@@ -214,3 +214,5 @@ de:
           other: "1 - %{count} von %{count}"
       more_pages:
         display_entries: "%{first}&nbsp;-&nbsp;%{last} von %{total}"
+
+  

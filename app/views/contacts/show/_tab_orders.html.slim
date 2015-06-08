@@ -1,5 +1,5 @@
 .tab#tab_orders
-  - if @contact.orders.any?
+  - if @contact.orders.present?
     section
       h5.section-header Monatliche Umsätze
       = render "contacts/charts/order_chart"

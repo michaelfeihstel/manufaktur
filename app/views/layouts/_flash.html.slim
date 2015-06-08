@@ -1,4 +1,6 @@
 - flash.each do |key, value|
-  div data-alert="" class=("notification #{flash_class(key)}")
-    = value 
-    = link_to "Schließen", "#", class: "close link small"
+  .flash
+    .flash__content class=("notification #{flash_class(key)}")
+      = value
+    .flash__clear
+      = link_to icon("clear"), "#"

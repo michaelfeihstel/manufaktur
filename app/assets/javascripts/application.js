@@ -26,9 +26,6 @@ $(".container--breadcrumbs").stick_in_parent({
   bottoming: false
 });
 
-// Flash notice
-$('.flash').slideDown(500).delay(5000).slideUp(500);
-
 
 
 

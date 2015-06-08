@@ -342,8 +342,7 @@ ul.breadcrumbs li a {
   color: inherit;
 
   &:hover {
-    color: $primary-color;
-    border-bottom: 1px solid $primary-color;
+    border-bottom: 1px solid $background-color;
   }
 }
 
@@ -380,16 +379,31 @@ input[type="search"].subnav-search-field {
 
 
 // Flash messages
-.notification {
+.flash {
+  @include display(flex);
+  @include align-items(center);
   position: fixed;
   top: 55px;
   right: 0;
   background-color: #d82b4e;
   color: #fff;
-  padding: 1.25rem;
-  height: 60px;
   z-index: 99;
-  text-align: right;
+  height: 60px;
+  overflow: hidden;
+}
+
+.flash__content {
+  padding: $gutter;
+}
+
+.flash__clear {
+  padding: $gutter;
+  color: $background-color;
+}
+
+.flash__clear:hover {
+  background-color: $background-color;
+  color: $font-color;
 }
 
 .alert-box {
