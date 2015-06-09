@@ -2,14 +2,13 @@
 #
 # Table name: contacts
 #
-#  id                :integer          not null, primary key
-#  name              :string(255)
-#  fmid              :integer
-#  created_at        :datetime
-#  updated_at        :datetime
-#  contact_role_id   :integer
-#  contact_role_type :string
-#  additional_data   :hstore
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  fmid            :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  contact_role_id :integer
+#  additional_data :hstore
 #
 
 class Contact < ActiveRecord::Base
@@ -38,8 +37,7 @@ class Contact < ActiveRecord::Base
   validates :name, presence: true
 
   # scopes
-  scope :employees, -> { where(contact_role_type: "Employee") }
-  scope :retailers, -> { where(contact_role_type: "Retailer") }
+  scope :filter, -> (type) { joins(:contact_role).where(contact_roles: { name: type }) }
 
   # methods
   def billing_address

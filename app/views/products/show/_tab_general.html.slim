@@ -3,37 +3,40 @@
     .span-small-12.span-medium-6
       section
         h5.section-header Allgemein
-        p
+        .fields
           label Artikelnummer
           = @product.sku
-        p
+        .fields
           label Bezeichnung
           = @product.name
-        p
+        .fields
           label Farbe
           = @product.color_text
-        p
+        .fields
           label Größensystem
           = @product.size_set.try(:name)
+        .fields
+          label Produktgruppe
+          = @product.product_family
 
       section
         h5.section-header Preis
-        p
+        .fields
           label Einkaufspreis
           = number_to_currency(@product.price, unit: "€")
-        p
+        .fields
           label Mehrwertsteuer
           = @product.vat
 
       section
         h5.section-header Farben & Darstellung
-        p
+        .fields
           label Primäre Farbe
           = @product.primary_color
-        p
+        .fields
           label Sekundäre Farbe
           = @product.secondary_color
-        p
+        .fields
           label Text Farbe
           = @product.text_color
 

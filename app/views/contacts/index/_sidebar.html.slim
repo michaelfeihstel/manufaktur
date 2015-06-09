@@ -1,11 +1,12 @@
 - content_for :sidebar
-	label Filter
-	ul.side-nav
-		li.active = link_to "Alle", contacts_path
-		li = link_to "Händler", "#"
-		li = link_to "Mitarbeiter", "#"
-		li = link_to "Shop Kunden", "#"
+  label Filter
+  ul.side-nav
+    li class=active_class(@filter.nil?) = link_to "Alle", contacts_path
+    li class=active_class(@filter == "retailers") = link_to "Händler", retailers_contacts_path
+    li class=active_class(@filter == "suppliers") = link_to "Zulieferer", suppliers_contacts_path
+    li class=active_class(@filter == "employees") = link_to "Mitarbeiter", employees_contacts_path
+    li class=active_class(@filter == "customer") = link_to "Shop Kunden", customers_contacts_path
 
-	label Aufgaben
-	ul.side-nav
-		li = link_to icon("add", text: "Neuer Kontakt"), new_contact_path
+  label Aufgaben
+  ul.side-nav
+    li = link_to icon("add", text: "Neuer Kontakt"), new_contact_path

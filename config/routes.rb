@@ -26,6 +26,10 @@ Manufaktur::Application.routes.draw do
     get :dashboard, action: "dashboard", on: :collection, as: "dashboard"
   end
 
+  concern :filterable do
+    get "(filter/:filter)", action: "filter", on: :collection, as: :filter
+  end
+
 
   # orders
   get "orders/marked_orders" => "orders#get_marked_orders", :as => "marked_orders"
@@ -34,7 +38,14 @@ Manufaktur::Application.routes.draw do
   resources :api_keys
   resources :addresses
   resources :brands
-  resources :contacts, concerns: [:paginatable, :searchable, :commentable]
+  resources :contacts, concerns: [:paginatable, :searchable, :commentable, :filterable] do
+    collection do
+      get "retailers"
+      get "employees"
+      get "suppliers"
+      get "customers"
+    end
+  end
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
   resources :materials
@@ -46,15 +57,11 @@ Manufaktur::Application.routes.draw do
     end
     collection do
       get "favorites", action: "favorites", as: "favorite"
-      get "created/:year/:month/:day" => "orders#index_created_at", :as => "created_at"
+      get "created/:year/:month/:day", action: "index_created_at", as: "created_at"
     end
   end
   resources :product_images
-  resources :products, concerns: [:paginatable, :searchable] do
-    collection do
-      get "filter/:name", action: "filter_by_model", as: "filter"
-    end
-  end
+  resources :products, concerns: [:paginatable, :searchable, :filterable]
   resources :series, concerns: [:commentable] do
     resources :series_steps
   end

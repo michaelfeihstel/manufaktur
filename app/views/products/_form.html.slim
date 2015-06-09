@@ -26,8 +26,11 @@
 
         .fields
           = f.label :size_set_id, "Größensystem"
-          .select-container
-            = f.collection_select(:size_set_id, SizeSet.all, :id, :name)
+          = f.collection_select(:size_set_id, SizeSet.all, :id, :name)
+
+        .fields
+          = f.label :product_family, "Produktgruppe"
+          = f.select(:product_family, options_for_select(@product.product_family_options))
 
       section
         h5.section-header Preis

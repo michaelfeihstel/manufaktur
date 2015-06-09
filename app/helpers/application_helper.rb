@@ -11,4 +11,10 @@ module ApplicationHelper
 	  value.blank? ? "&nbsp;".html_safe : value
 	end
 
+  def active_class(condition)
+    if condition
+      "active"
+    end
+  end
+
 end

@@ -68,8 +68,10 @@ tr.section {
   border: none;
 }
 
-tr.section td {
-  padding-top: 4rem; 
+tr.section td,
+tr.section th {
+  padding-top: 4rem;
+  color: $font-color;
 }
 
 tfoot {

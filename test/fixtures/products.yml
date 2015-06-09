@@ -16,6 +16,7 @@
 #  secondary_color  :string(255)
 #  text_color       :string(255)      default("#fff")
 #  size_set_id      :integer
+#  product_family   :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

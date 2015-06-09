@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :initialize_search, only: [:index, :search, :show, :edit, :new]
+  before_action :initialize_search, except: [:create, :update, :destroy]
   before_action :authenticate_user!
   after_action :verify_authorized
 
@@ -8,8 +8,51 @@ class ContactsController < ApplicationController
     authorize @contacts
   end
 
+  def retailers
+    @contacts = Contact.includes(:addresses, :contact_role).where(contact_roles: { name: "retailer" }).order(:name).page(params[:page]).per(50)
+    authorize @contacts
+
+    @filter = action_name
+
+    render "index"
+  end
+
+  def employees
+    @contacts = Contact.includes(:addresses, :contact_role).where(contact_roles: { name: "employee" }).order(:name).page(params[:page]).per(50)
+    authorize @contacts
+
+    @filter = action_name
+
+    render "index"
+  end
+
+  def suppliers
+    @contacts = Contact.includes(:addresses, :contact_role).where(contact_roles: { name: "suppliers" }).order(:name).page(params[:page]).per(50)
+    authorize @contacts
+
+    @filter = action_name
+
+    render "index"
+  end
+
+  def customers
+    @contacts = Contact.includes(:addresses, :contact_role).where(contact_roles: { name: "customers" }).order(:name).page(params[:page]).per(50)
+    authorize @contacts
+
+    @filter = action_name
+
+    render "index"
+  end
+
+  def filter
+    @filter = params[:filter]
+    @contacts = Contact.filter(@filter).includes(:addresses, :contact_role).order(:name).page(params[:page]).per(50)
+    authorize @contacts
+    render "index"
+  end
+
   def search
-    @contacts = @search.result(distinct: true).includes(:addresses, :contact_role).order(:name)
+    @contacts = @search.result(distinct: true).includes(:addresses, :contact_role).order(:name).page(params[:page])
     authorize @contacts
     render "index"
   end

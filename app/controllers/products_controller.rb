@@ -3,24 +3,27 @@ class ProductsController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @products = @search.result(distinct: true).includes(:product_images).order(:name)
+    @products = Product.includes(:product_images).order(:name)
     authorize @products
   end
 
-  def filter_by_model
-    @products = @search.result(distinct: true).only_model(params[:name]).includes(:product_images).order(:name)
-    authorize @product
+  def filter
+    @filter = params[:filter]
+    @products = Product.only_model(@filter).includes(:product_images).order(:name)
+    authorize @products
 
     render "index"
   end
 
   def search
-    index
+    @products = @search.results(distinct: true).includes(:product_images).order(:name)
+    authorize @products
+
     render "index"
   end
 
   def show
-    @product = Product.includes({ line_items: [:order] }, :material_consumptions).find(params[:id])
+    @product = Product.includes({ line_items: [:order] }, { material_consumptions: [:material] }, :series, :size_set).find(params[:id])
     authorize @product
   end
 
@@ -99,6 +102,7 @@ class ProductsController < ApplicationController
       :price,
       :vat,
       :size_set_id,
+      :product_family,
       product_images_attributes: [
         :id,
         :product_id,

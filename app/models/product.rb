@@ -16,6 +16,7 @@
 #  secondary_color  :string(255)
 #  text_color       :string(255)      default("#fff")
 #  size_set_id      :integer
+#  product_family   :string
 #
 
 class Product < ActiveRecord::Base
@@ -39,6 +40,13 @@ class Product < ActiveRecord::Base
   # validations
   validates	:name,	presence: true
   validates	:sku,		presence: true
+
+
+
+  # Methods
+  def product_family_options
+    ["Classic Run", "Classic Walk", "Evo Run", "Accento", "Light", "Gomax"]
+  end
 
   def default_image
     if self.product_images.empty?

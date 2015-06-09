@@ -5,7 +5,7 @@
       .panel__bar.panel__bar--top
         h5.panel__title Verkäufe je Größe
       .panel__body
-        = render "products/shared/chart_bar_sales"
+        // = render "products/shared/chart_bar_sales"
       .panel__bar.panel__bar--bottom
         .flex__list.flex__list--right
           .flex__list__item
@@ -24,11 +24,9 @@
           th Auftraggeber
           th.text-right Anzahl
       tbody
-        - @product.line_items.order_by_created_desc.each do |line_item|
-          tr.link href=order_path(line_item.order)
-            td
-              span data-tooltip="" title=line_item.order.completed_status_label
-                = completed_icon(line_item.order)
+        - @product.line_items.most_recent.each do |line_item|
+          tr.link href=order_path(line_item.order_id)
+            td = completed_icon(line_item.order)
             td = line_item.order_id
             td = l line_item.order.created_at, format: :date_only
             td = line_item.order.billing_name
@@ -36,4 +34,3 @@
       tfoot
         tr
           td.bold.text-right colspan=5 = @product.line_items.to_a.sum(&:quantity)
-

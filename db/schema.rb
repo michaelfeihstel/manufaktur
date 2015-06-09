@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604125117) do
+ActiveRecord::Schema.define(version: 20150609102154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,17 +81,17 @@ ActiveRecord::Schema.define(version: 20150604125117) do
 
   create_table "contact_roles", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "human_readable_name"
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "name",              limit: 255
+    t.string   "name",            limit: 255
     t.integer  "fmid"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "contact_role_id"
-    t.string   "contact_role_type"
     t.hstore   "additional_data"
   end
 
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 20150604125117) do
     t.integer  "fmid"
   end
 
+  add_index "line_items", ["created_at"], name: "index_line_items_on_created_at", using: :btree
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
@@ -232,6 +233,7 @@ ActiveRecord::Schema.define(version: 20150604125117) do
   end
 
   add_index "orders", ["contact_id"], name: "index_orders_on_contact_id", using: :btree
+  add_index "orders", ["created_at"], name: "index_orders_on_created_at", using: :btree
 
   create_table "product_images", force: :cascade do |t|
     t.integer  "product_id"
@@ -260,6 +262,7 @@ ActiveRecord::Schema.define(version: 20150604125117) do
     t.string   "secondary_color",  limit: 255
     t.string   "text_color",       limit: 255,                         default: "#fff"
     t.integer  "size_set_id"
+    t.string   "product_family"
   end
 
   create_table "return_line_items", force: :cascade do |t|

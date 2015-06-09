@@ -10,11 +10,11 @@
 remove_contact_roles = ContactRole.destroy_all
 create_contact_roles = ContactRole.create(
   [
-    { id: 1, name: "Händler" },
-    { id: 2, name: "Zulieferer" },
-    { id: 3, name: "Mitarbeiter" },
-    { id: 4, name: "Endkunde" },
-    { id: 5, name: "Sonstige" }
+    { id: 1, name: "retailer", human_readable_name: "Händler" },
+    { id: 2, name: "supplier", human_readable_name: "Zulieferer" },
+    { id: 3, name: "employee", human_readable_name: "Mitarbeiter" },
+    { id: 4, name: "customer", human_readable_name: "Endkunde" },
+    { id: 5, name: "other", human_readable_name: "Sonstige" }
   ]
 )
 

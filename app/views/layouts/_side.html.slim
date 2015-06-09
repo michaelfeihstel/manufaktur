@@ -8,7 +8,8 @@
       li.has-children
         = link_to "Kontakte", contacts_path
         ul
-          li = link_to "Händler", contacts_path
+          li = link_to "Händler", filter_contacts_path(:retailer)
+          li = link_to "Mitarbeiter", filter_contacts_path(:employee)
           li = link_to "Briefe", letters_path
 
       li.has-children

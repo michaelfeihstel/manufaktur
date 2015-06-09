@@ -1,26 +1,35 @@
 - content_for :search
   h4 Suchen
   = search_form_for @search, url: search_contacts_path, html: { method: "post" } do |f|
-    .fields
-      = f.label :name_cont, "Händler"
-      = f.text_field :name_cont
-    
-    .fields
-      = f.label :addresses_street_cont, "Straße"
-      = f.text_field :addresses_street_cont 
+    section
+      h5 Adresse
+      .fields
+        = f.label :name_cont, "Händler"
+        = f.search_field :name_cont
+      
+      .fields
+        = f.label :addresses_street_cont, "Straße"
+        = f.search_field :addresses_street_cont 
 
-    .fields
-      .row
-        .span-small-4
-          = f.label :addresses_zip_cont, "PLZ"
-          = f.text_field :addresses_zip_cont
+      .fields
+        .row
+          .span-small-4
+            = f.label :addresses_zip_cont, "PLZ"
+            = f.search_field :addresses_zip_cont
 
-        .span-small-8
-          = f.label :addresses_city_cont, "Ort"
-          = f.text_field :addresses_city_cont
+          .span-small-8
+            = f.label :addresses_city_cont, "Ort"
+            = f.search_field :addresses_city_cont
 
-    .fields
-      = f.label :addresses_country_cont, "Land"
-      = f.text_field :addresses_country_cont
+      .fields
+        = f.label :addresses_country_cont, "Land"
+        = f.search_field :addresses_country_cont
 
-    = f.submit "Suchen", class: "button"
+    section
+      h5 Kategorie
+      .fields
+        = f.collection_select :contact_role_id_eq, ContactRole.all, :id, :human_readable_name, { prompt: true }, class: "full-width"
+
+    section
+      = f.submit "Suchen", class: "button"
+      = link_to "Alle anzeigen", contacts_path, class: "link"

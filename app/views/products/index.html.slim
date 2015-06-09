@@ -8,6 +8,8 @@
   .header-actions
     = link_to "Neuer Artikel", new_product_path, class: "button"
 
+
+
 table
   thead
     tr
@@ -17,21 +19,12 @@ table
       th.text-right Preis
       th
   tbody
-    - @products.group_by(&:name).each do |group, product|
-      tr.section
-        td colspan=5
-          h4 = group
-      - product.each do |product|
-        tr.link href=product_path(product)
-          td = product.sku
-          td = product.name
-          td
-            span.label class="product-label" style=product_color(product)
-              = product.color_text
-          td.text-right = number_to_currency(product.price, unit:"€ ")
-          td.text-right = icon("chevron_right", align: "right")
-  tfoot
-    tr
-      td colspan=5
-        span = "#{@products.count} "
-        span.light Artikel gefunden
+    - @products.each do |product|
+      tr.link href=product_path(product)
+        td = product.sku
+        td = product.name
+        td
+          span.label class="product-label" style=product_color(product)
+            = product.color_text
+        td.text-right = number_to_currency(product.price, unit:"€ ")
+        td.text-right = icon("chevron_right", align: "right")

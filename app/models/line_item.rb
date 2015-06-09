@@ -50,7 +50,7 @@ class LineItem < ActiveRecord::Base
 
   # scopes
   scope :completed, -> { where(completed_at.present) }
-  scope :order_by_created_desc, -> { order(created_at: :desc) }
+  scope :most_recent, -> { order(created_at: :desc) }
   scope :webshop, -> { joins(:order).where(order: {is_webshop: true}) }
 
   # callbacks
