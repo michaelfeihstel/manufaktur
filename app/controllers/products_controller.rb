@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.includes({ line_items: [:order] }, { material_consumptions: [:material] }, :series, :size_set).find(params[:id])
+    @product = Product.includes({ line_items: [:order] }, { material_consumptions: [:material] }, { series: [:series_steps] }, :size_set, :product_inventory_items).find(params[:id])
     authorize @product
   end
 

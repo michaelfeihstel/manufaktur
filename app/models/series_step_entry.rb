@@ -41,6 +41,13 @@
 #  contact_id     :integer
 #  final_step     :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_series_step_entries_on_contact_id      (contact_id)
+#  index_series_step_entries_on_date            (date)
+#  index_series_step_entries_on_final_step      (final_step)
+#  index_series_step_entries_on_series_step_id  (series_step_id)
+#
 
 class SeriesStepEntry < ActiveRecord::Base
   # associations
@@ -50,6 +57,7 @@ class SeriesStepEntry < ActiveRecord::Base
   # scopes
   scope :sized, -> (size) { where("? > 0", size) }
   scope :final, -> { where(final_step: true) }
+  scope :completed_since, -> (date) { where("date >= ? AND final_step = ?", date, true) }
 
 
 

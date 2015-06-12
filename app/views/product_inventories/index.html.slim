@@ -1,0 +1,12 @@
+- content_for :header
+  .header-title
+    h1 Inventuren
+
+table
+  thead
+    tr
+      th Jahr
+  tbody
+    - @product_inventories.each do |inventory|
+      tr.link href=product_inventory_entries_path(inventory)
+        td = inventory.year

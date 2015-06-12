@@ -60,8 +60,11 @@ Manufaktur::Application.routes.draw do
       get "created/:year/:month/:day", action: "index_created_at", as: "created_at"
     end
   end
-  resources :product_images
   resources :products, concerns: [:paginatable, :searchable, :filterable]
+  resources :product_images
+  resources :product_inventories do
+    resources :product_inventory_items, as: "entries", path: "entries"
+  end
   resources :series, concerns: [:commentable] do
     resources :series_steps
   end
@@ -102,6 +105,8 @@ Manufaktur::Application.routes.draw do
       resources :line_items
     end
     resources :products, concerns: [:searchable]
+    resources :product_inventories
+    resources :product_inventory_items
     resources :series
     resources :series_steps
     resources :series_step_entries

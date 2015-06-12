@@ -42,6 +42,12 @@
 #  updated_at :datetime
 #  fmid       :integer
 #
+# Indexes
+#
+#  index_line_items_on_created_at  (created_at)
+#  index_line_items_on_order_id    (order_id)
+#  index_line_items_on_product_id  (product_id)
+#
 
 class LineItem < ActiveRecord::Base
   # associations
@@ -50,6 +56,7 @@ class LineItem < ActiveRecord::Base
 
   # scopes
   scope :completed, -> { where(completed_at.present) }
+  scope :completed_since, -> (date) { joins(:order).where("orders.completed_at >= ?", date) }
   scope :most_recent, -> { order(created_at: :desc) }
   scope :webshop, -> { joins(:order).where(order: {is_webshop: true}) }
 

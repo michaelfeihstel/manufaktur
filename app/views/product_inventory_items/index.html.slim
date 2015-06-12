@@ -1,0 +1,21 @@
+- content_for :header
+  .header-title
+    h1 = @product_inventory.name
+
+- @entries.each do |entry|
+  section
+    h4
+      span = "#{entry.try(:product).try(:name)} " 
+      span.thin = entry.try(:product).try(:color_text)
+
+    table
+      thead
+        tr
+          - entry.try(:product).try(:size_set).try(:sizes_as_array).try(:each) do |size|
+            th.text-center = size
+          th.bold.text-right Gesamt
+      tbody
+        tr
+          - entry.sizes_as_array.each do |quantity|
+            td.text-center = quantity
+          td.bold.text-right = entry.total

@@ -11,6 +11,11 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Indexes
+#
+#  index_contact_informations_on_contact_id  (contact_id)
+#  index_contact_informations_on_value       (value)
+#
 
 require 'spec_helper'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609102154) do
+ActiveRecord::Schema.define(version: 20150610064911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -248,6 +248,88 @@ ActiveRecord::Schema.define(version: 20150609102154) do
 
   add_index "product_images", ["product_id"], name: "index_product_images_on_product_id", using: :btree
 
+  create_table "product_inventories", force: :cascade do |t|
+    t.integer  "year"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_inventory_items", force: :cascade do |t|
+    t.integer  "product_inventory_id"
+    t.integer  "product_id"
+    t.integer  "contact_id"
+    t.date     "entered_on"
+    t.integer  "g1"
+    t.integer  "g1h"
+    t.integer  "g2"
+    t.integer  "g2h"
+    t.integer  "g3"
+    t.integer  "g3h"
+    t.integer  "g4"
+    t.integer  "g4h"
+    t.integer  "g5"
+    t.integer  "g5h"
+    t.integer  "g6"
+    t.integer  "g6h"
+    t.integer  "g7"
+    t.integer  "g7h"
+    t.integer  "g8"
+    t.integer  "g8h"
+    t.integer  "g9"
+    t.integer  "g9h"
+    t.integer  "g10"
+    t.integer  "g10h"
+    t.integer  "g11"
+    t.integer  "g11h"
+    t.integer  "g12"
+    t.integer  "g12h"
+    t.integer  "g13"
+    t.integer  "g13h"
+    t.integer  "g14"
+    t.integer  "g14h"
+    t.integer  "g15"
+    t.integer  "g16"
+    t.decimal  "value"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "product_inventory_items", ["contact_id"], name: "index_product_inventory_items_on_contact_id", using: :btree
+  add_index "product_inventory_items", ["entered_on"], name: "index_product_inventory_items_on_entered_on", using: :btree
+  add_index "product_inventory_items", ["g1"], name: "index_product_inventory_items_on_g1", using: :btree
+  add_index "product_inventory_items", ["g10"], name: "index_product_inventory_items_on_g10", using: :btree
+  add_index "product_inventory_items", ["g10h"], name: "index_product_inventory_items_on_g10h", using: :btree
+  add_index "product_inventory_items", ["g11"], name: "index_product_inventory_items_on_g11", using: :btree
+  add_index "product_inventory_items", ["g11h"], name: "index_product_inventory_items_on_g11h", using: :btree
+  add_index "product_inventory_items", ["g12"], name: "index_product_inventory_items_on_g12", using: :btree
+  add_index "product_inventory_items", ["g12h"], name: "index_product_inventory_items_on_g12h", using: :btree
+  add_index "product_inventory_items", ["g13"], name: "index_product_inventory_items_on_g13", using: :btree
+  add_index "product_inventory_items", ["g13h"], name: "index_product_inventory_items_on_g13h", using: :btree
+  add_index "product_inventory_items", ["g14"], name: "index_product_inventory_items_on_g14", using: :btree
+  add_index "product_inventory_items", ["g14h"], name: "index_product_inventory_items_on_g14h", using: :btree
+  add_index "product_inventory_items", ["g15"], name: "index_product_inventory_items_on_g15", using: :btree
+  add_index "product_inventory_items", ["g16"], name: "index_product_inventory_items_on_g16", using: :btree
+  add_index "product_inventory_items", ["g1h"], name: "index_product_inventory_items_on_g1h", using: :btree
+  add_index "product_inventory_items", ["g2"], name: "index_product_inventory_items_on_g2", using: :btree
+  add_index "product_inventory_items", ["g2h"], name: "index_product_inventory_items_on_g2h", using: :btree
+  add_index "product_inventory_items", ["g3"], name: "index_product_inventory_items_on_g3", using: :btree
+  add_index "product_inventory_items", ["g3h"], name: "index_product_inventory_items_on_g3h", using: :btree
+  add_index "product_inventory_items", ["g4"], name: "index_product_inventory_items_on_g4", using: :btree
+  add_index "product_inventory_items", ["g4h"], name: "index_product_inventory_items_on_g4h", using: :btree
+  add_index "product_inventory_items", ["g5"], name: "index_product_inventory_items_on_g5", using: :btree
+  add_index "product_inventory_items", ["g5h"], name: "index_product_inventory_items_on_g5h", using: :btree
+  add_index "product_inventory_items", ["g6"], name: "index_product_inventory_items_on_g6", using: :btree
+  add_index "product_inventory_items", ["g6h"], name: "index_product_inventory_items_on_g6h", using: :btree
+  add_index "product_inventory_items", ["g7"], name: "index_product_inventory_items_on_g7", using: :btree
+  add_index "product_inventory_items", ["g7h"], name: "index_product_inventory_items_on_g7h", using: :btree
+  add_index "product_inventory_items", ["g8"], name: "index_product_inventory_items_on_g8", using: :btree
+  add_index "product_inventory_items", ["g8h"], name: "index_product_inventory_items_on_g8h", using: :btree
+  add_index "product_inventory_items", ["g9"], name: "index_product_inventory_items_on_g9", using: :btree
+  add_index "product_inventory_items", ["g9h"], name: "index_product_inventory_items_on_g9h", using: :btree
+  add_index "product_inventory_items", ["product_id"], name: "index_product_inventory_items_on_product_id", using: :btree
+  add_index "product_inventory_items", ["product_inventory_id"], name: "index_product_inventory_items_on_product_inventory_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name",             limit: 255
     t.string   "sku",              limit: 255
@@ -474,6 +556,9 @@ ActiveRecord::Schema.define(version: 20150609102154) do
   add_foreign_key "material_consumptions", "materials"
   add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"
+  add_foreign_key "product_inventory_items", "contacts"
+  add_foreign_key "product_inventory_items", "product_inventories"
+  add_foreign_key "product_inventory_items", "products"
   add_foreign_key "return_line_items", "products"
   add_foreign_key "return_line_items", "returns"
   add_foreign_key "returns", "addresses", column: "billing_address_id"

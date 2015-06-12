@@ -41,6 +41,13 @@
 #  contact_id     :integer
 #  final_step     :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_series_step_entries_on_contact_id      (contact_id)
+#  index_series_step_entries_on_date            (date)
+#  index_series_step_entries_on_final_step      (final_step)
+#  index_series_step_entries_on_series_step_id  (series_step_id)
+#
 
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

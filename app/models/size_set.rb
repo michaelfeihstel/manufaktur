@@ -45,6 +45,41 @@ class SizeSet < ActiveRecord::Base
     [g1,g1h,g2,g2h,g3,g3h,g4,g4h,g5,g5h,g6,g6h,g7,g7h,g8,g8h,g9,g9h,g10,g10h,g11,g11h,g12,g12h,g13,g13h,g14,g14h,g15,g16]
   end
 
+  def sizes
+    [
+      :g1,
+      :g1h,
+      :g2,
+      :g2h,
+      :g3,
+      :g3h,
+      :g4,
+      :g4h,
+      :g5,
+      :g5h,
+      :g6,
+      :g6h,
+      :g7,
+      :g7h,
+      :g8,
+      :g8h,
+      :g9,
+      :g9h,
+      :g10,
+      :g10h,
+      :g11,
+      :g11h,
+      :g12,
+      :g12h,
+      :g13,
+      :g13h,
+      :g14,
+      :g14h,
+      :g15,
+      :g16
+    ]
+  end
+
   def sizes_as_hash
     {
       g1: g1,

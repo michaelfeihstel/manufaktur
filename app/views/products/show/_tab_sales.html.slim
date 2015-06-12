@@ -24,7 +24,7 @@
           th Auftraggeber
           th.text-right Anzahl
       tbody
-        - @product.line_items.most_recent.each do |line_item|
+        - @product.line_items.each do |line_item|
           tr.link href=order_path(line_item.order_id)
             td = completed_icon(line_item.order)
             td = line_item.order_id

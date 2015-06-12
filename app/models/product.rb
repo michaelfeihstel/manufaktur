@@ -29,6 +29,8 @@ class Product < ActiveRecord::Base
   has_many :product_images, dependent: :destroy
   has_many :series, dependent: :destroy
   has_many :series_steps, through: :series
+  has_many :series_step_entries, through: :series_steps, source: :entries
+  has_many :product_inventory_items, dependent: :nullify
 
   accepts_nested_attributes_for :product_images, allow_destroy: true
   accepts_nested_attributes_for :material_consumptions, allow_destroy: true
@@ -66,6 +68,53 @@ class Product < ActiveRecord::Base
     sizes = SizeSet.column_names.delete_if{|column| ["id","name","created_at","updated_at"].include?(column)}
 
     sizes.map{ |size| [size, line_items.sum(size)] }.to_h
+  end
+
+  def sizes_for_select(table: nil)
+    if table
+      size_set.sizes.map{|size| "SUM(#{table}.#{size}) as #{size}"}.join(", ")
+    else
+      size_set.sizes.map{|size| "SUM(#{size}) as #{size}"}.join(", ")
+    end
+  end
+
+  def most_recent_inventory_date
+    product_inventory_items.maximum(:entered_on)
+  end
+
+  def inventory_total
+    product_inventory_items.most_recent.select(sizes_for_select)[0].as_json.reject{|key, value| key == "id"}
+  end
+
+  def inventory(size)
+    inventory_total.send(size) || 0
+  end
+
+  def sales_total
+    line_items.completed_since(most_recent_inventory_date).select(sizes_for_select)[0].as_json.reject{|key, value| key == "id"}
+  end
+
+  def sales(size)
+    sales_total.send(size) || 0
+  end
+
+  def production_total
+    series_step_entries.completed_since(most_recent_inventory_date).select(sizes_for_select(table: "series_step_entries"))[0].as_json.reject{|key, value| key == "id"}
+  end
+
+  def production(size)
+    production_total.send(size) || 0
+  end
+
+  def stock_hash
+    added = inventory_total.merge(production_total){|key, inventory, production| (inventory || 0) + (production || 0)}
+    reduced = sales_total
+
+    stock = added.merge(reduced){|key, added, reduced| (added || 0) - (reduced || 0)}
+  end
+
+  def stock_array
+    stock_hash.values
   end
   
 end

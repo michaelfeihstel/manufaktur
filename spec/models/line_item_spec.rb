@@ -42,6 +42,12 @@
 #  updated_at :datetime
 #  fmid       :integer
 #
+# Indexes
+#
+#  index_line_items_on_created_at  (created_at)
+#  index_line_items_on_order_id    (order_id)
+#  index_line_items_on_product_id  (product_id)
+#
 
 require 'spec_helper'
 

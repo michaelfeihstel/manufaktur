@@ -10,6 +10,10 @@
 #  contact_role_id :integer
 #  additional_data :hstore
 #
+# Indexes
+#
+#  index_contacts_on_additional_data  (additional_data)
+#
 
 class Contact < ActiveRecord::Base
   store_accessor :additional_data, :test
@@ -25,6 +29,7 @@ class Contact < ActiveRecord::Base
   has_many :orders
   has_many :phones, -> { where(info_type: "Telefon") }, class_name: "ContactInformation"
   has_many :series_step_entries, dependent: :destroy
+  has_many :product_inventory_items, dependent: :nullify
 
   accepts_nested_attributes_for :comments, allow_destroy: true
   accepts_nested_attributes_for :contact_role

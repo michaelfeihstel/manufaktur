@@ -36,6 +36,11 @@
 #  cashback_until        :date
 #  cashback_percent      :decimal(2, 2)    default(0.03)
 #
+# Indexes
+#
+#  index_orders_on_contact_id  (contact_id)
+#  index_orders_on_created_at  (created_at)
+#
 
 class Order < ActiveRecord::Base
   
