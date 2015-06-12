@@ -84,7 +84,7 @@ class LineItem < ActiveRecord::Base
   end
 
   def completed_at
-    self.order.completed_at
+    order.completed_at
   end
 
   def quantity

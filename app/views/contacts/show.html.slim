@@ -3,6 +3,9 @@
 = render "contacts/show/sidebar"
 = render "contacts/show/toolbar"
 
+- content_for :additional_javascripts
+  = render "shared/c3"
+
 - content_for :header
   .header-title
     h1 = @contact.name

@@ -3,8 +3,7 @@
 = render "products/show/sidebar"
 
 - content_for :additional_javascripts
-  = javascript_include_tag "d3.min"
-  = javascript_include_tag "c3.min"
+  = render "shared/c3"
 
 - content_for :header
   .header-title
