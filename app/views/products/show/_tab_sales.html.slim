@@ -1,11 +1,10 @@
 .tab#tab-sales
-  label Verkauf
   section
     .panel
       .panel__bar.panel__bar--top
-        h5.panel__title Verkäufe je Größe
+        h5 Monatlicher Absatz
       .panel__body
-        // = render "products/shared/chart_bar_sales"
+        = render "products/shared/chart_sales_per_month"
       .panel__bar.panel__bar--bottom
         .flex__list.flex__list--right
           .flex__list__item
@@ -25,8 +24,8 @@
           th.text-right Anzahl
       tbody
         - @product.line_items.each do |line_item|
-          tr.link href=order_path(line_item.order_id)
-            td = completed_icon(line_item.order)
+          tr.link href=order_path(line_item.order)
+            td = icon("done") if line_item.try(:order).try(:completed_at).present?
             td = line_item.order_id
             td = l line_item.order.created_at, format: :date_only
             td = line_item.order.billing_name
@@ -34,3 +33,4 @@
       tfoot
         tr
           td.bold.text-right colspan=5 = @product.line_items.to_a.sum(&:quantity)
+

@@ -1,8 +1,8 @@
-tr.link href=contact_path(contact)
-	td width="100" data-title="Kundennummer" = contact.id
-	td data-title="Kontakt" = contact.name
-	td width="150" = contact.try(:contact_role).try(:human_readable_name)
-	td
-	td.text-right
-		span.tip-left data-tooltip="" title="Bearbeiten"
-		= link_to icon("chevron_right"), edit_contact_path(contact)
+tr.link href=contact_path(contact) data-remote="true"
+  td width="100" data-title="Kundennummer" = contact.id
+  td data-title="Kontakt" = contact.name
+  td width="150" = contact.try(:contact_role).try(:human_readable_name)
+  td
+  td.text-right
+    span.tip-left data-tooltip="" title="Bearbeiten"
+    = link_to icon("chevron_right"), edit_contact_path(contact)

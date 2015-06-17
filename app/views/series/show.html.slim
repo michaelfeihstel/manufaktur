@@ -6,9 +6,7 @@
     h1
       span.thin Serie 
       span = @series.name
-    h4 = @series.product.full_name
-  .header-actions
-    = link_to "Bearbeiten", edit_series_path(@series), class: "button"
+    h3 = @series.product.full_name
 
 section
   h5.section-header Artikel
@@ -42,3 +40,7 @@ section
       - @series.series_steps.each do |step|
         = render "series/show/series_step", step: step
 
+- content_for :footer
+  ul.inline-list
+    li = link_to "Bearbeiten", edit_series_path{@series}, class: "button"
+    li = button_to "Löschen", @series, method: :delete, class: "link" 

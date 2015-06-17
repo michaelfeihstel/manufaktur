@@ -6,7 +6,7 @@
 - content_for :header
   .header-title
     h1 = @order.id
-    h4 = @order.billing_name
+    h3 = @order.billing_name
 
 section
   .row
@@ -76,7 +76,11 @@ section
                   hr
                   h3.bold.text-right = number_to_currency(@order.gross_total, unit: "€")
       .tab#tab-invoice
-        p Some Text
+        section
+          h5.section-header Optionen
+          = check_box_tag "Ohne Berechnung", @order.is_free
+          label Mehrwertsteuersatz
+          = @order.tax.name
       .tab#tab-shipping
         p Another tab
 

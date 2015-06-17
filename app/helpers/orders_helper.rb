@@ -17,7 +17,7 @@ module OrdersHelper
     status_label = order.completed_status_label if options[:status_label] == true
     action_label = order.completed_action_label if options[:action_label] == true
 
-    if order.completed_at
+    if order.try(:completed_at)
       icon("done", text: status_label || action_label)
     else
       icon("hourglass_empty", additional_classes: "light", text: status_label || action_label)

@@ -65,10 +65,8 @@ class LineItem < ActiveRecord::Base
 
   # methods
   def get_product_references
-    unless self.persisted?
-      self.price = product.price
-      self.vat = product.vat
-    end
+    price = self.price || product.price
+    vat = self.vat || product.vat
   end
 
   def temp_id

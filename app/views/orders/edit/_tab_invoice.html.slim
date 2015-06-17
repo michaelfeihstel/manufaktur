@@ -6,8 +6,8 @@
         = f.check_box :is_free
         = f.label :is_free, "Kostenloser Auftrag", class: "label--inline"
       .fields
-        = f.check_box :is_vat_exempt
-        = f.label :is_vat_exempt, "Mehrwertsteuerbefreit", class: "label--inline"
+        = f.label :tax_id, "Mehrwertsteuersatz"
+        = f.collection_select :tax_id, Tax.all, :id, :name
     section
       h5.section-header Rechnung
       ul.small-block-grid-2.medium-block-grid-3

@@ -48,6 +48,7 @@ class Order < ActiveRecord::Base
   belongs_to :contact
   belongs_to :billing_address, foreign_key: "billing_address_id", class_name: "Address"
   belongs_to :delivery_address, foreign_key: "delivery_address_id", class_name: "Address"
+  belongs_to :tax
   has_many :comments, as: :commentable
   has_many :line_items, dependent: :destroy
   has_many :products, through: :line_items
@@ -58,9 +59,10 @@ class Order < ActiveRecord::Base
   # VALIDATIONS
 
   # CALLBACKS
-  before_save :get_references
+  before_save :get_address_references
+  before_save :update_vat_on_line_items
 
-  def get_references
+  def get_address_references
     self.billing_name = try(:billing_address).try(:name) || billing_name
     self.billing_street = try(:billing_address).try(:street) || billing_street
     self.billing_house_number = try(:billing_address).try(:house_number) || billing_house_number
@@ -73,6 +75,13 @@ class Order < ActiveRecord::Base
     self.delivery_zip = try(:delivery_address).try(:zip) || delivery_zip
     self.delivery_city = try(:delivery_address).try(:city) || delivery_city
     self.delivery_country = try(:delivery_address).try(:country) || delivery_country
+  end
+
+  def update_vat_on_line_items
+    if self.new_record? || self.tax_id_changed?
+      vat = Tax.find(tax_id).value
+      line_items.update_all(vat: vat)
+    end
   end
 
   # SCOPES

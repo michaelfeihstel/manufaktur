@@ -24,6 +24,7 @@ class Product < ActiveRecord::Base
   belongs_to :size_set
   belongs_to :variation_set
   has_many :line_items
+  has_many :orders, through: :line_items
   has_many :material_consumptions, dependent: :destroy
   has_many :materials, through: :material_consumptions
   has_many :product_images, dependent: :destroy

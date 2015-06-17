@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610064911) do
+ActiveRecord::Schema.define(version: 20150617085248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150610064911) do
   end
 
   add_index "contact_informations", ["contact_id"], name: "index_contact_informations_on_contact_id", using: :btree
+  add_index "contact_informations", ["info_type"], name: "index_contact_informations_on_info_type", using: :btree
   add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
 
   create_table "contact_roles", force: :cascade do |t|
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150610064911) do
   end
 
   add_index "contacts", ["additional_data"], name: "index_contacts_on_additional_data", using: :btree
+  add_index "contacts", ["contact_role_id"], name: "index_contacts_on_contact_role_id", using: :btree
 
   create_table "defects", force: :cascade do |t|
     t.string   "name"
@@ -230,10 +232,15 @@ ActiveRecord::Schema.define(version: 20150610064911) do
     t.boolean  "is_scheduled_delivery",                                     default: false
     t.date     "cashback_until"
     t.decimal  "cashback_percent",                  precision: 2, scale: 2, default: 0.03
+    t.integer  "tax_id"
   end
 
+  add_index "orders", ["billing_address_id"], name: "index_orders_on_billing_address_id", using: :btree
+  add_index "orders", ["completed_at"], name: "index_orders_on_completed_at", using: :btree
   add_index "orders", ["contact_id"], name: "index_orders_on_contact_id", using: :btree
   add_index "orders", ["created_at"], name: "index_orders_on_created_at", using: :btree
+  add_index "orders", ["delivery_address_id"], name: "index_orders_on_delivery_address_id", using: :btree
+  add_index "orders", ["tax_id"], name: "index_orders_on_tax_id", using: :btree
 
   create_table "product_images", force: :cascade do |t|
     t.integer  "product_id"
@@ -346,6 +353,8 @@ ActiveRecord::Schema.define(version: 20150610064911) do
     t.integer  "size_set_id"
     t.string   "product_family"
   end
+
+  add_index "products", ["size_set_id"], name: "index_products_on_size_set_id", using: :btree
 
   create_table "return_line_items", force: :cascade do |t|
     t.integer  "return_id"
@@ -502,6 +511,13 @@ ActiveRecord::Schema.define(version: 20150610064911) do
     t.string   "g16"
   end
 
+  create_table "taxes", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -556,6 +572,7 @@ ActiveRecord::Schema.define(version: 20150610064911) do
   add_foreign_key "material_consumptions", "materials"
   add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"
+  add_foreign_key "orders", "taxes"
   add_foreign_key "product_inventory_items", "contacts"
   add_foreign_key "product_inventory_items", "product_inventories"
   add_foreign_key "product_inventory_items", "products"

@@ -1,4 +1,4 @@
-.chart#chart_stock style="max-width: 990px;"
+.chart#chart_sales_per_month
 
 javascript:
   var de = d3.locale({
@@ -18,31 +18,30 @@ javascript:
 
 
   var chart = c3.generate({
-      bindto: "#chart_stock",
-      data: {
-        columns: [
-          #{raw @product.stock_array.prepend("Bestand")}
-        ],
-        type: 'bar',
-        colors: {
-          "Bestand": '#455A64'
-        },
-        labels: true,
-      },
-      axis: {
-        x: {
-          type: 'category',
-          categories: #{raw @product.size_set.sizes_as_array},
-          tick: {
-            centered: true
-          }
-        },
-        y: {
-          show: false,
-          tick: { }
-        }
-      },
-      tooltip: {
-        format: { }
+    bindto: "#chart_sales_per_month",
+    data: {
+      columns: [
+        #{raw @product.line_items.joins(:order).where("orders.completed_at BETWEEN '#{13.months.ago}' AND '#{Time.now}'").to_a.group_by_month(&:completed_at).map{|k,v| v.map(&:quantity).sum.to_i }.prepend("Menge")}
+      ],
+      type: 'area',
+      colors: {
+        "Menge": '#451A64'
       }
+    },
+    axis: {
+      x: {
+        tick: {
+          centered: true,
+          outer: false
+        },
+        type: 'category',
+        categories: #{get_columns(Order.where(completed_at: 13.months.ago..Time.now), "months", :completed_at)}
+      },
+      y: {
+        show: false,
+      }
+    },
+    tooltip: {
+      format: { }
+    }
   });
