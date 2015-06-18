@@ -44,6 +44,7 @@ module Api
 				:cashback_until,
 				:cashback_percent,
 				:contact_id,
+				:tax_id,
 				:billing_address_id,
 				:billing_name,
 				:billing_street,

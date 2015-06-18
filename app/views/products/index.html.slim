@@ -10,21 +10,24 @@
 
 
 
-table
-  thead
-    tr
-      th width=150 Artikelnummer
-      th Bezeichnung
-      th Farbe
-      th.text-right Preis
-      th
-  tbody
-    - @products.each do |product|
-      tr.link href=product_path(product)
-        td = product.sku
-        td = product.name
-        td
-          span.label class="product-label" style=product_color(product)
-            = product.color_text
-        td.text-right = number_to_currency(product.price, unit:"€ ")
-        td.text-right = icon("chevron_right", align: "right")
+- @products.group_by(&:product_family).each do |product_family, products|
+  section
+    h4 = product_family || "Sonstige"
+    table
+      thead
+        tr
+          th width=150 Artikelnummer
+          th Bezeichnung
+          th Farbe
+          th.text-right Preis
+          th
+      tbody
+        - products.each do |product|
+          tr.link href=product_path(product)
+            td = product.sku
+            td = product.name
+            td
+              span.label class="product-label" style=product_color(product)
+                = product.color_text
+            td.text-right = number_to_currency(product.price, unit:"€ ")
+            td.text-right = icon("chevron_right", align: "right")
