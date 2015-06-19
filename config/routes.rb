@@ -60,7 +60,7 @@ Manufaktur::Application.routes.draw do
       get "created/:year/:month/:day", action: "index_created_at", as: "created_at"
     end
   end
-  resources :products, concerns: [:paginatable, :searchable, :filterable]
+  resources :products, concerns: [:paginatable, :searchable, :filterable, :dashboardable]
   resources :product_images
   resources :product_inventories do
     resources :product_inventory_items, as: "entries", path: "entries"
@@ -78,6 +78,12 @@ Manufaktur::Application.routes.draw do
   scope "line_items" do
     post "change_quantity", controller: "line_items", action: "change_quantity", as: "change_quantity"
     post "select_product", controller: "line_items", action: "select_product"
+  end
+
+  scope "products" do
+    scope "dashboard" do
+      get "update_top_products", controller: "products"
+    end
   end
 
 

@@ -18,9 +18,9 @@
           li = link_to "Aufträge", orders_path
 
       li.has-children
-        = link_to "Artikel", products_path
+        = link_to icon("assessment", text: "Artikel"), dashboard_products_path
         ul
-          li = link_to "Artikel", products_path
+          li = link_to "Alle Artikel", products_path
           li = link_to "Inventuren", product_inventories_path
           li = link_to "Größensysteme", size_sets_path
 

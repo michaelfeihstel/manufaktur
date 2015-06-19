@@ -115,3 +115,11 @@ ul.side-nav li a {
     }
   }
 }
+
+.flex__list__item--fixed {
+  @include flex(0 0 auto);
+}
+
+.flex__list__item--expand {
+  @include flex(1 1 auto);
+}

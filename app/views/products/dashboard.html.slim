@@ -1,0 +1,12 @@
+- content_for :additional_javascripts
+  = render "shared/c3"
+
+- content_for :header
+  .header-title
+    h1 Artikel
+    h3 Dashboard
+
+.row
+  .span-small-12.span-large-6
+    #top_products_panel
+      = render "products/shared/top_products_panel", products: @products

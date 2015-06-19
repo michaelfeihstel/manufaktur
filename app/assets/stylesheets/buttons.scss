@@ -63,6 +63,11 @@ button.dense,
   padding: 0.5rem 1rem;
 }
 
+button--no-margin,
+.button--no-margin {
+  margin: 0;
+}
+
 header button, header .button {
   border: 2px solid $background-color;
   color: $background-color;

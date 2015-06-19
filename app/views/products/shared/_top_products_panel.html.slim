@@ -1,0 +1,36 @@
+.panel
+  .panel__bar.panel__bar--top
+    h5.panel__title Beliebteste Schuhe
+  .panel__body style="max-height: 80vh"
+    = form_tag "dashboard/update_top_products", method: :get, remote: true do
+      .flex__list
+        .flex__list__item.flex__list__item--expand
+          .fields
+            = label_tag :from, "Von"
+            = date_field_tag :from, @filter[:from]
+        .flex__list__item.flex__list__item--expand
+          .fields
+            = label_tag :to, "Bis"
+            = date_field_tag :to, @filter[:to]
+        .flex__list__item.flex__list__item--fixed
+          = submit_tag "OK", class: "button button--no-margin tiny"
+    hr
+    table
+      thead
+        tr
+          th colspan=2 Artikel
+          th.text-right Verkäufe
+      tbody
+        - products.each do |product|
+          tr
+            td width=120
+              span.product-label.product-label--fixed style= (product_color(product) if product)
+                = product.sku
+            td
+              span = link_to product.name, product_path(product), class: "link"
+              br
+              span.small.light = product.color_text
+            td.text-right = product.quantity
+
+  .panel__bar.panel__bar--bottom
+    = link_to "Alle Artikel anzeigen...", products_path, class: "link"

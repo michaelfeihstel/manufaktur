@@ -19,6 +19,10 @@ class ApplicationPolicy
     index?
   end
 
+  def dashboard?
+    index?
+  end
+
   def show?
     scope.where(:id => record.id).exists?
   end

@@ -1,0 +1,52 @@
+.chart#chart_top_products
+
+javascript:
+  var de = d3.locale({
+    'decimal': ',',
+    'thousands': '.',
+    'grouping': [3],
+    'currency': ['€ ', ''],
+    'dateTime': '%a %b %e %X %Y',
+    'date': '%m/%d/%Y',
+    'time': '%H:%M:%S',
+    'periods': ['AM', 'PM'],
+    'days': ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+    'shortDays': ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    'months': ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    'shortMonths': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  });
+
+  var columns = #{raw Product.joins(:line_items).limit(20).select(:sku, "SUM(g1+g1h+g2+g2h+g3+g3h+g4+g4h+g5+g5h+g6+g6h+g7+g7h+g8+g8h+g9+g9h+g10+g10h+g11+g11h+g12+g12h+g13+g13h+g14+g14h+g15+g16) AS quantity").group(:sku).having("SUM(g1+g1h+g2+g2h+g3+g3h+g4+g4h+g5+g5h+g6+g6h+g7+g7h+g8+g8h+g9+g9h+g10+g10h+g11+g11h+g12+g12h+g13+g13h+g14+g14h+g15+g16) > 0").order("quantity DESC").map{|el| el.quantity.to_i}.prepend("Anzahl")}
+  var chart = c3.generate({
+      bindto: "#chart_top_products",
+      data: {
+        columns: [
+          #{raw Product.joins(:line_items).limit(20).select(:sku, "SUM(COALESCE(g1, 0)+COALESCE(g1h, 0)+COALESCE(g2, 0)+COALESCE(g2h, 0)+COALESCE(g3, 0)+COALESCE(g3h, 0)+COALESCE(g4, 0)+COALESCE(g4h, 0)+COALESCE(g5, 0)+COALESCE(g5h, 0)+COALESCE(g6, 0)+COALESCE(g6h, 0)+COALESCE(g7, 0)+COALESCE(g7h, 0)+COALESCE(g8, 0)+COALESCE(g8h, 0)+COALESCE(g9, 0)+COALESCE(g9h, 0)+COALESCE(g10, 0)+COALESCE(g10h, 0)+COALESCE(g11, 0)+COALESCE(g11h, 0)+COALESCE(g12, 0)+COALESCE(g12h, 0)+COALESCE(g13, 0)+COALESCE(g13h, 0)+COALESCE(g14, 0)+COALESCE(g14h, 0)+COALESCE(g15, 0)+COALESCE(g16, 0)) AS quantity").where.not(sku: "LG105").group(:sku).order("quantity DESC").map{|el| el.quantity.to_i}.prepend("Anzahl")}
+        ],
+        type: 'bar',
+        colors: {
+          "Anzahl": '#8BABBB'
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+          categories: #{raw Product.joins(:line_items).limit(20).select(:sku, "SUM(COALESCE(g1, 0)+COALESCE(g1h, 0)+COALESCE(g2, 0)+COALESCE(g2h, 0)+COALESCE(g3, 0)+COALESCE(g3h, 0)+COALESCE(g4, 0)+COALESCE(g4h, 0)+COALESCE(g5, 0)+COALESCE(g5h, 0)+COALESCE(g6, 0)+COALESCE(g6h, 0)+COALESCE(g7, 0)+COALESCE(g7h, 0)+COALESCE(g8, 0)+COALESCE(g8h, 0)+COALESCE(g9, 0)+COALESCE(g9h, 0)+COALESCE(g10, 0)+COALESCE(g10h, 0)+COALESCE(g11, 0)+COALESCE(g11h, 0)+COALESCE(g12, 0)+COALESCE(g12h, 0)+COALESCE(g13, 0)+COALESCE(g13h, 0)+COALESCE(g14, 0)+COALESCE(g14h, 0)+COALESCE(g15, 0)+COALESCE(g16, 0)) AS quantity").where.not(sku: "LG105").group(:sku).order("quantity DESC").map{|el| el.sku}},
+          tick: {
+            rotate: 45,
+            multiline: false,
+            centered: true
+          },
+          height: 200,
+        },
+        y: {
+          inner: true,
+          show: false,
+          tick: { }
+        }
+      },
+      tooltip: {
+        format: { }
+      }
+  });
