@@ -1,7 +1,7 @@
 module ProductsHelper
 	def product_color(product, border_align: "bottom")
-		c1 = product.primary_color.to_s
-		c2 = product.secondary_color || "#F2F2F2"
+		c1 = product.primary_color.to_s || "#F2F2F2"
+		c2 = product.secondary_color || "#455A64"
 		c3 = product.text_color || "#FFF"
 
 		back = "background-color: #{c1};"

@@ -73,9 +73,9 @@ class Product < ActiveRecord::Base
 
   def sizes_for_select(table: nil)
     if table
-      size_set.sizes.map{|size| "SUM(#{table}.#{size}) as #{size}"}.join(", ")
+      size_set.sizes.map{|size| "COALESCE(SUM(#{table}.#{size}), 0) as #{size}"}.join(", ")
     else
-      size_set.sizes.map{|size| "SUM(#{size}) as #{size}"}.join(", ")
+      size_set.sizes.map{|size| "COALESCE(SUM(#{size}), 0) as #{size}"}.join(", ")
     end
   end
 
