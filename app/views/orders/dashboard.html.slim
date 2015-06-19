@@ -1,13 +1,13 @@
 = render "orders/shared/search"
-= render "orders/index/breadcrumbs"
+= render "orders/dashboard/breadcrumbs"
+
+-content_for :additional_javascripts
+  = render "shared/c3"
 
 - content_for :header
   .header-title
     h1 Aufträge
-    - if @date
-      h4 = l @date, format: :weekday_default
-  .header-actions
-    = link_to "Auftrag erstellen", new_order_path, class: "button dense"
+    h3 Dashboard
 
 section
   .panel
@@ -15,14 +15,16 @@ section
       h5.panel__title Monatliche Umsätze
     .panel__body
       = render "orders/charts/revenue_chart"
+    .panel__bar.panel__bar--bottom
+      = link_to "Alle Aufträge...", orders_path, class: "link"
 
 section
   .row
-    .span-small-12.span-medium-9
-      .panel--outline
+    .span-small-12.span-large-6
+      .panel
         .panel__bar.panel__bar--top
-          h5.panel__title = link_to icon("star-fill", text: "Favoriten"), favorite_orders_path
-        .panel__body
+          h5.panel__title = link_to icon("star", text: "Favoriten"), favorite_orders_path
+        .panel__body style="max-height: 500px"
           table
             thead
               tr
@@ -33,13 +35,12 @@ section
               - @orders.favorites.each do |order|
                 tr
                   td = link_to order.id, order, class: "link"
-                  td 
-                    - if order.is_webshop
-                      = icon("cart-fill")
-                    span = order.billing_name
+                  td = order.billing_name
                   td.text-right = number_to_currency(order.price_total, unit: "€")
         .panel__bar.panel__bar--bottom
-          .flex__list--right
-            .flex__list__item
+          .flex__list
+            .flex__list__item.flex__list__item--expand
+              = link_to "Gehe zu Favoriten...", favorite_orders_path, class: "link"
+            .flex__list__item.flex__list__item--fixed.text-right
               label Summe
               = number_to_currency(@orders.favorites.to_a.sum(&:price_total), unit: "€")

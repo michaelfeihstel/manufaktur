@@ -80,7 +80,7 @@ class Product < ActiveRecord::Base
   end
 
   def most_recent_inventory_date
-    product_inventory_items.maximum(:entered_on)
+    product_inventory_items.maximum(:entered_on) || "01.01.0001"
   end
 
   def inventory_total

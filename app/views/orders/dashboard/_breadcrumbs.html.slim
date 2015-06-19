@@ -1,0 +1,6 @@
+- content_for :breadcrumbs
+  .flex__list
+    ul.breadcrumbs
+      li = link_to "Home", :root
+      li = link_to "Aufträge", orders_path
+      li.light Dashboard

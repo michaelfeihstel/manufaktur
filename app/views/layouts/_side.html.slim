@@ -13,9 +13,10 @@
           li = link_to "Briefe", letters_path
 
       li.has-children
-        = link_to "Aufträge", orders_path
+        = link_to icon("assessment", text: "Aufträge"), dashboard_orders_path
         ul
-          li = link_to "Aufträge", orders_path
+          li = link_to "Favoriten", favorite_orders_path
+          li = link_to "Alle Aufträge", orders_path
 
       li.has-children
         = link_to icon("assessment", text: "Artikel"), dashboard_products_path
