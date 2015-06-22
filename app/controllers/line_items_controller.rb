@@ -29,6 +29,11 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def update_revenue_chart
+    @line_items = LineItem.where("created_at BETWEEN ? AND ?", 13.months.ago, Time.now).to_a.group_by_month(&:created_at)
+    render "orders/dashboard/update_revenue_chart"
+  end
+
 
 
 

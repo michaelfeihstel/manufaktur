@@ -19,12 +19,9 @@ javascript:
 
   var chart = c3.generate({
       bindto: "#chart_revenue",
-      transition: {
-        duration: 0,
-      },
       data: {
         columns: [
-          #{raw @line_items.map{|months, items| items.sum(&:price_total).to_i}.prepend("Umsatz")},
+          #{ raw @line_items.map{|months, items| items.sum(&:price_total).to_i}.prepend('Umsatz')},
         ],
         type: 'area',
         labels: {

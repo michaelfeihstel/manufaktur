@@ -6,4 +6,8 @@ class OrderPolicy < ApplicationPolicy
   def dashboard?
     index?
   end
+
+  def update_revenue_chart?
+    index?
+  end
 end

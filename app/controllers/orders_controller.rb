@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
 
   def dashboard
     @orders = Order.favorites.includes(:line_items, :products)
-    @line_items = LineItem.where("created_at BETWEEN ? AND ?", 13.months.ago, Time.now).to_a.group_by_month(&:created_at)
     authorize @orders
   end
 

@@ -86,6 +86,12 @@ Manufaktur::Application.routes.draw do
     end
   end
 
+  scope "orders" do
+    scope "dashboard" do
+      get "update_revenue_chart", controller: "line_items"
+    end
+  end
+
 
   # /api/...
   namespace :api, defaults: { format: "json" } do

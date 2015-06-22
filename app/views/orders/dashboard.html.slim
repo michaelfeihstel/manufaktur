@@ -13,8 +13,8 @@ section
   .panel
     .panel__bar.panel__bar--top
       h4.panel__title Monatliche Umsätze
-    .panel__body
-      = render "orders/charts/revenue_chart"
+    .panel__body.lazy_load#revenue_chart_container data-url=update_revenue_chart_path
+      .loader
     .panel__bar.panel__bar--bottom
       = link_to "Alle Aufträge...", orders_path, class: "link"
 
