@@ -21,7 +21,7 @@ javascript:
     bindto: "#chart_sales_per_month",
     data: {
       columns: [
-        #{raw @product.line_items.joins(:order).where("orders.completed_at BETWEEN '#{13.months.ago}' AND '#{Time.now}'").to_a.group_by_month(&:completed_at).map{|k,v| v.map(&:quantity).sum.to_i }.prepend("Menge")}
+        #{raw @product.line_items.where("created_at BETWEEN ? AND ?", 13.months.ago, Time.now).to_a.group_by_month(&:created_at).map{|k,v| v.map(&:quantity).sum.to_i }.prepend("Menge")}
       ],
       type: 'area',
       colors: {
@@ -35,7 +35,7 @@ javascript:
           outer: false
         },
         type: 'category',
-        categories: #{get_columns(Order.where(completed_at: 13.months.ago..Time.now), "months", :completed_at)}
+        categories: #{raw @product.line_items.where("created_at BETWEEN ? AND ?", 13.months.ago, Time.now).group_by_month(:created_at, format: "%b %Y").count.map{|k, v| k}}
       },
       y: {
         show: false,
