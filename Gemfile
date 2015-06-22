@@ -26,12 +26,11 @@ gem "susy"
 gem "simple_calendar", "~> 1.1.0"
 gem "selectize-rails"
 gem "slim-rails"
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass'
 gem 'jquery-rails'
-gem 'jquery-minicolors-rails'
 gem 'nested_form'
 
 group :production do

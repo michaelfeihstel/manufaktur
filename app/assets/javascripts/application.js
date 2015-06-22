@@ -11,7 +11,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.minicolors
 //= require stickykit
 //= require turbolinks
 //= require selectize
@@ -35,7 +34,3 @@ $(document).on('nested:fieldRemoved', function (event) {
   $('[required]', event.field).removeAttr('required');
 });
 
-// resize chart
-if (typeof chart !== 'undefined') {
-  chart.resize();
-}

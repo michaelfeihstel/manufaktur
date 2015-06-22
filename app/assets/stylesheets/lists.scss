@@ -90,7 +90,7 @@ ul.side-nav li a {
 }
 
 .flex__list__item {
-  flex: 0 1 auto;
+  @include flex(0 1 auto);
   margin-left: 0;
   padding: 0 1.25rem;
 

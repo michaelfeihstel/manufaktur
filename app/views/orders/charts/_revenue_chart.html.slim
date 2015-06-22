@@ -19,14 +19,16 @@ javascript:
 
   var chart = c3.generate({
       bindto: "#chart_revenue",
+      transition: {
+        duration: 0,
+      },
       data: {
         columns: [
-          #{raw @line_items.where("created_at BETWEEN '#{13.months.ago}' AND '#{Time.now}'").to_a.group_by_month(&:created_at).map{|k,v| v.map(&:price_total).sum.to_i }.prepend("Alle Aufträge")},
-          #{raw @line_items.where("created_at BETWEEN '#{25.months.ago}' AND '#{13.months.ago}'").to_a.group_by_month(&:created_at).map{|k,v| v.map(&:price_total).sum.to_i }.prepend("Alle Aufträge (Vorjahr)")},
-          #{raw @orders.where("(is_webshop = 't') AND (created_at BETWEEN '#{13.months.ago}' AND '#{Time.now}')").to_a.group_by_month(&:created_at).map{|k,v| v.map(&:price_total).sum.to_i }.prepend("Shop")}
+          #{raw @line_items_current_year.map{|month, items| items.sum(&:price_total).to_i}.prepend("Alle Aufträge")},
+          #{raw @line_items_previous_year.map{|month, items| items.sum(&:price_total).to_i}.prepend("Alle Aufträge (Vorjahr)")},
+          #{raw @line_items_shop.map{|month, items| items.sum(&:price_total).to_i}.prepend("Shop")}
         ],
         type: 'area',
-        labels: true,
         labels: {
           format: {
             y: de.numberFormat('$'),
@@ -44,7 +46,7 @@ javascript:
             centered: true
           },
           type: 'categories',
-          categories: #{raw @line_items.where("created_at BETWEEN '#{13.months.ago}' AND '#{Time.now}'").group_by_month(:created_at, format: "%b %Y").count.map{ |k, v| k }}
+          categories: #{raw @months}
         },
         y: {
           show: false,

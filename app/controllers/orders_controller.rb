@@ -5,8 +5,11 @@ class OrdersController < ApplicationController
   after_action :verify_authorized
 
   def dashboard
-    @orders = Order.includes(:line_items, :products, :contact)
-    @line_items = LineItem.includes(:product)
+    @orders = Order.favorites.includes(:line_items, :products, :contact)
+    @months = LineItem.where("created_at BETWEEN '#{13.months.ago}' AND '#{Time.now}'").group_by_month(:created_at, format: "%b %Y").count.map{ |k, v| k }
+    @line_items_current_year = LineItem.where("created_at BETWEEN ? AND ?", 13.months.ago, Time.now).to_a.group_by_month(&:created_at)
+    @line_items_previous_year = LineItem.where("created_at BETWEEN ? AND ?", 25.months.ago, 13.months.ago).to_a.group_by_month(&:created_at)
+    @line_items_shop = LineItem.joins(:order).where("orders.is_webshop = ? AND line_items.created_at BETWEEN ? AND ?", true, 13.months.ago, Time.now).to_a.group_by_month(&:created_at)
     authorize @orders
   end
 
