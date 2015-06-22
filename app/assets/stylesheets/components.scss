@@ -301,6 +301,7 @@ img {
 .panel__body {
   padding: 1rem 0;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 
