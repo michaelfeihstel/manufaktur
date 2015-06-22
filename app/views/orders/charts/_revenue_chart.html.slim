@@ -24,9 +24,7 @@ javascript:
       },
       data: {
         columns: [
-          #{raw @line_items_current_year.map{|month, items| items.sum(&:price_total).to_i}.prepend("Alle Aufträge")},
-          #{raw @line_items_previous_year.map{|month, items| items.sum(&:price_total).to_i}.prepend("Alle Aufträge (Vorjahr)")},
-          #{raw @line_items_shop.map{|month, items| items.sum(&:price_total).to_i}.prepend("Shop")}
+          #{raw @line_items.map{|months, items| items.sum(&:price_total).to_i}.prepend("Umsatz")},
         ],
         type: 'area',
         labels: {
@@ -35,7 +33,7 @@ javascript:
           }
         },
         colors: {
-          "Alle Aufträge": '#89F712',
+          "Umsatz": '#455A64',
           "Alle Aufträge (Vorjahr)": '#BFD2DB',
           "Shop": '#CAAE93'
         }
@@ -46,7 +44,7 @@ javascript:
             centered: true
           },
           type: 'categories',
-          categories: #{raw @months}
+          categories: #{raw @line_items.map{|months, items| l months, format: "%b %Y"}}
         },
         y: {
           show: false,

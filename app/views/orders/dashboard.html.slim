@@ -12,7 +12,7 @@
 section
   .panel
     .panel__bar.panel__bar--top
-      h5.panel__title Monatliche Umsätze
+      h4.panel__title Monatliche Umsätze
     .panel__body
       = render "orders/charts/revenue_chart"
     .panel__bar.panel__bar--bottom
@@ -23,7 +23,7 @@ section
     .span-small-12.span-large-6
       .panel
         .panel__bar.panel__bar--top
-          h5.panel__title = link_to icon("star", text: "Favoriten"), favorite_orders_path
+          h4.panel__title = link_to icon("star", text: "Favoriten"), favorite_orders_path
         .panel__body style="max-height: 500px"
           table
             thead
