@@ -245,6 +245,7 @@ img {
 
 // PANELS
 .panel {
+  @include display(flex);
   @include hard-shadow;
   background-color: $panel-background;
   display: block;
@@ -253,6 +254,7 @@ img {
 }
 
 .panel--outline {
+  @include display(flex);
   background: transparent;
   border: 3px solid $secondary-color;
   display: block;
@@ -261,6 +263,7 @@ img {
 }
 
 .panel__bar {
+  @include flex(0 0 auto);
   padding: 1rem 1.25rem;
   background-color: $secondary-color;
 }
@@ -299,6 +302,7 @@ img {
 }
 
 .panel__body {
+  @include flex(1 0 auto);
   padding: 1rem 0;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;

@@ -76,7 +76,7 @@ ul.side-nav li a {
   margin-left: 0;
 
   @media (max-width: $end-small) {
-    flex-flow: column nowrap;
+    @include flex-flow(column nowrap);
     align-items: flex-start;
   }
 }
@@ -96,6 +96,7 @@ ul.side-nav li a {
 
   @media (max-width: $end-small) {
     margin-bottom: 1rem;
+    padding: 0 0;
   }
 
   &:first-child {
