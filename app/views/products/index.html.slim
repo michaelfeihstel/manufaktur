@@ -16,11 +16,11 @@
     table
       thead
         tr
-          th width=150 Artikelnummer
-          th Bezeichnung
+          th width=130 Artikelnummer
+          th width=200 Bezeichnung
           th Farbe
-          th.text-right Preis
-          th
+          th.text-right width=100 Preis
+          th width=30
       tbody
         - products.each do |product|
           tr.link href=product_path(product)
