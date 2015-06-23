@@ -30,8 +30,8 @@ class LineItemsController < ApplicationController
   end
 
   def update_revenue_chart
-    @line_items = LineItem.completed_since(13.months.ago.beginning_of_month).to_a.group_by_month(&:completed_at)
-    @line_items_previous_year = LineItem.completed_between(25.months.ago.beginning_of_month, 14.months.ago.end_of_month).to_a.group_by_month(&:completed_at)
+    @line_items = LineItem.completed_since(12.months.ago.beginning_of_month).to_a.group_by_month(&:completed_at)
+    @line_items_previous_year = LineItem.completed_between(25.months.ago.beginning_of_month, 13.months.ago.end_of_month).to_a.group_by_month(&:completed_at)
     render "orders/dashboard/update_revenue_chart"
   end
 
