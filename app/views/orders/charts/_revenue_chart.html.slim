@@ -21,7 +21,8 @@ javascript:
       bindto: "#chart_revenue",
       data: {
         columns: [
-          #{ raw @line_items.map{|months, items| items.sum(&:price_total).to_i}.prepend('Umsatz')},
+          #{ raw @line_items.map{|months, items| items.sum(&:price_total).to_i}.prepend('Umsatz (Aktuelles Jahr)')},
+          #{ raw @line_items_previous_year.map{|months, items| items.sum(&:price_total).to_i}.prepend('Umsatz (Vorjahr)')}
         ],
         type: 'area',
         labels: {
@@ -30,8 +31,8 @@ javascript:
           }
         },
         colors: {
-          "Umsatz": '#455A64',
-          "Alle Aufträge (Vorjahr)": '#BFD2DB',
+          "Umsatz (Aktuelles Jahr)": '#455A64',
+          "Umsatz (Vorjahr)": '#7BF730',
           "Shop": '#CAAE93'
         }
       },

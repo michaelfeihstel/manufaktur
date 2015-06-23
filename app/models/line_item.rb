@@ -54,13 +54,11 @@ class LineItem < ActiveRecord::Base
   belongs_to :order
   belongs_to :product
 
-  delegate :completed_at, to: :order
-
   # scopes
-  scope :completed, -> { joins(:order).where.not(orders: { completed_at: nil }) }
-  scope :not_completed, -> { joins(:order).where(orders: { completed_at: nil }) }
-  scope :completed_since, -> (date) { joins(:order).where("orders.completed_at >= ?", date) }
-  scope :completed_between, -> (from, to) { joins(:order).where("orders.completed_at BETWEEN ? AND ?", from, to) }
+  scope :completed, -> { where.not( line_items: { completed_at: nil } ) }
+  scope :not_completed, -> { where( line_items: { completed_at: nil } ) }
+  scope :completed_since, -> (date) { where("line_items.completed_at >= ?", date) }
+  scope :completed_between, -> (from, to) { where("completed_at BETWEEN ? AND ?", from, to) }
   scope :most_recent, -> { order(created_at: :desc) }
   scope :webshop, -> { joins(:order).where(order: {is_webshop: true}) }
 

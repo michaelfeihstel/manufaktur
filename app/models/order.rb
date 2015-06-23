@@ -66,6 +66,7 @@ class Order < ActiveRecord::Base
   # CALLBACKS
   before_save :get_address_references
   before_save :update_vat_on_line_items
+  before_save :updated_completed_at
 
   def get_address_references
     self.billing_name = try(:billing_address).try(:name) || billing_name
@@ -86,6 +87,12 @@ class Order < ActiveRecord::Base
     if self.new_record? || self.tax_id_changed?
       vat = Tax.find(tax_id).value
       line_items.update_all(vat: vat)
+    end
+  end
+
+  def update_completed_at
+    if self.new_record? || self.completed_at_changed?
+      line_items.update_all(completed_at: completed_at)
     end
   end
 
@@ -112,7 +119,7 @@ class Order < ActiveRecord::Base
   end
 
   def price_total
-    self.line_items.to_a.sum(&:price_total)
+    line_items.to_a.sum(&:price_total)
   end
 
   def vat_total

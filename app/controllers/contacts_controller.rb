@@ -58,7 +58,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = Contact.includes(:addresses, :contact_information, { orders: [:line_items] }, :letters).find(params[:id])
+    @contact = Contact.includes(:addresses, :contact_information, :line_items, :letters).find(params[:id])
     @orders = @contact.orders.includes(:line_items, :products).page(params[:page]).per(25)
     authorize @contact
   end
