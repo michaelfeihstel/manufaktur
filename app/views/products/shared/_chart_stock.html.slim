@@ -21,13 +21,19 @@ javascript:
       bindto: "#chart_stock",
       data: {
         columns: [
-          #{raw @product.stock_array.prepend("Bestand")}
+          #{raw @product.available_stock_array.prepend("Verfügbar")},
+          #{raw @product.sales_backordered_values.prepend("Reserviert")}
         ],
         type: 'bar',
+        groups: [
+          ["Verfügbar", "Reserviert"]
+        ],
+        order: null,
         colors: {
-          "Bestand": '#455A64'
+          "Verfügbar": "#A4B93A",
+          "Reserviert": "#DA284B",
         },
-        labels: true,
+        labels: false
       },
       axis: {
         x: {

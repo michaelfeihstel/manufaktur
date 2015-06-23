@@ -35,11 +35,16 @@
 #  is_scheduled_delivery :boolean          default(FALSE)
 #  cashback_until        :date
 #  cashback_percent      :decimal(2, 2)    default(0.03)
+#  tax_id                :integer
 #
 # Indexes
 #
-#  index_orders_on_contact_id  (contact_id)
-#  index_orders_on_created_at  (created_at)
+#  index_orders_on_billing_address_id   (billing_address_id)
+#  index_orders_on_completed_at         (completed_at)
+#  index_orders_on_contact_id           (contact_id)
+#  index_orders_on_created_at           (created_at)
+#  index_orders_on_delivery_address_id  (delivery_address_id)
+#  index_orders_on_tax_id               (tax_id)
 #
 
 require 'spec_helper'

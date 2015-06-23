@@ -18,6 +18,10 @@
 #  size_set_id      :integer
 #  product_family   :string
 #
+# Indexes
+#
+#  index_products_on_size_set_id  (size_set_id)
+#
 
 class Product < ActiveRecord::Base
   # associations
@@ -95,6 +99,14 @@ class Product < ActiveRecord::Base
     line_items.completed_since(most_recent_inventory_date).select(sizes_for_select)[0].as_json.reject{|key, value| key == "id"}
   end
 
+  def sales_backordered
+    line_items.not_completed.select(sizes_for_select)[0].as_json.reject{|key, value| key == "id"}
+  end
+
+  def sales_backordered_values
+    sales_backordered.values
+  end
+
   def sales(size)
     sales_total.send(size) || 0
   end
@@ -116,6 +128,14 @@ class Product < ActiveRecord::Base
 
   def stock_array
     stock_hash.values
+  end
+
+  def available_stock_hash
+    stock_hash.merge(sales_backordered){|key, stock, backordered| stock - backordered}
+  end
+
+  def available_stock_array
+    available_stock_hash.values
   end
   
 end

@@ -1,6 +1,6 @@
 /*-- Chart --*/
 .c3 svg {
-  font: 14px sans-serif;
+  font-size: 14px ;
   width: 100%;
 }
 .c3 path, .c3 line {
@@ -35,6 +35,7 @@
 .c3-axis-x .tick {
 }
 .c3-axis-x-label {
+  color: "#999"
 }
 
 .c3-axis-y .tick {

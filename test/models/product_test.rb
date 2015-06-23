@@ -18,6 +18,10 @@
 #  size_set_id      :integer
 #  product_family   :string
 #
+# Indexes
+#
+#  index_products_on_size_set_id  (size_set_id)
+#
 
 require 'test_helper'
 
