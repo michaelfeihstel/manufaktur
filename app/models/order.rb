@@ -66,7 +66,7 @@ class Order < ActiveRecord::Base
   # CALLBACKS
   before_save :get_address_references
   before_save :update_vat_on_line_items
-  before_save :updated_completed_at
+  before_save :update_completed_at
 
   def get_address_references
     self.billing_name = try(:billing_address).try(:name) || billing_name
