@@ -29,5 +29,8 @@
             td
               span.label class="product-label" style=product_color(product)
                 = product.color_text
-            td.text-right = number_to_currency(product.price, unit:"€ ")
+            td.text-right
+              span = number_to_currency(product.price, unit:"€ ")
+              br
+              span.small.light = number_to_currency(product.gross_retail_price, unit: "€")
             td.text-right = icon("chevron_right", align: "right")
