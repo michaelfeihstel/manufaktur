@@ -178,6 +178,7 @@ class OrdersController < ApplicationController
         :id,
         :order_id,
         :product_id,
+        :completed_at,
         :price,
         :vat,
         :comment,
