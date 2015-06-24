@@ -109,6 +109,7 @@ Manufaktur::Application.routes.draw do
     resources :comments
     resources :contacts
     resources :contact_information
+    resources :discounts
     resources :letters
     resources :line_items
     resources :materials

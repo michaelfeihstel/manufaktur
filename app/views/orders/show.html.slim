@@ -67,14 +67,15 @@ section
                 p = @order.comment
             .span-small-12.span-medium-6.span-large-4
               .panel
-                p.text-right
-                  label Warenwert
-                  = number_to_currency(@order.price_total, unit: "€")
-                  br
-                  label + Mehrwertsteuer
-                  = number_to_currency(@order.vat_total, unit: "€")
-                  hr
-                  h3.bold.text-right = number_to_currency(@order.gross_total, unit: "€")
+                .panel__body
+                  p.text-right
+                    label Warenwert
+                    = number_to_currency(@order.price_total, unit: "€")
+                    br
+                    label + Mehrwertsteuer
+                    = number_to_currency(@order.vat_total, unit: "€")
+                    hr
+                    h3.bold.text-right = number_to_currency(@order.gross_total, unit: "€")
       .tab#tab-invoice
         section
           h5.section-header Optionen

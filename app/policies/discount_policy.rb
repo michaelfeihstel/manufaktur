@@ -1,0 +1,2 @@
+class DiscountPolicy <  ApplicationPolicy
+end

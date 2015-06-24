@@ -14,7 +14,7 @@ class ProductInventoriesControllerTest < ActionController::TestCase
   end
 
   test "should show single inventory" do
-    get :show
+    get :show, id: @product_inventory.id
     assert_response :success
   end
 

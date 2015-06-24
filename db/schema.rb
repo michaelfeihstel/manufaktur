@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624083209) do
+ActiveRecord::Schema.define(version: 20150624110729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,18 @@ ActiveRecord::Schema.define(version: 20150624083209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "discounts", force: :cascade do |t|
+    t.integer  "line_item_id"
+    t.string   "name"
+    t.decimal  "discount"
+    t.boolean  "enabled",      default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "discounts", ["enabled"], name: "index_discounts_on_enabled", using: :btree
+  add_index "discounts", ["line_item_id"], name: "index_discounts_on_line_item_id", using: :btree
 
   create_table "letters", force: :cascade do |t|
     t.integer  "address_id"
@@ -572,6 +584,7 @@ ActiveRecord::Schema.define(version: 20150624083209) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "discounts", "line_items"
   add_foreign_key "material_consumptions", "materials"
   add_foreign_key "material_consumptions", "products"
   add_foreign_key "material_properties", "materials"

@@ -21,29 +21,7 @@ section
 section
   .row
     .span-small-12.span-large-6
-      .panel
-        .panel__bar.panel__bar--top
-          h5.panel__title = link_to icon("star", text: "Favoriten"), favorite_orders_path
-        .panel__body style="height: 500px"
-          table
-            thead
-              tr
-                th Auftrag
-                th Kunde
-                th.text-right Betrag
-            tbody
-              - @orders.favorites.each do |order|
-                tr
-                  td = link_to order.id, order, class: "link"
-                  td = order.billing_name
-                  td.text-right = number_to_currency(order.price_total, unit: "€")
-        .panel__bar.panel__bar--bottom
-          .flex__list
-            .flex__list__item.flex__list__item--expand
-              = link_to "Gehe zu Favoriten...", favorite_orders_path, class: "link"
-            .flex__list__item.flex__list__item--fixed.text-right
-              label Summe
-              = number_to_currency(@orders.favorites.to_a.sum(&:price_total), unit: "€")
+      = render "orders/dashboard/favorite_orders_panel"
     .span-small-12.span-large-6
       #top_retailers_panel
         = render "contacts/shared/top_retailers_panel", contacts: @contacts

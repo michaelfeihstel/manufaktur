@@ -55,6 +55,9 @@ class LineItem < ActiveRecord::Base
   # associations
   belongs_to :order
   belongs_to :product
+  has_many :discounts, dependent: :destroy
+
+  accepts_nested_attributes_for :discounts
 
   # scopes
   scope :completed, -> { where.not( line_items: { completed_at: nil } ) }
