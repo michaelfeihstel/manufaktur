@@ -39,6 +39,10 @@
           = f.text_field :price, :placeholder => "z.B. 200", :step => "10"
 
         .fields
+          = f.label :retail_price, "Verkaufspreis (zzgl. MwSt.)"
+          = f.number_field :retail_price, placeholder: "168,07"
+
+        .fields
           = f.label :vat, "MwSt."
           = f.number_field :vat, :step => "0.01"
 

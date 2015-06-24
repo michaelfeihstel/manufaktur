@@ -17,6 +17,7 @@
 #  text_color       :string(255)      default("#fff")
 #  size_set_id      :integer
 #  product_family   :string
+#  retail_price     :decimal(8, 2)
 #
 # Indexes
 #
@@ -66,6 +67,10 @@ class Product < ActiveRecord::Base
   def full_name
     full_name = [ sku, name, color_text ]
     full_name.join(" - ")
+  end
+
+  def gross_retail_price
+    ( retail_price || 0 ) * (1 + vat)
   end
 
   def sales_per_size

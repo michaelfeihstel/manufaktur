@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623093000) do
+ActiveRecord::Schema.define(version: 20150624083209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -354,6 +354,7 @@ ActiveRecord::Schema.define(version: 20150623093000) do
     t.string   "text_color",       limit: 255,                         default: "#fff"
     t.integer  "size_set_id"
     t.string   "product_family"
+    t.decimal  "retail_price",                 precision: 8, scale: 2
   end
 
   add_index "products", ["size_set_id"], name: "index_products_on_size_set_id", using: :btree

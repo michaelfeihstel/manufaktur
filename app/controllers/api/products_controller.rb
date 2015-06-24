@@ -38,6 +38,7 @@ module Api
         :sku,
         :name,
         :price,
+        :price_retail,
         :vat,
         :color_text,
         :size_set_id,

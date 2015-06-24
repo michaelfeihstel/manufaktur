@@ -33,8 +33,14 @@
           label Einkaufspreis
           = number_to_currency(@product.price, unit: "€")
         .fields
+          label Verkaufspreis (zzgl. MwSt.)
+          = number_to_currency(@product.retail_price, unit: "€")
+        .fields
+          label Verkaufspreis (inkl. MwSt.)
+          = number_to_currency(@product.gross_retail_price, unit: "€")
+        .fields
           label Mehrwertsteuer
-          = @product.vat
+          = number_to_percentage(@product.vat * 100)
 
       section
         h5.section-header Farben & Darstellung

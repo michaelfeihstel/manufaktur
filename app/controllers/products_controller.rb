@@ -112,6 +112,7 @@ class ProductsController < ApplicationController
       :secondary_color,
       :text_color,
       :price,
+      :retail_price,
       :vat,
       :size_set_id,
       :product_family,
