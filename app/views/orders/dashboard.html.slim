@@ -12,7 +12,7 @@
 section
   .panel
     .panel__bar.panel__bar--top
-      h4.panel__title Monatliche Umsätze
+      h5.panel__title Monatliche Umsätze
     .panel__body.lazy_load#revenue_chart_container data-url=update_revenue_chart_path
       .loader
     .panel__bar.panel__bar--bottom
@@ -23,7 +23,7 @@ section
     .span-small-12.span-large-6
       .panel
         .panel__bar.panel__bar--top
-          h4.panel__title = link_to icon("star", text: "Favoriten"), favorite_orders_path
+          h5.panel__title = link_to icon("star", text: "Favoriten"), favorite_orders_path
         .panel__body style="height: 500px"
           table
             thead
@@ -45,5 +45,6 @@ section
               label Summe
               = number_to_currency(@orders.favorites.to_a.sum(&:price_total), unit: "€")
     .span-small-12.span-large-6
-      = render "contacts/shared/top_retailers_panel", contacts: Contact.limit(50).joins(:line_items).select("contacts.*, SUM((COALESCE(g1, 0) + COALESCE(g1h, 0) + COALESCE(g2, 0) + COALESCE(g2h, 0) + COALESCE(g3, 0) + COALESCE(g3h, 0) + COALESCE(g4, 0) + COALESCE(g4h, 0) + COALESCE(g5, 0) + COALESCE(g5h, 0) + COALESCE(g6, 0) + COALESCE(g6h, 0) + COALESCE(g7, 0) + COALESCE(g7h, 0) + COALESCE(g8, 0) + COALESCE(g8h, 0) + COALESCE(g9, 0) + COALESCE(g9h, 0) + COALESCE(g10, 0) + COALESCE(g10h, 0) + COALESCE(g11, 0) + COALESCE(g11h, 0) + COALESCE(g12, 0) + COALESCE(g12h, 0) + COALESCE(g13, 0) + COALESCE(g13h, 0) + COALESCE(g14, 0) + COALESCE(g14h, 0) + COALESCE(g15, 0) + COALESCE(g16, 0)) * price) AS total").where("orders.completed_at BETWEEN ? AND ?", Time.now.beginning_of_year, Time.now).group("contacts.id").order("total DESC").map{|el| {id: el.id, name: el.name, total: el.total}}
+      #top_retailers_panel
+        = render "contacts/shared/top_retailers_panel", contacts: @contacts
 

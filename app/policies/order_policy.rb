@@ -10,4 +10,8 @@ class OrderPolicy < ApplicationPolicy
   def update_revenue_chart?
     index?
   end
+
+  def set_period?
+    index?
+  end
 end

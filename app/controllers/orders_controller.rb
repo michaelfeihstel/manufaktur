@@ -5,8 +5,18 @@ class OrdersController < ApplicationController
   after_action :verify_authorized
 
   def dashboard
+    @filter = { from: Date.today.beginning_of_year, to: Date.today }
     @orders = Order.favorites.includes(:line_items, :products)
     authorize @orders
+    @contacts = Contact.best_in_period(@filter[:from], @filter[:to]).limit(50)
+  end
+
+  def set_period
+    @filter = { from: params[:from], to: params[:to] }
+    @contacts = Contact.best_in_period(@filter[:from], @filter[:to]).limit(50)
+    authorize Order
+
+    render "orders/dashboard/set_period"
   end
 
   def index

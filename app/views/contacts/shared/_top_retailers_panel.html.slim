@@ -1,7 +1,25 @@
 .panel
   .panel__bar.panel__bar--top
-    h4.panel__title Umsatzstärkste Händler 2015
+    h5.panel__title Umsatzstärkste Händler 2015
+  .panel__section
+    ul.inline-list
+      li = link_to Date.today.year, set_orders_period_path(from: Date.today.beginning_of_year, to: Date.today), class: "link", remote: true
+      li = link_to Date.today.prev_year.year, set_orders_period_path(from: Date.today.prev_year.beginning_of_year, to: Date.today.prev_year.end_of_year), class: "link", remote: true
+      li = link_to "Letzten 30 Tage", set_orders_period_path(from: 30.days.ago.to_date, to: Date.today), class: "link", remote: true
+      li = link_to "Letzten 90 Tage", set_orders_period_path(from: 90.days.ago.to_date, to: Date.today), class: "link", remote: true
   .panel__body style="height: 500px"
+    = form_tag "dashboard/set_period", method: :get, remote: true do
+      .flex__list
+        .flex__list__item.flex__list__item--expand
+          .fields
+            = label_tag :from, "Von"
+            = date_field_tag :from, @filter[:from]
+        .flex__list__item.flex__list__item--expand
+          .fields
+            = label_tag :to, "Bis"
+            = date_field_tag :to, @filter[:to]
+        .flex__list__item.flex__list__item--fixed
+          = submit_tag "OK", class: "button button--no-margin tiny"
     table
       thead
         tr
@@ -10,8 +28,8 @@
       tbody
         - contacts.each do |contact|
           tr
-            td = link_to contact[:name], contact_path(contact[:id]), class: "link"
-            td.text-right = number_to_currency(contact[:total], unit: "€")
+            td = link_to contact.name, contact_path(contact.id), class: "link"
+            td.text-right = number_to_currency(contact.total, unit: "€")
   .panel__bar.panel__bar--bottom
     = link_to "Alle Kontakte...", contacts_path, class: "link"
 

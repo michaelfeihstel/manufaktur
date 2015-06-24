@@ -82,13 +82,14 @@ Manufaktur::Application.routes.draw do
 
   scope "products" do
     scope "dashboard" do
-      get "update_top_products", controller: "products"
+      get "set_period", controller: "products", as: "set_products_period"
     end
   end
 
   scope "orders" do
     scope "dashboard" do
       get "update_revenue_chart", controller: "line_items"
+      get "set_period", controller: "orders", as: "set_orders_period"
     end
   end
 

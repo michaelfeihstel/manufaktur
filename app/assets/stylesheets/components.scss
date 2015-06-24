@@ -250,7 +250,6 @@ img {
   background-color: $panel-background;
   display: block;
   margin-bottom: $gutter;
-  padding: 1.25rem;
 }
 
 .panel--outline {
@@ -269,16 +268,10 @@ img {
 }
   
 .panel__bar--bottom {
-  margin-bottom: -1.25rem !important;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
 }
 
 .panel__bar--top {
   @include transition (all 200ms ease-in-out);
-  margin-top: -1.25rem;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
 }
 
 .panel__bar--bottom label {
@@ -303,9 +296,15 @@ img {
 
 .panel__body {
   @include flex(1 0 auto);
-  padding: 1rem 0;
+  padding: 1rem 1.25rem;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.panel__section {
+  background-color: #E7FFFA;
+  box-shadow: 0px 2px 0 rgba(0, 0, 0, 0.07);
+  padding: 1rem 1.25rem;
 }
 
 

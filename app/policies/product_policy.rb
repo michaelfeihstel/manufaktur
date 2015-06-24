@@ -1,5 +1,5 @@
 class ProductPolicy < ApplicationPolicy
-  def update_top_products?
+  def set_period?
     index?
   end
 end
