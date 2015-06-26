@@ -1,5 +1,8 @@
 .tab#tab_orders
-  - if @contact.orders.present?
+  - if @contact.orders.empty?
+    p.text-center = "#{@contact.name} hat noch keine Aufträge. "
+    p.text-center = link_to "Auftrag erstellen...", new_order_path, class: "button tiny"
+  - else
     section
       h5.section-header Monatliche Umsätze
       = render "contacts/charts/order_chart"
@@ -9,11 +12,11 @@
       table
         thead
           tr.header
+            th
             th width="100" Auftrag
             th width="120" Erstellt
             th width="120" Abgeschlossen
             th Artikel
-            th width="80" Status
             th.text-right width="150" Betrag
 
         tbody#orders
@@ -26,7 +29,3 @@
               h4.bold = number_to_currency(@contact.line_items.to_a.sum(&:price_total))
 
       = paginate @orders
-  - else
-    p.text-center 
-      span.light = "#{@contact.name} hat noch keine Aufträge. "
-      span = link_to "Auftrag erstellen...", new_order_path, class: "link"

@@ -68,20 +68,14 @@ $('body').on('change', '.order_line_items_product_id', function () {
             data
         }
     });
+});
 
-    // $.ajax({
-    //     url: "/orders/" + order_id,
-    //     data: data,
-    //     dataType: "script",
-    //     type: "patch",
-    //     error: function(response) {
-    //         response
-    //     },
-    //     success: function(response){
-    //         response
-    //     }
-    // });
+$('form').on('change', '[data-role="trigger__calculate-price"]', function(){
+    var current_item = $(this).closest('section')
 
+    var data = {
+        "line_item_id": current_item.data('line-item-id')
+    }
 });
 
 

@@ -4,17 +4,18 @@
     ul.small-block-1.medium-block-2.large-block-4
       - @contact.addresses.each do |address|
         li.panel
-          label = address.description
-          p
-            = address.name
-            br
-            = "#{address.street} #{address.house_number}"
-            br
-            = "#{address.zip} #{address.city}"
-            br
-            = address.country
-          .panel-bar.bottom
-            = link_to icon("print", text: "Label"), "#", class: "panel-bar-button"
+          .panel__body
+            label = address.description
+            p
+              = address.name
+              br
+              = "#{address.street} #{address.house_number}"
+              br
+              = "#{address.zip} #{address.city}"
+              br
+              = address.country
+          .panel__bar
+            = link_to icon("print"), "#"
 
 
   section

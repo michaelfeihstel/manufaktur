@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
 
 
   def show
-    @order = Order.includes(:line_items, :contact, {:products => :size_set}).find(params[:id])
+    @order = Order.includes(:line_items, :discounts, :contact, { products: :size_set }).find(params[:id])
     authorize @order
     @order_presenter = OrdersPresenter.new(@order)
   end
@@ -81,7 +81,7 @@ class OrdersController < ApplicationController
 
 
   def edit
-    @order = Order.includes([:contact, { line_items: :product }, { products: :size_set }]).find(params[:id])
+    @order = Order.includes([:contact, { line_items: [:product, :discounts] }, { products: :size_set }]).find(params[:id])
     authorize @order
     @search = Order.includes(:customer, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
     @orders = @search.result(distinct: true)
@@ -212,7 +212,14 @@ class OrdersController < ApplicationController
         :g14h,
         :g15,
         :g16,
-        :_destroy
+        :_destroy,
+        discounts_attributes: [
+          :id,
+          :line_item_id,
+          :name,
+          :discount,
+          :_destroy
+        ]
       ]
     )
   end

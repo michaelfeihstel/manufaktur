@@ -14,5 +14,5 @@
 
 - content_for :footer
   ul.inline-list
-    li = link_to icon("check", text: "Speichern"), "#", data: { submit: "edit_order" }
-    li = link_to icon("cross", text: "Abbrechen"), order_path(@order)
+    li = link_to "Speichern", "#", data: { submit: "edit_order" }, class: "button"
+    li = link_to "Abbrechen", order_path(@order), class: "link"

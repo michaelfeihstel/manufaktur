@@ -262,16 +262,10 @@ img {
 }
 
 .panel__bar {
+  @include transition (all 200ms ease-in-out);
   @include flex(0 0 auto);
   padding: 1rem 1.25rem;
   background-color: $secondary-color;
-}
-  
-.panel__bar--bottom {
-}
-
-.panel__bar--top {
-  @include transition (all 200ms ease-in-out);
 }
 
 .panel__bar--bottom label {

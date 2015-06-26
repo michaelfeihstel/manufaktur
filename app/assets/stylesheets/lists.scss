@@ -74,19 +74,11 @@ ul.side-nav li a {
   align-items: center;
   margin: 0px;
   margin-left: 0;
-
-  @media (max-width: $end-small) {
-    @include flex-flow(column nowrap);
-    align-items: flex-start;
-  }
 }
 
 .flex__list--right {
   justify-content: flex-end;
   text-align: right;
-  @media (max-width: $end-small) {
-    align-items: flex-end;
-  }
 }
 
 .flex__list__item {
@@ -94,26 +86,13 @@ ul.side-nav li a {
   margin-left: 0;
   padding: 0 1.25rem;
 
-  @media (max-width: $end-small) {
-    margin-bottom: 1rem;
-    padding: 0 0;
-  }
-
   &:first-child {
-    @media (min-width: $start-medium) {
-      padding-left: 0;
-      padding-right: 1.25rem;
-    }
+    padding-left: 0;
+    padding-right: 1.25rem;
   }
 
   &:last-child {
-    @media (min-width: $start-medium) {
-      padding-right: 0;
-    }
-
-    @media (max-width: $end-small) {
-      margin-bottom: 0;
-    }
+    padding-right: 0;
   }
 }
 

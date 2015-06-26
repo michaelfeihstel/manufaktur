@@ -18,7 +18,7 @@
 
 class Discount < ActiveRecord::Base
   # Associations
-  belongs_to :line_item
+  belongs_to :line_item, touch: true
 
   # Scopes
   scope :enabled, -> { where(enabled: true) }

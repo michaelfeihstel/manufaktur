@@ -22,6 +22,19 @@
   padding: 0;
 }
 
+// borders
+.border-top {
+
+}
+
+.border-top {
+  border-top: 1px solid $hairline-color;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $hairline-color;
+}
+
 
 // mixins
 @mixin subtle-shadow {

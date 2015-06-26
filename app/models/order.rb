@@ -56,10 +56,11 @@ class Order < ActiveRecord::Base
   belongs_to :tax
   has_many :comments, as: :commentable
   has_many :line_items, dependent: :destroy
+  has_many :discounts, through: :line_items, dependent: :destroy
   has_many :products, through: :line_items
   has_many :sizes, through: :products
   
-  accepts_nested_attributes_for :line_items, :allow_destroy => true
+  accepts_nested_attributes_for :line_items, allow_destroy: true
 
   # VALIDATIONS
 
@@ -67,6 +68,7 @@ class Order < ActiveRecord::Base
   before_save :get_address_references
   before_save :update_vat_on_line_items
   before_save :update_completed_at
+  after_save :update_price
 
   def get_address_references
     self.billing_name = try(:billing_address).try(:name) || billing_name
@@ -94,6 +96,13 @@ class Order < ActiveRecord::Base
     if self.new_record? || self.completed_at_changed?
       line_items.update_all(completed_at: completed_at)
     end
+  end
+
+  def update_price
+    line_items.each do |line_item|
+      line_item.update_price
+    end
+    line_items.save
   end
 
   # SCOPES

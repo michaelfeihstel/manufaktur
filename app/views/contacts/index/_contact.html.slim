@@ -1,6 +1,6 @@
-tr.link href=contact_path(contact) data-remote="true"
-  td width="100" data-title="Kundennummer" = contact.id
-  td data-title="Kontakt" = contact.name
+tr data-remote="true"
+  td width="100" data-title="Kundennummer" = link_to contact.id, contact, class: "link"
+  td data-title="Kontakt" = link_to contact.name, contact, class: "link"
   td width="150" = contact.try(:contact_role).try(:human_readable_name)
   td
   td.text-right

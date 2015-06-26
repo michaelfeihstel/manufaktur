@@ -57,7 +57,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :product
   has_many :discounts, dependent: :destroy
 
-  accepts_nested_attributes_for :discounts
+  accepts_nested_attributes_for :discounts, allow_destroy: true
 
   # scopes
   scope :completed, -> { where.not( line_items: { completed_at: nil } ) }
@@ -68,12 +68,10 @@ class LineItem < ActiveRecord::Base
   scope :webshop, -> { joins(:order).where(order: {is_webshop: true}) }
 
   # callbacks
-  before_save :get_product_references
 
   # methods
   def get_product_references
     price = self.price || product.price
-    vat = self.vat || product.vat
   end
 
   def temp_id
@@ -93,12 +91,17 @@ class LineItem < ActiveRecord::Base
   	items.compact.sum
   end
 
+  def ref_price_single
+    self.product.price
+  end
 
-  def quantity_share
-    order_total = self.order.line_items.to_a.sum(&:quantity).to_f
-    line_item_total = quantity.to_f
+  def net_price_single
+    discount = self.discounts.sum(:discount) || 0
+    self.ref_price_single * (1 - discount)
+  end
 
-    width = line_item_total / order_total * 100
+  def update_price
+    self.price = self.net_price_single
   end
 
   def price_total

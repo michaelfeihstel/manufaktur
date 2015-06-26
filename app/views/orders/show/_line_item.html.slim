@@ -5,7 +5,7 @@ section
         span.bold = "#{line_item.product.name} "
         span.thin = "#{line_item.product.color_text}"
 
-    .panel__body
+    .panel__body.border-bottom
       .flex__list
         .flex__list__item
           label Artikelnummer 
@@ -17,8 +17,7 @@ section
           label Preis
           span = number_to_currency(line_item.price)
 
-      hr
-
+    .panel__body
       .row
         .span-small-12
           ul.sizes-list
@@ -112,13 +111,14 @@ section
             li
               = label :g16, line_item.try(:product).try(:size_set).try(:g16), class: "label--small"
               = line_item.g16
-    
-    .panel__section
-      ul.inline-list.small
-        - line_item.discounts.each do |discount|
-          li
-            span.light = "#{discount.name}: "
-            span.bold = number_to_percentage(discount.humanized_discount)
+
+    - if line_item.discounts.present?
+      .panel__body.border-top
+        ul.inline-list.small
+          - line_item.discounts.each do |discount|
+            li
+              span.light = "#{discount.name}: "
+              span.bold = number_to_percentage(discount.humanized_discount)
 
 
     .panel__bar

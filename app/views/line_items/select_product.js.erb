@@ -3,7 +3,7 @@ var current_item = $('section[data-line-item-id="' + <%= params["line_item_id"] 
 
 
 // set line_item.price input field
-current_item.find('#price-single-input').val(<%= @product.price %>).addClass('animated flash');
+current_item.find('#price-single-input').val(<%= @product.price %>)
 
 
 
@@ -16,12 +16,12 @@ current_item.find('#price-single-input').val(<%= @product.price %>).addClass('an
 
 // set #price_total span
 var price_total = <%= j params[:quantity] * 2 %>
-current_item.find('#price_total').text(price_total).addClass('animated flash');
+current_item.find('#price_total').text(price_total)
 
 
 
 // set line_item header styling
-current_item.find('.panel__bar--top').css({
+current_item.find('[data-role="select_product"]').css({
   "background-color": "<%= @product.primary_color %>",
   "border-bottom": "5px solid " + "<%= @product.secondary_color %>",
 });
