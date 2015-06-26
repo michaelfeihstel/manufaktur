@@ -101,8 +101,8 @@ class Order < ActiveRecord::Base
   def update_price
     line_items.each do |line_item|
       line_item.update_price
+      line_item.save
     end
-    line_items.save
   end
 
   # SCOPES
