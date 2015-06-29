@@ -110,7 +110,7 @@ section data-line-item-id = f.object.id define='{"article": { "g1": 1, "g2": 2 }
       = f.fields_for :discounts do |discount|
         ul.inline-list
           li = discount.text_field :name, placeholder: "Bezeichnung"
-          li = discount.text_field :discount, placeholder: "Rabatt", date: { role: "trigger__price-calculation" }
+          li = discount.text_field :discount, placeholder: "Rabatt", data: { role: "discount-value" }
           li = discount.link_to_remove "Löschen", class: "link"
       = f.link_to_add "Ermäßigung hinzufügen", :discounts, class: "link"
 

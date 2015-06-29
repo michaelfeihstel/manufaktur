@@ -41,10 +41,6 @@ product_id_select = $('.order_line_items_product_id').selectize({
 // select product_id
 $('body').on('change', '.order_line_items_product_id', function () {
     var current_item = $(this).closest('section')
-    // var order_id = $('form.edit_order').data('order-id')
-    // var data = $('form.edit_order').serialize();
-
-    // $(this).closest('section').addClass('item-to-refresh')
 
     var product_id = $(this).val();
     var line_item_id = current_item.data('line-item-id')
@@ -68,14 +64,6 @@ $('body').on('change', '.order_line_items_product_id', function () {
             data
         }
     });
-});
-
-$('form').on('change', '[data-role="trigger__calculate-price"]', function(){
-    var current_item = $(this).closest('section')
-
-    var data = {
-        "line_item_id": current_item.data('line-item-id')
-    }
 });
 
 

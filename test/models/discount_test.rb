@@ -20,6 +20,12 @@ require "test_helper"
 
 class DiscountTest < ActiveSupport::TestCase
 
+  setup do
+    @discount = discounts(:default)
+    @user = users(:default_user)
+    sign_in @user
+  end
+
   def discount
     @discount ||= Discount.new
   end

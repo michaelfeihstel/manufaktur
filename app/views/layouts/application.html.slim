@@ -24,7 +24,6 @@ html lang="de"
     = csrf_meta_tags
 
   body
-    = content_for :additional_javascripts
     .main__content
       = render "layouts/flash"
       = render "layouts/header"
@@ -58,5 +57,5 @@ html lang="de"
       .search__content
         = yield :search
     .main__content__overlay
-
+    = content_for :additional_javascripts
     = javascript_include_tag "application"
