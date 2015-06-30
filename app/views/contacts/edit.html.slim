@@ -13,4 +13,4 @@
 
 - content_for :footer
   ul.inline-list
-    li = link_to icon("check", text: "Speichern")
+    li = link_to "Speichern", "#", class: "button", data: { submit: "edit_contact" }

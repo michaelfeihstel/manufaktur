@@ -1,4 +1,4 @@
-.tab#tab_orders
+.tab data-tab="orders"
   - if @contact.orders.empty?
     p.text-center = "#{@contact.name} hat noch keine Aufträge. "
     p.text-center = link_to "Auftrag erstellen...", new_order_path, class: "button tiny"

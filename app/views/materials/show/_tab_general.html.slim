@@ -1,4 +1,4 @@
-.tab.active#tab-data
+.tab.active data-tab="general"
   section
     h5.section-header Daten
     
@@ -17,6 +17,12 @@
     .fields
       label =  "Preis je #{@material.unit}"
       span = number_to_currency @material.price, unit: "€"
+
+  section
+    h5.section-header Zulieferer
+    .fields
+      label Name
+      = @material.try(:contact).try(:name)
 
   section
     h5.section-header Eigenschaften

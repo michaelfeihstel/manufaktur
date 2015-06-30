@@ -8,3 +8,8 @@
     = button_to "Speichern", "#", class: "button", data: { submit: "edit_material" }
 
 = render "materials/shared/form"
+
+- content_for :footer
+  ul.inline-list
+    li = link_to "Speichern", "#", class: "button", data: { submit: "edit_material" }
+    li = link_to "Abbrechen", @material, class: "link"

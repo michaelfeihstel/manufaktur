@@ -26,6 +26,7 @@ module Api
     def material_params
       params.require(:material).permit(
         :id,
+        :contact_id,
         :name,
         :supplier_sku,
         :unit,

@@ -1,0 +1,16 @@
+.tab data-tab="materials"
+  table
+    thead
+      tr
+        th Bezeichnung
+        th.text-right Preis
+    tbody
+      - @contact.materials.each do |material|
+        tr
+          td
+            span = material.name
+            br
+            span.small.light = material.properties
+          td.text-right
+            span = number_to_currency(material.price, unit: "€") 
+            span.light = " / #{material.unit}"

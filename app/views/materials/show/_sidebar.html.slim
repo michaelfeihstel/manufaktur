@@ -1,5 +1,9 @@
 - content_for :sidebar
   label Menü
   ul.side-nav
-    li = link_to icon("pencil", text: "Bearbeiten"), edit_material_path(@material)
-    li = link_to icon("bin", text: "Löschen"), material_path(@material), method: :delete, data: { confirm: "Willst Du dieses Material wirklich löschen?" }
+    li = link_to icon("create", text: "Bearbeiten"), edit_material_path(@material)
+    li = link_to icon("delete", text: "Löschen"), material_path(@material), method: :delete, data: { confirm: "Willst Du dieses Material wirklich löschen?" }
+
+  label Links
+  ul.side-nav
+    li = link_to icon("person", text: "#{@material.contact.name}"), @material.contact, class: "truncated"

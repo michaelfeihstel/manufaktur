@@ -12,4 +12,4 @@ tr.order-item.link href=order_path(order) data-id=order.id
     - order.line_items.each do |li|
       span.product-label.product-label--fixed style= (product_color(li.product) if li.product)
         = li.quantity_label
-  td.text-right= number_to_currency(order.try(:line_items).to_a.sum(&:price_total))
+  td.text-right= number_to_currency(order.try(:line_items).to_a.sum(&:gross_total))

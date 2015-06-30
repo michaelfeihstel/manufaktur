@@ -86,7 +86,7 @@ class Order < ActiveRecord::Base
   end
 
   def update_vat_on_line_items
-    if ( self.new_record? || self.tax_id_changed? ) && self.tax_id.present?
+    if self.tax_id.present?
       vat = Tax.find(tax_id).value
       line_items.update_all(vat: vat)
     end

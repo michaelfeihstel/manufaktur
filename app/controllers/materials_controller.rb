@@ -1,12 +1,19 @@
 class MaterialsController < ApplicationController
+  before_action :initialize_search, only: [:index, :search, :show, :edit, :new]
   after_action :verify_authorized
 
 
 
 
   def index
-    @materials = Material.includes(:material_properties).all
+    @materials = Material.includes(:material_properties).order(:name).page(params[:page])
     authorize @materials
+  end
+
+  def search
+    @materials = @search.result(distinct: true).includes(:material_properties).order(:name).page(params[:page])
+    authorize @materials
+    render "index"
   end
 
   def show
@@ -60,14 +67,21 @@ class MaterialsController < ApplicationController
 
 
   private
+
+  def initialize_search
+    @search = Material.search(params[:q])
+  end
+
   def material_params
     params.require(:material).permit(
+      :contact_id,
       :name,
       :supplier_sku,
       :unit,
       :price,
       :comment,
-      material_property_attributes: [
+      material_properties_attributes: [
+        :id,
         :material_id,
         :name,
         :value,

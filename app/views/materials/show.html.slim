@@ -4,15 +4,20 @@
 - content_for :header
   .header-title
     h1 = @material.name
-    h4 = @material.properties_only_name
+    h3 = @material.properties
   .header-actions
     = link_to "Bearbeiten", edit_material_path(@material), class: "button"
 
 ul.tabs data-tab=""
-  li.tab-title.active = link_to "Material", "#tab-data"
-  li.tab-title = link_to "Zugehörige Artikel", "#tab-products"
+  li.tab-title.active = link_to "Material", "general"
+  li.tab-title = link_to "Zugehörige Artikel", "products"
   li.tab-title Einkauf
 
 .tabs-content
-  = render "materials/show/tab_data"
+  = render "materials/show/tab_general"
   = render "materials/show/tab_products"
+
+- content_for :footer
+  ul.inline-list
+    li = link_to "Bearbeiten", edit_material_path(@material), class: "button"
+    li = link_to "Alle Materialien", materials_path, class: "link"

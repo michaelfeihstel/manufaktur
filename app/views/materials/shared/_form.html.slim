@@ -1,8 +1,8 @@
 = nested_form_for @material do |f|
-  section
-    h5.section-header Material
-    .row
-      .span-small-12.span-medium-8
+  .row
+    .span-small-12.span-medium-6
+      section
+        h5.section-header Material
         .fields
           = f.label :name, "Bezeichnung"
           = f.text_field :name
@@ -15,6 +15,13 @@
         .fields
           = f.label :price, "Preis / Einheit"
           = f.text_field :price
+
+      section
+        h5.section-header Zulieferer
+        .fields
+          = f.label :contact_id, "Zulieferer"
+          = f.collection_select :contact_id, Contact.filter(:supplier).order(:name), :id, :name, prompt: "Wähle einen Zulieferer...", class: "selectize"
+
 
   section
     h5.section-header Eigenschaften

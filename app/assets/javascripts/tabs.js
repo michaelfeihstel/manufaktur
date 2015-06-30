@@ -9,7 +9,7 @@ $('[data-tab] .tab-title').on('click', function(e) {
 
   // switch to correct tab
   $('.tab').removeClass("active");
-  $('.tab' + target).addClass("active");
+  $('.tab[data-tab="' + target +'"]').addClass("active");
   $(document.body).trigger("sticky_kit:recalc")
 
   // resize charts if any present

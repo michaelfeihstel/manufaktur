@@ -11,11 +11,13 @@
     h1 = @contact.name
 
 ul.tabs data-tab=""
-  li.tab-title.active = link_to "Stammdaten", "#tab_general"
-  li.tab-title = link_to "Aufträge", "#tab_orders"
-  li.tab-title = link_to "Briefe", "#tab_letters"
+  li.tab-title.active = link_to "Stammdaten", "general"
+  li.tab-title = link_to "Aufträge", "orders"
+  li.tab-title = link_to "Briefe", "letters"
   - if @contact.employee?
-    li.tab-title = link_to "Mitarbeiter", "#tab-employee"
+    li.tab-title = link_to "Mitarbeiter", "employee"
+  - if @contact.materials.present?
+    li.tab-title = link_to "Material", "materials"
 
 .tabs-content
   = render "/contacts/show/tab_general"
@@ -23,6 +25,8 @@ ul.tabs data-tab=""
   = render "/contacts/show/tab_letters"
   - if @contact.employee?
     = render "/contacts/show/tab_employee"
+  - if @contact.materials.present?
+    = render "/contacts/show/tab_material"
 
 - content_for :footer
   ul.inline-list

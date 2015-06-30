@@ -1,4 +1,6 @@
-.tab#tab-products
+.tab data-tab="products"
+  - if @material.products.empty?
+    p.text-center
   section
     table
       thead

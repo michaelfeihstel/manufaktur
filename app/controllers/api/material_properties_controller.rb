@@ -28,6 +28,7 @@ module Api
     def material_property_params
       params.require(:material_property).permit(
         :id,
+        :material_id,
         :name,
         :value,
         :use_in_name

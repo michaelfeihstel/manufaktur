@@ -24,14 +24,14 @@
 
   section
     ul.tabs data-tab=""
-      li.tab-title.active = link_to "Artikel", "#tab-products"
-      li.tab-title = link_to "Rechnung & Zahlung", "#tab-invoice"
-      li.tab-title = link_to "Versand", "#tab-shipping"
+      li.tab-title.active = link_to "Artikel", "products"
+      li.tab-title = link_to "Rechnung & Zahlung", "invoice"
+      li.tab-title = link_to "Versand", "shipping"
     .tabs-content
-      .tab.active#tab-products
+      .tab.active data-tab="products"
         = render "orders/edit/tab_products", f: f
-      .tab#tab-invoice
+      .tab data-tab="invoice"
         = render "orders/edit/tab_invoice", f: f
-      .tab#tab-shipping
+      .tab data-tab="shipping"
         p
           | Third panel content goes here

@@ -1,5 +1,6 @@
 = render "materials/index/breadcrumbs"
 = render "materials/index/sidebar"
+= render "materials/shared/search"
 
 - content_for :header
   .header-title
@@ -15,3 +16,6 @@ table
   tbody
     - @materials.each do |material|
       = render "materials/index/material", material: material
+
+- content_for :footer
+  = paginate @materials

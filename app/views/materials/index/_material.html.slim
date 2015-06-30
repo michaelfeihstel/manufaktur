@@ -1,3 +1,8 @@
 tr
-  td = link_to material.full_name, material, class: "link"
   td
+    span = link_to material.name, material, class: "link"
+    br
+    span.small.light = material.properties
+  td 
+    - if material.contact.present?
+      = link_to material.contact.name, material.contact, class: "link"

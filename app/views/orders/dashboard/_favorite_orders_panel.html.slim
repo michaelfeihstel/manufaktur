@@ -13,7 +13,7 @@
           tr
             td = link_to order.id, order, class: "link"
             td = order.billing_name
-            td.text-right = number_to_currency(order.price_total, unit: "€")
+            td.text-right = number_to_currency(order.gross_total, unit: "€")
   .panel__bar.panel__bar--bottom
     .flex__list
       .flex__list__item.flex__list__item--expand

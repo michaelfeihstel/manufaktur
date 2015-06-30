@@ -1,0 +1,19 @@
+- content_for :search
+  h3 Suchen
+  = search_form_for @search, url: search_materials_path, method: :post do |f|
+    .fields
+      = f.label :name_cont, "Bezeichnung"
+      = f.search_field :name_cont
+
+    .fields
+      = f.label :contact_name_cont, "Zulieferer"
+      = f.search_field :contact_name_cont
+
+    .fields
+      = f.label :supplier_sku, "Hersteller Artikelnummer"
+      = f.search_field :supplier_sku
+
+    = f.submit "Suchen", class: "button"
+    = link_to "Alle anzeigen", materials_path, class: "link"
+
+

@@ -12,10 +12,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require stickykit
-//= require turbolinks
 //= require selectize
 //= require jquery_nested_form
 //= require_tree
+//= require turbolinks
 
 Turbolinks.enableProgressBar();
 

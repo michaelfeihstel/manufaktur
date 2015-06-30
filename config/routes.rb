@@ -48,7 +48,7 @@ Manufaktur::Application.routes.draw do
   end
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
-  resources :materials
+  resources :materials, concerns: [:paginatable, :searchable]
   resources :orders, concerns: [:paginatable, :searchable, :commentable, :dashboardable] do
     member do
       post :update_addresses

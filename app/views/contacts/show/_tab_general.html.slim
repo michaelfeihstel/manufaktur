@@ -1,4 +1,4 @@
-.tab.active#tab_general
+.tab.active data-tab="general"
   section
     h5.section-header Adressen & Filialen
     ul.small-block-1.medium-block-2.large-block-4
@@ -50,9 +50,9 @@
       thead
         tr
           th width="50%" Name
-          th width="50%" Beschreibung
+          th width="50%" Beschreibung / Funktion
       tbody
         - @contact.contact_information.people.each do |contact_information|
           tr
-            td width="50%" = "#{contact_information.name} "
             td width="50%" = contact_information.value
+            td width="50%" = "#{contact_information.name} "

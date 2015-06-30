@@ -9,12 +9,11 @@
     h3 = @order.billing_name
 
 section
-  .row
-    .span-small-12.columns
-      h5.section-header Kunde
-      .fields
-        label Auftraggeber
-        = @order.try(:billing_name)
+  h5.section-header Kunde
+  .fields
+    label Auftraggeber
+    = @order.try(:billing_name)
+
   .row
     .span-small-12.span-medium-6
       .fields
@@ -37,53 +36,54 @@ section
         br
         = @order.try(:delivery_country)
 section
-  .row
-    .small-12.columns
-      h5.section-header Verlauf
-      .fields
-        label Erstellt am
-        = l @order.created_at, format: :date_only 
-      .fields
-        label Abgeschlossen
-        = @order_presenter.completed_status 
-.row
-  .small-12.columns
-    ul.tabs data-tab=""
-      li.tab-title.active = link_to "Artikel", "#tab-products"
-      li.tab-title = link_to "Rechnung & Zahlung", "#tab-invoice"
-      li.tab-title = link_to "Versand", "#tab-shipping"
+  h5.section-header Verlauf
+  .fields
+    label Erstellt am
+    = l @order.created_at, format: :date_only 
+  .fields
+    label Abgeschlossen
+    = @order_presenter.completed_status 
 
-    .tabs-content
-      .tab.active#tab-products
-        section
-          - @order.line_items.each do |line_item|
-            = render "orders/show/line_item", line_item: line_item
-        section
-          .row
-            .span-small-12.span-medium-6.span-large-8
-              - if @order.comment.present?
-                .panel
-                  label Bemerkung
-                p = @order.comment
-            .span-small-12.span-medium-6.span-large-4
+section
+  ul.tabs data-tab=""
+    li.tab-title.active = link_to "Artikel", "products"
+    li.tab-title = link_to "Rechnung & Zahlung", "invoice"
+    li.tab-title = link_to "Versand", "shipping"
+
+  .tabs-content
+    .tab.active data-tab="products"
+      section
+        - @order.line_items.each do |line_item|
+          = render "orders/show/line_item", line_item: line_item
+      section
+        .row
+          .span-small-12.span-medium-6.span-large-8
+            - if @order.comment.present?
               .panel
-                .panel__body
-                  p.text-right
-                    label Warenwert
-                    = number_to_currency(@order.price_total, unit: "€")
-                    br
-                    label + Mehrwertsteuer
-                    = number_to_currency(@order.vat_total, unit: "€")
-                    hr
-                    h3.bold.text-right = number_to_currency(@order.gross_total, unit: "€")
-      .tab#tab-invoice
-        section
-          h5.section-header Optionen
-          = check_box_tag "Ohne Berechnung", @order.is_free
-          label Mehrwertsteuersatz
-          = @order.tax.name
-      .tab#tab-shipping
-        p Another tab
+                label Bemerkung
+              p = @order.comment
+          .span-small-12.span-medium-6.span-large-4
+            .panel
+              .panel__bar
+                h5.panel__title Gesamt
+              .panel__body
+                p.text-right
+                  label Warenwert
+                  = number_to_currency(@order.price_total, unit: "€")
+                  br
+                  label + Mehrwertsteuer
+                  = number_to_currency(@order.vat_total, unit: "€")
+                  hr
+                  h3.bold.text-right = number_to_currency(@order.gross_total, unit: "€")
+    .tab data-tab="invoice"
+      section
+        h5.section-header Optionen
+        = check_box_tag "Ohne Berechnung", @order.is_free
+        label Mehrwertsteuersatz
+        = @order.tax.name
+
+    .tab data-tab="shipping"
+      p Another tab
 
 
 - content_for :footer
