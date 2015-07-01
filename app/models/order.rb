@@ -62,6 +62,10 @@ class Order < ActiveRecord::Base
   
   accepts_nested_attributes_for :line_items, allow_destroy: true
 
+  # pg_search
+  include PgSearch
+  multisearchable against: [:id, :billing_name, :delivery_name]
+
   # VALIDATIONS
 
   # CALLBACKS

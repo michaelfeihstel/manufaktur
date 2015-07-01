@@ -30,6 +30,9 @@ Manufaktur::Application.routes.draw do
     get "(filter/:filter)", action: "filter", on: :collection, as: :filter
   end
 
+  # search
+  post "search", controller: "search", action: "index", as: :search
+
 
   # orders
   get "orders/marked_orders" => "orders#get_marked_orders", :as => "marked_orders"
@@ -118,7 +121,7 @@ Manufaktur::Application.routes.draw do
     resources :orders do
       resources :line_items
     end
-    resources :products, concerns: [:searchable]
+    resources :products
     resources :product_inventories
     resources :product_inventory_items
     resources :series

@@ -1,11 +1,18 @@
 class ProductsController < ApplicationController
-  before_action :initialize_search
+  before_action :initialize_search, except: [:create, :update, :destroy]
   after_action :verify_authorized
 
   def dashboard
     @filter = { from: 3.months.ago.to_date, to: Date.today }
     @products = Product.limit(30).joins(:line_items).select("products.*, SUM(COALESCE(g1, 0)+COALESCE(g1h, 0)+COALESCE(g2, 0)+COALESCE(g2h, 0)+COALESCE(g3, 0)+COALESCE(g3h, 0)+COALESCE(g4, 0)+COALESCE(g4h, 0)+COALESCE(g5, 0)+COALESCE(g5h, 0)+COALESCE(g6, 0)+COALESCE(g6h, 0)+COALESCE(g7, 0)+COALESCE(g7h, 0)+COALESCE(g8, 0)+COALESCE(g8h, 0)+COALESCE(g9, 0)+COALESCE(g9h, 0)+COALESCE(g10, 0)+COALESCE(g10h, 0)+COALESCE(g11, 0)+COALESCE(g11h, 0)+COALESCE(g12, 0)+COALESCE(g12h, 0)+COALESCE(g13, 0)+COALESCE(g13h, 0)+COALESCE(g14, 0)+COALESCE(g14h, 0)+COALESCE(g15, 0)+COALESCE(g16, 0)) AS quantity").where("line_items.created_at BETWEEN ? AND ? AND products.sku NOT IN ('LG105')", @filter[:from], @filter[:to]).group("products.id").order("quantity DESC")
     authorize @products
+  end
+
+  def search
+    @products = @search.result(distinct: true).includes(:product_images).order(:name)
+    authorize @products
+
+    render "index"
   end
 
   def set_period
@@ -22,13 +29,6 @@ class ProductsController < ApplicationController
   def filter
     @filter = params[:filter]
     @products = Product.only_model(@filter).includes(:product_images).order(:name)
-    authorize @products
-
-    render "index"
-  end
-
-  def search
-    @products = @search.results(distinct: true).includes(:product_images).order(:name)
     authorize @products
 
     render "index"

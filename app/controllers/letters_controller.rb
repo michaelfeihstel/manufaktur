@@ -3,12 +3,14 @@ class LettersController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @letters = @search.result(distinct: true).order_by_date_desc.page(params[:page]).per(50)
+    @letters = Letter.order_by_date_desc.page(params[:page]).per(50)
     authorize @letters
   end
 
   def search
-    index
+    @letters = @search.result(distinct: true).order_by_date_desc.page(params[:page]).per(50)
+    authorize @letters
+
     render "index"
   end
 

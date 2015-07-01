@@ -6,12 +6,6 @@
   .header-title
     h1 Kontakte
 
-- if search_active?
-  .panel
-    = icon("search", text: "#{@contacts.count} Kontakte gefunden.")
-    span = link_to "Alle Kontakte anzeigen", contacts_path, class: "link"
-
-
 = render "contacts/index/table_contacts"
 
 - content_for :footer

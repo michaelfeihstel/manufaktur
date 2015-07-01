@@ -22,6 +22,10 @@ class Material < ActiveRecord::Base
   accepts_nested_attributes_for :material_properties, allow_destroy: true
   accepts_nested_attributes_for :material_consumptions, allow_destroy: true
 
+  # pg_search
+  include PgSearch
+  multisearchable against: [:name]
+
 
 
 

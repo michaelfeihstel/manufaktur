@@ -1,0 +1,76 @@
+.row
+  .span-small-12
+    - @results.group_by(&:searchable_type).each do |type, results|
+      section
+        - if type == "Contact"
+          h4 Kontakte
+          table
+            tbody
+              - results.each do |result|
+                tr
+                  td
+                    = link_to result.searchable.name, result.searchable, class: "link"
+                    ul.light
+                      - result.searchable.addresses.each do |address|
+                        li = address.full_address
+
+        - elsif type == "Letter"
+          h4 Briefe
+          table
+            tbody
+              - results.each do |result|
+                tr
+                  td
+                    span = link_to result.searchable.subject, result.searchable, class: "link"
+                    br
+                    span.light = result.searchable.name
+
+        - elsif type == "Series"
+          h4 Serien
+          table
+            tbody
+              - results.each do |result|
+                tr
+                  td width=120
+                    span.product-label.product-label--fixed style=(product_color(result.searchable.product)) = result.searchable.product.sku
+                  td
+                    span = link_to result.searchable.id, result.searchable, class: "link"
+                    br
+                    span.small.light = result.searchable.product.name
+
+        - elsif type == "Product"
+          h4 Artikel
+          table
+            tbody
+              - results.each do |result|
+                tr
+                  td width=120
+                    span.product-label.product-label--fixed style=(product_color(result.searchable)) = result.searchable.sku
+                  td 
+                    span = link_to result.searchable.name, result.searchable, class: "link"
+                    br
+                    span.small.light = result.searchable.color_text
+
+        - elsif type == "Material"
+          h4 Material & Ersatzteile
+          table
+            tbody
+              - results.each do |result|
+                tr
+                  td
+                    span = link_to result.searchable.name, result.searchable, class: "link"
+                    br
+                    span.light = result.searchable.properties
+
+        - elsif type == "Order"
+          h4 Aufträge
+          table
+            tbody
+              - results.each do |result|
+                tr
+                  td
+                    span = link_to result.searchable.id, result.searchable, class: "link"
+                    br
+                    ul.inline-list.light
+                      li = result.searchable.billing_name
+                      li = "Erstellt: #{l result.searchable.created_at, format: :date_only}" 

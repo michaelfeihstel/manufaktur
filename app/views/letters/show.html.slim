@@ -1,42 +1,38 @@
-= render "letters/common/search"
+= render "letters/shared/search"
 = render "letters/show/breadcrumbs"
 = render "letters/show/sidebar"
 
 - content_for :header
-	.header-title
-		h1.truncated = @letter.subject
-		h4 = @letter.name
-	.header-actions
-		= link_to "Bearbeiten", edit_letter_path(@letter), class: "button dense"
-		= link_to "Drucken", "#", class: "button dense"
+  .header-title
+    h1.truncated = @letter.subject
+    h3 = @letter.name
 
 section
-	label Empfänger
-	= @letter.name
-	br
-	= "#{@letter.street} #{@letter.house_number}"
-	br
-	= "#{@letter.zip} #{@letter.city}"
-	br
-	= @letter.country
+  label Empfänger
+  = @letter.name
+  br
+  = "#{@letter.street} #{@letter.house_number}"
+  br
+  = "#{@letter.zip} #{@letter.city}"
+  br
+  = @letter.country
 
 section
-	.row
-		.span-small-8
-			label Betreff
-			= @letter.subject
-		.span-small-4
-			label Datum
-			= l @letter.created_at, format: :date_only
+  .row
+    .span-small-8
+      label Betreff
+      = @letter.subject
+    .span-small-4
+      label Datum
+      = l @letter.created_at, format: :date_only
 
 section
-	.row
-		.span-small-12.span-medium-8
-			label Inhalt
-			= simple_format(@letter.body)
+  .row
+    .span-small-12.span-medium-8
+      label Inhalt
+      = simple_format(@letter.body)
 
 - content_for :footer
-	ul.inline-list
-		li = link_to icon("print", text: "Drucken"), "#"
-		li = link_to icon("pencil", text: "Bearbeiten"), edit_letter_path(@letter)
-		li = link_to icon("bin", text: "Löschen"), "#"
+  ul.inline-list
+    li = link_to "Bearbeiten", edit_letter_path(@letter), class: "button"
+    li = link_to "Alle Briefe", letters_path, class: "link"

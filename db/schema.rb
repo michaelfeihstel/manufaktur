@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629095028) do
+ActiveRecord::Schema.define(version: 20150630125255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+  enable_extension "unaccent"
 
   create_table "addresses", force: :cascade do |t|
     t.string  "description",  limit: 255
@@ -258,6 +259,16 @@ ActiveRecord::Schema.define(version: 20150629095028) do
   add_index "orders", ["created_at"], name: "index_orders_on_created_at", using: :btree
   add_index "orders", ["delivery_address_id"], name: "index_orders_on_delivery_address_id", using: :btree
   add_index "orders", ["tax_id"], name: "index_orders_on_tax_id", using: :btree
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "product_images", force: :cascade do |t|
     t.integer  "product_id"

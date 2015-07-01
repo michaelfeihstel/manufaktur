@@ -13,7 +13,8 @@
       = f.label :supplier_sku, "Hersteller Artikelnummer"
       = f.search_field :supplier_sku
 
-    = f.submit "Suchen", class: "button"
-    = link_to "Alle anzeigen", materials_path, class: "link"
+- content_for :search_footer
+  = submit_tag "Suchen", form: "material_search", class: "button", data: { submit: "material_search" }
+  = link_to "Alle anzeigen", materials_path, class: "link"
 
 

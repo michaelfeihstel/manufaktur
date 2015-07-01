@@ -1,5 +1,5 @@
 - content_for :search
-  h4 Suchen
+  h3 Suchen
   = search_form_for @search, url: search_orders_path, method: :post do |f|
     section
       h5 Auftrag
@@ -48,6 +48,6 @@
         = f.label :billing_country_or_delivery_country_cont, "Land"
         = f.text_field :billing_country_or_delivery_country_cont
 
-
-    = f.submit "Suchen", class: "button"
-    = link_to "Alle anzeigen", orders_path, class: "link"
+- content_for :search_footer 
+  = submit_tag "Suchen", form: "order_search", class: "button"
+  = link_to "Alle anzeigen", orders_path, class: "link"

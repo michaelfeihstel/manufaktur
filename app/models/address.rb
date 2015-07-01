@@ -24,8 +24,13 @@ class Address < ActiveRecord::Base
 
 
 
-  def full_address(hide_name=false)
-  	(hide_name == 1 ? "" : self.name + " / ") + self.street + " " + self.house_number + " / " + self.zip + " " + self.city + " / " + self.country
+  def full_address(hide_name: false)
+      address = "#{street} #{house_number} / #{zip} #{city} / #{country}"
+    if hide_name
+      "#{name} / #{address}"
+    else
+      address
+    end
   end
   
 end

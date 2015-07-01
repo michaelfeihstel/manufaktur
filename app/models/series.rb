@@ -54,6 +54,10 @@ class Series < ActiveRecord::Base
 
   accepts_nested_attributes_for :series_steps, allow_destroy: true
 
+  # pg_search
+  include PgSearch
+  multisearchable against: [:id]
+
   # scopes
   scope :newest, -> { order(name: :desc) }
 

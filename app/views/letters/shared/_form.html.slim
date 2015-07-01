@@ -1,0 +1,58 @@
+= form_for @letter do |f|
+
+  - if @letter.errors.any?
+    #error_explanation
+      h4 = "#{pluralize(@letter.errors.count, 'error')} haben das Speichern dieses Briefes verhindert:"
+      ul
+      - @contact.errors.full_messages.each do |msg|
+        .alert-box.alert data-alert=""
+          li = msg
+
+  section
+    .row
+      .span-small-12.span-large-8
+        h5.section-header Empfänger
+        .fields
+          = f.label :address_id, "Adresse auswählen"
+          = f.collection_select(:address_id, Address.all.order(:name), :id, :full_address, {}, class: "selectize")
+        .fields
+          = f.label :name, "Name / Firma"
+          = f.text_field :name
+        .row
+          .span-small-9
+            .fields
+              = f.label :street, "Straße"
+              = f.text_field :street
+          .span-small-3
+            .fields
+              = f.label :house_number, "Hausnummer"
+              = f.text_field :house_number
+        .row
+          .span-small-4
+            .fields
+              = f.label :zip, "PLZ"
+              = f.text_field :zip
+          .span-small-8
+            .fields
+              = f.label :city, "Ort"
+              = f.text_field :city
+        .fields
+          = f.label :country, "Land"
+          = f.text_field :country
+
+  section
+    h5.section-header Brief
+    .row
+      .span-small-12.span-large-8
+        .fields
+          = f.label :subject, "Betreff"
+          = f.text_field :subject
+      .span-small-12.span-large-4
+        .fields
+          = f.label :created_at, "Datum"
+          = f.date_field :created_at
+    .row
+      .span-small-12.span-large-8
+        .fields
+          = f.label :body, "Inhalt"
+          = f.text_area :body, rows: 20

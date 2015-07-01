@@ -25,9 +25,9 @@ html lang="de"
 
   body
     = content_for :additional_javascripts
+    = render "layouts/flash"
+    = render "layouts/header"
     .main__content
-      = render "layouts/flash"
-      = render "layouts/header"
       header
         .row
           .span-small-12
@@ -57,5 +57,7 @@ html lang="de"
           = icon("search", size: "md-24")
       .search__content
         = yield :search
+      .search__footer
+        = yield :search_footer
     .main__content__overlay
     = javascript_include_tag "application"

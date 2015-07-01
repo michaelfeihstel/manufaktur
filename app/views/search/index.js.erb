@@ -1,0 +1,7 @@
+<% if @results.present? %>
+  $('[data-role="search-results"]').html('<%= j render "search/results" %>').addClass('visible')
+  $('body').addClass('inactive');
+<% elsif @results.empty? %>
+  $('[data-role="search-results"]').html('').removeClass('visible')
+  $('body').removeClass('inactive');
+<% end %>

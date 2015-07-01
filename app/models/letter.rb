@@ -25,6 +25,10 @@ class Letter < ActiveRecord::Base
   belongs_to :address
   has_one :contact, through: :address
 
+  # pg_search
+  include PgSearch
+  multisearchable against: [:name, :subject, :body]
+
   # scopes
   scope :order_by_date_desc, -> { order(created_at: :desc) }
 end

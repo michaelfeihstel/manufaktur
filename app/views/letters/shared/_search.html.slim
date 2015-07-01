@@ -1,0 +1,22 @@
+= content_for :search
+  h3 Suchen
+  = search_form_for @search, url: search_letters_path, method: :post do |f|
+    .fields
+      = f.label :name_cont, "Kontakt"
+      = f.text_field :name_cont
+
+    .fields
+      = f.label :subject_cont, "Betreff"
+      = f.text_field :subject_cont
+
+    .fields
+      = f.label :body_cont, "Text"
+      = f.text_field :body_cont
+
+    .fields
+      = f.label :created_at, "Datum"
+      = f.date_field :created_at
+
+- content_for :search_footer
+  = submit_tag "Suchen", form: "letter_search", class: "button"
+  = link_to "Zurücksetzen", letters_path, class: "link"

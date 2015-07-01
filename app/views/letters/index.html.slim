@@ -1,4 +1,4 @@
-= render "letters/common/search"
+= render "letters/shared/search"
 = render "letters/index/breadcrumbs"
 = render "letters/index/sidebar"
 
@@ -12,16 +12,16 @@ table
 	thead
 		tr
 			th width=100 Datum
-			th Kontakt
+			th width=300 Kontakt
 			th Betreff
 			th.text-right width="50"
 	tbody
 		- @letters.each do |letter|
-			tr.link href=letter_path(letter)
-				td width=100 = l letter.created_at, format: :date_only
-				td = letter.name
-				td = letter.subject
-				td.text-right width=50 = link_to icon("bracket-right"), letter
+			tr
+				td = l letter.created_at, format: :date_only
+				td = link_to letter.name, letter.contact, class: "link"
+				td = link_to letter.subject, letter, class: "link"
+				td.text-right width=50 = link_to icon("chevron_right"), letter
 
 - content_for :footer
 	= paginate @letters

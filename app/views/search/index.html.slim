@@ -1,0 +1,47 @@
+- content_for :header
+  .header-title
+    h1 Suche
+    h3 = "#{@results.count} Ergebnisse gefunden"
+
+- @results.sort_by().group_by(&:searchable_type).each do |type, results|
+  - if type == "Contact"
+    section
+      h4 Kontakte
+      table
+        thead
+          tr
+            th Name / Firma
+        tbody
+          - results.each do |result|
+            tr
+              td = result.content
+  - elsif type == "Order"
+    section
+      h4 Aufträge
+      table
+        thead
+          tr
+            th width=20 = icon("done")
+            th width=100 Auftrag
+            th
+            th Kunde
+            th width=120 Erstellt
+            th Artikel
+            th.text-right Betrag
+        tbody
+          - results.each do |result|
+            tr
+              td
+                - if result.searchable.completed?
+                  = icon("done")
+              td = link_to result.searchable.id, result.searchable, class: "link"
+              td
+                - if result.searchable.is_webshop?
+                  = icon("shopping_cart", additional_classes: "md-18")
+              td = result.searchable.billing_name
+              td = l result.searchable.created_at, format: :date_only
+              td
+                - result.searchable.line_items.each do |li|
+                  span.product-label.product-label--fixed style= (product_color(li.product) if li.product)
+                    = li.quantity_label
+              td.text-right= number_to_currency(result.searchable.gross_total)

@@ -1,7 +1,7 @@
 - content_for :search
-  = search_form_for @search do |f|
+  = search_form_for @search, url: search_products_path, method: :post do |f|
     section
-      h4 Suchen
+      h3 Suchen
       .fields
         = f.label :sku_cont, "Artikelnummer"
         = f.text_field :sku_cont
@@ -23,6 +23,8 @@
           .fields
             = f.number_field :price_lteq, placeholder: "Bis"
 
-    section
-      = f.submit "Suchen", class: "button"
-      = link_to "Alle anzeigen", products_path, class: "link"
+    = f.submit "Suchen"
+
+- content_for :search_footer
+  = submit_tag "Suchen", form: "product_search", class: "button"
+  = link_to "Alle anzeigen", products_path, class: "link"

@@ -3,6 +3,44 @@ hr {
   border-bottom: 1px solid scale-color($secondary-color, $lightness: -5%);
 }
 
+// GLOBAL SEARCH
+input#term.global-search__input {
+  border-bottom: none;
+  color: #fff;
+  height: 55px;
+  padding: 0 $gutter;
+
+  &:hover,
+  &:focus {
+    background-color: scale-color($primary-color, $lightness: 15%);
+    box-shadow: none;
+  }
+}
+
+.global-search__results {
+  @include subtle-shadow;
+  background-color: $secondary-color;
+  color: $font-color;
+  display: none;
+  left: 0;
+  max-height: 50vh;
+  overflow: scroll;
+  position: fixed;
+  top: 55px;
+  width: 100%;
+  z-index: 98;
+  padding: 0.5rem $gutter;
+  -webkit-overflow-scrolling: touch;
+}
+
+.global-search__results.visible {
+  display: block;
+}
+
+.global-search__results tr {
+  border-color: $hairline-color;
+}
+
 // OFFCANVAS
 .search,
 .side {
@@ -121,12 +159,20 @@ hr {
 .side__footer,
 .search__footer {
   padding: $gutter;
-  @include flex(0 0 auto)
+  @include flex(0 0 auto);
+  background-color: $background-color;
+  border-top: 1px solid $hairline-color;
+}
+
+.search__footer {
+  text-align: center;
+}
+
+.search__footer .button {
+  margin-bottom: 0;
 }
 
 .side__footer {
-  background-color: $background-color;
-  border-top: 1px solid $hairline-color;
 }
 
 .side__toggle {

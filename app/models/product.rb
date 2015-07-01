@@ -42,6 +42,10 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :material_consumptions, allow_destroy: true
   accepts_nested_attributes_for :series, allow_destroy: true
 
+  # pg_search
+  include PgSearch
+  multisearchable against: [:name, :sku, :color_text]
+
   # scopes
   scope :only_model, ->(name) { where(name: name) }
 

@@ -32,6 +32,7 @@ gem "uglifier"
 gem "compass"
 gem "jquery-rails"
 gem "nested_form"
+gem "pg_search"
 
 group :production do
   gem "rails_12factor"

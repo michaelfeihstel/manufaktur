@@ -47,17 +47,17 @@ body.inactive .main__content__overlay {
   @include display(flex);
   @include flex-direction(column);
   min-height: 100vh;
+  margin-top: 55px;
 }
 
 .main__content__overlay {
   display: none;
-  z-index: 99;
+  z-index: 98;
 }
 
 header {
   @include flex(0 0 auto);
   background-color: $primary-color;
-  margin-top: 55px;
   padding-bottom: 2rem;
   padding-left: $gutter;
   padding-right: $gutter;

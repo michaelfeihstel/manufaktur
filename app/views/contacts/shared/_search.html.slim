@@ -30,6 +30,6 @@
       .fields
         = f.collection_select :contact_role_id_eq, ContactRole.all, :id, :human_readable_name, { prompt: true }, class: "full-width"
 
-    section
-      = f.submit "Suchen", class: "button"
-      = link_to "Alle anzeigen", contacts_path, class: "link"
+- content_for :search_footer
+  = submit_tag "Suchen", form: "contact_search", class: "button"
+  = link_to "Alle anzeigen", contacts_path, class: "link"
