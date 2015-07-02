@@ -5,14 +5,15 @@ hr {
 
 // GLOBAL SEARCH
 input#term.global-search__input {
+  background-color: scale-color($primary-color, $lightness: 15%);
   border-bottom: none;
   color: #fff;
-  height: 55px;
-  padding: 0 $gutter;
+  padding: 0 $gutter/2;
 
   &:hover,
   &:focus {
-    background-color: scale-color($primary-color, $lightness: 15%);
+    background-color: $secondary-color;
+    color: $font-color;
     box-shadow: none;
   }
 }

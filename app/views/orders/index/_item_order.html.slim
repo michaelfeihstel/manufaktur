@@ -1,8 +1,8 @@
-tr.order-item.link href=order_path(order) data-id=order.id
+tr.order-item data-id=order.id
   td
     - if order.completed?
       = icon("done")
-  td = order.id
+  td = link_to order.id, order, class: "link"
   td
     - if order.is_webshop?
       = icon("shopping_cart", additional_classes: "md-18")

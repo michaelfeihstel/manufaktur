@@ -1,11 +1,14 @@
 nav.appbar
   .side__toggle data-toggle="side"
     = icon("menu", size: "md-24")
-  .row
-    .span-small-12
-      .global-search
-        = form_tag search_path, method: :post, remote: true, class: "global-search__form" do
-          = text_field_tag :term, nil, placeholder: "Suchen...", class: "global-search__input", autocomplete: "off", data: { role: "search-input" }
-      .global-search__results data-role="search-results"
+  
+  - if current_user
+    .row
+      .span-small-12
+        .global-search
+          = form_tag search_path, method: :post, remote: true, class: "global-search__form" do
+            = text_field_tag :term, nil, placeholder: "Suchen...", class: "global-search__input", autocomplete: "off", data: { role: "search-input" }
+        .global-search__results data-role="search-results"
+
   .search__toggle data-toggle="search"
     = icon("search", size: "md-24")

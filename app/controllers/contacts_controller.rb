@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
   end
 
   def suppliers
-    @contacts = Contact.includes(:addresses, :contact_role).where(contact_roles: { name: "suppliers" }).order(:name).page(params[:page]).per(50)
+    @contacts = Contact.includes(:addresses, :contact_role).where(contact_roles: { name: "supplier" }).order(:name).page(params[:page]).per(50)
     authorize @contacts
 
     @filter = action_name

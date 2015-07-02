@@ -73,4 +73,6 @@
                     br
                     ul.inline-list.light
                       li = result.searchable.billing_name
-                      li = "Erstellt: #{l result.searchable.created_at, format: :date_only}" 
+                      li = "Erstellt: #{l result.searchable.created_at, format: :date_only}"
+                      - if result.searchable.completed?
+                        li = "Abgeschlossen: #{l result.searchable.completed_at, format: :date_only}"
