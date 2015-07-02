@@ -49,11 +49,11 @@ class Contact < ActiveRecord::Base
 
   # pg_search
   include PgSearch
-  multisearchable against: [:name]
+  multisearchable against: [:name, :billing_address]
 
   # methods
   def billing_address
-    self.addresses.first.full_address
+    self.addresses.first.try(:full_address)
   end
 
   def employee?
