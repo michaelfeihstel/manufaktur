@@ -9,6 +9,7 @@ de:
     - Fr
     - Sa
     abbr_month_names:
+    -
     - Jan
     - Feb
     - Mär
@@ -35,6 +36,7 @@ de:
       short: ! '%e. %b'
       day_of_month: '%d'
       weekday_default: "%A, %d.%m.%Y"
+      month_year: "%b %Y"
     month_names:
     -
     - Januar
