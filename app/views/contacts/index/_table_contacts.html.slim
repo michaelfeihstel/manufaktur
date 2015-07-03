@@ -5,7 +5,7 @@ table
       th Name / Firma
       th Kategorie
       th width="150" Tags
-      th.text-right
+      th.text-right width=20
   tbody
     - @contacts.each do |contact|
       = render partial: "contacts/index/contact", locals: { contact: contact }

@@ -3,6 +3,4 @@ tr data-remote="true"
   td data-title="Kontakt" = link_to contact.name, contact, class: "link"
   td width="150" = contact.try(:contact_role).try(:human_readable_name)
   td
-  td.text-right
-    span.tip-left data-tooltip="" title="Bearbeiten"
-    = link_to icon("chevron_right"), edit_contact_path(contact)
+  td.text-right = link_to icon("chevron_right"), contact
