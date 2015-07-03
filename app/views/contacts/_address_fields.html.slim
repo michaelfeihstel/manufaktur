@@ -1,38 +1,35 @@
-section
-  .row
-    .span-small-12.span-large-6
-      .panel
-        .panel__bar
-          = f.text_field :description, placeholder: "Bezeichnung"
+.panel
+  .panel__bar
+    = f.text_field :description, placeholder: "Bezeichnung"
 
-        .panel__body
-          .fields
-            = f.label :name, "Name"
-            = f.text_field :name
-          
-          .row
-            .span-small-8
-              .fields
-                = f.label :street, "Straße"
-                = f.text_field :street
-            .span-small-4
-              .fields
-                = f.label :house_number, "Hausnummer"
-                = f.text_field :house_number
+  .panel__body
+    .fields
+      = f.label :name, "Name"
+      = f.text_field :name
+    
+    .row
+      .span-small-8
+        .fields
+          = f.label :street, "Straße"
+          = f.text_field :street
+      .span-small-4
+        .fields
+          = f.label :house_number, "Hausnummer"
+          = f.text_field :house_number
 
-          .row
-            .span-small-3
-              .fields
-                = f.label :zip, "Postleitzahl" 
-                = f.text_field :zip
-            .span-small-9
-              .fields
-                = f.label :city, "Stadt"
-                = f.text_field :city
+    .row
+      .span-small-3
+        .fields
+          = f.label :zip, "Postleitzahl" 
+          = f.text_field :zip
+      .span-small-9
+        .fields
+          = f.label :city, "Stadt"
+          = f.text_field :city
 
-          .fields
-            = f.label :country, "Land"
-            = f.text_field :country
+    .fields
+      = f.label :country, "Land"
+      = f.text_field :country
 
-        .panel__bar
-          = f.link_to_remove icon("delete", text: "Löschen"), class: "link"
+  .panel__bar
+    = f.link_to_remove icon("delete", text: "Löschen"), class: "link"

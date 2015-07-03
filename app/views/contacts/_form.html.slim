@@ -9,13 +9,9 @@
           li = msg
 
   ul.tabs data-tab=""
-    li.tab-title.active = link_to "Stammdaten", "#tab_general"
-    li.tab-title = link_to "Bemerkungen", "#tab_notes"
-    li.tab-title = link_to "Briefe", "#tab_letters"
+    li.tab-title.active = link_to "Stammdaten", "general"
+    li.tab-title = link_to "Briefe", "letters"
   .tabs-content
     = render "contacts/edit/tab_general", f: f
     = render "contacts/edit/tab_notes", f: f
     = render "contacts/edit/tab_letters", f: f
-
-    = link_to 'Abbrechen', :back, class: "button secondary left"
-    = f.submit "Speichern", class: "button right"

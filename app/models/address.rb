@@ -11,7 +11,6 @@
 #  zip          :string(255)
 #  city         :string(255)
 #  country      :string(255)
-#  fmid         :integer
 #
 # Indexes
 #
@@ -32,5 +31,4 @@ class Address < ActiveRecord::Base
       address
     end
   end
-  
 end

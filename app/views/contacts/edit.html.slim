@@ -7,10 +7,11 @@
     h1 = @contact.name
   .header-actions
     = button_tag "Speichern", data: { submit: "edit_contact" }
-    = link_to "Abbrechen", :back, class: "button light"
+    = link_to "Abbrechen", @contact, class: "button light"
 
 = render "contacts/form"
 
 - content_for :footer
   ul.inline-list
-    li = link_to "Speichern", "#", class: "button", data: { submit: "edit_contact" }
+    li = submit_tag "Speichern", form: "edit_contact_#{@contact.id}", class: "button"
+    li = link_to "Abbrechen", @contact, class: "link"
