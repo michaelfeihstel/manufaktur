@@ -1,0 +1,48 @@
+var tour = {
+  id: "hello-hopscotch",
+  bubblePadding: 24,
+  isTour: false,
+  i18n: {
+    nextBtn: "Weiter",
+    prevBtn: "Zurück",
+    doneBtn: "Fertig"
+  },
+  showPrevButton: true,
+  steps: [
+    {
+      title: "Hauptmenü",
+      content: "Mit Hilfe des Hauptmenüs navigierst Du zwischen der verschiedenen Bereichen der Anwendung - z.B. zu Kontakten, Aufträgen, Artikeln usw.",
+      target: ".side__toggle",
+      placement: "right",
+      fixedElement: true
+    },
+    {
+      title: "Schnellsuche",
+      content: "Die Schnellsuche hilft Dir, die gesamte Anwendung nach Stichworten zu durchsuchen. Egal ob es sich um Schuhe, Aufträge, Kontakte, Adressen, Materialien oder Briefe handelt. Von dort aus gelangst Du direkt zum Suchergebnis.",
+      target: ".global-search__input",
+      placement: "bottom"
+    },
+    {
+      title: "Erweiterte Suche",
+      content: "Die erweitere Suche bezieht sich (im Gegensatz zur Schnellsuche) immer auf den Bereich in dem Du Dich gerade befindest. Hier kannst Du genauere Suchabfragen angeben. \nFalls Du z.B. nach allen Aufträgen in einem bestimmten Zeitraum suchst, gehe über das Hauptmenü zum Bereich 'Aufträge', öffne die erweiterte Suche und gebe Deine genauen Suchkriterien an. Falls Du hingegen nach einer Auftragsnummer oder einem Auftraggeber suchst, hilft auch die Schnellsuche weiter.",
+      target: ".search__toggle",
+      placement: "left"
+    },
+    {
+      title: "Navigationspfad",
+      content: "Hier siehst Du wo Du Dich gerade befindest und mehrere Ebenen zurück navigieren.",
+      target: "ul.breadcrumbs",
+      placement: "bottom"
+    }
+  ]
+};
+
+$('#tour-start').click(function(){
+  $('.side').removeClass('visible');
+  $('.search').removeClass("visible");
+  $('.search__toggle').removeClass("visible");
+  $('.global-search__results').removeClass('visible');
+  $('.global-search__input').val('');
+  $('body').removeClass('inactive');
+  hopscotch.startTour(tour, 0);
+});
