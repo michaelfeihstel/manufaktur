@@ -1,7 +1,7 @@
 tr
   td = link_to series.name, series, class: "link"
   td
-    span.product-label.product-label--fixed style=(product_color(series.product) if series.product) = series.product.sku
+    span.product-label.product-label--fixed style=(product_label_style(series.product)) = series.product.sku
   td = series.product.name
   td = series.product.color_text
   td = ( l series.finished_on, format: :default ) unless series.finished_on.nil?

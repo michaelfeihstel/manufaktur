@@ -24,11 +24,11 @@
       tbody
         - products.each do |product|
           tr.link href=product_path(product)
-            td = product.sku
-            td = product.name
             td
-              span.label class="product-label" style=product_color(product)
-                = product.color_text
+              span.product-label.product-label--fixed style=product_label_style(product)
+                = product.sku
+            td = product.name
+            td = product.color_text
             td.text-right
               span = number_to_currency(product.price, unit:"€ ")
               br
