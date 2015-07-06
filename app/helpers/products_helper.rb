@@ -28,11 +28,11 @@ module ProductsHelper
   end
 
   def line_item_header(product)
-    primary_color = product.primary_color
-    secondary_color = product.secondary_color
-    text_color = product.text_color
+    unless product.nil? || primary_color.empty? || secondary_color.empty? || text_color.empty?
+      primary_color = product.primary_color
+      secondary_color = product.secondary_color
+      text_color = product.text_color
 
-    unless primary_color.empty? || secondary_color.empty? || text_color.empty?
       "background-color: #{primary_color}; border-bottom: 5px solid #{secondary_color};"
     end
   end

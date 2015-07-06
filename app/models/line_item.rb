@@ -92,7 +92,7 @@ class LineItem < ActiveRecord::Base
   end
 
   def ref_price_single
-    self.product.price
+    self.try(:product).try(:price) || 0
   end
 
   def net_price_single
