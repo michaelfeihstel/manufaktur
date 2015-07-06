@@ -47,7 +47,7 @@ body.inactive .main__content__overlay {
   @include display(flex);
   @include flex-direction(column);
   min-height: 100vh;
-  margin-top: 55px;
+  padding-top: 55px;
 }
 
 .main__content__overlay {
