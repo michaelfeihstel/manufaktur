@@ -68,7 +68,7 @@ class LineItem < ActiveRecord::Base
   scope :webshop, -> { joins(:order).where(order: {is_webshop: true}) }
 
   # callbacks
-
+  
   # methods
   def get_product_references
     price = self.price || product.price
