@@ -68,7 +68,7 @@ class LineItem < ActiveRecord::Base
   scope :webshop, -> { joins(:order).where(order: {is_webshop: true}) }
 
   # callbacks
-  
+
   # methods
   def get_product_references
     price = self.price || product.price
@@ -96,7 +96,7 @@ class LineItem < ActiveRecord::Base
   end
 
   def net_price_single
-    discount = self.discounts.sum(:discount) || 0
+    discount = self.discounts.enabled.sum(:discount) || 0
     self.ref_price_single * (1 - discount)
   end
 
@@ -107,7 +107,7 @@ class LineItem < ActiveRecord::Base
   def price_total
     q = quantity || 0
     p = price || 0
-    (q * p).round(2)
+    q * p
   end
 
   def vat_total

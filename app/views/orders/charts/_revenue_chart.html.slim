@@ -21,7 +21,7 @@ javascript:
       bindto: "#chart_revenue",
       data: {
         columns: [
-          #{ raw @line_items.map{|month, total| total.to_i}[12..24].prepend('Umsatz (Aktuelles Jahr)')},
+          #{ raw @line_items.map{|month, total| total.to_s}[12..24].prepend('Umsatz (Aktuelles Jahr)')},
           #{ raw @line_items.map{|month, total| total.to_i}[0..11].prepend('Umsatz (Vorjahr)')}
         ],
         type: 'area',
