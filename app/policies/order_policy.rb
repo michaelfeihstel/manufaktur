@@ -14,4 +14,8 @@ class OrderPolicy < ApplicationPolicy
   def set_period?
     index?
   end
+
+  def destroy_line_items?
+    destroy?
+  end
 end

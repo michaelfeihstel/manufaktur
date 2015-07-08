@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630125255) do
+ActiveRecord::Schema.define(version: 20150707113440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(version: 20150630125255) do
   end
 
   add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
+
+  create_table "carriers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "tracking_link_prefix"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -504,6 +511,18 @@ ActiveRecord::Schema.define(version: 20150630125255) do
   add_index "series_steps", ["series_id"], name: "index_series_steps_on_series_id", using: :btree
   add_index "series_steps", ["work_step_id"], name: "index_series_steps_on_work_step_id", using: :btree
 
+  create_table "shipments", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "tracking_code"
+    t.integer  "weight"
+    t.integer  "carrier_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "shipments", ["carrier_id"], name: "index_shipments_on_carrier_id", using: :btree
+  add_index "shipments", ["order_id"], name: "index_shipments_on_order_id", using: :btree
+
   create_table "size_sets", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -616,4 +635,6 @@ ActiveRecord::Schema.define(version: 20150630125255) do
   add_foreign_key "series_step_entries", "series_steps"
   add_foreign_key "series_steps", "series"
   add_foreign_key "series_steps", "work_steps"
+  add_foreign_key "shipments", "carriers"
+  add_foreign_key "shipments", "orders"
 end

@@ -60,3 +60,4 @@ default_order:
   is_vat_exempt: false
   is_scheduled_delivery: false
   paid_on: <%= 8.days.from_now %>
+  tax: default

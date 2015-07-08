@@ -15,5 +15,5 @@
             td = material_consumption.product.sku
             td = material_consumption.product.name
             td
-              span.product-label style=product_color(material_consumption.product) = material_consumption.product.color_text
+              span.product-label style=product_label_style(material_consumption.product) = material_consumption.product.color_text
             td = material_consumption.yield_per_unit

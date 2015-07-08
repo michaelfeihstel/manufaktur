@@ -11,6 +11,7 @@
 #  zip          :string(255)
 #  city         :string(255)
 #  country      :string(255)
+#  fmid         :integer
 #
 # Indexes
 #

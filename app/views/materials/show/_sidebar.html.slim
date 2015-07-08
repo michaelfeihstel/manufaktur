@@ -6,4 +6,5 @@
 
   label Links
   ul.side-nav
-    li = link_to icon("person", text: "#{@material.contact.name}"), @material.contact, class: "truncated"
+    - if @material.contact.present?
+      li = link_to icon("person", text: "#{@material.contact.name}"), @material.contact, class: "truncated"

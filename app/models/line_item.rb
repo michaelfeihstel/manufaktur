@@ -115,7 +115,7 @@ class LineItem < ActiveRecord::Base
   end
 
   def gross_total
-    vat_factor = 1 + vat
+    vat_factor = 1 + (vat || 0)
     price_total * vat_factor
   end
 

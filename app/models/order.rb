@@ -50,8 +50,8 @@
 class Order < ActiveRecord::Base
   
   # RELATIONS
-  belongs_to :contact
   belongs_to :billing_address, foreign_key: "billing_address_id", class_name: "Address"
+  belongs_to :contact
   belongs_to :delivery_address, foreign_key: "delivery_address_id", class_name: "Address"
   belongs_to :tax
   has_many :comments, as: :commentable
@@ -59,8 +59,10 @@ class Order < ActiveRecord::Base
   has_many :discounts, through: :line_items, dependent: :destroy
   has_many :products, through: :line_items
   has_many :sizes, through: :products
+  has_many :shipments, dependent: :destroy
   
   accepts_nested_attributes_for :line_items, allow_destroy: true
+  accepts_nested_attributes_for :shipments, allow_destroy: true
 
   # pg_search
   include PgSearch

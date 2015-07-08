@@ -1,5 +1,4 @@
-= render "letters/common/search"
-= render "letters/common/toolbar"
+= render "letters/shared/search"
 = render "letters/edit/breadcrumbs"
 = render "letters/edit/sidebar"
 
@@ -12,7 +11,7 @@
     = link_to "Abbrechen", :back, class: "button dense"
 
 section
-  = render "letters/common/form"
+  = render "letters/shared/form"
 
 - content_for :footer
   ul.inline-list

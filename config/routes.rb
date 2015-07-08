@@ -120,10 +120,12 @@ Manufaktur::Application.routes.draw do
     resources :material_properties
     resources :orders do
       resources :line_items
+      delete "line_items", on: :member, action: "destroy_line_items", as: "destroy_line_items"
     end
     resources :products
     resources :product_inventories
     resources :product_inventory_items
+    resources :shipments
     resources :series
     resources :series_steps
     resources :series_step_entries
