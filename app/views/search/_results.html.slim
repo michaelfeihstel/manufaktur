@@ -32,7 +32,7 @@
               - results.each do |result|
                 tr
                   td width=120
-                    span.product-label.product-label--fixed style=(product_color(result.searchable.product)) = result.searchable.product.sku
+                    span.product-label.product-label--fixed style=(product_label_style(result.searchable.product)) = result.searchable.product.sku
                   td
                     span = link_to result.searchable.id, result.searchable, class: "link"
                     br
@@ -45,7 +45,7 @@
               - results.each do |result|
                 tr
                   td width=120
-                    span.product-label.product-label--fixed style=(product_color(result.searchable)) = result.searchable.sku
+                    span.product-label.product-label--fixed style=(product_label_style(result.searchable)) = result.searchable.sku
                   td 
                     span = link_to result.searchable.name, result.searchable, class: "link"
                     br

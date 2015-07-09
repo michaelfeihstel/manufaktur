@@ -9,7 +9,7 @@
 
         .fields
           = f.label :contact_role_id, "Typ"
-          = f.collection_select :contact_role_id, ContactRole.all, :id, :name
+          = f.collection_select :contact_role_id, ContactRole.all, :id, :name, { prompt: true }
 
   section
     h5.section-header Adressen
