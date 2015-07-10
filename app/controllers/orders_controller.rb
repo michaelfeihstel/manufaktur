@@ -20,18 +20,14 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(id: :desc).page(params[:page])
+    @orders = Order.includes(:line_items, :products, :contact).order(id: :desc).page(params[:page])
     authorize @orders
     @filter_selected = "all"
   end
 
   def search
-    index
-    render "index"
-  end
-
-  def quicksearch
-    @orders = Order.where("billing_name LIKE ? OR billing_city LIKE ? OR id = ?", params[:quicksearch])
+    @orders = @search.result(distinct: true).includes(:line_items, :products, :contact).order(id: :desc).page(params[:page])
+    authorize @orders
     render "index"
   end
 
