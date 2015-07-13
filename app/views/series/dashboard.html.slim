@@ -1,0 +1,13 @@
+- content_for :header
+  .header-title
+    h1 Produktion
+    h3 Dashboard
+
+section
+  .panel
+    .panel__bar.panel__bar--top
+      h5.panel__title Produktivität
+    .panel__body
+      = render "series/dashboard/productivity_chart"
+    .panel__bar.panel__bar--bottom
+      = link_to "Alle Serien anzeigen...", series_index_path, class: "link"

@@ -27,7 +27,7 @@
           li = link_to "Größensysteme", size_sets_path
 
       li.has-children
-        = link_to "Produktion", "#"
+        = link_to icon("assessment", text: "Produktion"), dashboard_series_index_path
         ul
           li = link_to "Serien", series_index_path
           li = link_to "Arbeitsschritte", work_steps_path

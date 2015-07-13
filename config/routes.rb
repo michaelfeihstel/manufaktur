@@ -68,7 +68,7 @@ Manufaktur::Application.routes.draw do
   resources :product_inventories do
     resources :product_inventory_items, as: "entries", path: "entries"
   end
-  resources :series, concerns: [:commentable] do
+  resources :series, concerns: [:commentable, :dashboardable] do
     resources :series_steps
   end
   resources :size_sets

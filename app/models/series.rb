@@ -60,6 +60,7 @@ class Series < ActiveRecord::Base
 
   # scopes
   scope :newest, -> { order(name: :desc) }
+  scope :scheduled_since, -> (date) { where("finished_on >= ?", date) }
 
   # methods
   def quantities_as_array

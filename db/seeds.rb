@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Dates
+range = Date.new(2011,01,01)..Date.new(2015,12, 31)
+
 # Taxes
 remove_taxes = Tax.destroy_all
 create_taxes = Tax.create(

@@ -11,7 +11,7 @@
 section
   h5.section-header Artikel
   .panel
-    .panel__bar.panel__bar--top style=product_color(@series.product)
+    .panel__bar.panel__bar--top style=product_label_style(@series.product)
       h5.panel__title style="color: #{@series.product.text_color}" = @series.product.name
     .panel__body
       .row
