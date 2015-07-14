@@ -37,7 +37,7 @@ section
         th Arbeitsschritt
         th.text-right Fortschritt
     tbody
-      - @series.series_steps.each do |step|
+      - @series.series_steps.order(:work_step_id).each do |step|
         = render "series/show/series_step", step: step
 
 - content_for :footer

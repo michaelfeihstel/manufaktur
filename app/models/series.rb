@@ -56,7 +56,7 @@ class Series < ActiveRecord::Base
 
   # pg_search
   include PgSearch
-  multisearchable against: [:id]
+  multisearchable against: [:name]
 
   # scopes
   scope :newest, -> { order(name: :desc) }
