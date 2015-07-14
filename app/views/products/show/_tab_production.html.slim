@@ -5,7 +5,7 @@
         .panel__bar.panel__bar--top
           h5.panel__title
             span.thin Serie 
-            span.bold = series.name
+            span.bold = series.id
         .panel__body
           ul.sizes-list
             - series.quantities_to_hash.each do |size, quantity|

@@ -1,5 +1,5 @@
 tr
-  td = link_to series.name, series, class: "link"
+  td = link_to series.id, series, class: "link"
   td
     span.product-label.product-label--fixed style=(product_label_style(series.product)) = series.product.sku
   td = series.product.name
