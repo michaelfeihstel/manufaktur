@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710094734) do
+ActiveRecord::Schema.define(version: 20150714064737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20150710094734) do
 
   create_table "carriers", force: :cascade do |t|
     t.string   "name"
-    t.string   "tracking_link_prefix"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "tracking_link"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "comments", force: :cascade do |t|

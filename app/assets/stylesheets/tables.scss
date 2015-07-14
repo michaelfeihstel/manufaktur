@@ -78,6 +78,11 @@ tfoot {
   border-top: 3px solid $secondary-color;
 }
 
+tfoot.borderless {
+  padding: 2rem 0;
+  border-top: none;
+}
+
 tfoot tr {
   border: none;
 }
@@ -95,56 +100,6 @@ table.compact td:first-child,
 table.compact th:first-child {
   padding-left: 0px;
 }
-
-
-/* // small devices
-@media (max-width: 767px) {
-  table {
-    display: block;
-  }
-
-  thead {
-    display: none;
-  }
-
-  tbody {
-    display: block;
-  }
-
-  tr {
-    display: block;
-    margin: 0 -1.618rem;
-    padding: 1.618rem;
-  }
-
-  tr.link:hover {
-  }
-
-  td {
-    display: block;
-    padding: 0;
-    margin-bottom: 0.5rem;
-
-    &:before {
-      content: attr(data-title);
-      display: block;
-      font-family: $header-font;
-      opacity: 0.6;
-      text-rendering: geometricPrecision;
-      width: 100%;
-    }
-  }
-
-  td:first-child,
-  th:first-child {
-    padding-left: 0;
-  }
-
-  td:last-child,
-  th:last-child {
-    padding-right: 0;
-  }
-} */
 
 
 // RESPONSIVE TABLES

@@ -6,17 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Dates
-range = Date.new(2011,01,01)..Date.new(2015,12, 31)
-
-# Taxes
-remove_taxes = Tax.destroy_all
-create_taxes = Tax.create(
+# Carriers
+remove_carriers = Carrier.destroy_all
+create_carriers = Carrier.create(
   [
-    { id: 1, name: "Standardsatz (19%)", value: 0.19 },
-    { id: 2, name: "Mehrwertsteuerbefreit", value: 0 }
+    { id: 1, name: "DPD", tracking_link: "http://extranet.dpd.de/cgi-bin/delistrack?pknr=###TRACKING_CODE###&typ=1&lang=de" },
+    { id: 2, name: "DHL", tracking_link: "http://nolp.dhl.de/nextt-online-public/set_identcodes.do?lang=de&idc=###TRACKING_CODE###" }
   ]
 )
+
+# Taxes
+if Tax.count == 0
+  remove_taxes = Tax.destroy_all
+  create_taxes = Tax.create(
+    [
+      { id: 1, name: "Standardsatz (19%)", value: 0.19 },
+      { id: 2, name: "Mehrwertsteuerbefreit", value: 0 }
+    ]
+  )
+end
 
 # ContactRole
 remove_contact_roles = ContactRole.destroy_all

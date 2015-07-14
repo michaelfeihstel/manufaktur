@@ -35,4 +35,7 @@
       tbody id="material_property_fields"
         = f.fields_for :material_properties, wrapper: false do |material_properties_form|
           = render "materials/shared/material_property_fields", f: material_properties_form
-    = f.link_to_add "Eigenschaft hinzufügen", :material_properties, class: "tiny button", data: { target: "#material_property_fields" }
+      tfoot-borderless
+        tr
+          td colspan=4
+            = f.link_to_add "Eigenschaft hinzufügen", :material_properties, class: "link", data: { target: "#material_property_fields" }

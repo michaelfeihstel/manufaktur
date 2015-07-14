@@ -85,7 +85,29 @@ section
         = @order.tax.name
 
     .tab data-tab="shipping"
-      p Another tab
+      section
+        h5.section-header Optionen
+
+      section
+        h5.section-header Pakete
+        - if @order.shipments.present?
+          table
+            thead
+              tr
+                th Sendungsnummer
+                th Versender
+                th.text-right Gewicht
+            tbody
+              - @order.shipments.each do |shipment|
+                tr
+                  td = link_to shipment.tracking_code, shipment.tracking_link, class: "link", target: "_blank"
+                  td = shipment.carrier.name
+                  td.text-right = "#{shipment.weight} Kg"
+            tfoot
+              tr
+                td.light.small colspan=3 = "#{@order.shipments.count} Sendungen"
+        - else
+          p.text-center Es gibt bisher keine Sendungen zu diesem Auftrag. 
 
 
 - content_for :footer

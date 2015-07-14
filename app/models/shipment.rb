@@ -19,4 +19,9 @@
 class Shipment < ActiveRecord::Base
   belongs_to :order
   belongs_to :carrier
+
+  # methods
+  def tracking_link
+    carrier.tracking_link.gsub("###TRACKING_CODE###", tracking_code)
+  end
 end
