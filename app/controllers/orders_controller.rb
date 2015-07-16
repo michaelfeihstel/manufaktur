@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def favorites
-    @orders = Order.favorites.includes(:line_items, :products, :contact).order(created_at: :desc).page(params[:page]).per(100)
+    @orders = Order.favorites.includes(:line_items, :products, :contact).order(id: :desc).page(params[:page]).per(100)
     authorize @orders
     @filter_selected = "favorites"
     render "index"

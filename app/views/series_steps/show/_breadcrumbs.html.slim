@@ -3,5 +3,5 @@
     li = link_to "Home", :root
     li = link_to "Produktion", "#"
     li = link_to "Serien", series_index_path
-    li = link_to @series_step.id, @series_step.series
+    li = link_to @series_step.series_id, @series_step.series
     li.light = @series_step.work_step.name
