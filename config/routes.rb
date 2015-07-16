@@ -4,7 +4,7 @@ Manufaktur::Application.routes.draw do
   root to: "contacts#index"
 
   # devise
-  devise_for :users
+  devise_for :users, path_names: { sign_up: "" }
 
   # concerns
   concern :paginatable do
