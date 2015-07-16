@@ -21,14 +21,14 @@ javascript:
       bindto: "#chart_progress",
       data: {
         columns: [
-          #{raw @series.remaining_quantity.prepend("Verbleibend")},
-          #{raw @series.finished_quantity.prepend("Fertig")}
+          #{raw @series.finished_quantity.prepend("Fertig")},
+          #{raw @series.remaining_quantity.prepend("Verbleibend")}
         ],
         type: 'bar',
         groups: [
           ["Fertig", "Verbleibend"]
         ],
-        order: "asc",
+        order: null,
         colors: {
           "Fertig": "#455A64",
           "Verbleibend": "#ddd"
