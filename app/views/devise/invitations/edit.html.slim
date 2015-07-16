@@ -6,7 +6,7 @@
   .span-small-12.span-medium-6
     = form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f|
       .panel
-        p Fast geschafft. Bitte gib noch Deinen Namen an und lege Dein Passwort fest um die Anmeldung abzuschließen.
+        .panel__body Fast geschafft. Bitte gib noch Deinen Namen an und lege Dein Passwort fest um die Anmeldung abzuschließen.
 
       section
         = devise_error_messages!
@@ -32,7 +32,5 @@
           = f.label :password_confirmation, "Passwort bestätigen"
           = f.password_field :password_confirmation
 
-      = f.submit "Account erstellen", class: "button"
-
 - content_for :footer
-  = button_to "Account erstellen", "#", data: { submit: "edit_user"}, class: "button"
+  = submit_tag "Account erstellen", "#", form: "edit_user", class: "button"

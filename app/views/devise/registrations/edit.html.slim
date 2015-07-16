@@ -45,13 +45,14 @@
     section
       h5.section-header API Key
       .panel
-        - if @user.api_keys.any?
-          ul.no-bullet
-            - @user.api_keys.each do |key|
-              li = key.key
-        - else
-          p Für diesen Account wurden keine API-Keys erstellt. Hier kannst Du einen erstellen
-          = button_to "Erstellen", api_keys_path("api_key": { user_id: @user.id }), action: "create", method: "post", class: "button small"
+        .panel__body
+          - if @user.api_keys.any?
+            ul.no-bullet
+              - @user.api_keys.each do |key|
+                li = key.key
+          - else
+            p Für diesen Account wurden keine API-Keys erstellt. Hier kannst Du einen erstellen
+            = button_to "Erstellen", api_keys_path("api_key": { user_id: @user.id }), action: "create", method: "post", class: "button small"
 
       h5.section-header Cancel my account
       p Hier kannst Du Deinen Account schließen. 
