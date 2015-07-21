@@ -35,10 +35,9 @@ gem "jquery-rails"
 gem "nested_form"
 gem "pg_search"
 
-gem "skylight"
-
 group :production do
   gem "rails_12factor"
+  gem "skylight"
 end
 
 group :development, :test do
