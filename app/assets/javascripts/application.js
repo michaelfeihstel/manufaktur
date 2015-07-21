@@ -11,23 +11,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require stickykit
 //= require selectize
 //= require jquery_nested_form
 //= require d3.min
 //= require c3.min
-//= require_tree
 //= require turbolinks
 
 Turbolinks.enableProgressBar();
-
-
-$(".container--breadcrumbs").stick_in_parent({
-  offset_top: 55,
-  bottoming: false
-});
-
-
 
 
 // remove required attribute for deleted nested_forms
