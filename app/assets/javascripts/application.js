@@ -14,7 +14,8 @@
 //= require stickykit
 //= require selectize
 //= require jquery_nested_form
-//= require hopscotch
+//= require d3.min
+//= require c3.min
 //= require_tree
 //= require turbolinks
 
