@@ -18,6 +18,7 @@ gem "minitest-rails"
 gem "devise"
 gem "devise_invitable", "~> 1.3.4"
 gem "pundit"
+gem "geocoder"
 
 # views and presentation
 gem "bourbon"

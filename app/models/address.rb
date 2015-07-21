@@ -22,6 +22,11 @@ class Address < ActiveRecord::Base
   belongs_to :contact
   has_many :letters
 
+  # Geocoder
+  geocoded_by :geocodable_address
+  after_validation :geocode,
+    if: ->(obj){ obj.street_changed? or obj.house_number_changed? or obj.city_changed? or obj.country_changed? }
+
 
 
   def full_address(hide_name: false)
@@ -31,5 +36,13 @@ class Address < ActiveRecord::Base
     else
       address
     end
+  end
+
+  def geocodable_address
+    [street, house_number, city, country].compact.join(', ')
+  end
+
+  def nearby_retailers(distance=20)
+    self.nearbys.joins(contact: :contact_role).where(contact_roles: { name: "retailer" })
   end
 end

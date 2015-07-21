@@ -61,7 +61,7 @@ class Contact < ActiveRecord::Base
   end
 
   def retailer?
-    self.try(:contact_role).try(:name) == "Retailer"
+    self.try(:contact_role).try(:name) == "retailer"
   end
 
   def supplier?

@@ -124,6 +124,8 @@ class ContactsController < ApplicationController
         :zip,
         :city,
         :country,
+        :latitude,
+        :longitude,
         :_destroy 
       ],
       emails_attributes: [

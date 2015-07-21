@@ -13,19 +13,33 @@ section
   .panel
     .panel__bar.panel__bar--top style=product_label_style(@series.product)
       h5.panel__title style="color: #{@series.product.text_color}" = @series.product.name
+    .panel__section
+      ul.inline-list
+        li
+          label Artikelnummer
+          span = link_to @series.product.sku, @series.product, class: "link"
+        li
+          label Bezeichnung
+          span = @series.product.name
+        li
+          label Farbe
+          span = @series.product.color_text
     .panel__body
-      .row
-        .span-small-12.span-medium-3
-          .fields
-            label Artikelnummer
-            span = @series.product.sku
-          .fields
-            label Bezeichnung
-            span = @series.product.name
-          .fields
-            label Farbe
-            span = @series.product.color_text
+      label Aktueller Bestand
+      
+      
     .panel__bar.panel__bar--bottom
+
+section
+  h5.section-header Geplant
+  ul.sizes-list
+    - @series.quantities_to_hash.each do |size, quantity|
+      li
+        label.small = size
+        = quantity
+    li.bold
+      label.small = "="
+      = @series.total_quantity
 
 section
   h5.section-header Fortschritt

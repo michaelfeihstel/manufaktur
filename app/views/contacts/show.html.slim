@@ -15,6 +15,8 @@ ul.tabs data-tab=""
     li.tab-title = link_to "Mitarbeiter", "employee"
   - if @contact.materials.present?
     li.tab-title = link_to "Material", "materials"
+  - if @contact.retailer?
+    li.tab-title = link_to "In der Nähe", "nearby"
 
 .tabs-content
   = render "/contacts/show/tab_general"
@@ -24,6 +26,8 @@ ul.tabs data-tab=""
     = render "/contacts/show/tab_employee"
   - if @contact.materials.present?
     = render "/contacts/show/tab_material"
+  - if @contact.retailer?
+    = render "/contacts/show/tab_nearby"
 
 - content_for :footer
   ul.inline-list

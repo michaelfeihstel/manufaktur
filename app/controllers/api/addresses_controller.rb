@@ -41,7 +41,9 @@ module Api
 				:house_number,
 				:zip,
 				:city,
-				:country
+				:country,
+				:latitude,
+				:longitude
 			)
 		end
 

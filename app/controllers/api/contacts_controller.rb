@@ -43,6 +43,8 @@ module Api
 					:zip,
 					:city,
 					:country,
+					:latitude,
+					:longitude,
 					:_destroy
 				],
 				employee_attributes: [
