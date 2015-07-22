@@ -44,7 +44,7 @@ class Address < ActiveRecord::Base
 
   def nearby_retailers(distance=20)
     if geocoded?
-      nearbys.joins(contact: :contact_role).where(contact_roles: { name: "retailer" })
+      nearbys(distance).joins(contact: :contact_role).where(contact_roles: { name: "retailer" })
     end
   end
 end

@@ -2,9 +2,9 @@
   - @contact.addresses.each do |address|
     .panel
       .panel__bar.panel__bar--top
-        h5.panel-title = address.description
+        h5.panel__title = address.description
       .panel__section
-        label = address.full_address
+        span.small = address.full_address
       .panel__body
         - if address.nearby_retailers(50).present?
           table
