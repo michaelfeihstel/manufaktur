@@ -6,5 +6,4 @@ tr data-remote="true"
       br
       span.small.light = address.full_address
   td width="150" = contact.try(:contact_role).try(:human_readable_name)
-  td
   td.text-right = link_to icon("chevron_right"), contact

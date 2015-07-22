@@ -4,8 +4,14 @@ class SeriesController < ApplicationController
   after_action :verify_authorized
 
   def index
+    @series = Series.includes(:product).newest.page(params[:page])
+    authorize @series
+  end
+
+  def search
     @series = @search.result(distinct: true).includes(:product).newest.page(params[:page])
     authorize @series
+    render "index"
   end
 
   def dashboard

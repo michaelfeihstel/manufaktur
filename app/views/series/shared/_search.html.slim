@@ -1,0 +1,37 @@
+- content_for :search
+  h3 Suchen
+  = search_form_for @search, url: search_series_index_path, method: :post do |f|
+    section
+      .fields
+        = f.label :id_eq, "Serie"
+        = f.number_field :id_eq
+      .fields
+        = f.label :product_sku_cont, "Artikelnummer"
+        = f.text_field :product_sku_cont
+      .fields
+        = f.label :product_name_cont, "Artikelbezeichnung"
+        = f.text_field :product_name_cont
+      
+      label Erstellt
+      .row
+        .span-small-6
+          .fields
+            = f.label :created_at_gteq, "Von"
+            = f.date_field :created_at_gteq
+        .span-small-6
+          .fields
+            = f.label :created_at_lteq, "Bis"
+            = f.date_field :created_at_lteq
+      label Termin
+      .row
+        .span-small-6
+          .fields
+            = f.label :finished_on_gteq, "Von"
+            = f.date_field :finished_on_gteq
+        .span-small-6
+          .fields
+            = f.label :finished_on_lteq, "Bis"
+            = f.date_field :finished_on_lteq
+
+- content_for :search_footer
+  = submit_tag "Suchen", form: "series_search", class: "button"
