@@ -31,3 +31,11 @@
 .icon__text {
   margin-left: 5px;
 }
+
+.material-icons.md-light {
+  opacity: 0.3
+}
+
+a:hover .material-icons.md-light {
+  opacity: 1
+}

@@ -18,4 +18,12 @@ class OrderPolicy < ApplicationPolicy
   def destroy_line_items?
     destroy?
   end
+
+  def mark?
+    update?
+  end
+
+  def complete?
+    update?
+  end
 end

@@ -2,6 +2,13 @@ tr.order-item data-id=order.id
   td
     - if order.completed?
       = icon("done")
+    - else
+      = icon("hourglass_empty", additional_classes: "md-light")
+  td
+    - if order.marked?
+      = icon("star")
+    - else
+      = icon("star_border", additional_classes: "md-light")
   td = link_to order.id, order, class: "link"
   td
     - if order.is_webshop?
