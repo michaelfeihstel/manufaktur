@@ -3,9 +3,10 @@
     section
       .panel
         .panel__bar.panel__bar--top
-          h5.panel__title
-            span.thin Serie 
-            span.bold = series.id
+          a href=(series_path(series))
+            h5.panel__title
+              span.thin Serie 
+              span.bold = series.id
         .panel__body
           ul.sizes-list
             - series.quantities_to_hash.each do |size, quantity|
@@ -13,11 +14,15 @@
                 label.size-label = size
                 = quantity
         .panel__bar.panel__bar--bottom
-          .flex__list.flex__list--right
+          .flex__list
             .flex__list__item
-              label Termin
-              - if series.finished_on.present?
-                = l series.finished_on, format: :default
-            .flex__list__item
-              label Gesamt
-              = series.total_quantity
+              = link_to "Zeige Serie...", series, class: "link"
+            .flex__list__item.flex__list__item--expand
+              .flex__list.flex__list--right
+                .flex__list__item
+                  label Termin
+                  - if series.finished_on.present?
+                    = l series.finished_on, format: :default
+                .flex__list__item
+                  label Gesamt
+                  = series.total_quantity

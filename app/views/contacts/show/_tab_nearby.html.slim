@@ -1,19 +1,21 @@
 .tab data-tab="nearby"
   - @contact.addresses.each do |address|
-    section
-      h5.section-header = address.description
-      label = address.full_address
-
-      - if address.nearby_retailers(50).present?
-        table
-          thead
-            tr
-              th In der Nähe
-              th.text-right Entfernung
-          tbody
-            - address.nearby_retailers(50).each do |nearby|
+    .panel
+      .panel__bar.panel__bar--top
+        h5.panel-title = address.description
+      .panel__section
+        label = address.full_address
+      .panel__body
+        - if address.nearby_retailers(50).present?
+          table
+            thead
               tr
-                td = link_to nearby.contact.try(:name), nearby.contact, class: "link"
-                td.text-right = "#{nearby.distance.round(1)} Km"
-      - else
-        p.text-center Keine weiteren Händler im Umkreis von 100 Km.
+                th In der Nähe
+                th.text-right Entfernung
+            tbody
+              - address.nearby_retailers(50).each do |nearby|
+                tr
+                  td = link_to nearby.contact.try(:name), nearby.contact, class: "link"
+                  td.text-right = "#{nearby.distance.round(1)} Km"
+        - else
+          p.text-center Keine weiteren Händler im Umkreis von 100 Km.
