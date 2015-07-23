@@ -1,5 +1,5 @@
 tr data-remote="true"
-  td width="100" data-title="Kundennummer" = link_to contact.id, contact, class: "link"
+  td width="100" = contact.id
   td data-title="Kontakt"
     = link_to contact.name, contact, class: "link"
     - contact.addresses.each do |address|

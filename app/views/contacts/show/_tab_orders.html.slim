@@ -7,25 +7,5 @@
       h5.section-header Monatliche Umsätze
       = render "contacts/charts/order_chart"
 
-    section
-      h5.section-header Alle Aufträge
-      table
-        thead
-          tr.header
-            th
-            th width="100" Auftrag
-            th width="120" Erstellt
-            th width="120" Abgeschlossen
-            th Artikel
-            th.text-right width="150" Betrag
-
-        tbody#orders
-          - @orders.order(created_at: :desc).each do |order|
-            = render "contacts/show/order", order: order
-
-        tfoot
-          tr
-            td.text-right colspan=6
-              h4.bold = number_to_currency(@contact.line_items.to_a.sum(&:price_total))
-
-      = paginate @orders
+    section#orders
+      = render "contacts/show/orders_table"

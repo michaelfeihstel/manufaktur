@@ -1,2 +1,2 @@
-$('#orders').html('<%= @orders.each{|order| render "/contacts/show/order", order: order} %>');
+$('#orders').html('<%= j render "contacts/show/orders_table" %>');
 $('#paginator').html('<%= escape_javascript(paginate(@orders, :remote => true)) %>');

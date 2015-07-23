@@ -17,16 +17,16 @@
     table
       thead
         tr
-          th width=70 Status
-          th width=80 Auftrag
-          th width=150 Erstellt
+          th = icon("done")
+          th Auftrag
+          th Erstellt
           th Auftraggeber
           th.text-right Anzahl
       tbody
-        - @product.line_items.each do |line_item|
-          tr.link href=order_path(line_item.order)
+        - @product.line_items.order(order_id: :desc).each do |line_item|
+          tr
             td = icon("done") if line_item.try(:order).try(:completed_at).present?
-            td = line_item.order_id
+            td = link_to line_item.order_id, line_item.order, class: "link"
             td = l line_item.order.created_at, format: :date_only
             td = line_item.order.billing_name
             td.text-right = line_item.quantity
