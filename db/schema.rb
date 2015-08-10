@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720124826) do
+ActiveRecord::Schema.define(version: 20150724092659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -281,6 +281,12 @@ ActiveRecord::Schema.define(version: 20150720124826) do
 
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
+  create_table "product_families", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_images", force: :cascade do |t|
     t.integer  "product_id"
     t.datetime "created_at"
@@ -377,23 +383,25 @@ ActiveRecord::Schema.define(version: 20150720124826) do
   add_index "product_inventory_items", ["product_inventory_id"], name: "index_product_inventory_items_on_product_inventory_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",             limit: 255
-    t.string   "sku",              limit: 255
+    t.string   "name",              limit: 255
+    t.string   "sku",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "price",                        precision: 8, scale: 2
+    t.decimal  "price",                         precision: 8, scale: 2
     t.decimal  "vat"
-    t.string   "color_text",       limit: 255
+    t.string   "color_text",        limit: 255
     t.integer  "variation_set_id"
     t.integer  "fmid"
-    t.string   "primary_color",    limit: 255
-    t.string   "secondary_color",  limit: 255
-    t.string   "text_color",       limit: 255,                         default: "#fff"
+    t.string   "primary_color",     limit: 255
+    t.string   "secondary_color",   limit: 255
+    t.string   "text_color",        limit: 255,                         default: "#fff"
     t.integer  "size_set_id"
     t.string   "product_family"
-    t.decimal  "retail_price",                 precision: 8, scale: 2
+    t.decimal  "retail_price",                  precision: 8, scale: 2
+    t.integer  "product_family_id"
   end
 
+  add_index "products", ["product_family_id"], name: "index_products_on_product_family_id", using: :btree
   add_index "products", ["size_set_id"], name: "index_products_on_size_set_id", using: :btree
 
   create_table "return_line_items", force: :cascade do |t|
@@ -630,6 +638,7 @@ ActiveRecord::Schema.define(version: 20150720124826) do
   add_foreign_key "product_inventory_items", "contacts"
   add_foreign_key "product_inventory_items", "product_inventories"
   add_foreign_key "product_inventory_items", "products"
+  add_foreign_key "products", "product_families"
   add_foreign_key "return_line_items", "products"
   add_foreign_key "return_line_items", "returns"
   add_foreign_key "returns", "addresses", column: "billing_address_id"

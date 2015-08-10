@@ -27,7 +27,7 @@
 class Product < ActiveRecord::Base
   # associations
   belongs_to :size_set
-  belongs_to :variation_set
+  belongs_to :product_family
   has_many :line_items
   has_many :orders, through: :line_items
   has_many :material_consumptions, dependent: :destroy

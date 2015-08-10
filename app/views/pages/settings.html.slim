@@ -1,0 +1,29 @@
+- content_for :header
+  .header-title
+    h1 Einstellungen
+
+ul.tabs data-tab=""
+  li.tab-title.active = link_to "Artikel", "products"
+  li.tab-title = link_to "Verkauf", "sale"
+
+.tabs-content
+  .tab.active data-tab="products"
+    section
+      .row
+        .span-small-12.span-medium-6
+          h5.section-header Produktgruppen
+          table
+            tbody
+              - @product_families.each do |product_family|
+                tr
+                  td = product_family.name
+                  td.text-right = link_to "Entfernen", product_family, method: :delete, class: "link", data: { confirm: "Wirklich löschen?" }
+
+          .fields
+            label Gruppe hinzufügen
+            = form_for @product_family do |f|
+              ul.inline-list
+                li = f.text_field :name
+                li = f.submit "Hinzufügen", class: "button tiny"
+
+  .tab data-tab="sale"
