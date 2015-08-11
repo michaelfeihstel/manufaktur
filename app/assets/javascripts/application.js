@@ -13,8 +13,6 @@
 //= require jquery_ujs
 //= require selectize
 //= require jquery_nested_form
-//= require d3.min
-//= require c3.min
 //= require turbolinks
 
 Turbolinks.enableProgressBar();
