@@ -30,7 +30,7 @@
 
         .fields
           = f.label :product_family, "Produktgruppe"
-          = f.select(:product_family, options_for_select(@product.product_family_options))
+          = f.collection_select(:product_family_id, ProductFamily.all, :id, :name, prompt: "Bitte wählen...")
 
       section
         h5.section-header Preis

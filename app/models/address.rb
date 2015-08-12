@@ -12,6 +12,8 @@
 #  city         :string(255)
 #  country      :string(255)
 #  fmid         :integer
+#  latitude     :float
+#  longitude    :float
 #
 # Indexes
 #

@@ -6,6 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# ProductFamily
+remove_product_families = ProductFamily.destroy_all
+create_product_families = ProductFamily.create(
+  [
+    { id: 1, name: "Classic Run" },
+    { id: 2, name: "Classic Walk" },
+    { id: 3, name: "Evo Run" },
+    { id: 4, name: "Accento" },
+    { id: 5, name: "Light" },
+    { id: 6, name: "Gomax" }
+  ]
+)
+
 # Carriers
 remove_carriers = Carrier.destroy_all
 create_carriers = Carrier.create(

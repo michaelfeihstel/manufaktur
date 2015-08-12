@@ -25,7 +25,7 @@
           = @product.size_set.try(:name)
         .fields
           label Produktgruppe
-          = @product.product_family
+          = @product.try(:product_family).try(:name)
 
       section
         h5.section-header Preis

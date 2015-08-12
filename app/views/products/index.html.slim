@@ -10,7 +10,7 @@
 
 
 
-- @products.group_by(&:product_family).each do |product_family, products|
+- @products.group_by{|product| product.try(:product_family).try(:name)}.each do |product_family, products|
   section
     h4 = product_family || "Sonstige"
     table

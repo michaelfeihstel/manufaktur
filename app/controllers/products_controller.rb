@@ -115,7 +115,7 @@ class ProductsController < ApplicationController
       :retail_price,
       :vat,
       :size_set_id,
-      :product_family,
+      :product_family_id,
       product_images_attributes: [
         :id,
         :product_id,

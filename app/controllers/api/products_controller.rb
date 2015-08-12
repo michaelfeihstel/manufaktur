@@ -45,7 +45,7 @@ module Api
         :primary_color,
         :secondary_color,
         :text_color,
-        :product_family
+        :product_family_id
       )
     end
 
