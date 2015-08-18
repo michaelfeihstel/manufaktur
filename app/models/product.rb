@@ -50,6 +50,7 @@ class Product < ActiveRecord::Base
 
   # scopes
   scope :only_model, ->(name) { where(name: name) }
+  scope :only_family, -> (product_family_id) { where(product_family_id: product_family_id) } 
 
   # validations
   validates	:name,	presence: true

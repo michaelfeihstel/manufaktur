@@ -482,19 +482,25 @@
 	"expanded_folders":
 	[
 		"/Users/ulflunge/projects/manufaktur",
-		"/Users/ulflunge/projects/manufaktur/app",
 		"/Users/ulflunge/projects/manufaktur/app/assets",
 		"/Users/ulflunge/projects/manufaktur/config",
-		"/Users/ulflunge/projects/manufaktur/config/initializers",
-		"/Users/ulflunge/projects/manufaktur/vendor",
+		"/Users/ulflunge/projects/manufaktur/config/environments",
 		"/Users/ulflunge/projects/manufaktur/vendor/assets",
 		"/Users/ulflunge/projects/manufaktur/vendor/assets/javascripts",
 		"/Users/ulflunge/projects/manufaktur/vendor/assets/stylesheets"
 	],
 	"file_history":
 	[
-		"/Users/ulflunge/projects/manufaktur/Gemfile",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/application_controller.rb",
+		"/Users/ulflunge/projects/manufaktur/Gemfile.lock",
+		"/Users/ulflunge/projects/manufaktur/Gemfile",
+		"/Users/ulflunge/projects/manufaktur/README.md",
+		"/Users/ulflunge/projects/manufaktur/README.rdoc",
+		"/Users/ulflunge/projects/manufaktur/.env",
+		"/Users/ulflunge/projects/manufaktur/config/application.rb",
+		"/Users/ulflunge/projects/manufaktur/config/environments/development.rb",
+		"/Users/ulflunge/projects/manufaktur/config/environments/production.rb",
+		"/Users/ulflunge/projects/manufaktur/config/puma.rb",
 		"/Users/ulflunge/projects/manufaktur/config/initializers/rack_mini_profiler.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/index.html.slim",
 		"/Users/ulflunge/projects/manufaktur/db/seeds.rb",
@@ -506,7 +512,6 @@
 		"/Users/ulflunge/projects/manufaktur/app/views/products/show/_tab_general.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/products_controller.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/product_inventories/show.html.slim",
-		"/Users/ulflunge/projects/manufaktur/config/environments/production.rb",
 		"/Users/ulflunge/projects/manufaktur/app/models/product.rb",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/application.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/application-track.js",
@@ -532,7 +537,6 @@
 		"/Users/ulflunge/projects/manufaktur/app/models/order.rb",
 		"/Users/ulflunge/projects/manufaktur/app/models/line_item.rb",
 		"/Users/ulflunge/projects/manufaktur/config/newrelic.yml",
-		"/Users/ulflunge/projects/manufaktur/.env",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show.js.erb",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_orders.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_orders_table.html.slim",
@@ -564,12 +568,10 @@
 		"/Users/ulflunge/projects/manufaktur/app/models/contact_role.rb",
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/search.js",
 		"/Users/ulflunge/projects/manufaktur/vendor/assets/javascripts/stickykit.js",
-		"/Users/ulflunge/projects/manufaktur/config/application.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_material.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/models/contact.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/api/contacts_controller.rb",
-		"/Users/ulflunge/projects/manufaktur/Gemfile.lock",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/show/_line_item.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/models/series.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/line_items_controller.rb",
@@ -616,11 +618,7 @@
 		"/Users/ulflunge/projects/manufaktur/db/migrate/20150707113440_create_shipments.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/edit/_tab_invoice.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/search/_results.html.slim",
-		"/Users/ulflunge/projects/manufaktur/config/puma.rb",
-		"/Users/ulflunge/projects/manufaktur/config/environment.rb",
-		"/Users/ulflunge/projects/manufaktur/config/boot.rb",
-		"/Users/ulflunge/projects/manufaktur/config/environments/development.rb",
-		"/Users/ulflunge/projects/manufaktur/test/controllers/api/orders_controller_test.rb"
+		"/Users/ulflunge/projects/manufaktur/config/environment.rb"
 	],
 	"find":
 	{
@@ -850,12 +848,24 @@
 		"selected_items":
 		[
 			[
-				"applica",
+				"gemfile.lo",
+				"Gemfile.lock"
+			],
+			[
+				"applicatiocon",
 				"app/controllers/application_controller.rb"
 			],
 			[
 				"gem",
 				"Gemfile"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"applica",
+				"app/controllers/application_controller.rb"
 			],
 			[
 				"apiproduct",
@@ -1348,18 +1358,6 @@
 			[
 				"search",
 				"app/assets/javascripts/search.js"
-			],
-			[
-				"appl",
-				"config/application.rb"
-			],
-			[
-				"revenue",
-				"app/views/orders/charts/_revenue_chart.html.slim"
-			],
-			[
-				"line_item.rb",
-				"app/models/line_item.rb"
 			]
 		],
 		"width": 0.0

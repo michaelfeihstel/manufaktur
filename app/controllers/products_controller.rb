@@ -27,8 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def filter
-    @filter = params[:filter]
-    @products = Product.only_model(@filter).includes(:product_images).order(:name)
+    @filter = params[:filter].to_i
+    @products = Product.only_family(params[:filter]).includes(:product_images).order(:name)
     authorize @products
 
     render "index"

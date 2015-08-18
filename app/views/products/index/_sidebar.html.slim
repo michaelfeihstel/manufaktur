@@ -1,13 +1,6 @@
 - content_for :sidebar
-  label Filter
+  label Gruppe
   ul.side-nav
-    li class=("active" if @filter_selected == "all") = link_to "Alle", products_path
-    li class=("active" if @filter_selected == "adagio") = link_to "Adagio", filter_products_path("Adagio")
-    li class=("active" if @filter_selected == "cdur") = link_to "C-Dur / a-Moll", filter_products_path("C-Dur")
-    li class=("active" if @filter_selected == "vivo") = link_to "Vivo", filter_products_path("Vivo")
-    li class=("active" if @filter_selected == "fis") = link_to "Fis", filter_products_path("Fis")
-    li class=("active" if @filter_selected == "light") = link_to "Light", filter_products_path("Light")
-    li class=("active" if @filter_selected == "gomax") = link_to "Gomax", filter_products_path("Gomax")
-
-  label Filter
-  ul.side-nav
+    li class=("active" if @filter.nil?) = link_to "Alle", products_path
+    - ProductFamily.all.each do |product_family|
+      li class=("active" if @filter == product_family.id) = link_to product_family.name, filter_products_path(product_family.id)
