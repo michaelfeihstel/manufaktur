@@ -11,6 +11,7 @@ remove_product_families = ProductFamily.destroy_all
 create_product_families = ProductFamily.create(
   [
     { id: 1, name: "Classic Run" },
+    { id: 7, name: "Classic Run Fis" },
     { id: 2, name: "Classic Walk" },
     { id: 3, name: "Evo Run" },
     { id: 4, name: "Accento" },

@@ -8,8 +8,8 @@ Manufaktur::Application.routes.draw do
 
   # concerns
   concern :paginatable do
-    get '(page/:page)', action: :index, on: :collection, :as => ''
-    get '(search/page/:page)', action: :search, on: :collection, :as => 'search_page'
+    get '(page/:page)', action: :index, on: :collection, as: "paginate"
+    get '(search/page/:page)', action: :search, on: :collection, as: "search_page"
   end
   
   concern :searchable do
