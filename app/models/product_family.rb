@@ -10,5 +10,5 @@
 
 class ProductFamily < ActiveRecord::Base
   # Associations
-  has_many :products
+  has_many :products, dependent: :nullify
 end
