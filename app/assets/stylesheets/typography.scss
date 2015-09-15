@@ -101,6 +101,7 @@ a {
 
 a.link,
 input[type=submit].link {
+  color: $primary-color;
   border-bottom: 2px solid $hairline-color;
 
   &:hover {

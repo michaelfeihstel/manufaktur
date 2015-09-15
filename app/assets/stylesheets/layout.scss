@@ -149,12 +149,11 @@ footer {
   width: 100%;
   z-index: 98;
   background-color: $panel-background;
-  @include hard-shadow--inset
+  border-top: 1px solid $hairline-color;
 }
 
 .footer-content {
   @include container;
-  border-top: 1px solid $hairline-color;
   padding: 4rem 0;
 }
 

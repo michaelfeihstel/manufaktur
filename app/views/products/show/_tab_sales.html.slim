@@ -4,7 +4,7 @@
       .panel__bar.panel__bar--top
         h5.panel__title Monatlicher Absatz
       .panel__body
-        = render "products/shared/chart_sales_per_month"
+        = render 'products/shared/chart_sales_per_month'
       .panel__bar.panel__bar--bottom
         .flex__list.flex__list--right
           .flex__list__item
@@ -12,20 +12,22 @@
             span = @product.line_items.to_a.sum(&:quantity)
           .flex__list__item
             label Umsatz
-            span = number_to_currency(@product.line_items.to_a.sum(&:price_total), unit: "€")
+            span
+              = number_to_currency(@product.line_items.to_a.sum(&:price_total),
+                                   unit: '€')
   section
     table
       thead
         tr
-          th = icon("done")
+          th = icon('done')
           th Auftrag
           th Erstellt
           th Auftraggeber
           th.text-right Anzahl
       tbody
-        - @product.line_items.order(order_id: :desc).each do |line_item|
+        - @product.line_items.each do |line_item|
           tr
-            td = icon("done") if line_item.try(:order).try(:completed_at).present?
+            td = icon('done') if line_item.try(:order).try(:completed_at).present?
             td = link_to line_item.order_id, line_item.order, class: "link"
             td = l line_item.order.created_at, format: :date_only
             td = line_item.order.billing_name

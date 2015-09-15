@@ -5,7 +5,7 @@ hr {
 
 // GLOBAL SEARCH
 input#term.global-search__input {
-  background-color: scale-color($primary-color, $lightness: 15%);
+  background-color: $primary-color;
   border-bottom: none;
   color: #fff;
   padding: 0 $gutter/2;
@@ -351,15 +351,14 @@ img {
 // BREADCRUMBS
 .container--breadcrumbs {
   @include flex(0 0 auto);
-  @include hard-shadow;
-  background-color: $breadcrumb-background-color;
+  background-color: $secondary-color;
   z-index: 97;
+  border-bottom: 1px solid $hairline-color;
 }
 
 ul.breadcrumbs {
   @include flex(1 1);
   @include align-self(center);
-  color: #fff;
   font-size: rem(13);
   list-style: none;
   line-height: 1.5rem;
@@ -387,7 +386,7 @@ ul.breadcrumbs li a {
   color: inherit;
 
   &:hover {
-    border-bottom: 1px solid $background-color;
+    border-bottom: 1px solid $font-color;
   }
 }
 
@@ -666,7 +665,6 @@ span.page--next a {
 .pagination__info {
   @include align-items(center);
   @include display(flex);
-  color: $background-color;
   font-size: 0.8125rem;
 }
 

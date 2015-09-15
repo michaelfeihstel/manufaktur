@@ -14,7 +14,7 @@
               span = material_consumption.material.name
               br
               span.small.light = material_consumption.material.properties
-            td = number_to_currency(material_consumption.material.price, unit: "€") 
+            td = number_to_currency(material_consumption.material.price, unit: "€")
             td 
               span = "#{material_consumption.yield_per_unit} "
               span.light = "Paar / #{material_consumption.material.unit}"

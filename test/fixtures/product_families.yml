@@ -11,8 +11,5 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+default:
+  name: A Product Family

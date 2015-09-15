@@ -31,11 +31,11 @@ class ProductsController < ApplicationController
     @products = Product.only_family(params[:filter]).includes(:product_images).order(:name)
     authorize @products
 
-    render "index"
+    render 'index'
   end
 
   def show
-    @product = Product.includes({ line_items: [:order] }, { material_consumptions: [:material] }, { series: [:series_steps] }, :size_set, :product_inventory_items).find(params[:id])
+    @product = Product.includes({ line_items: :order }, { material_consumptions: { material: :material_properties } }, { series: [:series_steps] }, :size_set, :product_inventory_items).find(params[:id])
     authorize @product
   end
 
