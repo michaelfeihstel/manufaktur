@@ -292,10 +292,9 @@ img {
 // PANELS
 .panel {
   @include display(flex);
-  @include hard-shadow;
-  background-color: $panel-background;
   display: block;
   margin-bottom: $gutter;
+  border: 1px solid $hairline-color;
 }
 
 .panel--outline {
@@ -312,6 +311,14 @@ img {
   @include flex(0 0 auto);
   padding: 1rem 1.25rem;
   background-color: $secondary-color;
+}
+
+.panel__bar--top {
+  border-bottom: 1px solid $hairline-color;
+}
+
+.panel__bar--bottom {
+  border-top: 1px solid $hairline-color;
 }
 
 .panel__bar--bottom label {
@@ -343,7 +350,6 @@ img {
 
 .panel__section {
   background-color: #E7FFFA;
-  box-shadow: 0px 2px 0 rgba(0, 0, 0, 0.07);
   padding: 1rem 1.25rem;
 }
 

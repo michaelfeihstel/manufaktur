@@ -1,8 +1,8 @@
 .panel
   .panel__bar.panel__bar--top
-    h5.panel__title Umsatzstärkste Händler 2015
-  .panel__section
-    ul.inline-list
+    h5.panel__title Umsatzstärkste Händler
+  .panel__bar.panel__bar--top
+    ul.inline-list.small
       li = link_to Date.today.year, set_orders_period_path(from: Date.today.beginning_of_year, to: Date.today), class: "link", remote: true
       li = link_to Date.today.prev_year.year, set_orders_period_path(from: Date.today.prev_year.beginning_of_year, to: Date.today.prev_year.end_of_year), class: "link", remote: true
       li = link_to "Letzten 30 Tage", set_orders_period_path(from: 30.days.ago.to_date, to: Date.today), class: "link", remote: true
