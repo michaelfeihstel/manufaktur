@@ -4,18 +4,16 @@
       thead
         tr
           th Material
-          th Preis
           th Ergiebigkeit
-          th.text-right
+          th.text-right Preis
       tbody
         - @product.material_consumptions.each do |material_consumption|
-          tr.link href=material_path(material_consumption.material)
+          tr
             td
-              span = material_consumption.material.name
+              = link_to material_consumption.material.name, material_consumption.material, class: "link"
               br
               span.small.light = material_consumption.material.properties
-            td = number_to_currency(material_consumption.material.price, unit: "€")
-            td 
+            td
               span = "#{material_consumption.yield_per_unit} "
               span.light = "Paar / #{material_consumption.material.unit}"
-            td.text-right = icon "chevron_right"
+            td.text-right = number_to_currency(material_consumption.material.price, unit: "€")

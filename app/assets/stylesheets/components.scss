@@ -6,7 +6,7 @@ hr {
 // GLOBAL SEARCH
 input#term.global-search__input {
   background-color: $primary-color;
-  border-bottom: none;
+  border: none;
   color: #fff;
   padding: 0 $gutter/2;
 
@@ -359,6 +359,7 @@ img {
   @include flex(0 0 auto);
   background-color: $secondary-color;
   z-index: 97;
+  border-top: 4px solid $accent-color;
   border-bottom: 1px solid $hairline-color;
 }
 

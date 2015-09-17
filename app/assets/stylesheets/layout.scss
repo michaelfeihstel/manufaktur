@@ -1,6 +1,6 @@
 // PROGRESS BAR
 html.turbolinks-progress-bar::before {
-  background-color: $breadcrumb-background-color !important;
+  background-color: $secondary-color !important;
   height: 2px !important;
 }
 
@@ -113,7 +113,7 @@ header {
     margin-left: -1 * $gutter;
     margin-right: -1 * $gutter;
     padding: $gutter;
-    background-color: $panel-background;
+    background-color: $light-shade;
   }
 }
 
@@ -148,8 +148,8 @@ footer {
   padding: 0 $gutter;
   width: 100%;
   z-index: 98;
-  background-color: $panel-background;
-  border-top: 1px solid $hairline-color;
+  background-color: $light-shade;
+  border-top: 1px solid $accent-color;
 }
 
 .footer-content {

@@ -23,11 +23,11 @@
           th width=30
       tbody
         - products.each do |product|
-          tr.link href=product_path(product)
+          tr
             td
               span.product-label.product-label--fixed style=product_label_style(product)
                 = product.sku
-            td = product.name
+            td = link_to product.name, product, class: "link"
             td = product.color_text
             td.text-right
               span = number_to_currency(product.price, unit:"€ ")

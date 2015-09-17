@@ -5,10 +5,10 @@
 - content_for :header
   .header-title
     h1 = @order.id
-    h4 = @order.billing_name
+    h3 = @order.billing_name
   .header-actions
     = button_tag "Speichern", data: { submit: "edit_order" }
-    = link_to "Abbrechen", :back, class: "button light"
+    = link_to "Abbrechen", :back, class: "link"
 
 = render "orders/shared/form"
 

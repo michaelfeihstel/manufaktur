@@ -35,12 +35,6 @@ gem 'jquery-rails'
 gem 'nested_form'
 gem 'pg_search'
 
-# Performance
-gem 'rack-mini-profiler'
-gem 'flamegraph'
-gem 'stackprof'
-gem 'memory_profiler'
-
 group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm'
