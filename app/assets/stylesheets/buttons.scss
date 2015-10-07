@@ -10,7 +10,6 @@ button, .button {
   font-family: $header-font;
   height: auto;
   letter-spacing: 1px;
-  line-height: 1.45rem;
   margin: 0 1rem 1rem 0;
   outline: none;
   padding: .5em 1rem;
@@ -48,6 +47,7 @@ button.small,
 button.tiny,
 .button.small,
 .button.tiny {
+  height: 2.25rem;
   border-width: 1px;
   font-size: 0.8125rem;
 }

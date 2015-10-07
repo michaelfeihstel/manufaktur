@@ -8,7 +8,7 @@
       - @contact.materials.each do |material|
         tr
           td
-            span = material.name
+            span = link_to material.name, material, class: "link"
             br
             span.small.light = material.properties
           td.text-right

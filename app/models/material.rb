@@ -22,6 +22,7 @@ class Material < ActiveRecord::Base
   has_many :material_properties, dependent: :destroy
   has_many :products, through: :material_consumptions
   has_many :material_consumptions, dependent: :destroy
+  has_many :series_step_entries, through: :products
   belongs_to :contact
 
   accepts_nested_attributes_for :material_properties, allow_destroy: true
@@ -47,5 +48,10 @@ class Material < ActiveRecord::Base
     else
       name
     end
+  end
+
+  def consumption(from: '01.01.2010'.to_date, to: Date.today)
+    quantities = material_consumptions.map{|i| i.consumption(from: from, to: to)}
+    quantities.sum
   end
 end

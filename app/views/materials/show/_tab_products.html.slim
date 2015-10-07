@@ -1,19 +1,52 @@
 .tab data-tab="products"
   - if @material.products.empty?
     p.text-center
+  
   section
+    .panel
+      .panel__body
+        .flex__list
+          .flex__list__item
+            ul.inline-list.small
+              li = link_to Date.today.year, set_period_material_path(from: Date.today.beginning_of_year, to: Date.today), class: "link", remote: true
+              li = link_to Date.today.prev_year.year, set_period_material_path(from: Date.today.prev_year.beginning_of_year, to: Date.today.prev_year.end_of_year), class: "link", remote: true
+              li = link_to "30 Tage", set_period_material_path(from: 30.days.ago.to_date, to: Date.today), class: "link", remote: true
+              li = link_to "1 Jahr", set_period_material_path(from: 1.year.ago.to_date, to: Date.today), class: "link", remote: true
+              li
+          .flex__list__item.flex__list__item--right
+            = form_for @material, url: set_period_material_path, method: :get, remote: true do
+              .flex__list
+                .flex__list__item.flex__list__item--expand
+                  = date_field_tag :from, @filter[:from]
+                .flex__list__item.flex__list__item--expand
+                  = date_field_tag :to, @filter[:to]
+                .flex__list__item.flex__list__item--fixed
+                  = submit_tag "OK", class: "button button--no-margin tiny"
+    .row
+      .span-small-12.span-medium-6
+        .panel
+          .panel__bar.panel__bar--top
+            h5.panel__title Verbrauch
+          .panel__bar.panel__bar--top.small
+            
+          .panel__body.text-center
+            h1.panel__stat#material_consumption_value = @material.consumption(from: @filter[:from], to: @filter[:to])
+            label = @material.unit
+
+  section
+    h5.section-header Zugehörige Artikel
     table
       thead
         tr
-          th Artikelnummer
+          th width=150 Artikelnummer
           th Bezeichnung
           th Farbe
-          th = "Paar je #{@material.unit}"
+          th.text-right = "Paar je #{@material.unit}"
       tbody
         - @material.material_consumptions.each do |material_consumption|
-          tr.link href=product_path(material_consumption.product)
-            td = material_consumption.product.sku
-            td = material_consumption.product.name
+          tr
             td
-              span.product-label style=product_label_style(material_consumption.product) = material_consumption.product.color_text
-            td = material_consumption.yield_per_unit
+              span.product-label.product-label--fixed style=product_label_style(material_consumption.product) = material_consumption.product.sku
+            td = link_to material_consumption.product.name, product_path(material_consumption.product), class: "link"
+            td = material_consumption.product.color_text
+            td.text-right = material_consumption.yield_per_unit

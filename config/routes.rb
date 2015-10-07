@@ -51,7 +51,11 @@ Manufaktur::Application.routes.draw do
   end
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
-  resources :materials, concerns: [:paginatable, :searchable]
+  resources :materials, concerns: [:paginatable, :searchable] do
+    member do
+      get "set_period", controller: "materials"
+    end
+  end
   resources :orders, concerns: [:paginatable, :searchable, :commentable, :dashboardable] do
     member do
       post :update_addresses

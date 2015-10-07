@@ -297,13 +297,9 @@ img {
   border: 1px solid $hairline-color;
 }
 
-.panel--outline {
-  @include display(flex);
-  background: transparent;
-  border: 3px solid $secondary-color;
-  display: block;
-  margin-bottom: inherit;
-  padding: 1.25rem;
+.panel--simple {
+  background: $secondary-color;
+  padding: 1rem 1.25rem;
 }
 
 .panel__bar {

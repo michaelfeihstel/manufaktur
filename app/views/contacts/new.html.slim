@@ -8,3 +8,8 @@
 
 
 = render "contacts/form"
+
+- content_for :footer
+  ul.inline-list
+    li = submit_tag "Speichern", form: "new_contact", class: "button"
+    li = link_to "Abbrechen", @contact, class: "link"

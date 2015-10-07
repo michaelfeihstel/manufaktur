@@ -58,6 +58,7 @@ class SeriesStepEntry < ActiveRecord::Base
   scope :sized, -> (size) { where("? > 0", size) }
   scope :final, -> { where(final_step: true) }
   scope :completed_since, -> (date) { where("date >= ? AND final_step = ?", date, true) }
+  scope :completed_between, -> (from, to) { where("date >= ? AND date <= ? AND final_step = ?", from, to, true) }
 
 
 

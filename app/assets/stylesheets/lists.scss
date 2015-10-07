@@ -84,15 +84,13 @@ ul.side-nav li a {
 .flex__list__item {
   @include flex(0 1 auto);
   margin-left: 0;
-  padding: 0 1.25rem;
+  margin-right: 1.25rem;
 
   &:first-child {
-    padding-left: 0;
-    padding-right: 1.25rem;
   }
 
   &:last-child {
-    padding-right: 0;
+    margin-right: 0;
   }
 }
 

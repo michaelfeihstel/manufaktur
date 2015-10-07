@@ -17,7 +17,14 @@ class MaterialsController < ApplicationController
   end
 
   def show
-    @material = Material.includes(material_consumptions: [:product]).find(params[:id])
+    @filter = { from: 12.months.ago.to_date, to: Date.today }
+    @material = Material.includes(:series_step_entries, material_consumptions: [:product]).find(params[:id])
+    authorize @material
+  end
+
+  def set_period
+    @filter = { from: params[:from], to: params[:to] }
+    @material = Material.includes(:series_step_entries, material_consumptions: [:product]).find(params[:id])
     authorize @material
   end
 

@@ -1,4 +1,13 @@
 .tab.active#tab_general
+  .row
+    .span-small-12.span-large-6
+      - if @contact.errors.any?
+        .panel.panel--simple#error_explanation
+          h5 = "#{pluralize(@contact.errors.count, 'error')} haben das Speichern dieses Kontakts verhindert."
+          ul
+            - @contact.errors.full_messages.each do |msg|
+              .alert-box.alert data-alert=""
+                li = msg
   section
     .row
       .span-small-12.span-large-6

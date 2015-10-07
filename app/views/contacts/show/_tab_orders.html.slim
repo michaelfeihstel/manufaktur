@@ -4,8 +4,11 @@
     p.text-center = link_to "Auftrag erstellen...", new_order_path, class: "button tiny"
   - else
     section
-      h5.section-header Monatliche Umsätze
-      = render "contacts/charts/order_chart"
+      .panel
+        .panel__bar.panel__bar__top
+          h5.panel__title Monatliche Umsätze
+        .panel__body
+          = render "contacts/charts/order_chart"
 
     section#orders
       = render "contacts/show/orders_table"

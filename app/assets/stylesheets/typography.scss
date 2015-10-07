@@ -27,6 +27,12 @@ h1 {
   font-weight: 700;
 }
 
+h1.panel__stat {
+  font-size: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
 header h1, 
 header h2, 
 header h3, 
@@ -102,7 +108,7 @@ a {
 a.link,
 input[type=submit].link {
   color: $primary-color;
-  border-bottom: 2px solid $hairline-color;
+  border-bottom: 1px solid $hairline-color;
 
   &:hover {
     border-color: $primary-color;

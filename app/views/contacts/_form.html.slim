@@ -1,13 +1,4 @@
 = nested_form_for @contact do |f|
-
-  - if @contact.errors.any?
-    #error_explanation
-      h4 = "#{pluralize(@contact.errors.count, 'error')} haben das Speichern dieses Kontakts verhindert:"
-      ul
-      - @contact.errors.full_messages.each do |msg|
-        .alert-box.alert data-alert=""
-          li = msg
-
   ul.tabs data-tab=""
     li.tab-title.active = link_to "Stammdaten", "general"
     li.tab-title = link_to "Briefe", "letters"

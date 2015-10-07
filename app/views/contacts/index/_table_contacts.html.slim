@@ -3,8 +3,7 @@ table
     tr
       th width="100" Kundennummer
       th Name / Firma
-      th Kategorie
-      th.text-right width=20
+      th.text-right Kategorie
   tbody
     - @contacts.each do |contact|
       = render partial: "contacts/index/contact", locals: { contact: contact }
