@@ -20,10 +20,6 @@ class MaterialProperty < ActiveRecord::Base
   # associations
   belongs_to :material
 
-
-
-
-
   # scopes
   scope :used_in_name, -> { where(use_in_name: true) }
 end

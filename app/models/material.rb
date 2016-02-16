@@ -51,7 +51,7 @@ class Material < ActiveRecord::Base
   end
 
   def consumption(from: '01.01.2010'.to_date, to: Date.today)
-    quantities = material_consumptions.map{|i| i.consumption(from: from, to: to)}
+    quantities = material_consumptions.map { |i| i.consumption(from: from, to: to) }
     quantities.sum
   end
 end

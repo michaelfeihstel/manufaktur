@@ -21,7 +21,7 @@
 #
 
 class Letter < ActiveRecord::Base
-	# associations
+  # associations
   belongs_to :address
   has_one :contact, through: :address
 

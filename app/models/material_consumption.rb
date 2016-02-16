@@ -24,5 +24,4 @@ class MaterialConsumption < ActiveRecord::Base
 
     manufactured_quantity / yield_per_unit
   end
-
 end

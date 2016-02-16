@@ -26,8 +26,8 @@ class Address < ActiveRecord::Base
 
   # Geocoder
   geocoded_by :geocodable_address
-  after_validation :geocode,
-    if: ->(obj){ obj.street_changed? or obj.house_number_changed? or obj.city_changed? or obj.country_changed? }
+  after_validation  :geocode,
+                    if: -> (obj) { obj.street_changed? || obj.house_number_changed? || obj.city_changed? || obj.country_changed? }
 
 
 

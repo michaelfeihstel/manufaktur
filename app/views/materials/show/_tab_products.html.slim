@@ -30,7 +30,7 @@
           .panel__bar.panel__bar--top.small
             
           .panel__body.text-center
-            h1.panel__stat#material_consumption_value = @material.consumption(from: @filter[:from], to: @filter[:to])
+            h1.panel__stat#material_consumption_value = @material.consumption(from: @filter[:from], to: @filter[:to]).round(2)
             label = @material.unit
 
   section
