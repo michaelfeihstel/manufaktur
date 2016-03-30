@@ -38,10 +38,15 @@ javascript:
         categories: #{raw @product.line_items.completed_since(13.months.ago).group_by_month(:completed_at, format: "%b %Y").count.map{|k, v| k}}
       },
       y: {
-        show: false,
+        show: true,
       }
     },
     tooltip: {
       format: { }
+    },
+    grid: {
+      y: {
+        show: true
+      }
     }
   });

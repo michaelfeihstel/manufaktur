@@ -44,10 +44,16 @@ javascript:
           categories: #{raw @contact.line_items.completed_since(13.months.ago.beginning_of_month).group_by_month("line_items.completed_at", format: "%b %Y").count.map{|k, v| k}}
         },
         y: {
-          show: false,
+          default: 0,
+          show: true,
           tick: {
             format: de.numberFormat("$")
           }
+        }
+      },
+      grid: {
+        y: {
+          show: true
         }
       },
       tooltip: {

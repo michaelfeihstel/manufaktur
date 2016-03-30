@@ -396,10 +396,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/models/address.rb",
+			"file": "app/models/product.rb",
 			"settings":
 			{
-				"buffer_size": 1216,
+				"buffer_size": 4282,
 				"line_ending": "Unix"
 			}
 		}
@@ -503,13 +503,25 @@
 	[
 		"/Users/ulflunge/projects/manufaktur",
 		"/Users/ulflunge/projects/manufaktur/app",
+		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts",
+		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/custom",
 		"/Users/ulflunge/projects/manufaktur/app/models",
-		"/Users/ulflunge/projects/manufaktur/app/views"
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show"
 	],
 	"file_history":
 	[
-		"/Users/ulflunge/projects/manufaktur/app/models/contact.rb",
 		"/Users/ulflunge/projects/manufaktur/app/models/letter.rb",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/custom/tabs.js",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_general.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_material.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/models/material.rb",
+		"/Users/ulflunge/projects/manufaktur/app/models/material_consumption.rb",
+		"/Users/ulflunge/projects/manufaktur/app/views/materials/set_period.js.erb",
+		"/Users/ulflunge/projects/manufaktur/app/views/materials/show/_tab_products.html.slim",
+		"/Users/ulflunge/projects/manufaktur/app/models/address.rb",
+		"/Users/ulflunge/projects/manufaktur/app/models/contact.rb",
 		"/Users/ulflunge/projects/manufaktur/app/models/material_property.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index/_contact.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/models/line_item.rb",
@@ -518,16 +530,12 @@
 		"/Users/ulflunge/projects/manufaktur/app/assets/javascripts/application.js",
 		"/Users/ulflunge/projects/manufaktur/app/views/layouts/application.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/layouts/_header.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/materials/show/_tab_products.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/lists.scss",
 		"/Users/ulflunge/projects/manufaktur/app/assets/stylesheets/variables.scss",
 		"/Users/ulflunge/projects/manufaktur/db/migrate/20151026101118_add_foreign_key_copnstrain_to_line_items.rb",
 		"/Users/ulflunge/Downloads/kibana-4.1.2-darwin-x64/bin/kibana.bat",
-		"/Users/ulflunge/projects/manufaktur/app/models/material_consumption.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/materials_controller.rb",
-		"/Users/ulflunge/projects/manufaktur/app/models/material.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/materials/show.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/materials/set_period.js.erb",
 		"/Users/ulflunge/projects/manufaktur/app/policies/material_policy.rb",
 		"/Users/ulflunge/projects/manufaktur/app/policies/contact_policy.rb",
 		"/Users/ulflunge/projects/manufaktur/app/views/products/set_period.js.erb",
@@ -553,14 +561,12 @@
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/index/_table_contacts.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_tab_letters.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_letters.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_material.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_toolbar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_sidebar.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/shared/_quicksearch.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/new.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/contacts_controller.rb",
-		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/_form.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/edit/_tab_general.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/letters_controller.rb",
@@ -631,11 +637,8 @@
 		"/Users/ulflunge/projects/manufaktur/app/views/series/show.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/shared/_search.html.slim",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show/_tab_nearby.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/models/address.rb",
 		"/Users/ulflunge/projects/manufaktur/app/controllers/api/addresses_controller.rb",
-		"/Users/ulflunge/projects/manufaktur/app/views/products/show/_tab_production.html.slim",
-		"/Users/ulflunge/projects/manufaktur/app/policies/order_policy.rb",
-		"/Users/ulflunge/projects/manufaktur/app/helpers/icon_helper.rb"
+		"/Users/ulflunge/projects/manufaktur/app/views/products/show/_tab_production.html.slim"
 	],
 	"find":
 	{
@@ -812,19 +815,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/models/address.rb",
+					"file": "app/models/product.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1216,
+						"buffer_size": 4282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								383,
-								383
+								0,
+								0
 							]
 						],
 						"settings":
@@ -834,7 +837,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 154.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -895,6 +898,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"contactshow",
+				"app/views/contacts/show.html.slim"
+			],
 			[
 				"contact.html",
 				"app/views/contacts/index/_contact.html.slim"
@@ -1362,10 +1369,6 @@
 			[
 				"contact",
 				"app/models/contact.rb"
-			],
-			[
-				"contactshow",
-				"app/views/contacts/show.html.slim"
 			],
 			[
 				"addressc",
