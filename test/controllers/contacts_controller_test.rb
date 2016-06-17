@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  fmid            :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  contact_role_id :integer
+#  additional_data :hstore
+#
+
 require "test_helper"
 
 class ContactsControllerTest < ActionController::TestCase

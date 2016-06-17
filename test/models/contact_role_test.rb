@@ -8,10 +8,6 @@
 #  updated_at          :datetime         not null
 #  human_readable_name :string
 #
-# Indexes
-#
-#  index_contact_roles_on_name  (name)
-#
 
 require "test_helper"
 

@@ -8,6 +8,6 @@
     h4 = @product.sku
   .header-actions
     = button_tag "Speichern", data: { submit: "edit_product" }
-    = link_to "Abbrechen", @product, class: "button light"
+    = link_to "Abbrechen", @product, class: "link"
 
 = render "products/form"

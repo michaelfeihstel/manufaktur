@@ -1,6 +1,6 @@
 // PROGRESS BAR
 html.turbolinks-progress-bar::before {
-  background-color: $secondary-color !important;
+  background-color: $accent-color !important;
   height: 2px !important;
 }
 
@@ -21,11 +21,26 @@ html {
 }
 
 body {
+  @include transition(140ms ease-in-out);
   @include display(flex);
   @include flex-direction(column);
   @include justify-content(flex-start);
   background-color: $background-color;
   margin: 0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+body.show_side {
+  @include transform(translateX(250px));
+}
+
+body.show_search {
+  @include transform(translateX(-400px));
 }
 
 body.inactive {
@@ -48,17 +63,20 @@ body.inactive .main__content__overlay {
   @include flex-direction(column);
   min-height: 100vh;
   padding-top: 55px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .main__content__overlay {
+  @include transition(140ms ease-in-out);
   display: none;
   z-index: 98;
 }
 
 header {
   @include flex(0 0 auto);
-  background-color: $primary-color;
-  padding-bottom: 2rem;
+  background-color: $header-background-color;
+  padding-bottom: 4rem;
   padding-left: $gutter;
   padding-right: $gutter;
   padding-top: 4rem;
@@ -148,8 +166,8 @@ footer {
   padding: 0 $gutter;
   width: 100%;
   z-index: 98;
-  background-color: $light-shade;
-  border-top: 1px solid $accent-color;
+  background-color: $footer-background-color;
+  border-top: 1px solid $mint-gray;
 }
 
 .footer-content {

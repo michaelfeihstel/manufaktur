@@ -15,10 +15,6 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #
-# Indexes
-#
-#  index_letters_on_address_id  (address_id)
-#
 
 class Letter < ActiveRecord::Base
   # associations

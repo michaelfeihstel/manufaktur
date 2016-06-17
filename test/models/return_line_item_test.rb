@@ -9,11 +9,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-# Indexes
-#
-#  index_return_line_items_on_product_id  (product_id)
-#  index_return_line_items_on_return_id   (return_id)
-#
 
 require "test_helper"
 

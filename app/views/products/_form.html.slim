@@ -29,8 +29,11 @@
           = f.collection_select(:size_set_id, SizeSet.all, :id, :name)
 
         .fields
-          = f.label :product_family, "Produktgruppe"
-          = f.collection_select(:product_family_id, ProductFamily.all, :id, :name, prompt: "Bitte wählen...")
+          = f.label :product_family_id, "Produktgruppe"
+          = f.collection_select(:product_family_id, ProductFamily.all, :id, :name)
+          label.small Oder erstelle eine neue Produktgruppe:
+          = f.text_field :new_product_family_name
+
 
       section
         h5.section-header Preis

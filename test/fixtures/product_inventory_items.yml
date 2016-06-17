@@ -41,43 +41,6 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #
-# Indexes
-#
-#  index_product_inventory_items_on_contact_id            (contact_id)
-#  index_product_inventory_items_on_entered_on            (entered_on)
-#  index_product_inventory_items_on_g1                    (g1)
-#  index_product_inventory_items_on_g10                   (g10)
-#  index_product_inventory_items_on_g10h                  (g10h)
-#  index_product_inventory_items_on_g11                   (g11)
-#  index_product_inventory_items_on_g11h                  (g11h)
-#  index_product_inventory_items_on_g12                   (g12)
-#  index_product_inventory_items_on_g12h                  (g12h)
-#  index_product_inventory_items_on_g13                   (g13)
-#  index_product_inventory_items_on_g13h                  (g13h)
-#  index_product_inventory_items_on_g14                   (g14)
-#  index_product_inventory_items_on_g14h                  (g14h)
-#  index_product_inventory_items_on_g15                   (g15)
-#  index_product_inventory_items_on_g16                   (g16)
-#  index_product_inventory_items_on_g1h                   (g1h)
-#  index_product_inventory_items_on_g2                    (g2)
-#  index_product_inventory_items_on_g2h                   (g2h)
-#  index_product_inventory_items_on_g3                    (g3)
-#  index_product_inventory_items_on_g3h                   (g3h)
-#  index_product_inventory_items_on_g4                    (g4)
-#  index_product_inventory_items_on_g4h                   (g4h)
-#  index_product_inventory_items_on_g5                    (g5)
-#  index_product_inventory_items_on_g5h                   (g5h)
-#  index_product_inventory_items_on_g6                    (g6)
-#  index_product_inventory_items_on_g6h                   (g6h)
-#  index_product_inventory_items_on_g7                    (g7)
-#  index_product_inventory_items_on_g7h                   (g7h)
-#  index_product_inventory_items_on_g8                    (g8)
-#  index_product_inventory_items_on_g8h                   (g8h)
-#  index_product_inventory_items_on_g9                    (g9)
-#  index_product_inventory_items_on_g9h                   (g9h)
-#  index_product_inventory_items_on_product_id            (product_id)
-#  index_product_inventory_items_on_product_inventory_id  (product_inventory_id)
-#
 
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

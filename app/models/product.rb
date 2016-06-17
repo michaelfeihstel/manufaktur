@@ -20,13 +20,10 @@
 #  retail_price      :decimal(8, 2)
 #  product_family_id :integer
 #
-# Indexes
-#
-#  index_products_on_product_family_id  (product_family_id)
-#  index_products_on_size_set_id        (size_set_id)
-#
 
 class Product < ActiveRecord::Base
+  attr_accessor :new_product_family_name
+
   # associations
   belongs_to :size_set
   belongs_to :product_family
@@ -43,6 +40,10 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :product_images, allow_destroy: true
   accepts_nested_attributes_for :material_consumptions, allow_destroy: true
   accepts_nested_attributes_for :series, allow_destroy: true
+  accepts_nested_attributes_for :product_family
+
+  # callbacks
+  before_save :create_new_product_family
 
   # pg_search
   include PgSearch
@@ -56,11 +57,9 @@ class Product < ActiveRecord::Base
   validates	:name,	presence: true
   validates	:sku,		presence: true
 
-
-
   # Methods
-  def product_family_options
-    ["Classic Run", "Classic Walk", "Evo Run", "Accento", "Light", "Gomax"]
+  def create_new_product_family
+    create_product_family(name: new_product_family_name) unless new_product_family_name.blank?
   end
 
   def default_image

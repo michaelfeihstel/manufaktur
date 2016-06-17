@@ -7,7 +7,7 @@
     h1 = @contact.name
   .header-actions
     = button_tag "Speichern", data: { submit: "edit_contact" }
-    = link_to "Abbrechen", @contact, class: "button light"
+    = link_to "Abbrechen", @contact, class: "button"
 
 = render "contacts/form"
 

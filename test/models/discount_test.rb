@@ -10,11 +10,6 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
-# Indexes
-#
-#  index_discounts_on_enabled       (enabled)
-#  index_discounts_on_line_item_id  (line_item_id)
-#
 
 require "test_helper"
 

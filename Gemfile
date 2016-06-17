@@ -57,10 +57,6 @@ end
 # API
 gem 'jbuilder'
 
-# rails-assets
-source 'https://rails-assets.org' do
-end
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

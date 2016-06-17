@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: materials
+#
+#  id           :integer          not null, primary key
+#  name         :string
+#  supplier_sku :string
+#  unit         :string
+#  price        :decimal(8, 2)
+#  comment      :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  contact_id   :integer
+#
+
 class MaterialsController < ApplicationController
   before_action :initialize_search, only: [:index, :search, :show, :edit, :new]
   after_action :verify_authorized

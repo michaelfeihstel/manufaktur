@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: product_inventories
+#
+#  id         :integer          not null, primary key
+#  year       :integer
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class ProductInventoriesController < ApplicationController
   before_action :initialize_search
   after_action :verify_authorized

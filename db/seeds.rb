@@ -16,7 +16,8 @@ create_product_families = ProductFamily.create(
     { id: 3, name: "Evo Run" },
     { id: 4, name: "Accento" },
     { id: 5, name: "Light" },
-    { id: 6, name: "Gomax" }
+    { id: 6, name: "Gomax" },
+    { id: 7, name: "Neo Run" }
   ]
 )
 

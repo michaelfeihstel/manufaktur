@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: api_keys
+#
+#  id         :integer          not null, primary key
+#  key        :string
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class ApiKeysController < ApplicationController
   def create
     @api_key = ApiKey.new(api_key_params)

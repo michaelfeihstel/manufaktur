@@ -5,7 +5,7 @@ hr {
 
 // GLOBAL SEARCH
 input#term.global-search__input {
-  background-color: $primary-color;
+  background-color: scale-color($appbar-background-color, $lightness: 5%);
   border: none;
   color: #fff;
   padding: 0 $gutter/2;
@@ -48,9 +48,10 @@ input#term.global-search__input {
   @include display(flex);
   @include flex-direction(column);
   @include transition(140ms ease-in);
-  background-color: $secondary-color;
+  background-color: $offwhite;
   z-index: 100;
   position: fixed;
+  height: 100vh;
 }
 
 .search {
@@ -96,15 +97,13 @@ input#term.global-search__input {
 
 .search__header .search__toggle {
   width: 100%;
-  background-color: $background-color;
-  color: $primary-color;
 }
 
 .search__toggle.active {
   background-color: $alert-color;
 
   &:hover {
-    background-color: $background-color;
+    background-color: $mint-gray;
   }
 }
 
@@ -145,7 +144,7 @@ input#term.global-search__input {
   @include display(flex);
   align-items: center;
   height: 55px;
-  background-color: $background-color;
+  background-color: #444;
   padding: 0 1.25rem;
 }
 
@@ -161,7 +160,7 @@ input#term.global-search__input {
 .search__footer {
   padding: $gutter;
   @include flex(0 0 auto);
-  background-color: $background-color;
+  background-color: $mint-gray;
   border-top: 1px solid $hairline-color;
 }
 
@@ -189,7 +188,7 @@ input#term.global-search__input {
   top: 0;
 
   &:hover {
-    background-color: $background-color;
+    background-color: $mint-gray;
     color: $primary-color;
   }
 }
@@ -197,8 +196,6 @@ input#term.global-search__input {
 
 .side__header .side__toggle {
   width: 250px;
-  background-color: $background-color;
-  color: $primary-color;
 }
 
 
@@ -353,10 +350,9 @@ img {
 // BREADCRUMBS
 .container--breadcrumbs {
   @include flex(0 0 auto);
-  background-color: $secondary-color;
+  background-color: $breadcrumbs-background-color;
   z-index: 97;
-  border-top: 4px solid $accent-color;
-  border-bottom: 1px solid $hairline-color;
+  border-bottom: 1px solid $mint-gray;
 }
 
 ul.breadcrumbs {
@@ -387,9 +383,11 @@ ul.breadcrumbs li {
 
 ul.breadcrumbs li a {
   color: inherit;
+  border-bottom: 1px solid $black;
 
   &:hover {
-    border-bottom: 1px solid $font-color;
+    color: $accent-color;
+    border-color: $accent-color;
   }
 }
 
@@ -604,7 +602,7 @@ input[type="search"].subnav-search-field {
 
 .sidebar-header {
   height: 59px !important;
-  background-color: scale-color($secondary-color, $lightness: -5%)
+  background-color: scale-color($secondary-color, $lightness: -5%);
 }
 
 .sidebar-section {
@@ -642,7 +640,7 @@ span.page a {
 }
 
 span.page a:hover {
-  background-color: scale-color($secondary-color, $lightness: -5%)
+  background-color: $mint-gray
 }
 
 nav.pagination span.page:first-child {
@@ -655,7 +653,7 @@ nav.pagination span.page:last-child {
 
 span.page--current a,
 span.page--current:hover a {
-  background-color: $primary-color;
+  background-color: $black;
   color: #fff;
 }
 

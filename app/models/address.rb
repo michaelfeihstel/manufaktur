@@ -15,10 +15,6 @@
 #  latitude     :float
 #  longitude    :float
 #
-# Indexes
-#
-#  index_addresses_on_contact_id  (contact_id)
-#
 
 class Address < ActiveRecord::Base
   belongs_to :contact

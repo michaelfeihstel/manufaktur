@@ -47,7 +47,7 @@ nav.vertical > ul > li > ul > li > ul > li > a {
 nav.appbar {
   @include display(flex);
   @include align-items(center);
-  background-color: scale-color($primary-color, $lightness: -10%);
+  background-color: $appbar-background-color;
   color: $background-color;
   height: 55px;
   left: 0;

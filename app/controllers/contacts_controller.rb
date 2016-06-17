@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  fmid            :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  contact_role_id :integer
+#  additional_data :hstore
+#
+
 class ContactsController < ApplicationController
   before_action :initialize_search, except: [:create, :update, :destroy]
   before_action :authenticate_user!

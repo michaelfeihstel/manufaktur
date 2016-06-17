@@ -9,9 +9,26 @@ $font-small-size: 13;
 }
 
 // colors
+$green: #B6BE00;
+$mint-gray: #EBEBF0;
+$offwhite: #F7F7F9;
+$white: #FFFFFF;
+$red: #DA284B;
+$black: #333333;
+$slate-gray: #5A7582;
+
+$accent-color: $green;
+$background-color: $white;
+$header-background-color: $mint-gray;
+$header-text-color: $black;
+$breadcrumbs-background-color: $offwhite;
+$footer-background-color: $offwhite;
+$appbar-background-color: $black;
+$link-color: $black;
+$hairline-color: #e2e2e2;
+
 $primary-color: #5A7582;
 $secondary-color: #F2F2F2;
-$background-color: #FDFDFD;
 $light-shade: #F9F9F9;
 $accent-color: #B6BE00;
 $breadcrumb-background-color: #593A4C;

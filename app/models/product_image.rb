@@ -12,10 +12,6 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #
-# Indexes
-#
-#  index_product_images_on_product_id  (product_id)
-#
 
 class ProductImage < ActiveRecord::Base
   belongs_to :product

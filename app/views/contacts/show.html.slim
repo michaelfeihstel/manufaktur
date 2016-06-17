@@ -5,6 +5,8 @@
 - content_for :header
   .header-title
     h1 = @contact.name
+  .header-actions
+    = link_to "Bearbeiten", edit_contact_path(@contact), class: "button"
 
 ul.tabs data-tab=""
   li.tab-title.active = link_to "Stammdaten", "general"

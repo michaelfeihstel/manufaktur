@@ -10,11 +10,6 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-# Indexes
-#
-#  index_shipments_on_carrier_id  (carrier_id)
-#  index_shipments_on_order_id    (order_id)
-#
 
 class Shipment < ActiveRecord::Base
   belongs_to :order

@@ -16,7 +16,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4 {
   margin: 1.414rem 0 0.5rem;
-  color: $primary-color;
   font-weight: inherit;
   line-height: 1.2;
 }
@@ -39,7 +38,7 @@ header h3,
 header h4, 
 header h5, 
 header h6 {
-  color: $background-color;
+  color: $header-text-color;
   position: relative;
 }
 
@@ -101,17 +100,17 @@ p {
 }
 
 a {
-  color: $primary-color;
+  color: $link-color;
   text-decoration: none;
 }
 
 a.link,
 input[type=submit].link {
-  color: $primary-color;
-  border-bottom: 1px solid $hairline-color;
+  border-bottom: 1px solid $link-color;
 
   &:hover {
-    border-color: $primary-color;
+    color: $accent-color;
+    border-color: $accent-color;
   }
 }
 
@@ -120,16 +119,6 @@ a.link.alert {
 
   &:hover {
     border-color: $alert-color;
-  }
-}
-
-.header-actions a.link {
-  color: $background-color;
-  border-bottom: 2px solid $hairline-color;
-
-  &:hover {
-    color: #fff;
-    border-color: #fff;
   }
 }
 
