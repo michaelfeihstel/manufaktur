@@ -1,9 +1,8 @@
 // search-toggle
 $('[data-toggle="search"]').click(function() {
 
-  // $('.search').toggleClass("visible");
-  $('body').toggleClass('show_search inactive');
-  $('.main__content').toggleClass("show_search");
+  $('.search').toggleClass("visible");
+  $('body').toggleClass('inactive');
 });
 
 // global-search
@@ -41,5 +40,5 @@ $('.main__content__overlay').click(function(){
   $('.search__toggle').removeClass("visible");
   $('.global-search__results').removeClass('visible');
   $('.global-search__input').val('');
-  $('body').removeClass('show_search inactive');
+  $('body').removeClass('inactive');
 });
