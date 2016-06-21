@@ -25,6 +25,9 @@
 /manufaktur.sublime-project
 /manufaktur.sublime-workspace
 
+# VS Code files
+/.vscode
+
 # env variables
 .env
 .foreman
