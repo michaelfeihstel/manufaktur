@@ -115,7 +115,7 @@ class LineItem < ActiveRecord::Base
 
 
   def quantity_label
-    badge = "#{self.try(:product).try(:sku)} (#{quantity})"
+    badge = "#{try(:product).try(:sku)} (#{quantity})"
   end
   
 end

@@ -19,9 +19,6 @@
 
 [data-tooltip]::after {
   @include transition(140ms ease-in-out);
-}
-
-[data-tooltip]:hover::after {
   @include truncated;
   position: absolute;
   top: 22px;
@@ -31,4 +28,9 @@
   content: attr(data-tooltip);
   background-color: #333;
   z-index: 99;
+  display: none;
+}
+
+[data-tooltip]:hover::after {
+  display: block;
 }
