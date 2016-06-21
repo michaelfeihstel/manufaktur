@@ -13,12 +13,12 @@ tr.order-item data-id=order.id
   td
     - if order.is_webshop?
       = icon("shopping_cart", additional_classes: "md-18")
-  td = order.billing_name
+  td.truncated = order.billing_name
   td = l order.created_at, format: :date_only
   td
     - order.line_items.each do |li|
-      span.product-label.product-label--fixed style= (product_label_style(li.product))
-        = li.quantity_label
+      span.product-label.product-label--square data-tooltip=li.quantity_label style= (product_label_style(li.product))
+        // = li.quantity_label
   td.text-right
     - if order.line_items.present?
       = number_to_currency(order.try(:line_items).to_a.sum(&:gross_total))

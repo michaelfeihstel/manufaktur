@@ -1,13 +1,13 @@
 table
   thead
     tr
-      th = icon("done")
-      th width="50" = icon("star")
+      th width="30" = icon("done")
+      th width="30" = icon("star")
       th width="90" Auftrag
-      th
+      th width="30"
       th width="290" Auftraggeber
-      th Erstellt
-      th.hide-for-medium-only Artikel
+      th width="70" Erstellt
+      th Artikel
       th.text-right width="100" Betrag
 
   tbody
@@ -16,5 +16,5 @@ table
 
   tfoot
     tr
-      td.text-right colspan=7
+      td.text-right colspan=8
         h4.bold= number_to_currency(@orders.to_a.sum{|o| o.line_items.to_a.sum(&:price_total)})
