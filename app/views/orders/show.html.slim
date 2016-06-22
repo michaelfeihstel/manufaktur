@@ -68,13 +68,13 @@ section
           .span-small-12.span-medium-6.span-large-8
             - if @order.comment.present?
               .panel
-                .panel__bar
+                .panel__bar.panel__bar--top
                   h5.panel__title Bemerkung
                 .panel__body
                   = @order.comment
           .span-small-12.span-medium-6.span-large-4
             .panel
-              .panel__bar
+              .panel__bar.panel__bar--top
                 h5.panel__title Gesamt
               .panel__body
                 p.text-right

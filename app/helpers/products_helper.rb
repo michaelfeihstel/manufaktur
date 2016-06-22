@@ -36,6 +36,30 @@ module ProductsHelper
     end
   end
 
+  def product_label(product)
+    unless product.nil?
+      primary_color = product.primary_color.blank? ? "#F2F2F2" : product.primary_color
+      secondary_color = product.secondary_color.blank? ? "#E3E3E3" : product.secondary_color
+      text_color = product.text_color || "#333"
+
+      content_tag :div, class: "product-label product-label--fixed" do
+        content_tag(:div, product.try(:sku), class: "product-label__top", style: "background-color: #{primary_color}; color: #{text_color};").concat(
+          content_tag :div, "", class: "product-label__bottom", style: "background-color: #{secondary_color}"
+        )
+      end
+    end
+  end
+
+  def product_label_square(product)
+    unless product.nil?
+      content_tag :div, class: "product-label product-label--square" do
+        content_tag(:div, "", class: "product-label__top", style: "background-color: #{product.primary_color}; color: #{product.text_color};").concat(
+          content_tag :div, "", class: "product-label__bottom", style: "background-color: #{product.secondary_color}"
+        )
+      end
+    end
+  end
+
   def horizontal_gradient(product)
     primary_color = product.primary_color
     secondary_color = product.secondary_color

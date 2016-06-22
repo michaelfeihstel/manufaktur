@@ -58,10 +58,6 @@ input[type=submit].link {
   cursor: pointer;
 }
 
-label.label--inline {
-  display: inline;
-}
-
 select.custom {
   transition: none;
 }
@@ -133,7 +129,6 @@ label {
   font-family: $header-font;
   font-weight: 400;
   opacity: 0.6;
-  padding-top: 0.5rem;
   text-rendering: geometricPrecision;
 }
 
@@ -146,13 +141,8 @@ label {
 }
 
 .inline-label {
-  color: scale-color($font-color, $lightness: 50%);
   display: inline;
-  font-family: $header-font;
-  font-variant: small-caps;
-  font-weight: 600;
   margin-right: 0.5rem;
-  text-transform: lowercase;
 }
 
 /*-------------------*\

@@ -29,9 +29,7 @@
       tbody
         - products.each do |product|
           tr
-            td width=120
-              span.product-label.product-label--fixed style= (product_label_style(product))
-                = product.sku
+            td width=120 = product_label(product)
             td
               span = link_to product.name, product_path(product), class: "link"
               br

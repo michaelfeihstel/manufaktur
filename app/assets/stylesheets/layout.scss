@@ -130,7 +130,8 @@ header {
 }
 
 .main {
-  @include flex(1 1)
+  @include flex(1 1);
+  overflow: scroll;
 }
 
 .logo {

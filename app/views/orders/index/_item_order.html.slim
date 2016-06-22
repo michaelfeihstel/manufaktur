@@ -17,7 +17,8 @@ tr.order-item data-id=order.id
   td = l order.created_at, format: :date_only
   td
     - order.line_items.each do |li|
-      div.product-label.product-label--square data-tooltip=li.quantity_label style=(product_label_style(li.product))
+      // div.product-label.product-label--square data-tooltip=li.quantity_label style=(product_label_style(li.product))
+      = product_label_square(li.product)
   td.text-right
     - if order.line_items.present?
       = number_to_currency(order.try(:line_items).to_a.sum(&:gross_total))

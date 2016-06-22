@@ -22,7 +22,7 @@ ul.inline-list li {
 ul.sizes-list {
   @include display(flex);
   padding-bottom: 1rem;
-  overflow: overlay;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 

@@ -24,9 +24,7 @@
       tbody
         - products.each do |product|
           tr
-            td
-              span.product-label.product-label--fixed style=product_label_style(product)
-                = product.sku
+            td = product_label(product)
             td = link_to product.name, product, class: "link"
             td = product.color_text
             td.text-right
