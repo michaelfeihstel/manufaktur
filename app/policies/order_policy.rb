@@ -3,6 +3,10 @@ class OrderPolicy < ApplicationPolicy
     index?
   end
 
+  def scheduled?
+    index?
+  end
+
   def dashboard?
     index?
   end

@@ -39,7 +39,15 @@ section
   h5.section-header Verlauf
   .fields
     label Erstellt am
-    = l @order.created_at, format: :date_only 
+    = l @order.created_at, format: :date_only
+  .fields
+    label Liefertermin
+    ul.inline-list
+      li
+        = l @order.delivered_on
+      - if @order.is_scheduled_delivery
+        li
+          span.label.label--small Terminlieferung
   .fields
     label Abgeschlossen
     = @order_presenter.completed_status 

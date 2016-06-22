@@ -104,7 +104,8 @@ class Order < ActiveRecord::Base
 
   # SCOPES
   scope :favorites, -> { where(marked: true) }
-  scope :ordered_by, ->(customer_id) { where(customer_id: customer_id) }
+  scope :scheduled, -> { where(is_scheduled_delivery: true) }
+  scope :ordered_by, -> (customer_id) { where(customer_id: customer_id) }
 
   # RANSACK
   ransacker :quicksearch

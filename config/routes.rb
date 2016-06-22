@@ -64,6 +64,7 @@ Manufaktur::Application.routes.draw do
     end
     collection do
       get "favorites", action: "favorites", as: "favorite"
+      get "scheduled", action: "scheduled", as: "scheduled"
       get "created/:year/:month/:day", action: "index_created_at", as: "created_at"
     end
   end

@@ -189,6 +189,16 @@ label.section-label {
   text-rendering: optimizeLegibility;
 }
 
+.label {
+  background-color: $black;
+  padding: 0.25rem 0.5rem;
+  color: $white;
+}
+
+.label--small {
+  font-size: 0.8125rem;
+}
+
 
 // INVERTED
 .inverted,

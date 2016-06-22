@@ -85,6 +85,13 @@ class OrdersController < ApplicationController
     render "index"
   end
 
+  def scheduled
+    @orders = Order.scheduled.includes(:line_items, :products, :contact).order(id: :desc).page(params[:page]).per(100)
+    authorize @orders
+    @filter_selected = "scheduled"
+    render "index"
+  end
+
 
   def show
     @order = Order.includes(:line_items, :discounts, :contact, { products: :size_set }).find(params[:id])

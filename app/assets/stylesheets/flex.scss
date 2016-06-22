@@ -37,11 +37,11 @@
 }
 
 @for $i from 1 through 10 {
-  .flex-item-#{$i} {
+  .flex-item--#{$i} {
     @include flex($i $i);
     margin-right: 1rem;
   }
-  .flex-head-#{$i} {
+  .flex-head--#{$i} {
     @include flex($i $i);
     margin-right: 1rem;
   }
@@ -50,11 +50,11 @@
 $widths: 50 100 150 200 250 300 350 400 500 600 700 800 900 1000;
 
 @each $width in $widths {
-  .flex-item-fixed-#{$width} {
+  .flex-item--fixed-#{$width} {
     @include flex("0 0 #{$width}px");
     margin-right: 1rem;
   }
-  .flex-head-fixed-#{$width} {
+  .flex-head--fixed-#{$width} {
     @include flex("0 0 #{$width}px");
     margin-right: 1rem;
   }
