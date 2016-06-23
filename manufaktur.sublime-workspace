@@ -512,11 +512,8 @@
 		"/Users/ulflunge/projects/manufaktur/app/views",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts",
 		"/Users/ulflunge/projects/manufaktur/app/views/contacts/show",
-		"/Users/ulflunge/projects/manufaktur/app/views/layouts/shared",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders",
 		"/Users/ulflunge/projects/manufaktur/app/views/orders/show",
-		"/Users/ulflunge/projects/manufaktur/app/views/products/dashboard",
-		"/Users/ulflunge/projects/manufaktur/app/views/products/shared",
 		"/Users/ulflunge/projects/manufaktur/app/views/size_sets",
 		"/Users/ulflunge/projects/manufaktur/app/views/size_sets/index"
 	],
