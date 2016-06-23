@@ -3,10 +3,10 @@
 = render "orders/edit/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @order.id
     h3 = @order.billing_name
-  .header-actions
+  .header__actions
     = button_tag "Speichern", data: { submit: "edit_order" }
     = link_to "Abbrechen", :back, class: "link"
 

@@ -42,6 +42,7 @@ end
 
 group :development, :test do
   gem 'foreman'
+  gem 'best_in_place', '~> 3.0.1'
 end
 
 group :test do

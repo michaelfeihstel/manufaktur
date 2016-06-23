@@ -246,3 +246,37 @@ input.quicksearch__button:hover {
 
 .selectize-control.single .selectize-input.input-active {
 }
+
+
+.form_in_place {
+  display: flex;
+  align-items: center;
+}
+
+.form_in_place input[type="text"] {
+  flex: 0 1 auto;
+  width: auto;
+}
+
+input.best_in_place__submit {
+  @include appearance(none);
+  flex: 0 0 auto;
+  background-color: $accent-color;
+  color: #fff;
+  padding: 0.5rem 0.5rem;
+  border: none;
+  height: 2.25rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $black;
+  }
+}
+
+.best_in_place {
+}
+
+.best_in_place:hover::after {
+  font-size: 0.75rem;
+  content: "Bearbeiten"
+}

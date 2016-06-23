@@ -2,9 +2,9 @@
 = render "orders/edit/sidebar"
 
 - content_for :header do
-  .header-title
+	.header__title
     h1 Auftrag erstellen
-  .header-actions
+  .header__actions
     = link_to "Abbrechen", orders_path, class: "button"
     = button_tag "Speichern", class: "button", data: { submit: "order-form" }
 

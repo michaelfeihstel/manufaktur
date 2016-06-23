@@ -1,10 +1,10 @@
 = render "orders/shared/search"
-= render "orders/show/breadcrumbs"
 = render "orders/show/sidebar"
 = render "orders/show/toolbar"
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Aufträge: orders_path, "#{@order.id}": nil }
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @order.id
     h3 = @order.billing_name
 

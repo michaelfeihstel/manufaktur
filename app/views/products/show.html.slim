@@ -3,12 +3,12 @@
 = render "products/show/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1
       span = "#{@product.name} " 
       span.thin = @product.color_text
     h3 = @product.sku
-  .header-actions
+  .header__actions
     = link_to "Bearbeiten", edit_product_path(@product), class: "button"
 
 ul.tabs data-tab=""

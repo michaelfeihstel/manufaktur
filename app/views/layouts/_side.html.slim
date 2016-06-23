@@ -3,7 +3,7 @@
     = icon("chevron_left", size: "md-24")
 .side__content
   h3 Menü
-  nav.vertical
+  nav.main-nav
     ul
       li.has-children
         = link_to "Kontakte", contacts_path
@@ -22,7 +22,7 @@
       li.has-children
         = link_to icon("assessment", text: "Artikel"), dashboard_products_path
         ul
-          li = link_to "Alle Artikel", products_path
+          li = link_to "Artikel", products_path
           li = link_to "Inventuren", product_inventories_path
           li = link_to "Größensysteme", size_sets_path
 

@@ -2,10 +2,10 @@
 = render "materials/show/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @material.name
     h3 = @material.properties
-  .header-actions
+  .header__actions
     = link_to "Bearbeiten", edit_material_path(@material), class: "button"
 
 ul.tabs data-tab=""

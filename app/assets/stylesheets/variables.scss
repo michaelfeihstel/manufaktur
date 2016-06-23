@@ -39,13 +39,30 @@ $highlight-color: #EBF7A4;
 $alert-color: #E40D46;
 
 // breakpoints
-$end-small: 767px;
-$start-medium: 768px;
-$end-medium: 1024px;
-$start-large: 1025px;
-
+$end-phone: 767px;
 $start-tablet-portrait: 768px;
-$end-tablet-portrait: 1023px; 
+$end-tablet-portrait: 1023px;
+$start-tablet-landscape: 1024px;
+$end-tablet-landscape: 1279px;
+$start-desktop: 1280px;
+
+@mixin tablet-portrait() {
+  @media screen and (min-width: $start-tablet-portrait) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape() {
+  @media screen and (min-width: $start-tablet-landscape) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (min-width: $start-desktop) {
+    @content;
+  }
+}
 
 // layout
 $gutter: 1.618rem;

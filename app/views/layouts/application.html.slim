@@ -29,28 +29,25 @@ html lang="de"
   body
     = render "layouts/flash"
     = render "layouts/header"
-    .main__content
+    main
       header
-        .row
-          .span-small-12
-            = yield :header
-      .container.container--breadcrumbs
-        .row
-          .span-small-12
-            = yield :breadcrumbs
-      .container.container--main
-        .row
-          .span-small-12
-            .content
-              .main
-                = yield
-              - if content_for?(:sidebar)
-                .sidebar
-                  = yield :sidebar
+        .content-container
+          = yield :header
+      .breadcrumbs-container
+        .content-container
+          = yield :breadcrumbs
+      .main-content
+        .content-container
+          .content
+            article
+              = yield
+            - if content_for?(:sidebar)
+              aside
+                = yield :sidebar
       - if content_for?(:footer)
         footer
-          .footer-content
-              = yield :footer
+          .content-container
+            = yield :footer
     .side
       = render "layouts/side"
     .search

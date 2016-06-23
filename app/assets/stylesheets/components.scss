@@ -3,6 +3,14 @@ hr {
   border-bottom: 1px solid scale-color($secondary-color, $lightness: -5%);
 }
 
+// HEADER
+.header__title {
+  margin-bottom: 4rem;
+}
+
+.header__actions {
+}
+
 // GLOBAL SEARCH
 input#term.global-search__input {
   background-color: scale-color($appbar-background-color, $lightness: 5%);
@@ -111,19 +119,12 @@ input#term.global-search__input {
   background-color: $background-color;
 }
 
-@media (max-width: $end-small) {
-  .search {
-    right: -320px;
-    width: 320px;
-  }
+.search.visible {
+  width: 320px;
+}
 
-  .search.visible {
-    width: 320px;
-  }
-
-  .search__toggle.visible {
-    @include transform(translate(-320px,0));
-  }
+.search__toggle.visible {
+  @include transform(translate(-320px,0));
 }
 
 .side {
@@ -348,11 +349,13 @@ img {
 
 
 // BREADCRUMBS
-.container--breadcrumbs {
+.breadcrumbs-container {
   @include flex(0 0 auto);
   background-color: $breadcrumbs-background-color;
   z-index: 97;
   border-bottom: 1px solid $mint-gray;
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
 ul.breadcrumbs {

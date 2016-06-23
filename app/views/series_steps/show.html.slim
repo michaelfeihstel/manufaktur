@@ -1,12 +1,12 @@
 = render "series_steps/show/breadcrumbs"
 
 - content_for :header
-  .header-title
+  .header__title
     h1
       span.thin = "Serie "
       span = @series_step.name
     h3 = @series_step.work_step.name
-  .header-actions
+  .header__actions
     = link_to "Bearbeiten", edit_series_series_step_path(@series_step.series, @series_step), class: "button"
 
 section

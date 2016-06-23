@@ -1,11 +1,11 @@
 = render "contacts/shared/search"
-= render "contacts/show/breadcrumbs"
 = render "contacts/show/sidebar"
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Kontakte: contacts_path, "#{@contact.name}": nil }
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @contact.name
-  .header-actions
+  .header__actions
     = link_to "Bearbeiten", edit_contact_path(@contact), class: "button"
 
 ul.tabs data-tab=""

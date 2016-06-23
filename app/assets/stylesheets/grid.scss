@@ -178,7 +178,7 @@ $susy: (
 }
 
 // medium devices
-@media (min-width: $start-medium) {
+@include tablet-portrait {
   // spans
   .span-medium-1 {
     @include span(1);
@@ -317,7 +317,7 @@ $susy: (
 
 
 // large devices
-@media (min-width: $start-large) {
+@include desktop {
   // spans
   .span-large-1 {
     @include span(1);

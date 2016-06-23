@@ -2,7 +2,7 @@
 = render "work_steps/show/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @work_step.name
-  .header-actions
+  .header__actions
     = link_to "Bearbeiten", edit_work_step_path(@work_step), class: "button" 

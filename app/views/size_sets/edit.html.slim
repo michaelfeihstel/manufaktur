@@ -2,9 +2,9 @@
 = render "size_sets/edit/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = "#{@size_set.name} Bearbeiten"
-  .header-actions
+  .header__actions
     = link_to "Speichern", "#", class: "button", data: { submit: "edit_size_set" }
     = link_to "Abbrechen", @size_set, class: "link"
 

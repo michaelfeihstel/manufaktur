@@ -1,14 +1,14 @@
 = render "orders/index/toolbar"
 = render "orders/shared/search"
-= render "orders/index/breadcrumbs"
 = render "orders/index/sidebar"
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Aufträge: nil }
 
 - content_for :header
-  .header-title
+  .header__title
     h1 Aufträge
     - if @date
       h4 = l @date, format: :weekday_default
-  .header-actions
+  .header__actions
     = link_to "Auftrag erstellen", new_order_path, class: "button"
 
 = render "orders/index/table_orders"

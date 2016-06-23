@@ -2,10 +2,10 @@
 = render "series/shared/search"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @series.id
     h4 = @series.product.full_name
-  .header-actions
+  .header__actions
     = link_to "Speichern", "#", class: "button", data: { submit: "edit_series" }
     = link_to "Abbrechen", "#", class: "button secondary"
 

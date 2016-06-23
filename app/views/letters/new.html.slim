@@ -3,9 +3,9 @@
 = render "letters/edit/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1.truncated Neuer Brief
-  .header-action
+  .header__action
     = button_tag "Speichern", class: "button dense", data: { submit: "new_letter" }
 
 section

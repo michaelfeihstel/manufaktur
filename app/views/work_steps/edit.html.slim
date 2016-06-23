@@ -2,9 +2,9 @@
 = render "work_steps/edit/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @work_step.name
-  .header-actions
+  .header__actions
     = link_to "Speichern", "#", class: "button", data: { submit: "edit_work_step" }
     = link_to "Abbrechen", @work_step, class: "button secondary"
 

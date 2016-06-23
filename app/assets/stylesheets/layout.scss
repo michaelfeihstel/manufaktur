@@ -52,7 +52,14 @@ body.inactive .main__content__overlay {
   background-color: rgba(44, 44, 44, 0.4)
 }
 
-.main__content {
+.content-container {
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+main {
   @include display(flex);
   @include flex-direction(column);
   min-height: 100vh;
@@ -81,16 +88,11 @@ header {
   padding-right: $gutter;
 }
 
-.container--main {
+.main-content {
   @include flex(1 0 auto);
   padding-bottom: 60px;
-}
-
-.header-title {
-  margin-bottom: 4rem;
-}
-
-.header-actions {
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
 .content {
@@ -110,26 +112,39 @@ header {
   }
 }
 
-.sidebar {
-  @include flex(0 0 250px);
+aside {
+  order: -1;
+  margin-top: -3rem;
   border: none;
   border-left: 1px solid $hairline-color;
-  margin-left: $gutter;
-  margin-right: $gutter * -1;
-  padding: 0 $gutter;
+  border-bottom: 1px solid $hairline-color;
+  margin-bottom: 1.618rem;
+  margin-left: -1 * $gutter;
+  margin-right: -1 * $gutter;
+  padding: $gutter;
 
-  @media (screen and max-width: $end-tablet-portrait) {
-    @include flex(0 0);
-    border: none;
-    margin-bottom: 1.618rem;
-    margin-left: -1 * $gutter;
-    margin-right: -1 * $gutter;
-    padding: $gutter;
-    background-color: $light-shade;
+  @include tablet-landscape {
+    @include flex(0 0 250px);
+    margin-top: 0;
+    margin-left: $gutter;
+    margin-right: $gutter * -1;
+    order: 0;
+    padding: 0.5rem $gutter;
+    border-bottom: none;
   }
+
+  // @media (screen and max-width: $end-tablet-portrait) {
+  //   @include flex(0 0);
+  //   border: none;
+  //   margin-bottom: 1.618rem;
+  //   margin-left: -1 * $gutter;
+  //   margin-right: -1 * $gutter;
+  //   padding: $gutter;
+  //   background-color: $light-shade;
+  // }
 }
 
-.main {
+article {
   @include flex(1 1);
   overflow: scroll;
 }
@@ -158,16 +173,11 @@ header {
 
 footer {
   flex: 0 auto;
-  padding: 0 $gutter;
+  padding: 4rem $gutter;
   width: 100%;
   z-index: 98;
   background-color: $footer-background-color;
   border-top: 1px solid $mint-gray;
-}
-
-.footer-content {
-  @include container;
-  padding: 4rem 0;
 }
 
 section {

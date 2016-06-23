@@ -1,10 +1,10 @@
-= render "layouts/shared/breadcrumbs", breadcrumbs: { home: :root, eisntellungen: "#", größensysteme: size_sets_path }
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Einstellungen: "#", Größensysteme: nil }
 = render "size_sets/index/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 Größensysteme
-  .header-actions
+  .header__actions
     = link_to "Neues Größensystem", new_size_set_path, class: "button"
 
 

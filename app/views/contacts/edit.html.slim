@@ -1,13 +1,13 @@
 = render "contacts/shared/search"
-= render "contacts/edit/breadcrumbs"
 = render "contacts/edit/sidebar"
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Kontakte: contacts_path, @contact.name => @contact, Bearbeiten: nil }
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = @contact.name
-  .header-actions
+  .header__actions
     = button_tag "Speichern", data: { submit: "edit_contact" }
-    = link_to "Abbrechen", @contact, class: "button"
+    = link_to "Abbrechen", @contact, class: "link"
 
 = render "contacts/form"
 

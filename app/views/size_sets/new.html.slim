@@ -2,9 +2,9 @@
 = render "size_sets/new/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 Größensystem erstellen
-  .header-actions
+  .header__actions
     = button_to "Speichern", "#", class: "button", data: { submit: "new_size_set" }
 
 = render "form"

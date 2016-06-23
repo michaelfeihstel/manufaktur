@@ -1,9 +1,10 @@
 = render "contacts/new/sidebar"
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Kontakte: contacts_path, "Kontakt erstellen": nil }
 
 - content_for :header
-  .header-title
+  .header__title
     h1 Kontakt hinzufügen
-  .header-actions
+  .header__actions
     = button_tag "Speichern", class: "button dense", data: { submit: "new_contact" } 
 
 

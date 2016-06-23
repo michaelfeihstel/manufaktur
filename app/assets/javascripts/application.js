@@ -23,4 +23,3 @@ $(document).on('nested:fieldRemoved', function (event) {
 	console.log("field removed");
   $('[required]', event.field).removeAttr('required');
 });
-

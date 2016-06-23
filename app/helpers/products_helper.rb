@@ -52,7 +52,7 @@ module ProductsHelper
 
   def product_label_square(product)
     unless product.nil?
-      content_tag :div, class: "product-label product-label--square" do
+      content_tag :div, class: "product-label product-label--square", data: { tooltip: product.sku } do
         content_tag(:div, "", class: "product-label__top", style: "background-color: #{product.primary_color}; color: #{product.text_color};").concat(
           content_tag :div, "", class: "product-label__bottom", style: "background-color: #{product.secondary_color}"
         )

@@ -3,10 +3,10 @@
 = render "letters/edit/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1.truncated = @letter.subject
     h4 = @letter.name
-  .header-actions
+  .header__actions
     = button_tag "Speichern", class: "button dense", data: { submit: "edit_letter" }
     = link_to "Abbrechen", :back, class: "button dense"
 

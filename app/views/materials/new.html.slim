@@ -2,9 +2,9 @@
 = render "materials/new/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 Material erstellen
-  .header-actions
+  .header__actions
     = link_to "Speichern", "#", class: "button", data: { submit: "new_material" }
     = link_to "Abbrechen", materials_path, class: "button secondary"
 

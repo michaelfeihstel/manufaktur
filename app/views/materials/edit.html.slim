@@ -2,9 +2,9 @@
 = render "materials/edit/sidebar"
 
 - content_for :header
-  .header-title
+  .header__title
     h1 = "#{@material.name} bearbeiten"
-  .header-actions
+  .header__actions
     = button_to "Speichern", "#", class: "button", data: { submit: "edit_material" }
 
 = render "materials/shared/form"
