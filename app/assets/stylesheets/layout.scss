@@ -120,10 +120,14 @@ aside {
   border-bottom: 1px solid $hairline-color;
   margin-bottom: 1.618rem;
   margin-left: -1 * $gutter;
-  margin-right: -1 * $gutter;
   padding: $gutter;
+  position: absolute;
+  background-color: #f7f7f9;
+  right: 0;
+  display: none;
 
   @include tablet-landscape {
+    display: block;
     @include flex(0 0 250px);
     margin-top: 0;
     margin-left: $gutter;
@@ -131,17 +135,21 @@ aside {
     order: 0;
     padding: 0.5rem $gutter;
     border-bottom: none;
+    background-color: transparent;
+    position: relative;
   }
+}
 
-  // @media (screen and max-width: $end-tablet-portrait) {
-  //   @include flex(0 0);
-  //   border: none;
-  //   margin-bottom: 1.618rem;
-  //   margin-left: -1 * $gutter;
-  //   margin-right: -1 * $gutter;
-  //   padding: $gutter;
-  //   background-color: $light-shade;
-  // }
+aside.visible {
+  display: block;
+}
+
+.aside__toggle {
+  @include flex(0 0 auto);
+
+  @include tablet-landscape {
+    display: none;
+  }
 }
 
 article {

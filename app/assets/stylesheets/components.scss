@@ -358,6 +358,11 @@ img {
   padding-right: $gutter;
 }
 
+.breadcrumbs-container__inner {
+  @include display(flex);
+  align-items: center;
+}
+
 ul.breadcrumbs {
   @include flex(1 1);
   @include align-self(center);

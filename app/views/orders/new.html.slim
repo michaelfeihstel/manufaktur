@@ -1,12 +1,13 @@
 = render "orders/shared/search"
 = render "orders/edit/sidebar"
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Aufträge: orders_path, "Neuer Auftrag": nil }
 
 - content_for :header do
-	.header__title
+  .header__title
     h1 Auftrag erstellen
   .header__actions
-    = link_to "Abbrechen", orders_path, class: "button"
     = button_tag "Speichern", class: "button", data: { submit: "order-form" }
+    = link_to "Abbrechen", orders_path, class: "link"
 
 = render "orders/shared/form"
 

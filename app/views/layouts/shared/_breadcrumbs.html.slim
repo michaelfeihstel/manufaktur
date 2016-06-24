@@ -1,7 +1,10 @@
 - content_for :breadcrumbs
-  ul.breadcrumbs
-    - breadcrumbs.each do |title, link|
-      - if link
-        li = link_to title, link
-      - else
-        li.light = title
+  .breadcrumbs-container__inner
+    ul.breadcrumbs
+      - breadcrumbs.each do |title, link|
+        - if link
+          li = link_to title, link
+        - else
+          li.light = title
+    .aside__toggle
+      = link_to "Filter", "#", class: "link"

@@ -1,6 +1,6 @@
 = render "orders/shared/search"
-= render "orders/edit/breadcrumbs"
 = render "orders/edit/sidebar"
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Aufträge: orders_path, @order.id => @order, "Bearbeiten": nil }
 
 - content_for :header
   .header__title
@@ -14,5 +14,5 @@
 
 - content_for :footer
   ul.inline-list
-    li = link_to "Speichern", "#", data: { submit: "edit_order" }, class: "button"
+    li = submit_tag "Speichern", form: "edit_order_#{@order.id}", class: "button"
     li = link_to "Abbrechen", order_path(@order), class: "link"
