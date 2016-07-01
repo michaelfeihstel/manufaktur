@@ -1,7 +1,7 @@
-= render "orders/index/toolbar"
 = render "orders/shared/search"
 = render "orders/index/sidebar"
-= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: :root, Aufträge: nil }
+= render "shared/breadcrumbs", breadcrumbs: { Home: :root, Aufträge: nil }
+= render "shared/pagination_info", collection: @orders
 
 - content_for :header
   .header__title

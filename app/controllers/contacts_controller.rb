@@ -105,12 +105,14 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     authorize @contact
-    if @contact.update_attributes(contact_params)
-      redirect_to contact_path(@contact), notice: "Kontakt aktualisiert."
-      respond_with_bip(@contact)
-    else
-      render 'edit'
-      respond_with_bip(@contact)
+    respond_to do |format|
+      if @contact.update_attributes(contact_params)
+        format.html { redirect_to contact_path(@contact), notice: "Kontakt aktualisiert." }
+        format.json { respond_with_bip(@contact) }
+      else
+        format.html { render 'edit' }
+        format.json { respond_with_bip(@contact) }
+      end
     end
   end
 

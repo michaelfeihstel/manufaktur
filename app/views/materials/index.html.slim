@@ -1,4 +1,5 @@
-= render "materials/index/breadcrumbs"
+= render "shared/breadcrumbs", breadcrumbs: { "Home": :root, "Materialien": nil }
+= render "shared/pagination_info", collection: @materials
 = render "materials/index/sidebar"
 = render "materials/shared/search"
 

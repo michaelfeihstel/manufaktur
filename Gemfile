@@ -16,7 +16,7 @@ gem 'puma'
 gem 'rack-timeout'
 gem 'minitest-rails'
 gem 'devise'
-gem 'devise_invitable', '~> 1.3.4'
+gem 'devise_invitable'
 gem 'pundit'
 gem 'geocoder'
 

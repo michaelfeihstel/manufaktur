@@ -35,7 +35,9 @@ html lang="de"
           = yield :header
       .breadcrumbs-container
         .content-container
-          = yield :breadcrumbs
+          .breadcrumbs-container__inner
+            = yield :breadcrumbs
+            = yield :pagination_info
       .main-content
         .content-container
           .content
