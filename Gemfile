@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '~> 4.2.6'
+gem 'rails', '~> 5.0.0'
 gem 'pg'
 gem 'turbolinks'
 gem 'annotate'
@@ -14,7 +14,6 @@ gem 'rails-i18n'
 gem 'groupdate'
 gem 'puma'
 gem 'rack-timeout'
-gem 'minitest-rails'
 gem 'devise'
 gem 'devise_invitable'
 gem 'pundit'
@@ -24,7 +23,7 @@ gem 'geocoder'
 gem 'bourbon'
 gem 'neat'
 gem 'susy'
-gem 'simple_calendar', '~> 1.1.0'
+gem 'simple_calendar'
 gem 'selectize-rails'
 gem 'slim-rails'
 gem 'sass-rails'
@@ -34,7 +33,7 @@ gem 'compass'
 gem 'jquery-rails'
 gem 'nested_form'
 gem 'pg_search'
-gem 'best_in_place', '~> 3.0.1'
+gem 'best_in_place'
 
 group :production do
   gem 'rails_12factor'
@@ -46,13 +45,16 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-rails-capybara'
+  gem 'rails-controller-testing'
 end
 
 group :development do
   gem 'awesome_print'
-  gem 'web-console', '~> 2.0'
   gem 'meta_request'
+  gem 'web-console'
+  gem 'listen', '~> 3.0.5'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 # API

@@ -55,28 +55,25 @@ class SizeSetsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:size_sets)
   end
 
-  test "should show single size_set" do
-    get :show, id: @size_set
+  test "should show size_set" do
+    get :show, params: { id: @size_set }
     assert_response :success
     assert_not_nil assigns(:size_set)
   end
 
-  test "should get edit page for size_set" do
-    get :edit, id: @size_set
+  test "should get edit for size_set" do
+    get :edit, params: { id: @size_set }
     assert_response :success
     assert_not_nil assigns(:size_set)
   end
 
   test "should update size_set" do
-    patch :update, id: @size_set, size_set: @size_set.attributes
+    patch :update, params: { id: @size_set, size_set: @size_set.attributes }
     assert_redirected_to assigns(:size_set)
   end
 
   test "should create size_set" do
-    post :create, size_set: {
-      name: @size_set.name,
-      g1: @size_set.g1
-    }
+    post :create, params: { size_set: @size_set.attributes }
   end
 
 end

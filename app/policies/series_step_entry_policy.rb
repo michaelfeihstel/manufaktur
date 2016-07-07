@@ -1,0 +1,2 @@
+class SeriesStepEntryPolicy < ApplicationPolicy
+end

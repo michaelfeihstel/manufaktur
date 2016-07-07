@@ -1,5 +1,6 @@
+= render "shared/breadcrumbs", breadcrumbs: { "Home": :root, "Serien": nil }
+= render "shared/pagination_info", collection: @series
 = render "series/index/sidebar"
-= render "series/index/breadcrumbs"
 = render "series/shared/search"
 
 - content_for :header

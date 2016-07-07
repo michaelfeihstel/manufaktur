@@ -1,7 +1,7 @@
 // PROGRESS BAR
-html.turbolinks-progress-bar::before {
-  background-color: $accent-color !important;
-  height: 2px !important;
+.turbolinks-progress-bar {
+  height: 5px;
+  background-color: $accent-color;
 }
 
 .full-width {

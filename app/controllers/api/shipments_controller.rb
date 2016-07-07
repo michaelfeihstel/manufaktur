@@ -1,32 +1,37 @@
 class Api::ShipmentsController < Api::ApplicationController
   respond_to :json
-  before_action :current_user
   after_action :verify_authorized
 
   def index
     @shipments = Shipment.all
     authorize @shipments
-    respond_with @shipments
+    render json: @shipments
   end
 
   def show
     @shipment = Shipment.find(params[:id])
     authorize @shipment
-    respond_with @shipment
+    render json: @shipment
   end
 
   def create
     @shipment = Shipment.new(shipment_params)
     authorize @shipment
     if @shipment.save
-      render nothing: :true, status: :created
+      render json: @shipment
+    else
+      render json: @shipment.errors, status: :unprocessable_entity
     end
   end
 
   def update
     @shipment = Shipment.find(params[:id])
     authorize @shipment
-    respond_with @shipment.update(shipment_params)
+    if @shipment.update(shipment_params)
+      render json: @shipment
+    else
+      render json: @shipment.errors, status: :unprocessable_entity
+    end
   end
 
 

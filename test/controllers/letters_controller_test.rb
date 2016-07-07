@@ -32,32 +32,38 @@ class LettersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:letters)
   end
 
+  test "should show letter" do
+    get :show, params: { id: @letter }
+    assert_response :success
+    assert_not_nil assigns(:letter)
+  end
+
   test "should get new" do
     get :new
     assert_response :success
     assert assigns(:letter).new_record?
   end
 
-  test "should create new letter" do
+  test "should create letter" do
     assert_difference "Letter.count", +1 do
-      post :create, letter: @letter.attributes
+      post :create, params: { letter: @letter.attributes }
     end
     assert_redirected_to letter_path(assigns(:letter))
   end
 
   test "should get edit" do
-    get :edit, id: @letter
+    get :edit, params: { id: @letter }
     assert_response :success
   end
 
   test "should update letter" do
-    patch :update, id: @letter, letter: @letter.attributes
+    patch :update, params: { id: @letter, letter: @letter.attributes }
     assert_redirected_to letter_path(assigns(:letter))
   end
 
   test "should delete letter" do
     assert_difference "Letter.count", -1 do
-      delete :destroy, id: @letter
+      delete :destroy, params: { id: @letter }
     end
     assert_redirected_to letters_path
   end

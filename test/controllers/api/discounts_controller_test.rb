@@ -12,24 +12,24 @@ class Api::DiscountsControllerTest < ActionController::TestCase
   end
 
   test "should show single discount" do
-    get :show, format: :json, id: @discount
+    get :show, format: :json, params: { id: @discount }
     assert_response :success
   end
 
   test "should create discount" do
     assert_difference "Discount.count" do
-      post :create, format: :json, discount: {
-        line_item_id: @discount.line_item_id,
-        name: @discount.name,
-        discount: @discount.discount
+      post :create, format: :json, params: {
+        discount: {
+          line_item_id: @discount.line_item_id,
+          name: @discount.name,
+          discount: @discount.discount
+        }
       }
     end
   end
 
   test "should update discount" do
-    patch :update, format: :json, id: @discount, discount: {
-      name: @discount.name
-    }
+    patch :update, format: :json, params: { id: @discount, discount: @discount.attributes }
     assert_response :success
   end
 end

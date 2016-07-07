@@ -17,6 +17,6 @@ class Shipment < ActiveRecord::Base
 
   # methods
   def tracking_link
-    carrier.tracking_link.gsub("###TRACKING_CODE###", tracking_code)
+    carrier&.tracking_link&.gsub("###TRACKING_CODE###", tracking_code)
   end
 end

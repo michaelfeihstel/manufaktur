@@ -1,25 +1,38 @@
 module Api
   class SeriesStepsController < ApplicationController
     respond_to :json
+    after_action :verify_authorized
 
     def index
       @series_steps = SeriesStep.all
-      respond_with @series_steps
+      authorize @series_steps
+      render json: @series_steps
     end
 
     def show
       @series_step = SeriesStep.find(params[:id])
-      respond_with @series_step
+      authorize @series_step
+      render json: @series_step
     end
 
     def create
-      @series_step = SeriesStep.create(series_step_params)
-      respond_with :api, @series_step
+      @series_step = SeriesStep.new(series_step_params)
+      authorize @series_step
+      if @series_step.save
+        render json: @series_step, status: :created
+      else
+        render json: @series_step.errors, status: :unprocessable_entity
+      end
     end
 
     def update
       @series_step = SeriesStep.find(params[:id])
-      respond_with @series_step.update_attributes(series_step_params)
+      authorize @series_step
+      if @series_step.update(series_step_params)
+        render json: @series_step
+      else
+        render json: @series_step.errors, status: :unprocessable_entity
+      end
     end
 
 

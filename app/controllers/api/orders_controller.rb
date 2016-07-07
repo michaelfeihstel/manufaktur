@@ -7,14 +7,14 @@ class Api::OrdersController < Api::ApplicationController
   def index
     @orders = Order.all
     authorize @orders
-    respond_with @orders
+    render json: @orders
   end
 
   # GET /api/orders/1/
   def show
     @order = Order.find(params[:id])
     authorize @order
-    respond_with @order
+    render json: @order
   end
 
   # POST /api/orders/
@@ -22,7 +22,9 @@ class Api::OrdersController < Api::ApplicationController
     @order = Order.new(order_params)
     authorize @order
     if @order.save
-      render nothing: true, status: :created
+      render json: @order, status: :created
+    else
+      render json: @order.errors, status: :unprocessable_entity
     end
   end
 
@@ -30,14 +32,18 @@ class Api::OrdersController < Api::ApplicationController
   def update
     @order = Order.find(params[:id])
     authorize @order
-    respond_with @order.update(order_params)
+    if @order.update(order_params)
+      render json: @order
+    else
+      render json: @order.errors, status: :unprocessable_entity
+    end
   end
 
   # DELETE /api/orders/1/
   def destroy
     @order = Order.find(params[:id])
     authorize @order
-    respond_with @order.destroy
+    @order.destroy
   end
 
   # DELETE /api/orders/1/line_items

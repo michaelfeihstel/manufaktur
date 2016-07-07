@@ -49,7 +49,7 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    @material = Material.create(material_params)
+    @material = Material.new(material_params)
     authorize @material
 
     if @material.save

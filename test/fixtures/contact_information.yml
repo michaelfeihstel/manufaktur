@@ -1,0 +1,5 @@
+default:
+  contact: default_contact
+  info_type: email
+  name: Standard
+  value: test@test.com

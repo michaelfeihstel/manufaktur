@@ -202,7 +202,6 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(
-      :id,
       :billing_address_id,
       :cashback_percent,
       :cashback_until,

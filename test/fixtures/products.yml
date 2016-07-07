@@ -25,6 +25,7 @@
 
 default_product:
   name: Regular Product
+  product_family: default
   sku: TEST123
   color_text: Grau / Schwarz / Rot
   price: 120.33

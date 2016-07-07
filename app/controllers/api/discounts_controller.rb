@@ -6,27 +6,33 @@ class Api::DiscountsController < Api::ApplicationController
   def index
     @discounts = Discount.all
     authorize @discounts
-    respond_with @discounts
+    render json: @discounts
   end
 
   def show
     @discount = Discount.find(params[:id])
     authorize @discount
-    respond_with @discount
+    render json: @discount
   end
 
   def create
     @discount = Discount.new(discount_params)
     authorize @discount
     if @discount.save
-      render nothing: true, status: :created
+      render json: @discount, status: :created
+    else
+      render @discount.errors, status: :unprocessable_entity
     end
   end
 
   def update
     @discount = Discount.find(params[:id])
     authorize @discount
-    respond_with @discount.update(discount_params)
+    if @discount.update(discount_params)
+      render json: @discount
+    else
+      render json: @discount.errors, status: :unprocessable_entity
+    end
   end
 
 

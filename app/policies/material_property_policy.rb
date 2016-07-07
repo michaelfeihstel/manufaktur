@@ -1,0 +1,2 @@
+class MaterialPropertyPolicy < ApplicationPolicy
+end

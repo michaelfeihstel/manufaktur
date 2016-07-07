@@ -1,21 +1,39 @@
 module Api
   class SeriesController < ApplicationController
     respond_to :json
+    before_action :current_user
+    after_action :verify_authorized
 
     def index
-      @series = respond_with Series.all, include: :product
+      @series = Series.all
+      authorize @series
+      render json: @series
     end
 
     def show
-      @series = respond_with Series.find(params[:id]), include: :product
+      @series = Series.find(params[:id])
+      authorize @series
+      render json: @series
     end
 
     def create
-      @series = respond_with Series.create(series_params), include: :product
+      @series = Series.new(series_params)
+      authorize @series
+      if @series.save
+        render json: @series, status: :created
+      else
+        render json: @series.errors, status: :unprocessable_entity
+      end
     end
 
     def update
-      @series = respond_with Series.find(params[:id]).update_attributes(series_params), include: :product
+      @series = Series.find(params[:id])
+      authorize @series
+      if @series.update(series_params)
+        render json: @series
+      else
+        render json: @series.errors, status: :unprocessable_entity
+      end
     end
 
 

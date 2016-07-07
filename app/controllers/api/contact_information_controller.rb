@@ -1,40 +1,55 @@
-module Api
-	class ContactInformationController < ApplicationController
-		respond_to :json
-		protect_from_forgery except: [:create, :update]
-
-		# GET /api/contact_information/
-		def index
-			respond_with ContactInformation.all
-		end
-
-		# GET /api/contact_information/1
-		def show
-			respond_with ContactInformation.find(params[:id])
-		end
-
-		# POST /api/contact_information/
-		def create
-			respond_with ContactInformation.create(contact_information_params)
-		end
-
-		# PUT /api/contact_information/1
-		def update
-			respond_with ContactInformation.update(params[:id], contact_information_params)
-		end
+class Api::ContactInformationController < Api::ApplicationController
+  respond_to :json
+  before_action :current_user
+  after_action :verify_authorized
 
 
-		private
-		def contact_information_params
-			params.require(:contact_information).permit(
-				:id,
-				:contact_id,
-				:name,
-				:value,
-				:info_type,
-				:default
-			)
-		end
+  # GET /api/contact_information/
+  def index
+    @contact_information = ContactInformation.all
+    authorize @contact_information
+    render json: @contact_information
+  end
 
-	end
+  # GET /api/contact_information/1
+  def show
+    @contact_information = ContactInformation.find(params[:id])
+    authorize @contact_information
+    render json: @contact_information
+  end
+
+  # POST /api/contact_information/
+  def create
+    @contact_information = ContactInformation.new(contact_information_params)
+    authorize @contact_information
+    if @contact_information.save
+      render json: @contact_information, status: :created
+    else
+      render json: @contact_information.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PUT /api/contact_information/1
+  def update
+    @contact_information = ContactInformation.find(params[:id])
+    authorize @contact_information
+    if @contact_information.update(contact_information_params)
+      render json: @contact_information
+    else
+      render json: @contact_information.errors, status: :unprocessable_entity
+    end
+  end
+
+
+  private
+  def contact_information_params
+    params.require(:contact_information).permit(
+      :id,
+      :contact_id,
+      :name,
+      :value,
+      :info_type,
+      :default
+    )
+  end
 end

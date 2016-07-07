@@ -33,19 +33,19 @@ class WorkStepsControllerTest < ActionController::TestCase
 
   test "should create work step" do
     assert_difference "WorkStep.count" do
-      post :create, work_step: @work_step.attributes
+      post :create, params: { work_step: @work_step.attributes }
     end
     assert_redirected_to assigns(:work_step)
   end
 
   test "should get edit" do
-    get :edit, id: @work_step
+    get :edit, params: { id: @work_step }
     assert_response :success
     assert_not_nil assigns(:work_step)
   end
 
   test "should update work step" do
-    patch :update, id: @work_step, work_step: @work_step.attributes
+    patch :update, params: { id: @work_step, work_step: @work_step.attributes }
     assert_redirected_to assigns(:work_step)
   end
 

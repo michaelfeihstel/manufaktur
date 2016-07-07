@@ -104,7 +104,7 @@ class LineItem < ActiveRecord::Base
   end
 
   def vat_total
-    price_total * vat
+    (price_total || 0) * (vat || 0)
   end
 
   def gross_total

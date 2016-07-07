@@ -28,7 +28,6 @@ class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:default_product)
     @user = users(:default_user)
-    
     sign_in @user
   end
 
@@ -38,37 +37,38 @@ class ProductsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:products)
   end
 
+  test "should show product" do
+    get :show, params: { id: @product }
+    assert_response :success
+    assert_not_nil assigns(:product)
+  end
+
   test "should get new" do
     get :new
     assert_response :success
     assert assigns(:product).new_record?
   end
 
-  test "should create new product" do
+  test "should create product" do
     assert_difference("Product.count") do
-      post :create, product: @product.attributes
+      post :create, params: { product: @product.attributes }
     end
     assert_redirected_to product_path(assigns(:product))
   end
 
-  test "should show single product" do
-    get :show, id: @product
-    assert_response :success
-  end
-
   test "should get edit" do
-    get :edit, id: @product
+    get :edit, params: { id: @product }
     assert_response :success
   end
 
   test "should update product attributes" do
-    patch :update, id: @product, product: @product.attributes
+    patch :update, params: { id: @product, product: @product.attributes }
     assert_redirected_to product_path(assigns(:product))
   end
 
   test "should destroy product" do
     assert_difference("Product.count", -1) do
-      delete :destroy, id: @product
+      delete :destroy, params: { id: @product }
     end
     assert_redirected_to products_path
   end

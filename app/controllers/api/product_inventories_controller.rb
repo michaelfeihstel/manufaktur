@@ -6,27 +6,33 @@ class Api::ProductInventoriesController < Api::ApplicationController
   def index
     @product_inventories = ProductInventory.all
     authorize @product_inventories
-    respond_with @product_inventories
+    render json: @product_inventories
   end
 
   def show
     @product_inventory = ProductInventory.find(params[:id])
     authorize @product_inventory
-    respond_with @product_inventory
+    render json: @product_inventory
   end
 
   def create
     @product_inventory = ProductInventory.new(product_inventory_params)
     authorize @product_inventory
     if @product_inventory.save
-      render nothing: true, status: :created
+      render json: @product_inventory, status: :created
+    else
+      render json: @product_inventory.errors, status: :unprocessable_entity
     end
   end
 
   def update
     @product_inventory = ProductInventory.find(params[:id])
     authorize @product_inventory
-    respond_with @product_inventory.update(product_inventory_params)
+    if @product_inventory.update(product_inventory_params)
+      render json: @product_inventory
+    else
+      render json: @product_inventory.errors, status: :unprocessable_entity
+    end
   end
 
 
