@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 
-class Defect < ActiveRecord::Base
+class Defect < ApplicationRecord
 end

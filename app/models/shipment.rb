@@ -11,7 +11,7 @@
 #  updated_at    :datetime         not null
 #
 
-class Shipment < ActiveRecord::Base
+class Shipment < ApplicationRecord
   belongs_to :order
   belongs_to :carrier
 

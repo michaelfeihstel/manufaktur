@@ -11,7 +11,7 @@
 #  updated_at   :datetime         not null
 #
 
-class Discount < ActiveRecord::Base
+class Discount < ApplicationRecord
   # Associations
   belongs_to :line_item, touch: true
 

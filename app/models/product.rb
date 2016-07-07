@@ -21,7 +21,7 @@
 #  product_family_id :integer
 #
 
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
   attr_accessor :new_product_family_name
 
   # associations

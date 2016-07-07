@@ -11,7 +11,7 @@
 #  updated_at  :datetime         not null
 #
 
-class MaterialProperty < ActiveRecord::Base
+class MaterialProperty < ApplicationRecord
   # associations
   belongs_to :material
 

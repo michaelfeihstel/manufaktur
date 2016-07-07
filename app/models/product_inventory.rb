@@ -9,6 +9,6 @@
 #  updated_at :datetime         not null
 #
 
-class ProductInventory < ActiveRecord::Base
+class ProductInventory < ApplicationRecord
   has_many :entries, dependent: :nullify, class_name: "ProductInventoryItem"
 end

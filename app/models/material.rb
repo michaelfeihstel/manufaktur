@@ -13,7 +13,7 @@
 #  contact_id   :integer
 #
 
-class Material < ActiveRecord::Base
+class Material < ApplicationRecord
   # associations
   has_many :material_properties, dependent: :destroy
   has_many :products, through: :material_consumptions

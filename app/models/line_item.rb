@@ -44,7 +44,7 @@
 #  completed_at :datetime
 #
 
-class LineItem < ActiveRecord::Base
+class LineItem < ApplicationRecord
   # associations
   belongs_to :order
   belongs_to :product

@@ -9,6 +9,6 @@
 #  updated_at :datetime         not null
 #
 
-class Tax < ActiveRecord::Base
+class Tax < ApplicationRecord
   has_many :orders, dependent: :nullify 
 end

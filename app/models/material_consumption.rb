@@ -10,7 +10,7 @@
 #  updated_at     :datetime         not null
 #
 
-class MaterialConsumption < ActiveRecord::Base
+class MaterialConsumption < ApplicationRecord
   belongs_to :product
   belongs_to :material
 

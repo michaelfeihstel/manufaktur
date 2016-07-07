@@ -12,7 +12,7 @@
 #  updated_at       :datetime         not null
 #
 
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
   # associations
   belongs_to :commentable, polymorphic: true
   belongs_to :user

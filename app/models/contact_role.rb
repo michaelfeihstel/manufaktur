@@ -9,6 +9,6 @@
 #  human_readable_name :string
 #
 
-class ContactRole < ActiveRecord::Base
+class ContactRole < ApplicationRecord
   has_many :contacts
 end

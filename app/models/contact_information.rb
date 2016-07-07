@@ -12,7 +12,7 @@
 #  updated_at :datetime
 #
 
-class ContactInformation < ActiveRecord::Base
+class ContactInformation < ApplicationRecord
   belongs_to :contact
 
   scope :phone, -> { where(info_type: "Telefon") }

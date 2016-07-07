@@ -42,7 +42,7 @@
 #  final_step     :boolean          default(FALSE)
 #
 
-class SeriesStepEntry < ActiveRecord::Base
+class SeriesStepEntry < ApplicationRecord
   # associations
   belongs_to :series_step
   belongs_to :contact

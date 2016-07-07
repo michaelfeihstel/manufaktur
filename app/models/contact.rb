@@ -11,7 +11,7 @@
 #  additional_data :hstore
 #
 
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
   store_accessor :additional_data, :test
 
   # associations

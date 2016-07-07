@@ -16,7 +16,7 @@
 #  updated_at   :datetime
 #
 
-class Letter < ActiveRecord::Base
+class Letter < ApplicationRecord
   # associations
   belongs_to :address
   has_one :contact, through: :address

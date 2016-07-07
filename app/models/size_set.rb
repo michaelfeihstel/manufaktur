@@ -38,7 +38,7 @@
 #  g16        :string
 #
 
-class SizeSet < ActiveRecord::Base
+class SizeSet < ApplicationRecord
   has_many :products
 
   def sizes_as_array

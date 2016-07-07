@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 
-class SeriesStep < ActiveRecord::Base
+class SeriesStep < ApplicationRecord
 
   # associations
   belongs_to :series

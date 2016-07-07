@@ -38,7 +38,7 @@
 #  tax_id                :integer
 #
 
-class Order < ActiveRecord::Base
+class Order < ApplicationRecord
   
   # RELATIONS
   belongs_to :billing_address, foreign_key: "billing_address_id", class_name: "Address"

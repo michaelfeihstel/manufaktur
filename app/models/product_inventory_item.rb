@@ -42,7 +42,7 @@
 #  updated_at           :datetime         not null
 #
 
-class ProductInventoryItem < ActiveRecord::Base
+class ProductInventoryItem < ApplicationRecord
   belongs_to :product_inventory
   belongs_to :product
   belongs_to :contact

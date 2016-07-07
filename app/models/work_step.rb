@@ -10,7 +10,7 @@
 #  final_step :boolean          default(FALSE)
 #
 
-class WorkStep < ActiveRecord::Base
+class WorkStep < ApplicationRecord
   # associations
   has_many :series_steps, dependent: :destroy
 end

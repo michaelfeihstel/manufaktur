@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class ReturnLineItem < ActiveRecord::Base
+class ReturnLineItem < ApplicationRecord
   belongs_to :return
   belongs_to :product
 end

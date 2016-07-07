@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class ProductFamily < ActiveRecord::Base
+class ProductFamily < ApplicationRecord
   # Associations
   has_many :products, dependent: :nullify
 end

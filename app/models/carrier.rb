@@ -9,6 +9,6 @@
 #  updated_at    :datetime         not null
 #
 
-class Carrier < ActiveRecord::Base
+class Carrier < ApplicationRecord
   has_many :shipments, dependent: :nullify
 end

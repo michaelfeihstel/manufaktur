@@ -41,7 +41,7 @@
 #  name        :integer
 #
 
-class Series < ActiveRecord::Base
+class Series < ApplicationRecord
   # associations
   belongs_to :product
   has_many :comments, as: :commentable

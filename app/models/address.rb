@@ -16,7 +16,7 @@
 #  longitude    :float
 #
 
-class Address < ActiveRecord::Base
+class Address < ApplicationRecord
   belongs_to :contact
   has_many :letters
 

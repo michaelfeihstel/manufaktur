@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class ApiKey < ActiveRecord::Base
+class ApiKey < ApplicationRecord
   # associations
   belongs_to :user
 
