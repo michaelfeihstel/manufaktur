@@ -36,6 +36,7 @@
 #  cashback_until        :date
 #  cashback_percent      :decimal(2, 2)    default(0.03)
 #  tax_id                :integer
+#  shipping_cost         :decimal(8, 2)    default(0.0)
 #
 
 class Order < ApplicationRecord

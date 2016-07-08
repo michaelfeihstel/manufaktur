@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026101118) do
+ActiveRecord::Schema.define(version: 20160707122430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +29,8 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.integer "fmid"
     t.float   "latitude"
     t.float   "longitude"
+    t.index ["contact_id"], name: "index_addresses_on_contact_id", using: :btree
   end
-
-  add_index "addresses", ["contact_id"], name: "index_addresses_on_contact_id", using: :btree
 
   create_table "admin_notes", force: :cascade do |t|
     t.string   "resource_id",     limit: 255, null: false
@@ -42,19 +40,17 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["admin_user_type", "admin_user_id"], name: "index_admin_notes_on_admin_user_type_and_admin_user_id", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id", using: :btree
   end
-
-  add_index "admin_notes", ["admin_user_type", "admin_user_id"], name: "index_admin_notes_on_admin_user_type_and_admin_user_id", using: :btree
-  add_index "admin_notes", ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id", using: :btree
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "key"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_api_keys_on_user_id", using: :btree
   end
-
-  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
 
   create_table "carriers", force: :cascade do |t|
     t.string   "name"
@@ -71,10 +67,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.boolean  "important",        default: false, null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
-
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "contact_informations", force: :cascade do |t|
     t.integer  "contact_id"
@@ -84,20 +79,18 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.boolean  "default",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["contact_id"], name: "index_contact_informations_on_contact_id", using: :btree
+    t.index ["info_type"], name: "index_contact_informations_on_info_type", using: :btree
+    t.index ["value"], name: "index_contact_informations_on_value", using: :btree
   end
-
-  add_index "contact_informations", ["contact_id"], name: "index_contact_informations_on_contact_id", using: :btree
-  add_index "contact_informations", ["info_type"], name: "index_contact_informations_on_info_type", using: :btree
-  add_index "contact_informations", ["value"], name: "index_contact_informations_on_value", using: :btree
 
   create_table "contact_roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "human_readable_name"
+    t.index ["name"], name: "index_contact_roles_on_name", using: :btree
   end
-
-  add_index "contact_roles", ["name"], name: "index_contact_roles_on_name", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -106,10 +99,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.datetime "updated_at"
     t.integer  "contact_role_id"
     t.hstore   "additional_data"
+    t.index ["additional_data"], name: "index_contacts_on_additional_data", using: :btree
+    t.index ["contact_role_id"], name: "index_contacts_on_contact_role_id", using: :btree
   end
-
-  add_index "contacts", ["additional_data"], name: "index_contacts_on_additional_data", using: :btree
-  add_index "contacts", ["contact_role_id"], name: "index_contacts_on_contact_role_id", using: :btree
 
   create_table "defects", force: :cascade do |t|
     t.string   "name"
@@ -124,10 +116,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.boolean  "enabled",      default: true
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["enabled"], name: "index_discounts_on_enabled", using: :btree
+    t.index ["line_item_id"], name: "index_discounts_on_line_item_id", using: :btree
   end
-
-  add_index "discounts", ["enabled"], name: "index_discounts_on_enabled", using: :btree
-  add_index "discounts", ["line_item_id"], name: "index_discounts_on_line_item_id", using: :btree
 
   create_table "letters", force: :cascade do |t|
     t.integer  "address_id"
@@ -141,9 +132,8 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["address_id"], name: "index_letters_on_address_id", using: :btree
   end
-
-  add_index "letters", ["address_id"], name: "index_letters_on_address_id", using: :btree
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "order_id"
@@ -185,12 +175,11 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.datetime "updated_at"
     t.integer  "fmid"
     t.datetime "completed_at"
+    t.index ["completed_at"], name: "index_line_items_on_completed_at", using: :btree
+    t.index ["created_at"], name: "index_line_items_on_created_at", using: :btree
+    t.index ["order_id"], name: "index_line_items_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_line_items_on_product_id", using: :btree
   end
-
-  add_index "line_items", ["completed_at"], name: "index_line_items_on_completed_at", using: :btree
-  add_index "line_items", ["created_at"], name: "index_line_items_on_created_at", using: :btree
-  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
-  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
   create_table "material_consumptions", force: :cascade do |t|
     t.integer  "product_id"
@@ -198,10 +187,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.decimal  "yield_per_unit"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["material_id"], name: "index_material_consumptions_on_material_id", using: :btree
+    t.index ["product_id"], name: "index_material_consumptions_on_product_id", using: :btree
   end
-
-  add_index "material_consumptions", ["material_id"], name: "index_material_consumptions_on_material_id", using: :btree
-  add_index "material_consumptions", ["product_id"], name: "index_material_consumptions_on_product_id", using: :btree
 
   create_table "material_properties", force: :cascade do |t|
     t.integer  "material_id"
@@ -210,10 +198,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.boolean  "use_in_name", default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["material_id"], name: "index_material_properties_on_material_id", using: :btree
+    t.index ["use_in_name"], name: "index_material_properties_on_use_in_name", using: :btree
   end
-
-  add_index "material_properties", ["material_id"], name: "index_material_properties_on_material_id", using: :btree
-  add_index "material_properties", ["use_in_name"], name: "index_material_properties_on_use_in_name", using: :btree
 
   create_table "materials", force: :cascade do |t|
     t.string   "name"
@@ -224,9 +211,8 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "contact_id"
+    t.index ["contact_id"], name: "index_materials_on_contact_id", using: :btree
   end
-
-  add_index "materials", ["contact_id"], name: "index_materials_on_contact_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.date     "delivered_on"
@@ -251,7 +237,7 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.boolean  "is_webshop"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "marked",                                                    default: false, null: false
+    t.boolean  "marked",                                                    default: false,  null: false
     t.integer  "fmid"
     t.text     "comment"
     t.boolean  "is_free",                                                   default: false
@@ -260,16 +246,16 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.decimal  "paid_amount",                       precision: 8, scale: 2
     t.boolean  "is_scheduled_delivery",                                     default: false
     t.date     "cashback_until"
-    t.decimal  "cashback_percent",                  precision: 2, scale: 2, default: 0.03
+    t.decimal  "cashback_percent",                  precision: 2, scale: 2, default: "0.03"
     t.integer  "tax_id"
+    t.decimal  "shipping_cost",                     precision: 8, scale: 2, default: "0.0"
+    t.index ["billing_address_id"], name: "index_orders_on_billing_address_id", using: :btree
+    t.index ["completed_at"], name: "index_orders_on_completed_at", using: :btree
+    t.index ["contact_id"], name: "index_orders_on_contact_id", using: :btree
+    t.index ["created_at"], name: "index_orders_on_created_at", using: :btree
+    t.index ["delivery_address_id"], name: "index_orders_on_delivery_address_id", using: :btree
+    t.index ["tax_id"], name: "index_orders_on_tax_id", using: :btree
   end
-
-  add_index "orders", ["billing_address_id"], name: "index_orders_on_billing_address_id", using: :btree
-  add_index "orders", ["completed_at"], name: "index_orders_on_completed_at", using: :btree
-  add_index "orders", ["contact_id"], name: "index_orders_on_contact_id", using: :btree
-  add_index "orders", ["created_at"], name: "index_orders_on_created_at", using: :btree
-  add_index "orders", ["delivery_address_id"], name: "index_orders_on_delivery_address_id", using: :btree
-  add_index "orders", ["tax_id"], name: "index_orders_on_tax_id", using: :btree
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
@@ -277,9 +263,8 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.string   "searchable_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
-
-  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "product_families", force: :cascade do |t|
     t.string   "name"
@@ -296,9 +281,8 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["product_id"], name: "index_product_images_on_product_id", using: :btree
   end
-
-  add_index "product_images", ["product_id"], name: "index_product_images_on_product_id", using: :btree
 
   create_table "product_inventories", force: :cascade do |t|
     t.integer  "year"
@@ -345,42 +329,41 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.decimal  "value"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.index ["contact_id"], name: "index_product_inventory_items_on_contact_id", using: :btree
+    t.index ["entered_on"], name: "index_product_inventory_items_on_entered_on", using: :btree
+    t.index ["g1"], name: "index_product_inventory_items_on_g1", using: :btree
+    t.index ["g10"], name: "index_product_inventory_items_on_g10", using: :btree
+    t.index ["g10h"], name: "index_product_inventory_items_on_g10h", using: :btree
+    t.index ["g11"], name: "index_product_inventory_items_on_g11", using: :btree
+    t.index ["g11h"], name: "index_product_inventory_items_on_g11h", using: :btree
+    t.index ["g12"], name: "index_product_inventory_items_on_g12", using: :btree
+    t.index ["g12h"], name: "index_product_inventory_items_on_g12h", using: :btree
+    t.index ["g13"], name: "index_product_inventory_items_on_g13", using: :btree
+    t.index ["g13h"], name: "index_product_inventory_items_on_g13h", using: :btree
+    t.index ["g14"], name: "index_product_inventory_items_on_g14", using: :btree
+    t.index ["g14h"], name: "index_product_inventory_items_on_g14h", using: :btree
+    t.index ["g15"], name: "index_product_inventory_items_on_g15", using: :btree
+    t.index ["g16"], name: "index_product_inventory_items_on_g16", using: :btree
+    t.index ["g1h"], name: "index_product_inventory_items_on_g1h", using: :btree
+    t.index ["g2"], name: "index_product_inventory_items_on_g2", using: :btree
+    t.index ["g2h"], name: "index_product_inventory_items_on_g2h", using: :btree
+    t.index ["g3"], name: "index_product_inventory_items_on_g3", using: :btree
+    t.index ["g3h"], name: "index_product_inventory_items_on_g3h", using: :btree
+    t.index ["g4"], name: "index_product_inventory_items_on_g4", using: :btree
+    t.index ["g4h"], name: "index_product_inventory_items_on_g4h", using: :btree
+    t.index ["g5"], name: "index_product_inventory_items_on_g5", using: :btree
+    t.index ["g5h"], name: "index_product_inventory_items_on_g5h", using: :btree
+    t.index ["g6"], name: "index_product_inventory_items_on_g6", using: :btree
+    t.index ["g6h"], name: "index_product_inventory_items_on_g6h", using: :btree
+    t.index ["g7"], name: "index_product_inventory_items_on_g7", using: :btree
+    t.index ["g7h"], name: "index_product_inventory_items_on_g7h", using: :btree
+    t.index ["g8"], name: "index_product_inventory_items_on_g8", using: :btree
+    t.index ["g8h"], name: "index_product_inventory_items_on_g8h", using: :btree
+    t.index ["g9"], name: "index_product_inventory_items_on_g9", using: :btree
+    t.index ["g9h"], name: "index_product_inventory_items_on_g9h", using: :btree
+    t.index ["product_id"], name: "index_product_inventory_items_on_product_id", using: :btree
+    t.index ["product_inventory_id"], name: "index_product_inventory_items_on_product_inventory_id", using: :btree
   end
-
-  add_index "product_inventory_items", ["contact_id"], name: "index_product_inventory_items_on_contact_id", using: :btree
-  add_index "product_inventory_items", ["entered_on"], name: "index_product_inventory_items_on_entered_on", using: :btree
-  add_index "product_inventory_items", ["g1"], name: "index_product_inventory_items_on_g1", using: :btree
-  add_index "product_inventory_items", ["g10"], name: "index_product_inventory_items_on_g10", using: :btree
-  add_index "product_inventory_items", ["g10h"], name: "index_product_inventory_items_on_g10h", using: :btree
-  add_index "product_inventory_items", ["g11"], name: "index_product_inventory_items_on_g11", using: :btree
-  add_index "product_inventory_items", ["g11h"], name: "index_product_inventory_items_on_g11h", using: :btree
-  add_index "product_inventory_items", ["g12"], name: "index_product_inventory_items_on_g12", using: :btree
-  add_index "product_inventory_items", ["g12h"], name: "index_product_inventory_items_on_g12h", using: :btree
-  add_index "product_inventory_items", ["g13"], name: "index_product_inventory_items_on_g13", using: :btree
-  add_index "product_inventory_items", ["g13h"], name: "index_product_inventory_items_on_g13h", using: :btree
-  add_index "product_inventory_items", ["g14"], name: "index_product_inventory_items_on_g14", using: :btree
-  add_index "product_inventory_items", ["g14h"], name: "index_product_inventory_items_on_g14h", using: :btree
-  add_index "product_inventory_items", ["g15"], name: "index_product_inventory_items_on_g15", using: :btree
-  add_index "product_inventory_items", ["g16"], name: "index_product_inventory_items_on_g16", using: :btree
-  add_index "product_inventory_items", ["g1h"], name: "index_product_inventory_items_on_g1h", using: :btree
-  add_index "product_inventory_items", ["g2"], name: "index_product_inventory_items_on_g2", using: :btree
-  add_index "product_inventory_items", ["g2h"], name: "index_product_inventory_items_on_g2h", using: :btree
-  add_index "product_inventory_items", ["g3"], name: "index_product_inventory_items_on_g3", using: :btree
-  add_index "product_inventory_items", ["g3h"], name: "index_product_inventory_items_on_g3h", using: :btree
-  add_index "product_inventory_items", ["g4"], name: "index_product_inventory_items_on_g4", using: :btree
-  add_index "product_inventory_items", ["g4h"], name: "index_product_inventory_items_on_g4h", using: :btree
-  add_index "product_inventory_items", ["g5"], name: "index_product_inventory_items_on_g5", using: :btree
-  add_index "product_inventory_items", ["g5h"], name: "index_product_inventory_items_on_g5h", using: :btree
-  add_index "product_inventory_items", ["g6"], name: "index_product_inventory_items_on_g6", using: :btree
-  add_index "product_inventory_items", ["g6h"], name: "index_product_inventory_items_on_g6h", using: :btree
-  add_index "product_inventory_items", ["g7"], name: "index_product_inventory_items_on_g7", using: :btree
-  add_index "product_inventory_items", ["g7h"], name: "index_product_inventory_items_on_g7h", using: :btree
-  add_index "product_inventory_items", ["g8"], name: "index_product_inventory_items_on_g8", using: :btree
-  add_index "product_inventory_items", ["g8h"], name: "index_product_inventory_items_on_g8h", using: :btree
-  add_index "product_inventory_items", ["g9"], name: "index_product_inventory_items_on_g9", using: :btree
-  add_index "product_inventory_items", ["g9h"], name: "index_product_inventory_items_on_g9h", using: :btree
-  add_index "product_inventory_items", ["product_id"], name: "index_product_inventory_items_on_product_id", using: :btree
-  add_index "product_inventory_items", ["product_inventory_id"], name: "index_product_inventory_items_on_product_inventory_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -399,10 +382,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.string   "product_family"
     t.decimal  "retail_price",                  precision: 8, scale: 2
     t.integer  "product_family_id"
+    t.index ["product_family_id"], name: "index_products_on_product_family_id", using: :btree
+    t.index ["size_set_id"], name: "index_products_on_size_set_id", using: :btree
   end
-
-  add_index "products", ["product_family_id"], name: "index_products_on_product_family_id", using: :btree
-  add_index "products", ["size_set_id"], name: "index_products_on_size_set_id", using: :btree
 
   create_table "return_line_items", force: :cascade do |t|
     t.integer  "return_id"
@@ -410,10 +392,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.integer  "g1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_return_line_items_on_product_id", using: :btree
+    t.index ["return_id"], name: "index_return_line_items_on_return_id", using: :btree
   end
-
-  add_index "return_line_items", ["product_id"], name: "index_return_line_items_on_product_id", using: :btree
-  add_index "return_line_items", ["return_id"], name: "index_return_line_items_on_return_id", using: :btree
 
   create_table "returns", force: :cascade do |t|
     t.integer  "contact_id"
@@ -421,10 +402,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.text     "comment"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["billing_address_id"], name: "index_returns_on_billing_address_id", using: :btree
+    t.index ["contact_id"], name: "index_returns_on_contact_id", using: :btree
   end
-
-  add_index "returns", ["billing_address_id"], name: "index_returns_on_billing_address_id", using: :btree
-  add_index "returns", ["contact_id"], name: "index_returns_on_contact_id", using: :btree
 
   create_table "series", force: :cascade do |t|
     t.integer  "product_id"
@@ -463,9 +443,8 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "name"
+    t.index ["product_id"], name: "index_series_on_product_id", using: :btree
   end
-
-  add_index "series", ["product_id"], name: "index_series_on_product_id", using: :btree
 
   create_table "series_step_entries", force: :cascade do |t|
     t.integer  "series_step_id"
@@ -505,12 +484,11 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.datetime "updated_at",                     null: false
     t.integer  "contact_id"
     t.boolean  "final_step",     default: false
+    t.index ["contact_id"], name: "index_series_step_entries_on_contact_id", using: :btree
+    t.index ["date"], name: "index_series_step_entries_on_date", using: :btree
+    t.index ["final_step"], name: "index_series_step_entries_on_final_step", using: :btree
+    t.index ["series_step_id"], name: "index_series_step_entries_on_series_step_id", using: :btree
   end
-
-  add_index "series_step_entries", ["contact_id"], name: "index_series_step_entries_on_contact_id", using: :btree
-  add_index "series_step_entries", ["date"], name: "index_series_step_entries_on_date", using: :btree
-  add_index "series_step_entries", ["final_step"], name: "index_series_step_entries_on_final_step", using: :btree
-  add_index "series_step_entries", ["series_step_id"], name: "index_series_step_entries_on_series_step_id", using: :btree
 
   create_table "series_steps", force: :cascade do |t|
     t.integer  "series_id"
@@ -518,10 +496,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.text     "comment"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["series_id"], name: "index_series_steps_on_series_id", using: :btree
+    t.index ["work_step_id"], name: "index_series_steps_on_work_step_id", using: :btree
   end
-
-  add_index "series_steps", ["series_id"], name: "index_series_steps_on_series_id", using: :btree
-  add_index "series_steps", ["work_step_id"], name: "index_series_steps_on_work_step_id", using: :btree
 
   create_table "shipments", force: :cascade do |t|
     t.integer  "order_id"
@@ -530,10 +507,9 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.integer  "carrier_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["carrier_id"], name: "index_shipments_on_carrier_id", using: :btree
+    t.index ["order_id"], name: "index_shipments_on_order_id", using: :btree
   end
-
-  add_index "shipments", ["carrier_id"], name: "index_shipments_on_carrier_id", using: :btree
-  add_index "shipments", ["order_id"], name: "index_shipments_on_order_id", using: :btree
 
   create_table "size_sets", force: :cascade do |t|
     t.string   "name"
@@ -600,11 +576,10 @@ ActiveRecord::Schema.define(version: 20151026101118) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "variation_sets", force: :cascade do |t|
     t.string   "name",       limit: 255

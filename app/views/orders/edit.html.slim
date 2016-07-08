@@ -8,11 +8,11 @@
     h3 = @order.billing_name
   .header__actions
     = button_tag "Speichern", data: { submit: "edit_order" }
-    = link_to "Abbrechen", :back, class: "link"
+    = link_to "Abbrechen", @order, class: "link"
 
 = render "orders/shared/form"
 
 - content_for :footer
   ul.inline-list
     li = submit_tag "Speichern", form: "edit_order_#{@order.id}", class: "button"
-    li = link_to "Abbrechen", order_path(@order), class: "link"
+    li = link_to "Abbrechen", @order, class: "link"

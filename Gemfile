@@ -18,6 +18,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'pundit'
 gem 'geocoder'
+gem 'skylight'
 
 # views and presentation
 gem 'bourbon'

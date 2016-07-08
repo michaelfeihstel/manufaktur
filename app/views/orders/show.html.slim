@@ -7,6 +7,8 @@
   .header__title
     h1 = @order.id
     h3 = @order.billing_name
+  .header__actions
+    = link_to "Bearbeiten", edit_order_path(@order), class: "button"
 
 section
   h5.section-header Kunde
@@ -95,6 +97,8 @@ section
     .tab data-tab="shipping"
       section
         h5.section-header Optionen
+        label Versandkosten
+        = number_to_currency @order.shipping_cost
 
       section
         h5.section-header Pakete
@@ -121,4 +125,3 @@ section
 - content_for :footer
   ul.inline-list
     li = link_to "Bearbeiten", edit_order_path, class: "button"
-    li = link_to "Löschen", @order, method: :delete, data: { confirm: "Wirklich löschen?" }, class: "link"

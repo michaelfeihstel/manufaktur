@@ -1,7 +1,11 @@
 section data-line-item-id = f.object.id define='{"article": { "g1": 1, "g2": 2 }}'
   .panel
-    .panel__bar data-role="select_product"
-      = f.collection_select(:product_id, Product.order(:name), :id, :full_name, { prompt: "Wähle einen Artikel aus..." }, class: "order_line_items_product_id" )
+    .panel__bar.panel__bar--top data-role="select_product"
+      .flex__list
+        .flex__list__item
+          = product_label(f.object.product)
+        .flex__list__item
+          = f.collection_select(:product_id, Product.order(:name), :id, :full_name, { prompt: "Wähle einen Artikel aus..." }, class: "order_line_items_product_id" )
 
     .panel__body
       .fields
