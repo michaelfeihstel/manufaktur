@@ -43,6 +43,13 @@
 #  fmid         :integer
 #  completed_at :datetime
 #
+# Indexes
+#
+#  index_line_items_on_completed_at  (completed_at)
+#  index_line_items_on_created_at    (created_at)
+#  index_line_items_on_order_id      (order_id)
+#  index_line_items_on_product_id    (product_id)
+#
 
 class LineItem < ApplicationRecord
   # associations
@@ -80,8 +87,8 @@ class LineItem < ApplicationRecord
   end
 
   def quantity
-  	items = [g1, g1h, g2, g2h, g3, g3h, g4, g4h, g5, g5h, g6, g6h, g7, g7h, g8, g8h, g9, g9h, g10, g10h, g11, g11h, g12, g12h, g13, g13h, g14, g14h, g15, g16]
-  	items.compact.sum
+    items = [g1, g1h, g2, g2h, g3, g3h, g4, g4h, g5, g5h, g6, g6h, g7, g7h, g8, g8h, g9, g9h, g10, g10h, g11, g11h, g12, g12h, g13, g13h, g14, g14h, g15, g16]
+    items.compact.sum
   end
 
   def ref_price_single
@@ -112,10 +119,12 @@ class LineItem < ApplicationRecord
     price_total * vat_factor
   end
 
-
-
   def quantity_label
     badge = "#{try(:product).try(:sku)} (#{quantity})"
+  end
+
+  def backorders
+    Backorder.where(order_id: order_id, product_id: product_id).first
   end
   
 end

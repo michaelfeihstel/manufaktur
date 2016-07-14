@@ -1,9 +1,9 @@
-var current_item = $('section[data-line-item-id="' + <%= params["line_item_id"] %> + '"]')
-
+// var current_item = $('section[data-line-item-id="' + <%= params["line_item_id"] %> + '"]')
+var current_item = $('section.currently_editing')
 
 
 // set line_item.price input field
-current_item.find('#price-single-input').val(<%= @product.price %>)
+current_item.find('[data-field="price-single"]').val(<%= @product.price %>)
 
 
 
@@ -21,12 +21,8 @@ current_item.find('#price_total').text(price_total)
 
 
 // set line_item header styling
-current_item.find('[data-role="select_product"]').css({
-  "background-color": "<%= @product.primary_color %>",
-  "border-bottom": "5px solid " + "<%= @product.secondary_color %>",
-});
+current_item.find('[data-role="select_product"]').html(
+  "<%= j product_label(@product) %>"
+);
 
-current_item.find('.selectize-input').css({
-  "color": "<%= @product.text_color %>",
-  "border-color": "<%= @product.text_color %>"
-})
+current_item.removeClass("currently_editing")

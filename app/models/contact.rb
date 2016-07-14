@@ -10,6 +10,11 @@
 #  contact_role_id :integer
 #  additional_data :hstore
 #
+# Indexes
+#
+#  index_contacts_on_additional_data  (additional_data)
+#  index_contacts_on_contact_role_id  (contact_role_id)
+#
 
 class Contact < ApplicationRecord
   store_accessor :additional_data, :test

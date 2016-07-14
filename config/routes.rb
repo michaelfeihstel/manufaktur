@@ -113,6 +113,11 @@ Manufaktur::Application.routes.draw do
 
     # routes
     resources :addresses, concerns: [:searchable]
+    resources :backorders do
+      collection do
+        delete "destroy_by_order/:order_id", action: "destroy_by_order", as: "destroy_by_order"
+      end
+    end
     resources :employees
     resources :retailers
     resources :comments

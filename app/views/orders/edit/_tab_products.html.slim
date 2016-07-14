@@ -1,4 +1,4 @@
 #line-items 
   = f.fields_for :line_items do |line_item|
     = render "orders/shared/line_item_fields", f: line_item
-= f.link_to_add icon("add", text: "Artikel hinzufügen"), :line_items, class: "button small"
+= f.link_to_add "Artikel hinzufügen", :line_items, class: "button"

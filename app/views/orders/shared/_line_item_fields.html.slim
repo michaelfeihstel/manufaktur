@@ -1,16 +1,16 @@
-section data-line-item-id = f.object.id define='{"article": { "g1": 1, "g2": 2 }}'
+section data-role="line_item_fields" data-line-item-id=f.object.id 
   .panel
-    .panel__bar.panel__bar--top data-role="select_product"
-      .flex__list
-        .flex__list__item
+    .panel__bar.panel__bar--top
+      .flex-row
+        .flex-item data-role="select_product"
           = product_label(f.object.product)
-        .flex__list__item
-          = f.collection_select(:product_id, Product.order(:name), :id, :full_name, { prompt: "Wähle einen Artikel aus..." }, class: "order_line_items_product_id" )
+        .flex-item--grow
+          = f.grouped_collection_select(:product_id, ProductFamily.order(:name), :products, :name, :id, :full_name, { prompt: "Wähle einen Artikel aus..." }, class: "order_line_items_product_id")
 
     .panel__body
       .fields
         = f.label :price, "Einzelpreis"
-        = f.text_field :price, id: "price-single-input"
+        = f.text_field :price, data: { field: "price-single" }
       
       .fields
         label Größenlauf
@@ -119,13 +119,11 @@ section data-line-item-id = f.object.id define='{"article": { "g1": 1, "g2": 2 }
       = f.link_to_add "Ermäßigung hinzufügen", :discounts, class: "link"
 
 
-    .panel__bar
+    .panel__bar.panel__bar--bottom
       .flex__list
         .flex__list.flex__list__item--expand
           .flex__list__item
-            = f.link_to_remove icon("delete", size: "md-24"), class: "link"
-          .flex__list__item
-            = link_to icon("arrow_forward", size: "md-24"), "#", class: "link"
+            = f.link_to_remove "Zeile löschen", class: "link"
         .flex__list.flex__list--right.flex__list__item
           .flex__list__item
             = label(:line_item, :quantity, "Gesamt")

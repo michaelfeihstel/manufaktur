@@ -12,6 +12,10 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #
+# Indexes
+#
+#  index_product_images_on_product_id  (product_id)
+#
 
 class ProductImage < ApplicationRecord
   belongs_to :product

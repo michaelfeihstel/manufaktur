@@ -1,9 +1,19 @@
+// find the correct line_item
+var current_item = $('section.currently_editing')
+var quantity = 0
+current_item.find('.size-input').each(function() {
+  quantity += Number($(this).val());
+});
+var price_single = current_item.find('[data-field="price-single"]').val();
+var price_total = parseFloat(price_single * quantity).toFixed(2)
+
+
 // set total quantity
-$('section[data-line-item-id="<%= j @line_item_id %>"]').find("#quantity").text(
-  <%= @quantity %>
+current_item.find("#quantity").text(
+  quantity
 );
 
 // set span#price_total
-$('section[data-line-item-id="<%= j @line_item_id %>"]').find("#price_total").text(
-  "<%= number_to_currency(@price_total, unit: "€") %>"
+current_item.find("#price_total").text(
+  price_total + " €"
 );

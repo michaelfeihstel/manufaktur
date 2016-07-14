@@ -37,6 +37,16 @@
 #  cashback_percent      :decimal(2, 2)    default(0.03)
 #  tax_id                :integer
 #  shipping_cost         :decimal(8, 2)    default(0.0)
+#  payment_method        :string
+#
+# Indexes
+#
+#  index_orders_on_billing_address_id   (billing_address_id)
+#  index_orders_on_completed_at         (completed_at)
+#  index_orders_on_contact_id           (contact_id)
+#  index_orders_on_created_at           (created_at)
+#  index_orders_on_delivery_address_id  (delivery_address_id)
+#  index_orders_on_tax_id               (tax_id)
 #
 
 default_order:

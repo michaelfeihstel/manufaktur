@@ -1,4 +1,5 @@
-section
+- line_item_presenter = LineItemPresenter.new(line_item, ActionController::Base.helpers)
+section data-line-item-id=line_item.id
   .panel
     .panel__bar.panel__bar--top
       .flex__list
@@ -23,96 +24,36 @@ section
 
     .panel__body
       ul.sizes-list
-        li
-          = label :g1, line_item.try(:product).try(:size_set).try(:g1), class: "label--small"
-          = line_item.g1
-        li
-          = label :g1h, line_item.try(:product).try(:size_set).try(:g1h), class: "label--small"
-          = line_item.g1h
-        li
-          = label :g2, line_item.try(:product).try(:size_set).try(:g2), class: "label--small"
-          = line_item.g2
-        li
-          = label :g2h, line_item.try(:product).try(:size_set).try(:g2h), class: "label--small"
-          = line_item.g2h
-        li
-          = label :g3, line_item.try(:product).try(:size_set).try(:g3), class: "label--small"
-          = line_item.g3
-        li
-          = label :g3h, line_item.try(:product).try(:size_set).try(:g3h), class: "label--small"
-          = line_item.g3h
-        li
-          = label :g4, line_item.try(:product).try(:size_set).try(:g4), class: "label--small"
-          = line_item.g4
-        li
-          = label :g4h, line_item.try(:product).try(:size_set).try(:g4h), class: "label--small"
-          = line_item.g4h
-        li
-          = label :g5, line_item.try(:product).try(:size_set).try(:g5), class: "label--small"
-          = line_item.g5
-        li
-          = label :g5h, line_item.try(:product).try(:size_set).try(:g5h), class: "label--small"
-          = line_item.g5h
-        li
-          = label :g6, line_item.try(:product).try(:size_set).try(:g6), class: "label--small"
-          = line_item.g6
-        li
-          = label :g6h, line_item.try(:product).try(:size_set).try(:g6h), class: "label--small"
-          = line_item.g6h
-        li
-          = label :g7, line_item.try(:product).try(:size_set).try(:g7), class: "label--small"
-          = line_item.g7
-        li
-          = label :g7h, line_item.try(:product).try(:size_set).try(:g7h), class: "label--small"
-          = line_item.g7h
-        li
-          = label :g8, line_item.try(:product).try(:size_set).try(:g8), class: "label--small"
-          = line_item.g8
-        li
-          = label :g8h, line_item.try(:product).try(:size_set).try(:g8h), class: "label--small"
-          = line_item.g8h
-        li
-          = label :g9, line_item.try(:product).try(:size_set).try(:g9), class: "label--small"
-          = line_item.g9
-        li
-          = label :g9h, line_item.try(:product).try(:size_set).try(:g9h), class: "label--small"
-          = line_item.g9h
-        li
-          = label :g10, line_item.try(:product).try(:size_set).try(:g10), class: "label--small"
-          = line_item.g10
-        li
-          = label :g10h, line_item.try(:product).try(:size_set).try(:g10h), class: "label--small"
-          = line_item.g10h
-        li
-          = label :g11, line_item.try(:product).try(:size_set).try(:g11), class: "label--small"
-          = line_item.g11
-        li
-          = label :g11h, line_item.try(:product).try(:size_set).try(:g11h), class: "label--small"
-          = line_item.g11h
-        li
-          = label :g12, line_item.try(:product).try(:size_set).try(:g12), class: "label--small"
-          = line_item.g12
-        li
-          = label :g12h, line_item.try(:product).try(:size_set).try(:g12h), class: "label--small"
-          = line_item.g12h
-        li
-          = label :g13, line_item.try(:product).try(:size_set).try(:g13), class: "label--small"
-          = line_item.g13
-        li
-          = label :g13h, line_item.try(:product).try(:size_set).try(:g13h), class: "label--small"
-          = line_item.g13h
-        li
-          = label :g14, line_item.try(:product).try(:size_set).try(:g14), class: "label--small"
-          = line_item.g14
-        li
-          = label :g14h, line_item.try(:product).try(:size_set).try(:g14h), class: "label--small"
-          = line_item.g14h
-        li
-          = label :g15, line_item.try(:product).try(:size_set).try(:g15), class: "label--small"
-          = line_item.g15
-        li
-          = label :g16, line_item.try(:product).try(:size_set).try(:g16), class: "label--small"
-          = line_item.g16
+        = line_item_presenter.size_item(:g1)
+        = line_item_presenter.size_item(:g1h)
+        = line_item_presenter.size_item(:g2)
+        = line_item_presenter.size_item(:g2h)
+        = line_item_presenter.size_item(:g3)
+        = line_item_presenter.size_item(:g3h)
+        = line_item_presenter.size_item(:g4)
+        = line_item_presenter.size_item(:g4h)
+        = line_item_presenter.size_item(:g5)
+        = line_item_presenter.size_item(:g5h)
+        = line_item_presenter.size_item(:g6)
+        = line_item_presenter.size_item(:g6h)
+        = line_item_presenter.size_item(:g7)
+        = line_item_presenter.size_item(:g7h)
+        = line_item_presenter.size_item(:g8)
+        = line_item_presenter.size_item(:g8h)
+        = line_item_presenter.size_item(:g9)
+        = line_item_presenter.size_item(:g9h)
+        = line_item_presenter.size_item(:g10)
+        = line_item_presenter.size_item(:g10h)
+        = line_item_presenter.size_item(:g11)
+        = line_item_presenter.size_item(:g11h)
+        = line_item_presenter.size_item(:g12)
+        = line_item_presenter.size_item(:g12h)
+        = line_item_presenter.size_item(:g13)
+        = line_item_presenter.size_item(:g13h)
+        = line_item_presenter.size_item(:g14)
+        = line_item_presenter.size_item(:g14h)
+        = line_item_presenter.size_item(:g15)
+        = line_item_presenter.size_item(:g16)
 
     - if line_item.discounts.present?
       .panel__body.border-top

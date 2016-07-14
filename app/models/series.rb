@@ -40,6 +40,10 @@
 #  updated_at  :datetime         not null
 #  name        :integer
 #
+# Indexes
+#
+#  index_series_on_product_id  (product_id)
+#
 
 class Series < ApplicationRecord
   # associations

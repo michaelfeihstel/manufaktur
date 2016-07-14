@@ -1,54 +1,21 @@
-// configure billing_address_id select box
-$('#order_billing_address_id').selectize({
+// configure billing_address_id and delivery_address_id select box
+$('#order_billing_address_id, #order_delivery_address_id').selectize({
+  valueField: 'id',
+  labelField: 'full_address_with_name',
+  searchField: ['name', 'street', 'city'],
+  create: false,
 
-  valueField: "id",
-  labelField: "full_address",
-  sortField: "full_address",
-  searchField: "full_address",
-  maxOptions: 100,
-
-  render: {
-    option: function(item, escape){
-      return '<div class="item"><span>' + item.full_address + '</span></div>';
-    }
-  },
-
-  // load addresses
-  load: function(query, callback){
+  load: function(query, callback) {
     if (!query.length) return callback();
     $.ajax({
-      url: '/api/addresses/search/' + query,
+      url: '/api/addresses/search/' + encodeURIComponent(query),
       type: 'GET',
-      error: function(){
-        callback();
+      error: function() {
+        allback();
       },
-      success: function(res){
+      success: function(res) {
         callback(res.addresses);
       }
     });
-  },
-
-  // set customer_id, customer_type and delivery_address_id
-  onChange: function(value){
-    $.ajax({
-      url: '/api/addresses/' + value,
-      type: 'GET',
-      error: function(response){
-        response
-      },
-      success: function(response){
-        $('#order_customer_id').val(response.addressable_id);
-        $('#order_customer_type').val(response.addressable_type);
-        $('#order_delivery_address_id').val(value);
-      }
-    });
   }
-
-});
-
-
-
-//configure delivery_address_id select box
-$('#order_delivery_address_id').selectize({
-
 });

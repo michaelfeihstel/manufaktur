@@ -11,6 +11,11 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
+# Indexes
+#
+#  index_comments_on_commentable_id  (commentable_id)
+#  index_comments_on_user_id         (user_id)
+#
 
 class Comment < ApplicationRecord
   # associations

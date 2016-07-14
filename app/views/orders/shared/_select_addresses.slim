@@ -3,8 +3,8 @@
 
   .fields
     = f.label :billing_address_id, "Rechnungsanschrift"
-    = f.collection_select(:billing_address_id, Address.order(:name), :id, :full_address, prompt: "Rechnungsanschrift auswählen...")
+    = f.select(:billing_address_id, [f.object&.billing_address&.full_address_with_name])
 
   .fields
     = label :delivery_address_id, "Lieferanschrift"
-    = f.collection_select(:delivery_address_id, Address.order(:name), :id, :full_address, { prompt: "Lieferanschrift auswählen" })
+    = f.select(:delivery_address_id, [f.object&.billing_address&.full_address_with_name])

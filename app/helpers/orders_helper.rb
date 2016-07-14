@@ -40,19 +40,6 @@
 
 module OrdersHelper
 
-  def marked_icon(order, options={})
-    status_label = order.marked_status_label if options[:status_label] == true
-    action_label = order.marked_action_label if options[:action_label] == true
-
-    if order.marked?
-      icon("star", text: status_label || action_label)
-    else
-      icon("star_border", text: status_label || action_label)
-    end
-  end
-
-
-
   def completed_icon(order, options={})
     status_label = order.completed_status_label if options[:status_label] == true
     action_label = order.completed_action_label if options[:action_label] == true

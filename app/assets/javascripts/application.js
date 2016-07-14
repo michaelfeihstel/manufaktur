@@ -17,8 +17,6 @@
 //= require best_in_place.jquery-ui
 //= require turbolinks
 
-Turbolinks.enableProgressBar();
-
 
 // remove required attribute for deleted nested_forms
 $(document).on('nested:fieldRemoved', function (event) {

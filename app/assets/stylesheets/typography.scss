@@ -208,6 +208,14 @@ label.section-label {
   color: $white;
 }
 
+.label--success {
+  background-color: $success-color;
+}
+
+.label--failure {
+  background-color: $alarm-color;
+}
+
 .label--small {
   font-size: 0.8125rem;
 }

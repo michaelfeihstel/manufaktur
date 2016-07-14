@@ -1,3 +1,6 @@
+/* VARIABLES */
+$input-background-color: $offwhite;
+
 .fields {
   margin-bottom: $gutter;
   position: relative;
@@ -32,7 +35,7 @@ input[type=time],
 input[type=url],
 input[type=week] {
   @include appearance(none);
-  background-color: $light-shade;
+  background-color: $input-background-color;
   border: 1px solid $hairline-color;
   height: 2.25rem;
   padding: 0 0.5rem;
@@ -128,7 +131,7 @@ label {
   display: block;
   font-family: $header-font;
   font-weight: 400;
-  opacity: 0.6;
+  color: #999;
   text-rendering: geometricPrecision;
 }
 
@@ -190,62 +193,62 @@ input.quicksearch__button:hover {
       SELECTIZE
 \*-------------------*/
 
-.selectize-input {
-  @include transition(all 0.25s ease-in-out);
-  background-color: $light-shade;
-  border-radius: 0;
-  border: 1px solid $hairline-color;
-  box-shadow: none;
-  font-size: 1rem;
-  height: 2.25rem;
-  line-height: 1rem;
-  padding: 0;
-}
+// .selectize-input {
+//   @include transition(all 0.25s ease-in-out);
+//   background-color: $light-shade;
+//   border-radius: 0;
+//   border: 1px solid $hairline-color;
+//   box-shadow: none;
+//   font-size: 1rem;
+//   height: 2.25rem;
+//   line-height: 1rem;
+//   padding: 0;
+// }
 
-.selectize-input.full,
-.selectize-input.input-active {
-}
+// .selectize-input.full,
+// .selectize-input.input-active {
+// }
 
-.selectize-input input {
-  transition: none;
-}
+// .selectize-input input {
+//   transition: none;
+// }
 
-.selectize-input:hover, {
-  border-color: $primary-color;
-}
+// .selectize-input:hover, {
+//   border-color: $primary-color;
+// }
 
-.selectize-input.focus {
-  box-shadow: none;
-  border-radius: 0;
-  border: none;
-  background-color: $light-shade;
-  border: 1px solid $primary-color;
-}
+// .selectize-input.focus {
+//   box-shadow: none;
+//   border-radius: 0;
+//   border: none;
+//   background-color: $light-shade;
+//   border: 1px solid $primary-color;
+// }
 
-.selectize-input .item {
-  height: 100%;
-  padding: 0.625rem 0;
-}
+// .selectize-input .item {
+//   height: 100%;
+//   padding: 0.625rem 0;
+// }
 
-.selectize-control {
-  height: 2.25rem;
-}
+// .selectize-control {
+//   height: 2.25rem;
+// }
 
-.selectize-dropdown {
-  @include hard-shadow;
-  width: 100% !important;
-  border: 1px solid $primary-color;
-  border-radius: 0;
-}
+// .selectize-dropdown {
+//   @include hard-shadow;
+//   width: 100% !important;
+//   border: 1px solid $primary-color;
+//   border-radius: 0;
+// }
 
-.selectize-dropdown-content .option.active,
-.selectize-dropdown-content .selected {
-  background-color: $primary-color;
-  color: #fff;
-}
+// .selectize-dropdown-content .option.active,
+// .selectize-dropdown-content .selected {
+//   background-color: $primary-color;
+//   color: #fff;
+// }
 
-.selectize-control.single .selectize-input.input-active {
-}
+// .selectize-control.single .selectize-input.input-active {
+// }
 
 
 .form_in_place {

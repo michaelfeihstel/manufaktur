@@ -531,10 +531,17 @@ input[type="search"].subnav-search-field {
   font-size: 0.8em;
 }
 
-.size-input {
-  border: 1px solid #ddd;
-  border-top: none;
-  background: none;
+input[type=text].size-input {
+  padding: 0;
+  border-right: 1px solid #f7f7f9;
+}
+
+ul.sizes-list li:last-child input[type=text].size-input {
+  border-right: 1px solid $hairline-color;
+}
+
+ul.sizes-list li:last-child input[type=text].size-input:hover {
+  border-right: 1px solid $black;
 }
 
 .color-tile {

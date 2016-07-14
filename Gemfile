@@ -18,7 +18,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'pundit'
 gem 'geocoder'
-gem 'skylight'
+gem 'draper', '>= 3.0.0.pre1'
 
 # views and presentation
 gem 'bourbon'

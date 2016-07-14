@@ -96,7 +96,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.includes(:line_items, :discounts, :contact, { products: :size_set }).find(params[:id])
     authorize @order
-    @order_presenter = OrdersPresenter.new(@order)
+    @order_presenter = OrderPresenter.new(@order, view_context)
   end
 
 
@@ -216,6 +216,8 @@ class OrdersController < ApplicationController
       :is_vat_exempt,
       :marked,
       :paid_on,
+      :payment_method,
+      :shipping_cost,
       line_items_attributes: [
         :id,
         :order_id,

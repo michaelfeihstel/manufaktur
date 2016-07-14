@@ -28,9 +28,9 @@ ul.sizes-list {
 
 ul.sizes-list li {
   @include flex(1 1 auto);
-  min-width: 1.5rem;
+  min-width: 1.8rem;
+  width: 2rem;
   margin-top: 0.25rem;
-  margin-right: 0.25rem;
   text-align: center;
 }
 
@@ -38,6 +38,10 @@ ul.sizes-list li:last-child {
   margin-right: 0;
 }
 
+ul.sizes-list li .backordered {
+  background-color: $alarm-color;
+  color: $white;
+}
 
 
 // side nav

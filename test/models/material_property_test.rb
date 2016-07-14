@@ -10,6 +10,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_material_properties_on_material_id  (material_id)
+#  index_material_properties_on_use_in_name  (use_in_name)
+#
 
 require "test_helper"
 

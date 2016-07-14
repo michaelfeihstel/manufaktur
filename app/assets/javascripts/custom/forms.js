@@ -5,12 +5,3 @@ $('[data-submit]').on('click', function() {
 
   console.log("Submitting " + formId);
 });
-
-// selectize select boxes with class "selectize"
-$('.selectize').selectize({
-  valueField: "id",
-  labelField: "full_name",
-  sortField: "full_name",
-  searchField: "full_name",
-  maxOptions: 100
-});

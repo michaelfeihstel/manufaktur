@@ -37,6 +37,16 @@
 #  cashback_percent      :decimal(2, 2)    default(0.03)
 #  tax_id                :integer
 #  shipping_cost         :decimal(8, 2)    default(0.0)
+#  payment_method        :string
+#
+# Indexes
+#
+#  index_orders_on_billing_address_id   (billing_address_id)
+#  index_orders_on_completed_at         (completed_at)
+#  index_orders_on_contact_id           (contact_id)
+#  index_orders_on_created_at           (created_at)
+#  index_orders_on_delivery_address_id  (delivery_address_id)
+#  index_orders_on_tax_id               (tax_id)
 #
 
 class Order < ApplicationRecord
@@ -47,6 +57,7 @@ class Order < ApplicationRecord
   belongs_to :delivery_address, foreign_key: "delivery_address_id", class_name: "Address"
   belongs_to :tax
   has_many :comments, as: :commentable
+  has_many :backorders
   has_many :line_items, dependent: :destroy
   has_many :discounts, through: :line_items, dependent: :destroy
   has_many :products, through: :line_items
@@ -112,8 +123,6 @@ class Order < ApplicationRecord
   ransacker :quicksearch
 
   # METHODS
-  include IconHelper
-
   def completed?
     if completed_at.present?
       true
@@ -139,91 +148,7 @@ class Order < ApplicationRecord
   end
 
   def price_cashback
-    price_total * (1 - cashback_percent)
-  end
-
-  def time_for_payment
-    if paid_on
-      "Bezahlt nach #{distance_of_time_in_words(invoiced_at, paid_on)} Tagen."
-    else
-      "Ausstehend seit #{time_ago_in_words(invoiced_at)} Tagen."
-    end
-  end
-
-  def marked_status_label
-    if marked
-      "Auf Favoritenliste"
-    else
-      "Nicht auf Favoritenliste"
-    end
-  end
-
-  def marked_action_label
-    if marked
-      "Aus Favoriten entfernen"
-    else
-      "Zu Favoriten hinzufügen"
-    end
-  end
-
-  def completed_status_label
-    if completed_at
-      "Abgeschlossen am #{I18n.localize completed_at, format: :date_only}"
-    else
-      "In Bearbeitung"
-    end
-  end
-
-  def completed_action_label
-    if completed_at
-      "Abgeschlossen widerrufen"
-    else
-      "Abschliessen"
-    end
-  end
-
-  def paid_label
-    if paid_on
-      "Bezahlt"
-    else
-      "Zahlung ausstehend"
-    end
-  end
-
-  def formatted_invoice_date
-    if invoiced_at
-      I18n.l invoiced_at, format: :date_only
-    else
-      "-"
-    end
-  end
-
-  def formatted_cashback_date
-    if invoiced_at
-      I18n.l invoiced_at.advance(days: 10), format: :date_only
-    else
-      "-"
-    end
-  end
-
-  
-
-
-
-  def marked_toolbar_icon
-    if marked == true    
-      toolbar_icon("Markiert", "ion-ios7-star", "limegreen")
-    else
-      toolbar_icon("Markieren", "ion-ios7-star-outline")
-    end
-  end
-
-  def marked_inline_icon
-    if marked == true
-      inline_icon("Markiert", "ion-ios7-star", "limegreen")
-    else
-      inline_icon("Markieren", "ion-ios7-star-outline")
-    end
+    gross_total * (1 - cashback_percent)
   end
 
   def mark_as_marked
@@ -231,24 +156,6 @@ class Order < ApplicationRecord
       update_attributes(:marked => false)
     else
       update_attributes(:marked => true)
-    end
-  end
-
-
-
-  def completed_toolbar_icon
-    if date_completed.blank?
-      toolbar_icon("Abschließen", "ion-ios7-checkmark-empty")
-    else
-      toolbar_icon("Abgeschlossen", "ion-checkmark-circled", "limegreen")
-    end
-  end
-
-  def completed_inline_icon
-    if completed_at.blank?
-      inline_icon("Abschließen", "ion-ios7-checkmark-empty")
-    else
-      inline_icon("Abgeschlossen", "ion-checkmark-circled", "limegreen")
     end
   end
 

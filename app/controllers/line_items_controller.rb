@@ -45,6 +45,10 @@
 #
 
 class LineItemsController < ApplicationController
+
+  def edit
+    @line_item = LineItem.find(params[:id])
+  end
   
   def get_quantity
     @line_item = LineItem.find(params[:id])

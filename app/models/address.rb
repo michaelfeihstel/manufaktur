@@ -15,6 +15,10 @@
 #  latitude     :float
 #  longitude    :float
 #
+# Indexes
+#
+#  index_addresses_on_contact_id  (contact_id)
+#
 
 class Address < ApplicationRecord
   belongs_to :contact
@@ -34,6 +38,10 @@ class Address < ApplicationRecord
     else
       address
     end
+  end
+
+  def full_address_with_name
+    "#{name} / #{street} #{house_number} / #{zip} #{city} / #{country}"
   end
 
   def geocodable_address

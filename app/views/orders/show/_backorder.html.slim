@@ -1,0 +1,111 @@
+section
+  .panel
+    .panel__bar.panel__bar--top
+      .flex__list
+        .flex__list__item
+          = product_label(backorder.product)
+        .flex__list__item
+          h5.panel__title
+            span.bold = "#{backorder&.product&.name} "
+            br
+            span = backorder&.product&.color_text
+
+    .panel__body
+      ul.sizes-list
+        li
+          = label :g1, backorder&.product&.size_set&.g1, class: "label--small"
+          = backorder.g1
+        li
+          = label :g1h, backorder&.product&.size_set&.g1h, class: "label--small"
+          = backorder.g1h
+        li
+          = label :g2, backorder&.product&.size_set&.g2, class: "label--small"
+          = backorder.g2
+        li
+          = label :g2h, backorder&.product&.size_set&.g2h, class: "label--small"
+          = backorder.g2h
+        li
+          = label :g3, backorder&.product&.size_set&.g3, class: "label--small"
+          = backorder.g3
+        li
+          = label :g3h, backorder&.product&.size_set&.g3h, class: "label--small"
+          = backorder.g3h
+        li
+          = label :g4, backorder&.product&.size_set&.g4, class: "label--small"
+          = backorder.g4
+        li
+          = label :g4h, backorder&.product&.size_set&.g4h, class: "label--small"
+          = backorder.g4h
+        li
+          = label :g5, backorder&.product&.size_set&.g5, class: "label--small"
+          = backorder.g5
+        li
+          = label :g5h, backorder&.product&.size_set&.g5h, class: "label--small"
+          = backorder.g5h
+        li
+          = label :g6, backorder&.product&.size_set&.g6, class: "label--small"
+          = backorder.g6
+        li
+          = label :g6h, backorder&.product&.size_set&.g6h, class: "label--small"
+          = backorder.g6h
+        li
+          = label :g7, backorder&.product&.size_set&.g7, class: "label--small"
+          = backorder.g7
+        li
+          = label :g7h, backorder&.product&.size_set&.g7h, class: "label--small"
+          = backorder.g7h
+        li
+          = label :g8, backorder&.product&.size_set&.g8, class: "label--small"
+          = backorder.g8
+        li
+          = label :g8h, backorder&.product&.size_set&.g8h, class: "label--small"
+          = backorder.g8h
+        li
+          = label :g9, backorder&.product&.size_set&.g9, class: "label--small"
+          = backorder.g9
+        li
+          = label :g9h, backorder&.product&.size_set&.g9h, class: "label--small"
+          = backorder.g9h
+        li
+          = label :g10, backorder&.product&.size_set&.g10, class: "label--small"
+          = backorder.g10
+        li
+          = label :g10h, backorder&.product&.size_set&.g10h, class: "label--small"
+          = backorder.g10h
+        li
+          = label :g11, backorder&.product&.size_set&.g11, class: "label--small"
+          = backorder.g11
+        li
+          = label :g11h, backorder&.product&.size_set&.g11h, class: "label--small"
+          = backorder.g11h
+        li
+          = label :g12, backorder&.product&.size_set&.g12, class: "label--small"
+          = backorder.g12
+        li
+          = label :g12h, backorder&.product&.size_set&.g12h, class: "label--small"
+          = backorder.g12h
+        li
+          = label :g13, backorder&.product&.size_set&.g13, class: "label--small"
+          = backorder.g13
+        li
+          = label :g13h, backorder&.product&.size_set&.g13h, class: "label--small"
+          = backorder.g13h
+        li
+          = label :g14, backorder&.product&.size_set&.g14, class: "label--small"
+          = backorder.g14
+        li
+          = label :g14h, backorder&.product&.size_set&.g14h, class: "label--small"
+          = backorder.g14h
+        li
+          = label :g15, backorder&.product&.size_set&.g15, class: "label--small"
+          = backorder.g15
+        li
+          = label :g16, backorder&.product&.size_set&.g16, class: "label--small"
+          = backorder.g16
+
+
+    .panel__bar.panel__bar--bottom
+      .flex__list.flex__list--right
+        .flex__list__item
+          label Anzahl
+          = backorder.quantity

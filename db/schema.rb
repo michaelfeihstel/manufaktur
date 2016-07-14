@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707122430) do
+ActiveRecord::Schema.define(version: 20160713094845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,46 @@ ActiveRecord::Schema.define(version: 20160707122430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_api_keys_on_user_id", using: :btree
+  end
+
+  create_table "backorders", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "g1",         default: 0
+    t.integer  "g1h",        default: 0
+    t.integer  "g2",         default: 0
+    t.integer  "g2h",        default: 0
+    t.integer  "g3",         default: 0
+    t.integer  "g3h",        default: 0
+    t.integer  "g4",         default: 0
+    t.integer  "g4h",        default: 0
+    t.integer  "g5",         default: 0
+    t.integer  "g5h",        default: 0
+    t.integer  "g6",         default: 0
+    t.integer  "g6h",        default: 0
+    t.integer  "g7",         default: 0
+    t.integer  "g7h",        default: 0
+    t.integer  "g8",         default: 0
+    t.integer  "g8h",        default: 0
+    t.integer  "g9",         default: 0
+    t.integer  "g9h",        default: 0
+    t.integer  "g10",        default: 0
+    t.integer  "g10h",       default: 0
+    t.integer  "g11",        default: 0
+    t.integer  "g11h",       default: 0
+    t.integer  "g12",        default: 0
+    t.integer  "g12h",       default: 0
+    t.integer  "g13",        default: 0
+    t.integer  "g13h",       default: 0
+    t.integer  "g14",        default: 0
+    t.integer  "g14h",       default: 0
+    t.integer  "g15",        default: 0
+    t.integer  "g16",        default: 0
+    t.text     "comment"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["order_id"], name: "index_backorders_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_backorders_on_product_id", using: :btree
   end
 
   create_table "carriers", force: :cascade do |t|
@@ -249,6 +289,7 @@ ActiveRecord::Schema.define(version: 20160707122430) do
     t.decimal  "cashback_percent",                  precision: 2, scale: 2, default: "0.03"
     t.integer  "tax_id"
     t.decimal  "shipping_cost",                     precision: 8, scale: 2, default: "0.0"
+    t.string   "payment_method"
     t.index ["billing_address_id"], name: "index_orders_on_billing_address_id", using: :btree
     t.index ["completed_at"], name: "index_orders_on_completed_at", using: :btree
     t.index ["contact_id"], name: "index_orders_on_contact_id", using: :btree
@@ -603,6 +644,8 @@ ActiveRecord::Schema.define(version: 20160707122430) do
     t.boolean  "final_step", default: false
   end
 
+  add_foreign_key "backorders", "orders"
+  add_foreign_key "backorders", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "discounts", "line_items"
   add_foreign_key "line_items", "orders"

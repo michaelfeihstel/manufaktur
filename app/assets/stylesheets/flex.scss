@@ -27,7 +27,7 @@
 }
 
 .flex-item {
-  @include flex(1 1);
+  @include flex(0 0 auto);
   margin-right: 1rem;
 }
 
@@ -61,12 +61,12 @@ $widths: 50 100 150 200 250 300 350 400 500 600 700 800 900 1000;
 }
 
 .flex-item--grow {
-  @include flex(0 1);
+  @include flex(1 0 auto);
   margin-right: 1rem;
 }
 
 .flex-item--shrink {
-  @include flex(1 0);
+  @include flex(0 1 auto);
   margin-right: 1rem;
 }
 

@@ -20,6 +20,11 @@
 #  retail_price      :decimal(8, 2)
 #  product_family_id :integer
 #
+# Indexes
+#
+#  index_products_on_product_family_id  (product_family_id)
+#  index_products_on_size_set_id        (size_set_id)
+#
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
