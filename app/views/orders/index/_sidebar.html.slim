@@ -1,10 +1,10 @@
 - content_for :sidebar
   label Filter
   ul.side-nav
-    li class=("active" if @filter_selected == "favorites")
-      a href=favorite_orders_path
+    li class=("active" if current_page?(controller: 'orders', action: 'favorites'))
+      = link_to favorite_orders_path do
         span Favoriten 
         span.badge.float-right = Order.favorites.count
-    li class=("active" if @filter_selected == "all") = link_to "Alle", orders_path
-    li class=("active" if @filter_selected == "scheduled") = link_to "Terminlieferungen", scheduled_orders_path
-    li = link_to "Rückstände", "#"
+    li class=("active" if current_page?(controller: 'orders', action: 'index')) = link_to "Alle", orders_path
+    li class=("active" if current_page?(controller: 'orders', action: 'scheduled')) = link_to "Terminlieferungen", scheduled_orders_path
+    li class=("active" if current_page?(controller: 'orders', action: 'backordered')) = link_to "Rückstände", backordered_orders_path

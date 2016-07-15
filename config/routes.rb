@@ -58,13 +58,13 @@ Manufaktur::Application.routes.draw do
   end
   resources :orders, concerns: [:paginatable, :searchable, :commentable, :dashboardable] do
     member do
-      post :update_addresses
       put :mark
       put :complete
     end
     collection do
       get "favorites", action: "favorites", as: "favorite"
       get "scheduled", action: "scheduled", as: "scheduled"
+      get "backordered", action: "backordered", as: "backordered"
       get "created/:year/:month/:day", action: "index_created_at", as: "created_at"
     end
   end

@@ -17,4 +17,4 @@ table
   tfoot
     tr
       td.text-right colspan=8
-        h4.bold= number_to_currency(@orders.to_a.sum{|o| o.line_items.to_a.sum(&:price_total)})
+        h4.bold= number_to_currency(@orders.to_a.sum{|o| o.line_items.to_a.sum(&:gross_total)})

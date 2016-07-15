@@ -92,6 +92,12 @@ class OrdersController < ApplicationController
     render "index"
   end
 
+  def backordered
+    @orders = Order.backordered.includes(:line_items, :products, :contact).order(id: :desc).page(params[:page]).per(100)
+    authorize @orders
+    @filter_selected = "backordered"
+    render "index"
+  end
 
   def show
     @order = Order.includes(:line_items, :discounts, :contact, { products: :size_set }).find(params[:id])

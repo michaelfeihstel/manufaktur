@@ -118,6 +118,7 @@ class Order < ApplicationRecord
   scope :favorites, -> { where(marked: true) }
   scope :scheduled, -> { where(is_scheduled_delivery: true) }
   scope :ordered_by, -> (customer_id) { where(customer_id: customer_id) }
+  scope :backordered, -> { includes(:backorders).where.not(backorders: { id: nil }) }
 
   # RANSACK
   ransacker :quicksearch
@@ -129,6 +130,10 @@ class Order < ApplicationRecord
     else
       false
     end
+  end
+
+  def backordered
+    backorders.any?
   end
 
   def quantity_total

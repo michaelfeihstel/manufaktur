@@ -7,6 +7,10 @@ class OrderPolicy < ApplicationPolicy
     index?
   end
 
+  def backordered?
+    index?
+  end
+
   def dashboard?
     index?
   end
