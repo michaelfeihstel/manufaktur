@@ -1,0 +1,30 @@
+canvas.chart#revenue_chart
+
+javascript:
+  var ctx = document.getElementById('revenue_chart').getContext("2d");
+  var revenue = new Chart(ctx, {
+    type: 'line',
+      data: {
+        labels: #{raw @contact.line_items.completed_since(13.months.ago.beginning_of_month).group_by_month("line_items.completed_at", format: "%b %Y").count.map{|k, v| k}},
+        datasets: [
+          {
+            label: 'Umsatz',
+            data: #{raw @contact.line_items.completed_since(13.months.ago.beginning_of_month).to_a.group_by_month(&:completed_at).map{|months, items| items.sum(&:price_total).to_i }},
+            backgroundColor: '#333',
+          },
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            stacked: true
+          }],
+          yAxes: [{
+            stacked: true,
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        },
+      }
+  });

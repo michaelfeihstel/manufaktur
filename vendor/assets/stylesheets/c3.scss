@@ -5,7 +5,7 @@
 }
 .c3 path, .c3 line {
   fill: none;
-  stroke: #000;
+  stroke: #ccc;
 }
 .c3 text {
   -webkit-user-select: none;
@@ -33,14 +33,17 @@
 /*-- Axis --*/
 
 .c3-axis-x .tick {
+  fill: #999;
 }
 .c3-axis-x-label {
-  color: "#999"
+  fill: #999;
 }
 
 .c3-axis-y .tick {
+  fill: #999;
 }
 .c3-axis-y-label {
+  fill: #999;
 }
 
 .c3-axis-y2 .tick {

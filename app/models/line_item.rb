@@ -124,7 +124,19 @@ class LineItem < ApplicationRecord
   end
 
   def backorders
-    Backorder.where(order_id: order_id, product_id: product_id).first
+    Backorder.find_by(order_id: order_id, product_id: product_id)
+  end
+
+  def backordered?(size)
+    Backorder.find_by(order_id: order_id, product_id: product_id).backorder_as_compact_hash.has_key?(size)
+  end
+
+  def self.monthly_sales_as_hash
+    group_by_month(:completed_at).sum("COALESCE(g1, 0) + COALESCE(g1h, 0) + COALESCE(g2, 0) + COALESCE(g2h, 0) + COALESCE(g3, 0) + COALESCE(g3h, 0) + COALESCE(g4, 0) + COALESCE(g4h, 0) + COALESCE(g5, 0) + COALESCE(g5h, 0) + COALESCE(g6, 0) + COALESCE(g6h, 0) + COALESCE(g7, 0) + COALESCE(g7h, 0) + COALESCE(g8, 0) + COALESCE(g8h, 0) + COALESCE(g9, 0) + COALESCE(g9h, 0) + COALESCE(g10, 0) + COALESCE(g10h, 0) + COALESCE(g11, 0) + COALESCE(g11h, 0) + COALESCE(g12, 0) + COALESCE(g12h, 0) + COALESCE(g13, 0) + COALESCE(g13h, 0) + COALESCE(g14, 0) + COALESCE(g14h, 0) + COALESCE(g15, 0) + COALESCE(g16, 0)")
+  end
+
+  def self.monthly_sales_as_array
+    monthly_sales_as_hash.values
   end
   
 end

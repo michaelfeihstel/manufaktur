@@ -1,0 +1,35 @@
+canvas.chart#chart_stock
+
+javascript:
+  var ctx = document.getElementById('chart_stock').getContext("2d");
+  var stock_chart = new Chart(ctx, {
+    type: 'bar',
+      data: {
+        labels: #{raw @product.size_set.sizes_as_array},
+        datasets: [
+          {
+            label: 'Verfügbar',
+            data: #{raw @product.available_stock_array},
+            backgroundColor: '#333',
+          },
+          {
+            label: 'Reserviert',
+            data: #{raw @product.sales_backordered_values},
+            backgroundColor: '#CCC',
+          }
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            stacked: true
+          }],
+          yAxes: [{
+            stacked: true,
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        },
+      }
+  });

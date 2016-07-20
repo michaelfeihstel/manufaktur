@@ -13,8 +13,6 @@
 //= require jquery_ujs
 //= require selectize
 //= require jquery_nested_form
-//= require best_in_place
-//= require best_in_place.jquery-ui
 //= require turbolinks
 
 
@@ -22,9 +20,4 @@
 $(document).on('nested:fieldRemoved', function (event) {
 	console.log("field removed");
   $('[required]', event.field).removeAttr('required');
-});
-
-$(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
 });

@@ -13,8 +13,7 @@ table
     - @orders.each do |order|
       tr
         td
-          span data-tooltip="" title=order.completed_status_label
-            = completed_icon(order)
+          span = completed_icon(order)
         td = link_to order.try(:id), order_path(order), class: "link"
         td = l order.created_at, format: :date_only
         td = order.completed? ? (l order.completed_at, format: :date_only) : "-"

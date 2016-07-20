@@ -100,7 +100,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.includes(:line_items, :discounts, :contact, { products: :size_set }).find(params[:id])
+    @order = Order.includes(:line_items, :discounts, :contact, :backorders, { products: :size_set }).find(params[:id])
     authorize @order
     @order_presenter = OrderPresenter.new(@order, view_context)
   end

@@ -5,7 +5,7 @@
       = @contact.id
     .fields
       label Name / Firma
-      = best_in_place @contact, :name, as: :input, ok_button: "Speichern", ok_button_class: "best_in_place__submit", inner_class: "best_in_place__input"
+      = @contact.name
     .field
       label Kategorie
       = @contact&.contact_role&.human_readable_name

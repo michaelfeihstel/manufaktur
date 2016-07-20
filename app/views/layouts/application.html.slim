@@ -22,7 +22,8 @@ html lang="de"
     javascript:
       try{Typekit.load();}catch(e){}
     = javascript_include_tag "d3.min"
-    = javascript_include_tag "c3.min"
+    = javascript_include_tag "c3"
+    = javascript_include_tag "application-head"
 
     = csrf_meta_tags
 
@@ -61,6 +62,7 @@ html lang="de"
       .search__footer
         = yield :search_footer
     .main__content__overlay
+
     = javascript_include_tag "application", data: { "turbolinks-eval": "false" }
     = javascript_include_tag "application-track"
     = content_for :additional_javascripts
