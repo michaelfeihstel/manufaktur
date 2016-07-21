@@ -150,6 +150,15 @@ class Product < ApplicationRecord
     stock_hash.merge(sales_backordered){|key, stock, backordered| stock - backordered}
   end
 
+  def available_stock(size)
+    quantity = available_stock_hash[size]
+    if quantity == 0
+      nil
+    else
+      quantity
+    end
+  end
+
   def available_stock_array
     available_stock_hash.values
   end

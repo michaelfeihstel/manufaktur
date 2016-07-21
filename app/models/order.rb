@@ -65,6 +65,7 @@ class Order < ApplicationRecord
   has_many :shipments, dependent: :destroy
   
   accepts_nested_attributes_for :line_items, allow_destroy: true
+  accepts_nested_attributes_for :products
   accepts_nested_attributes_for :shipments, allow_destroy: true
 
   # pg_search
