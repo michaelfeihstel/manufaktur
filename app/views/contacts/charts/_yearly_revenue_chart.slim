@@ -5,7 +5,7 @@ javascript:
       bindto: "#chart_revenue",
       data: {
         columns: [
-          #{raw collection.group_by_year(&:completed_at).map{|k, v| v.sum(&:price_total).to_i }.prepend("Umsatz")}
+          #{raw collection.group_by_year(series: true){ |line_item| line_item.completed_at }.map{|k, v| v.sum(&:price_total).to_i }.prepend("Umsatz")}
         ],
         type: 'area',
         labels: true,
@@ -21,6 +21,7 @@ javascript:
       axis: {
         x: {
           tick: {
+            fit: false,
             culling: true,
             centered: true,
             outer: false

@@ -1,5 +1,5 @@
 <% if @group_by == 'monthly' %>
-  $('[data-role="revenue-chart-container"]').html('<%= j render "contacts/charts/monthly_revenue_chart", collection: @contact.line_items.completed_since(13.months.ago.beginning_of_month) %>')
+  $('[data-role="revenue-chart-container"]').html('<%= j render "contacts/charts/monthly_revenue_chart", collection: @contact.line_items.completed %>')
 <% elsif @group_by == 'yearly' %>
-  $('[data-role="revenue-chart-container"]').html('<%= j render "contacts/charts/yearly_revenue_chart", collection: @contact.line_items %>')
+  $('[data-role="revenue-chart-container"]').html('<%= j render "contacts/charts/yearly_revenue_chart", collection: @contact.line_items.completed %>')
 <% end %>

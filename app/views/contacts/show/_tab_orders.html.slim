@@ -12,7 +12,7 @@
             li = link_to "Monatlich", set_revenue_chart_contact_path(group_by: :monthly), class: "link", remote: true
             li = link_to "Jährlich", set_revenue_chart_contact_path(group_by: :yearly), class: "link", remote: true
         .panel__body data-role="revenue-chart-container"
-          = render "contacts/charts/monthly_revenue_chart", collection: @contact.line_items.completed_since(13.months.ago.beginning_of_month)
+          = render "contacts/charts/monthly_revenue_chart", collection: @contact.line_items.completed
 
     section#orders
       = render "contacts/show/orders_table"
