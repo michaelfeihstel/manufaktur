@@ -34,7 +34,6 @@ gem 'compass'
 gem 'jquery-rails'
 gem 'nested_form'
 gem 'pg_search'
-gem 'rails-assets-chartjs', source: 'https://rails-assets.org'
 
 group :production do
   gem 'rails_12factor'
