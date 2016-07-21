@@ -4,7 +4,7 @@
       .panel__bar.panel__bar--top
         h5.panel__title Monatlicher Absatz
       .panel__body
-        = render 'products/shared/chart_sales_per_month'
+        = render 'products/shared/chart_sales_per_month', collection: @product.line_items.completed_since(13.months.ago.beginning_of_month)
       .panel__bar.panel__bar--bottom
         .flex__list.flex__list--right
           .flex__list__item

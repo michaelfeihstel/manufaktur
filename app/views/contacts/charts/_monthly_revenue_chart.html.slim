@@ -1,0 +1,49 @@
+#chart_revenue
+
+javascript:
+  var chart = c3.generate({
+      bindto: "#chart_revenue",
+      data: {
+        columns: [
+          #{raw collection.group_by_month(&:completed_at).map{|k, v| v.sum(&:price_total).to_i }.prepend("Umsatz")}
+        ],
+        type: 'area',
+        labels: true,
+        labels: {
+          format: {
+            y: de.numberFormat('$'),
+          }
+        },
+        colors: {
+          "Umsatz": '#333'
+        }
+      },
+      axis: {
+        x: {
+          tick: {
+            culling: true,
+            centered: true,
+            outer: false
+          },
+          type: 'category',
+          categories: #{raw collection.group_by_month("line_items.completed_at", format: "%b %Y").count.map{|k, v| k}}
+        },
+        y: {
+          default: 0,
+          show: true,
+          tick: {
+            format: de.numberFormat("$")
+          }
+        }
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      },
+      tooltip: {
+        format: {
+          value: de.numberFormat('$')
+        }
+      }
+  });

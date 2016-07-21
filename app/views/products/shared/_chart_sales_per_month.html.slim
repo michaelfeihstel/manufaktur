@@ -5,7 +5,7 @@ javascript:
     bindto: "#chart_sales_per_month",
     data: {
       columns: [
-        #{raw @product.line_items.completed_since(13.months.ago.beginning_of_month).monthly_sales_as_array.prepend("Absatz")}
+        #{raw collection.monthly_sales_as_array.prepend("Absatz")}
       ],
       type: 'line',
       colors: {
@@ -20,7 +20,7 @@ javascript:
           outer: false
         },
         type: 'category',
-        categories: #{raw @product.line_items.completed_since(13.months.ago.beginning_of_month).group_by_month(:completed_at, format: "%b %Y").count.map{|k, v| k}}
+        categories: #{raw collection.monthly_sales_as_hash.map{|k, v| k}}
       },
       y: {
         show: true,

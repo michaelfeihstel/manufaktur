@@ -5,10 +5,14 @@
   - else
     section
       .panel
-        .panel__bar.panel__bar__top
+        .panel__bar.panel__bar--top
           h5.panel__title Monatliche Umsätze
-        .panel__body
-          = render "contacts/charts/order_chart"
+        .panel__body.border-bottom
+          ul.inline-list.small
+            li = link_to "Monatlich", set_revenue_chart_contact_path(group_by: :monthly), class: "link", remote: true
+            li = link_to "Jährlich", set_revenue_chart_contact_path(group_by: :yearly), class: "link", remote: true
+        .panel__body data-role="revenue-chart-container"
+          = render "contacts/charts/monthly_revenue_chart", collection: @contact.line_items.completed_since(13.months.ago.beginning_of_month)
 
     section#orders
       = render "contacts/show/orders_table"

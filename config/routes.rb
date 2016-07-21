@@ -48,6 +48,9 @@ Manufaktur::Application.routes.draw do
       get "suppliers"
       get "customers"
     end
+    member do
+      get "filter/set_revenue_chart/:group_by", controller: "contact_filters", action: "set_revenue_chart", as: "set_revenue_chart"
+    end
   end
   resources :letters, concerns: [:paginatable, :searchable]
   resources :line_items
