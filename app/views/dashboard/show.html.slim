@@ -1,0 +1,34 @@
+= render "layouts/shared/breadcrumbs", breadcrumbs: { Home: nil }
+
+- content_for :header
+  .header__title
+    h1 Dashboard
+  .header__actions
+
+.panel
+  .panel__bar.panel__bar--top
+    h5.panel__title = link_to "Aufträge", orders_path
+  .panel__body.lazy_load data-role="revenue-chart-container" data-url=dashboard_load_revenue_chart_path
+    .loader
+  .panel__bar.panel__bar--bottom
+    ul.inline-list
+      li = link_to "Alle Aufträge", orders_path, class: "link"
+      li = link_to "Aktuelle Aufträge", favorite_orders_path, class: "link"
+
+.row
+  .span-small-12.span-medium-6
+    .panel
+      .panel__bar.panel__bar--top
+        h5.panel__title = link_to "Beliebteste Produktgruppen", products_path
+      .panel__body.panel__bar--top
+        ul.inline-list.small
+          li = link_to "Letzter Monat", dashboard_load_product_family_share_chart_path(from: 1.month.ago, to: Time.now), class: "link", remote: true
+          li = link_to "Letzte 3 Monate", dashboard_load_product_family_share_chart_path(from: 3.months.ago, to: Time.now), class: "link", remote: true
+          li = link_to "Letztes Jahr", dashboard_load_product_family_share_chart_path(from: 1.year.ago, to: Time.now), class: "link", remote: true
+          li = link_to "2016", dashboard_load_product_family_share_chart_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
+          li = link_to "2015", dashboard_load_product_family_share_chart_path(from: Time.now.prev_year.beginning_of_year, to: Time.now), class: "link", remote: true
+      .panel__body.lazy_load data-role="product-family-share-chart-container" data-url=dashboard_load_product_family_share_chart_path
+        .loader
+      .panel__bar.panel__bar--bottom
+        ul.inline-list
+          li = link_to "Alle Schuhe", products_path, class: "link"

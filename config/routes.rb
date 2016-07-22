@@ -1,7 +1,7 @@
 Manufaktur::Application.routes.draw do
 
   # root
-  root to: "contacts#index"
+  root to: "dashboard#show"
 
   # devise
   devise_for :users
@@ -49,7 +49,7 @@ Manufaktur::Application.routes.draw do
       get "customers"
     end
     member do
-      get "filter/set_revenue_chart/:group_by", controller: "contact_filters", action: "set_revenue_chart", as: "set_revenue_chart"
+      get "filter/set_revenue_chart/:period", controller: "contact_filters", action: "set_revenue_chart", as: "set_revenue_chart"
     end
   end
   resources :letters, concerns: [:paginatable, :searchable]
@@ -103,6 +103,13 @@ Manufaktur::Application.routes.draw do
       get "update_revenue_chart", controller: "line_items"
       get "set_period", controller: "orders", as: "set_orders_period"
     end
+  end
+
+
+  # /dashboard/
+  namespace :dashboard do
+    get :load_revenue_chart
+    get :load_product_family_share_chart
   end
 
 

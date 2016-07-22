@@ -5,7 +5,7 @@ javascript:
       bindto: "#chart_revenue",
       data: {
         columns: [
-          #{raw collection.group_by_year(series: true){ |line_item| line_item.completed_at }.map{|k, v| v.sum(&:price_total).to_i }.prepend("Umsatz")}
+          #{raw collection.group_by_period(period, series: true){ |line_item| line_item.completed_at }.map{|k, v| v.sum(&:price_total).to_i }.prepend("Umsatz")}
         ],
         type: 'area',
         labels: true,
@@ -27,7 +27,7 @@ javascript:
             outer: false
           },
           type: 'category',
-          categories: #{raw collection.group_by_year("line_items.completed_at", format: "%Y").count.map{|k, v| k}}
+          categories: #{raw collection.group_by_month("line_items.completed_at", format: "%b %Y").count.map{|k, v| k}}
         },
         y: {
           default: 0,

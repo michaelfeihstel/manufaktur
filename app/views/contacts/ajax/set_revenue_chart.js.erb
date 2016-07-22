@@ -1,5 +1,1 @@
-<% if @group_by == 'monthly' %>
-  $('[data-role="revenue-chart-container"]').html('<%= j render "contacts/charts/monthly_revenue_chart", collection: @contact.line_items.completed %>')
-<% elsif @group_by == 'yearly' %>
-  $('[data-role="revenue-chart-container"]').html('<%= j render "contacts/charts/yearly_revenue_chart", collection: @contact.line_items.completed %>')
-<% end %>
+$('[data-role="revenue-chart-container"]').html('<%= j render partial: "contacts/charts/revenue_chart", locals: { collection: @contact.line_items.completed, period: @period } %>')

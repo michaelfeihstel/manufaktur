@@ -1,0 +1,52 @@
+#chart_revenue
+
+javascript:
+  var chart = c3.generate({
+    bindto: "#chart_revenue",
+    data: {
+      columns: [
+        #{ raw collection.group_by_month(series: true, range: 23.months.ago.beginning_of_month..12.months.ago.end_of_month){ |line_item| line_item.completed_at }.map{ |k, v| v.sum(&:price_total).to_i }.prepend('Vorjahr') },
+        #{ raw collection.group_by_month(series: true, range: 11.months.ago..Time.now){ |line_item| line_item.completed_at }.map{ |k, v| v.sum(&:price_total).to_i }.prepend('Aktuelles Jahr') },
+        #{ raw collection.webshop.group_by_month(series: true, range: 11.months.ago..Time.now){ |line_item| line_item.completed_at }.map{ |k, v| v.sum(&:price_total).to_i }.prepend('Online Shop') }
+      ],
+      type: 'area',
+      labels: {
+        format: {
+          y: de.numberFormat('$'),
+        }
+      },
+      colors: {
+        "Aktuelles Jahr": '#333',
+        "Vorjahr": '#7BF730',
+        "Online Shop": '#B6BE00'
+      }
+    },
+    axis: {
+      x: {
+        tick: {
+          centered: true
+        },
+        type: 'categories',
+        categories: #{raw collection.group_by_month(:completed_at, format: '%b %Y', last: 12).count.map{ |month, count| month } }
+      },
+      y: {
+        show: true,
+        tick: {
+          format: de.numberFormat("$")
+        }
+      }
+    },
+    tooltip: {
+      format: {
+        value: de.numberFormat('$')
+      }
+    },
+    grid: {
+      y: {
+        show: true
+      }
+    },
+    regions: [
+      {start: 10.5, end: 11.5, class: 'highlighted-region'}
+    ]
+  });

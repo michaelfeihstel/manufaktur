@@ -65,7 +65,7 @@ class LineItem < ApplicationRecord
   scope :completed_since, -> (date) { where("line_items.completed_at >= ?", date) }
   scope :completed_between, -> (from, to) { where("completed_at BETWEEN ? AND ?", from, to) }
   scope :most_recent, -> { order(created_at: :desc) }
-  scope :webshop, -> { joins(:order).where(order: {is_webshop: true}) }
+  scope :webshop, -> { joins(:order).where(orders: { is_webshop: true }) }
 
   # callbacks
 
@@ -89,6 +89,10 @@ class LineItem < ApplicationRecord
   def quantity
     items = [g1, g1h, g2, g2h, g3, g3h, g4, g4h, g5, g5h, g6, g6h, g7, g7h, g8, g8h, g9, g9h, g10, g10h, g11, g11h, g12, g12h, g13, g13h, g14, g14h, g15, g16]
     items.compact.sum
+  end
+
+  def self.sum_quantity
+    sum("COALESCE(g1, 0) + COALESCE(g1h, 0) + COALESCE(g2, 0) + COALESCE(g2h, 0) + COALESCE(g3, 0) + COALESCE(g3h, 0) + COALESCE(g4, 0) + COALESCE(g4h, 0) + COALESCE(g5, 0) + COALESCE(g5h, 0) + COALESCE(g6, 0) + COALESCE(g6h, 0) + COALESCE(g7, 0) + COALESCE(g7h, 0) + COALESCE(g8, 0) + COALESCE(g8h, 0) + COALESCE(g9, 0) + COALESCE(g9h, 0) + COALESCE(g10, 0) + COALESCE(g10h, 0) + COALESCE(g11, 0) + COALESCE(g11h, 0) + COALESCE(g12, 0) + COALESCE(g12h, 0) + COALESCE(g13, 0) + COALESCE(g13h, 0) + COALESCE(g14, 0) + COALESCE(g14h, 0) + COALESCE(g15, 0) + COALESCE(g16, 0)")
   end
 
   def ref_price_single

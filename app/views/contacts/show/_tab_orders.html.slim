@@ -9,10 +9,10 @@
           h5.panel__title Umsätze
         .panel__body.border-bottom
           ul.inline-list.small
-            li = link_to "Monatlich", set_revenue_chart_contact_path(group_by: :monthly), class: "link", remote: true
-            li = link_to "Jährlich", set_revenue_chart_contact_path(group_by: :yearly), class: "link", remote: true
+            li = link_to "Monatlich", set_revenue_chart_contact_path(period: :month), class: "link", remote: true
+            li = link_to "Jährlich", set_revenue_chart_contact_path(period: :year), class: "link", remote: true
         .panel__body data-role="revenue-chart-container"
-          = render "contacts/charts/monthly_revenue_chart", collection: @contact.line_items.completed
+          = render partial: "contacts/charts/revenue_chart", locals: { collection: @contact.line_items.completed, period: :month }
 
     section#orders
       = render "contacts/show/orders_table"

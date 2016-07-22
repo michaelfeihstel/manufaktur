@@ -1,0 +1,3 @@
+$('[data-role="product-family-share-chart-container"]').html('<%= j render "dashboard/charts/product_family_share_chart", collection: @product_families %>');
+
+console.log("<%= @product_families.first.total %>")
