@@ -5,9 +5,9 @@ javascript:
     bindto: "#chart_revenue",
     data: {
       columns: [
-        #{ raw collection.group_by_month(series: true, range: 23.months.ago.beginning_of_month..12.months.ago.end_of_month){ |line_item| line_item.completed_at }.map{ |k, v| v.sum(&:price_total).to_i }.prepend('Vorjahr') },
-        #{ raw collection.group_by_month(series: true, range: 11.months.ago..Time.now){ |line_item| line_item.completed_at }.map{ |k, v| v.sum(&:price_total).to_i }.prepend('Aktuelles Jahr') },
-        #{ raw collection.webshop.group_by_month(series: true, range: 11.months.ago..Time.now){ |line_item| line_item.completed_at }.map{ |k, v| v.sum(&:price_total).to_i }.prepend('Online Shop') }
+        #{ raw line_items.map{|month, total| total.to_i}[12..24].prepend('Vorjahr') },
+        #{ raw line_items.map{|month, total| total.to_i}[0..11].prepend('Aktuelles Jahr') },
+        #{ raw line_items_shop.map{|month, total| total.to_i}.prepend('Online Shop') }
       ],
       type: 'area',
       labels: {
@@ -27,7 +27,7 @@ javascript:
           centered: true
         },
         type: 'categories',
-        categories: #{raw collection.group_by_month(:completed_at, format: '%b %Y', last: 12).count.map{ |month, count| month } }
+        categories: #{raw line_items.map{ |month, total| month } }
       },
       y: {
         show: true,
