@@ -84,6 +84,10 @@ ul.side-nav li a {
   margin-left: 0;
 }
 
+.flex__list.flex__list--align-bottom {
+  align-items: flex-end
+}
+
 .flex__list--right {
   justify-content: flex-end;
   text-align: right;

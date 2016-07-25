@@ -60,6 +60,13 @@ button.dense,
   padding: 0.5rem 1rem;
 }
 
+button.button--inline,
+.button.button--inline {
+  height: 2.25rem;
+  padding: 0 1rem;
+  margin: 0;
+}
+
 button--no-margin,
 .button--no-margin {
   margin: 0;

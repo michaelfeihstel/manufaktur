@@ -1,0 +1,16 @@
+.panel
+  .panel__bar.panel__bar--top
+    h5.panel__title Umsatzstärkste Händler
+  .panel__body style="height: 400px"
+    table
+      thead
+        tr
+          th Händler
+          th.text-right width=100 Umsatz
+      tbody
+        - retailers.each do |retailer|
+          tr
+            td = link_to retailer.name, contact_path(retailer), class: "link"
+            td.text-right = number_to_currency(retailer.total, unit: "€")
+  .panel__bar.panel__bar--bottom
+    = link_to "Alle Kontakte...", contacts_path, class: "link"

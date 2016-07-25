@@ -110,6 +110,8 @@ Manufaktur::Application.routes.draw do
   namespace :dashboard do
     get :load_revenue_chart
     get :load_product_family_share_chart
+    get :load_top_retailers_panel
+    get :set_period
   end
 
 

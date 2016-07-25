@@ -1,0 +1,19 @@
+.row
+  .span-small-12.span-medium-6
+    ul.inline-list
+      = form_tag dashboard_set_period_path, method: :get, class: "small", remote: true do
+        .flex__list.flex__list--align-bottom
+          .flex__list__item.flex__list__item--expand
+              = label_tag :from, "Von", class: "inline-label"
+              = date_field_tag :from, params[:from]&.to_date || @options[:from].to_date
+          .flex__list__item.flex__list__item--expand
+              = label_tag :to, "Bis"
+              = date_field_tag :to, params[:to]&.to_date || @options[:to].to_date
+          .flex__list__item.flex__list__item--fixed
+            = submit_tag "OK", class: "button button--inline"
+      hr
+      li = link_to "Letzter Monat", dashboard_set_period_path(from: 1.month.ago, to: Time.now), class: "link", remote: true
+      li = link_to "Letzte 3 Monate", dashboard_set_period_path(from: 3.months.ago, to: Time.now), class: "link", remote: true
+      li = link_to "Letztes Jahr", dashboard_set_period_path(from: 1.year.ago, to: Time.now), class: "link", remote: true
+      li = link_to "2016", dashboard_set_period_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
+      li = link_to "2015", dashboard_set_period_path(from: Time.now.prev_year.beginning_of_year, to: Time.now), class: "link", remote: true

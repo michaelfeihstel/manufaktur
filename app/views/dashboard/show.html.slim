@@ -3,7 +3,8 @@
 - content_for :header
   .header__title
     h1 Dashboard
-  .header__actions
+  .header__actions data-role="set-period-form-container"
+    = render "dashboard/set_period_form"
 
 .panel
   .panel__bar.panel__bar--top
@@ -20,15 +21,16 @@
     .panel
       .panel__bar.panel__bar--top
         h5.panel__title = link_to "Beliebteste Produktgruppen", products_path
-      .panel__body.panel__bar--top
-        ul.inline-list.small
-          li = link_to "Letzter Monat", dashboard_load_product_family_share_chart_path(from: 1.month.ago, to: Time.now), class: "link", remote: true
-          li = link_to "Letzte 3 Monate", dashboard_load_product_family_share_chart_path(from: 3.months.ago, to: Time.now), class: "link", remote: true
-          li = link_to "Letztes Jahr", dashboard_load_product_family_share_chart_path(from: 1.year.ago, to: Time.now), class: "link", remote: true
-          li = link_to "2016", dashboard_load_product_family_share_chart_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
-          li = link_to "2015", dashboard_load_product_family_share_chart_path(from: Time.now.prev_year.beginning_of_year, to: Time.now), class: "link", remote: true
-      .panel__body.lazy_load data-role="product-family-share-chart-container" data-url=dashboard_load_product_family_share_chart_path
+      .panel__body.lazy_load data-role="product-family-share-chart-container" data-url=dashboard_load_product_family_share_chart_path style="height: 400px"
         .loader
       .panel__bar.panel__bar--bottom
         ul.inline-list
           li = link_to "Alle Schuhe", products_path, class: "link"
+
+  .span-small-12.span-medium-6
+    .lazy_load data-role="top-retailers-panel-container" data-url=dashboard_load_top_retailers_panel_path
+      .panel
+        .panel__bar.panel__bar--top
+          h5.panel__title Umsatzstärkste Händler
+        .panel__body
+          .loader

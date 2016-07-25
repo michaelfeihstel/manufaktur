@@ -1,0 +1,5 @@
+$('[data-role="set-period-form-container"]').html('<%= j render "dashboard/set_period_form" %>');
+
+$('[data-role="product-family-share-chart-container"]').html('<%= j render "dashboard/charts/product_family_share_chart", collection: @product_families %>');
+
+$('[data-role="top-retailers-panel-container"]').html('<%= j render partial: "dashboard/shared/top_retailers_panel", locals: { retailers: @retailers } %>')
