@@ -15,5 +15,5 @@
       li = link_to "Letzter Monat", dashboard_set_period_path(from: 1.month.ago, to: Time.now), class: "link", remote: true
       li = link_to "Letzte 3 Monate", dashboard_set_period_path(from: 3.months.ago, to: Time.now), class: "link", remote: true
       li = link_to "Letztes Jahr", dashboard_set_period_path(from: 1.year.ago, to: Time.now), class: "link", remote: true
-      li = link_to "2016", dashboard_set_period_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
-      li = link_to "2015", dashboard_set_period_path(from: Time.now.prev_year.beginning_of_year, to: Time.now), class: "link", remote: true
+      li = link_to Time.now.year, dashboard_set_period_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
+      li = link_to Time.now.prev_year.year, dashboard_set_period_path(from: Time.now.prev_year.beginning_of_year, to: Time.now.prev_year.end_of_year), class: "link", remote: true

@@ -11,6 +11,6 @@
         - retailers.each do |retailer|
           tr
             td = link_to retailer.name, contact_path(retailer), class: "link"
-            td.text-right = number_to_currency(retailer.total, unit: "€")
+            td.text-right width=150 = number_to_currency(retailer.total, unit: "€")
   .panel__bar.panel__bar--bottom
     = link_to "Alle Kontakte...", contacts_path, class: "link"
