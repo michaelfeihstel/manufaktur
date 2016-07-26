@@ -11,8 +11,21 @@
           ul.inline-list.small
             li = link_to "Monatlich", set_revenue_chart_contact_path(period: :month), class: "link", remote: true
             li = link_to "Jährlich", set_revenue_chart_contact_path(period: :year), class: "link", remote: true
-        .panel__body data-role="revenue-chart-container"
-          = render partial: "contacts/charts/revenue_chart", locals: { collection: @contact.line_items.completed, period: :month }
+        .panel__body.lazy_load data-role="revenue-chart-container" data-url=set_revenue_chart_contact_path(period: :month)
+          .loader
+      .row
+        .span-small-12.span-medium-6
+          .panel
+            .panel__bar.panel__bar--top
+              h5.panel__title Beliebteste Produktgruppen
+            .panel__body.border-bottom
+              ul.inline-list.small
+                li = link_to "Letztes Jahr", set_product_family_share_chart_contact_path(from: 1.years.ago, to: Time.now), class: "link", remote: true
+                li = link_to "Letzten 3 Monate", set_product_family_share_chart_contact_path(from: 3.months.ago, to: Time.now), class: "link", remote: true
+                li = link_to Time.now.year, set_product_family_share_chart_contact_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
+                li = link_to Time.now.prev_year.year, set_product_family_share_chart_contact_path(from: Time.now.prev_year.beginning_of_year, to: Time.now.prev_year.end_of_year), class: "link", remote: true
+            .panel__body.lazy_load data-role="product-family-share-chart-container" data-url=set_product_family_share_chart_contact_path
+              .loader
 
     section#orders
       = render "contacts/show/orders_table"

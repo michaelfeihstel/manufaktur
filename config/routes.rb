@@ -50,6 +50,7 @@ Manufaktur::Application.routes.draw do
     end
     member do
       get "filter/set_revenue_chart/:period", controller: "contact_filters", action: "set_revenue_chart", as: "set_revenue_chart"
+      get "filter/set_product_family_share_chart", controller: "contact_filters", action: "set_product_family_share_chart", as: "set_product_family_share_chart"
     end
   end
   resources :letters, concerns: [:paginatable, :searchable]

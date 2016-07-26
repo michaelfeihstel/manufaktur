@@ -1,0 +1,19 @@
+#product_family_share_chart
+
+javascript:
+  var chart = c3.generate({
+    bindto: "#product_family_share_chart",
+    data: {
+      columns: [
+        #{ raw collection.map{ |item| item.total }.prepend("Absatz") }
+      ],
+      type: 'bar',
+    },
+    axis: {
+      rotated: true,
+      x: {
+        type: 'categories',
+        categories: #{raw collection.map{ |item| item.name } },
+      },
+    }
+  });

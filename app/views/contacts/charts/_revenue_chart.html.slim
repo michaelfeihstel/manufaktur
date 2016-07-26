@@ -27,7 +27,7 @@ javascript:
             outer: false
           },
           type: 'category',
-          categories: #{raw collection.group_by_month("line_items.completed_at", format: "%b %Y").count.map{|k, v| k}}
+          categories: #{raw collection.group_by_period(period, series: true, format: (period == "year" ? "%Y" : "%b %Y")){ |line_item| line_item.completed_at }.map{|k, v| k }}
         },
         y: {
           default: 0,
