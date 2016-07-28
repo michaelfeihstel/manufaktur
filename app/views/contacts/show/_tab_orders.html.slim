@@ -20,12 +20,27 @@
               h5.panel__title Beliebteste Produktgruppen
             .panel__body.border-bottom
               ul.inline-list.small
+                li = link_to "Alles", set_product_family_share_chart_contact_path, class: "link", remote: true
                 li = link_to "Letztes Jahr", set_product_family_share_chart_contact_path(from: 1.years.ago, to: Time.now), class: "link", remote: true
                 li = link_to "Letzten 3 Monate", set_product_family_share_chart_contact_path(from: 3.months.ago, to: Time.now), class: "link", remote: true
                 li = link_to Time.now.year, set_product_family_share_chart_contact_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
                 li = link_to Time.now.prev_year.year, set_product_family_share_chart_contact_path(from: Time.now.prev_year.beginning_of_year, to: Time.now.prev_year.end_of_year), class: "link", remote: true
             .panel__body.lazy_load data-role="product-family-share-chart-container" data-url=set_product_family_share_chart_contact_path
               .loader
+        .span-small-12.span-medium-6
+          .panel
+            .panel__bar.panel__bar--top
+              h5.panel__title Bestellfrequenz und -menge
+            .panel__body.border-bottom
+              ul.inline-list.small
+                li = link_to "Alles", set_order_stats_panel_contact_path, class: "link", remote: true
+                li = link_to "Letztes Jahr", set_order_stats_panel_contact_path(from: 1.years.ago, to: Time.now), class: "link", remote: true
+                li = link_to "Letzten 3 Monate", set_order_stats_panel_contact_path(from: 3.months.ago, to: Time.now), class: "link", remote: true
+                li = link_to Time.now.year, set_order_stats_panel_contact_path(from: Time.now.beginning_of_year, to: Time.now), class: "link", remote: true
+                li = link_to Time.now.prev_year.year, set_order_stats_panel_contact_path(from: Time.now.prev_year.beginning_of_year, to: Time.now.prev_year.end_of_year), class: "link", remote: true
+            .panel__body data-role="order-stats-container"
+              = render "contacts/show/order_stats_panel", orders: @contact.orders
+
 
     section#orders
       = render "contacts/show/orders_table"

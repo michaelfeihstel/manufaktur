@@ -851,3 +851,29 @@ span.icon__text {
 .comment:hover .comment__action {
   visibility: visible;
 }
+
+
+
+/* STATS */
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.stat__item {
+  margin: 2rem 0;
+}
+
+.stat__value {
+  display: block;
+  font-size: 3.157rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.stat__description {
+  color: #999;
+}

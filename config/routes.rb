@@ -51,6 +51,7 @@ Manufaktur::Application.routes.draw do
     member do
       get "filter/set_revenue_chart/:period", controller: "contact_filters", action: "set_revenue_chart", as: "set_revenue_chart"
       get "filter/set_product_family_share_chart", controller: "contact_filters", action: "set_product_family_share_chart", as: "set_product_family_share_chart"
+      get "filter/set_orders_stats_panel", controller: "contact_filters", action: "set_order_stats_panel", as: "set_order_stats_panel"
     end
   end
   resources :letters, concerns: [:paginatable, :searchable]

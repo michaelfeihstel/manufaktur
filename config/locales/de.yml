@@ -82,6 +82,10 @@ de:
       x_days:
         one: einem Tag
         other: ! '%{count} Tagen'
+        formats:
+          stats:
+            one: ein Tag
+            other: '%{count} Tage'
       x_minutes:
         one: einer Minute
         other: ! '%{count} Minuten'
