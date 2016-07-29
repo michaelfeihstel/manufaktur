@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: $body-font;
-  line-height: 1.45rem;
+  line-height: 1.5;
   color: $font-color;
 }
 
@@ -15,9 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3, h4 {
-  margin: 1.414rem 0 0.5rem;
   font-weight: inherit;
-  line-height: 1.2;
 }
 
 h1 {
@@ -168,7 +166,7 @@ a.link.alert {
 }
 
 .product-label__top {
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
 }
 
 .product-label__bottom {
@@ -183,6 +181,7 @@ a.link.alert {
 .product-label--square .product-label__top {
   width: 1rem;
   height: 0.75rem;
+  padding: 0;
 }
 
 .product-label--square .product-label__bottom {

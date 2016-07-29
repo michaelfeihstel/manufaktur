@@ -81,6 +81,7 @@ ul.side-nav li a {
 }
 
 // flex lists
+.flex-list,
 .flex__list {
   @include display(flex);
   flex-flow: row wrap;
@@ -89,15 +90,18 @@ ul.side-nav li a {
   margin-left: 0;
 }
 
-.flex__list.flex__list--align-bottom {
+.flex-list--bottom,
+.flex__list--align-bottom {
   align-items: flex-end
 }
 
+.flex-list--right,
 .flex__list--right {
   justify-content: flex-end;
   text-align: right;
 }
 
+.flex-list__item,
 .flex__list__item {
   @include flex(0 1 auto);
   margin-left: 0;
@@ -111,10 +115,12 @@ ul.side-nav li a {
   }
 }
 
+.flex-list__item--fixed,
 .flex__list__item--fixed {
   @include flex(0 0 auto);
 }
 
+.flex-list__item--expand,
 .flex__list__item--expand {
   @include flex(1 1 auto);
 }

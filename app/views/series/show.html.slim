@@ -5,12 +5,54 @@
 - content_for :header
   .header__title
     h1
-      span.thin Serie 
-      span = @series.id
-    h3 = @series.product.full_name
+      span Serie #{@series.id}
+    .flex__list
+      .flex__list__item
+        = product_label(@series&.product)
+      .flex__list__item
+        h3 = @series.product.full_name
 
 section
-  h5.section-header Artikel
+  h5 Serie
+  .row
+    .span-small-12.span-medium-6
+      .fields
+        label Erstellt am
+        = l @series.created_at, format: :date_only
+      .fields
+        label Voraussichtlicher Beginn
+        = l @series&.started_on if @series.started_on
+      .fields
+        label Voraussichtliche Fertigstellung
+        = l @series&.finished_on
+      .fields
+        label Artikel
+        = @series&.product&.full_name
+    .span-small-12.span-medium-6
+      label Artikel
+      .panel
+        .panel__bar.panel__bar--top
+          .flex__list
+            .flex__list__item
+              = product_label(@series&.product)
+            .flex__list__item
+              h5.panel__title
+                span.bold = @series&.product&.name
+                br
+                span = @series&.product&.color_text
+        .panel__body
+            .fields
+              label Artikelnummer
+              = link_to @series.product.sku, @series.product, class: "link"
+            .fields
+              label Bezeichnung
+              = @series.product.name
+            .fields
+              label Farbe
+              = @series.product.color_text
+
+section
+  h5 Artikel
   .panel
     .panel__bar.panel__bar--top
       .flex__list

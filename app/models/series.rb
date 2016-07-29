@@ -39,6 +39,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  name        :integer
+#  started_on  :date
 #
 # Indexes
 #

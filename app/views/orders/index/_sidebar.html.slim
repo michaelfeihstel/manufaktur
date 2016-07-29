@@ -3,8 +3,10 @@
   ul.side-nav
     li class=("active" if current_page?(controller: 'orders', action: 'favorites'))
       = link_to favorite_orders_path do
-        span Favoriten 
-        span.badge.float-right = Order.favorites.count
+        .flex-list
+          .flex-list__item.flex-list__item--expand Favoriten 
+          .flex-list__item.flex-list__item--fixed
+            span.badge = Order.favorites.count
     li class=("active" if current_page?(controller: 'orders', action: 'index')) = link_to "Alle", orders_path
     li class=("active" if current_page?(controller: 'orders', action: 'scheduled')) = link_to "Terminlieferungen", scheduled_orders_path
     li class=("active" if current_page?(controller: 'orders', action: 'backordered')) = link_to "Rückstände", backordered_orders_path
