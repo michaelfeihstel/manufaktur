@@ -29,9 +29,14 @@ ul.sizes-list {
 ul.sizes-list li {
   @include flex(1 1 auto);
   min-width: 1.8rem;
-  width: 2rem;
   margin-top: 0.25rem;
   text-align: center;
+}
+
+ul.sizes-list li.total {
+  border-left: 1px solid $hairline-color;
+  font-weight: 700;
+  padding-left: 0.5rem;
 }
 
 ul.sizes-list li:last-child {

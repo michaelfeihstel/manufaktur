@@ -54,6 +54,10 @@ section data-line-item-id=line_item.id
         = line_item_presenter.size_item(:g14h)
         = line_item_presenter.size_item(:g15)
         = line_item_presenter.size_item(:g16)
+        li.total
+          label
+            | =
+          span = line_item.quantity
 
     - if line_item.discounts.present?
       .panel__body.border-top

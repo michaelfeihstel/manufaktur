@@ -162,5 +162,9 @@ class Product < ApplicationRecord
   def available_stock_array
     available_stock_hash.values
   end
+
+  def available_stock_sum
+    available_stock_array.compact.sum
+  end
   
 end

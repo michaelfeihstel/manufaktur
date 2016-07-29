@@ -8,6 +8,12 @@ javascript:
         #{ raw collection.map{ |item| item.total }.prepend("Absatz") }
       ],
       type: 'bar',
+      colors: {
+        'Absatz': '#333'
+      }
+    },
+    bar: {
+      width: 30,
     },
     axis: {
       rotated: true,

@@ -303,7 +303,7 @@ img {
 .panel__bar {
   @include transition (all 200ms ease-in-out);
   @include flex(0 0 auto);
-  padding: 1rem 1.25rem;
+  padding: 1rem;
   background-color: $panel-background-color;
 }
 
@@ -337,14 +337,14 @@ img {
 
 .panel__body {
   @include flex(1 0 auto);
-  padding: 1rem 1.25rem;
+  padding: 1rem;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
 .panel__section {
-  background-color: #E7FFFA;
-  padding: 1rem 1.25rem;
+  padding: 1rem;
+  border-bottom: 1px solid $hairline-color;
 }
 
 
