@@ -71,8 +71,8 @@ section data-line-item-id=line_item.id
     .panel__bar.panel__bar--bottom
       .flex__list.flex__list--right
         .flex__list__item
-          label Anzahl
+          label.label--inline Anzahl:
           = line_item.quantity
         .flex__list__item
-          label Summe
+          label.label--inline Warenwert:
           = number_to_currency(line_item.try(:price_total), unit: "€ ")

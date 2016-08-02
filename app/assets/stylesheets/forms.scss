@@ -61,6 +61,16 @@ input[type=submit].link {
   cursor: pointer;
 }
 
+input:disabled {
+  color: #999;
+}
+
+input:disabled:hover,
+input:disabled:focus {
+  border: 1px solid $hairline-color;
+  cursor: not-allowed
+}
+
 select.custom {
   transition: none;
 }

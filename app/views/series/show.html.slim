@@ -27,67 +27,18 @@ section
         = l @series&.finished_on
       .fields
         label Artikel
-        = @series&.product&.full_name
-    .span-small-12.span-medium-6
-      label Artikel
-      .panel
-        .panel__bar.panel__bar--top
-          .flex__list
-            .flex__list__item
-              = product_label(@series&.product)
-            .flex__list__item
-              h5.panel__title
-                span.bold = @series&.product&.name
-                br
-                span = @series&.product&.color_text
-        .panel__body
-            .fields
-              label Artikelnummer
-              = link_to @series.product.sku, @series.product, class: "link"
-            .fields
-              label Bezeichnung
-              = @series.product.name
-            .fields
-              label Farbe
-              = @series.product.color_text
-
-section
-  h5 Artikel
-  .panel
-    .panel__bar.panel__bar--top
-      .flex__list
-        .flex__list__item
-          = product_label(@series&.product)
-        .flex__list__item
-          h5.panel__title
-            span.bold = @series&.product&.name
+        .flex-list.flex-list--align-top
+          .flex-list__item
+            = @series&.product&.name
             br
-            span = @series&.product&.color_text
-    .panel__section
-      ul.inline-list.small
-        li
-          label.label--inline Artikelnummer
-          span = link_to @series.product.sku, @series.product, class: "link"
-        li
-          label.label--inline Bezeichnung
-          span = @series.product.name
-        li
-          label.label--inline Farbe
-          span = @series.product.color_text
-    .panel__body
-      label Aktueller Bestand
-      ul.sizes-list
-        - @series&.product&.available_stock_hash.each do |size, stock|
-          li
-            label.label--small = @series&.product&.size_set&.send(size)
-            span = stock
-        li.total
-          label
-            | =
-          span = @series&.product&.available_stock_sum
+            span.small = @series.product.color_text
+            br
+            span.small = @series.product.sku
+          .flex-list__item
+            = product_label(@series.product)
 
 section
-  h5.section-header Geplant
+  h5 Geplant Menge
   ul.sizes-list
     - @series.quantities_to_hash.each do |size, quantity|
       li
@@ -98,9 +49,13 @@ section
       = @series.total_quantity
 
 section
-  h5.section-header Fortschritt
-  section
-    = render "series/charts/progress"
+  .panel
+    .panel__bar.panel__bar--top
+      h5.panel__title Fortschritt
+    .panel__body
+      = render "series/charts/progress"
+
+section
   table
     thead
       tr

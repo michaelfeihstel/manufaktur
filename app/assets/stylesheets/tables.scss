@@ -1,6 +1,15 @@
+.table-container {
+  margin-left: 100px;
+  overflow-x: scroll;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.table--fixed {
+  table-layout: fixed;
 }
 
 thead tr {
@@ -23,6 +32,13 @@ tr {
 td {
   padding: 1rem 0.5rem;
   vertical-align: middle;
+}
+
+td.fixed,
+th.fixed {
+  position: absolute;
+  left: 0;
+  width: 100px;
 }
 
 table.table--bordered th,

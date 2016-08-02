@@ -4,9 +4,14 @@
 - content_for :header
   .header__title
     h1 = @series.id
-    h4 = @series.product.full_name
+    h3 = @series.product.full_name
   .header__actions
-    = link_to "Speichern", "#", class: "button", data: { submit: "edit_series" }
-    = link_to "Abbrechen", "#", class: "button secondary"
+    = submit_tag "Speichern", form: "edit_series_#{@series.id}", class: "button"
+    = link_to "Abbrechen", @series, class: "link"
 
 = render "series/shared/form"
+
+- content_for :footer
+  ul.inline-list
+    li = submit_tag "Speichern", form: "edit_series_#{@series.id}", class: "button"
+    li = link_to "Abbrechen", @series, class: "link"

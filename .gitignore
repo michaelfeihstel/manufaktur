@@ -22,8 +22,8 @@
 /config/s3.yml
 
 # Sublime Text Project files
-/manufaktur.sublime-project
-/manufaktur.sublime-workspace
+manufaktur.sublime-project
+manufaktur.sublime-workspace
 
 # VS Code files
 /.vscode

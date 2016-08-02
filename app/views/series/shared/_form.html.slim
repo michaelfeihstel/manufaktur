@@ -9,7 +9,28 @@
           li = msg
 
   section
-    h5.section-header Artikel
-    .fields
-      = f.label :product_id, "Artikel"
-      = f.collection_select(:product_id, Product.order(:name), :id, :full_name, {}, class: "selectize")
+    .row
+      .span-small-12.span-medium-6
+        h5 Serie
+        .fields
+          = f.label :created_at, "Erstellt am"
+          = f.date_field :created_at, disabled: true
+        .fields
+          = f.label :started_on, "Beginn am"
+          = f.date_field :started_on
+        .fields
+          = f.label :finished_on, "Fertigstellung am"
+          = f.date_field :finished_on
+        .fields
+          = f.label :product_id, "Artikel"
+          = f.grouped_collection_select(:product_id, ProductFamily.order(:name), :products, :name, :id, :full_name, { prompt: "Wähle einen Artikel aus..." }, class: "selectize", data: { role: "select-product" })
+  section
+    h5 Geplante Menge
+    ul.sizes-list
+      - @series.product.size_set.sizes_as_hash.each do |size, size_name|
+        li
+          = f.label size, size_name
+          = f.text_field size
+      li.total
+        label = "="
+        = @series.total_quantity

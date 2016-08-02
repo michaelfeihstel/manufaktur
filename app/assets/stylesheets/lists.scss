@@ -27,9 +27,11 @@ ul.sizes-list {
 }
 
 ul.sizes-list li {
-  @include flex(1 1 auto);
-  min-width: 1.8rem;
-  margin-top: 0.25rem;
+  @include flex(1 0 1.8rem);
+  text-align: center;
+}
+
+ul.sizes-list li input {
   text-align: center;
 }
 
@@ -93,6 +95,10 @@ ul.side-nav li a {
 .flex-list--bottom,
 .flex__list--align-bottom {
   align-items: flex-end
+}
+
+.flex-list--align-top {
+  align-items: flex-start;
 }
 
 .flex-list--right,

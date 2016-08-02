@@ -53,6 +53,7 @@ body.inactive .main__content__overlay {
 }
 
 .content-container {
+  position: relative;
   max-width: 80em;
   margin-left: auto;
   margin-right: auto;
@@ -113,6 +114,7 @@ header {
 }
 
 aside {
+  width: 250px;
   order: -1;
   margin-top: -3rem;
   border: none;
@@ -154,7 +156,6 @@ aside.visible {
 
 article {
   @include flex(1 1);
-  overflow: scroll;
 }
 
 .logo {
