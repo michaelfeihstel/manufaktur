@@ -10,7 +10,7 @@
     = link_to "Bearbeiten", edit_order_path(@order), class: "button"
 
 section
-  h5.section-header Kunde
+  h5 Kunde
   .fields
     label Auftraggeber
     = @order.try(:billing_name)
@@ -37,7 +37,7 @@ section
         br
         = @order.try(:delivery_country)
 section
-  h5.section-header Verlauf
+  h5 Verlauf
   .fields
     label Erstellt am
     = l @order.created_at, format: :date_only
@@ -96,7 +96,7 @@ section
           p.light.text-center Keine Rückstände vorhanden
     .tab data-tab="invoice"
       section
-        h5.section-header Optionen
+        h5 Optionen
         = check_box_tag "Ohne Berechnung", @order.is_free
         label Mehrwertsteuersatz
         = @order.tax.name
@@ -104,44 +104,52 @@ section
         h5 Rechnung
         .row
           .span-small-12.span-medium-3
-            label Rechnungsdatum
-            = @order_presenter.invoice_date
+            .fields
+              label Rechnungsdatum
+              = @order_presenter.invoice_date
           .span-small-12.span-medium-4
-            label Rechnungsbetrag
-            = number_to_currency @order.gross_total
+            .fields
+              label Rechnungsbetrag
+              = number_to_currency @order.gross_total
       section
         h5 Skonto
         .row
           .span-small-12.span-medium-3
-            label Skonto
-            = @order_presenter.cashback_percent_formatted
+            .fields
+              label Skonto
+              = @order_presenter.cashback_percent_formatted
           .span-small-12.span-medium-3
-            label Skontofrist
-            = @order_presenter.cashback_date
+            .fields
+              label Skontofrist
+              = @order_presenter.cashback_date
           .span-small-12.span-medium-3
-            label Skontobetrag
-            = number_to_currency @order.price_cashback
+            .fields
+              label Skontobetrag
+              = number_to_currency @order.price_cashback
       section
         h5 Zahlung
         .span-small-12.span-medium-3
-          label Status
-          = @order_presenter.payment_status
+          .fields
+            label Status
+            = @order_presenter.payment_status
         .span-small-12.span-medium-3
-          label Zahlungseingang
-          = @order_presenter.payment_date
+          .fields
+            label Zahlungseingang
+            = @order_presenter.payment_date
         .span-small-12.span-medium-3
-          label Zahlungsmethode
-          = @order.payment_method
+          .fields
+            label Zahlungsmethode
+            = @order.payment_method
 
 
     .tab data-tab="shipping"
       section
-        h5.section-header Optionen
+        h5 Optionen
         label Versandkosten
         = number_to_currency @order.shipping_cost
 
       section
-        h5.section-header Pakete
+        h5 Pakete
         - if @order.shipments.present?
           table
             thead
