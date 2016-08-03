@@ -134,6 +134,7 @@ class OrdersController < ApplicationController
     authorize @order
     @search = Order.includes(:customer, :line_items).order(created_at: :desc).page(params[:page]).per(50).search(params[:q])
     @orders = @search.result(distinct: true)
+    @order_presenter = OrderPresenter.new(@order, view_context)
   end
 
 
@@ -268,6 +269,13 @@ class OrdersController < ApplicationController
           :line_item_id,
           :name,
           :discount,
+          :_destroy
+        ],
+        shipment_attributes: [
+          :line_item_id,
+          :carrier_id,
+          :tracking_code,
+          :weight,
           :_destroy
         ]
       ]
