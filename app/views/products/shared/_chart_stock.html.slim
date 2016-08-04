@@ -1,11 +1,9 @@
-.chart#chart_stock style="max-width: 990px;"
+.chart-container style="max-width: 990px"
+  .chart#stock_chart
 
 javascript:
-  
-
-
-  var chart = c3.generate({
-      bindto: "#chart_stock",
+  var stock_chart = c3.generate({
+      bindto: "#stock_chart",
       data: {
         columns: [
           #{raw @product.available_stock_array.prepend("Verfügbar")},
@@ -27,7 +25,8 @@ javascript:
           type: 'category',
           categories: #{raw @product.size_set.sizes_as_array},
           tick: {
-            centered: true
+            centered: true,
+            multiline: false,
           }
         },
         y: {
@@ -42,5 +41,11 @@ javascript:
         y: {
           show: true
         }
-      }
+      },
+  });
+
+  $(document).on('turbolinks:load', function() {
+     if (typeof chart !== 'undefined') {
+       stock_chart.resize();
+     }
   });
