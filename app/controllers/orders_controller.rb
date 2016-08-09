@@ -225,6 +225,14 @@ class OrdersController < ApplicationController
       :paid_on,
       :payment_method,
       :shipping_cost,
+      shipments_attributes: [
+        :id,
+        :line_item_id,
+        :carrier_id,
+        :tracking_code,
+        :weight,
+        :_destroy
+      ],
       line_items_attributes: [
         :id,
         :order_id,
@@ -271,13 +279,6 @@ class OrdersController < ApplicationController
           :discount,
           :_destroy
         ],
-        shipment_attributes: [
-          :line_item_id,
-          :carrier_id,
-          :tracking_code,
-          :weight,
-          :_destroy
-        ]
       ]
     )
   end

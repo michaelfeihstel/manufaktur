@@ -71,6 +71,29 @@ input:disabled:focus {
   cursor: not-allowed
 }
 
+.input {
+  position: relative;
+}
+
+.input__prefix {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.5rem;
+  text-align: center;
+  color: #999;
+  width: 2rem;
+}
+
+.input__value {
+  text-indent: 2rem;
+}
+
+.input__suffix {
+  flex: 0 0 auto;
+}
+
 select.custom {
   transition: none;
 }

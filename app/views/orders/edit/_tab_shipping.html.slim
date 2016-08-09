@@ -4,7 +4,9 @@ section
       h5 Optionen
       .fields
         = f.label :shipping_cost, "Versandkosten"
-        = f.text_field :shipping_cost
+        .input
+          .input__prefix €
+          = f.text_field :shipping_cost, class: "input__value"
 
 section
   h5 Pakete
@@ -13,15 +15,15 @@ section
       tr
         th Sendungsnummer
         th Versender
-        th.text-right Gewicht
-        th
+        th.text-right width="100" Gewicht
+        th width="30"
     tbody#shipments
       = f.fields_for :shipments, wrapper: false do |shipment_form|
         tr.fields
           td = shipment_form.text_field :tracking_code
           td = shipment_form.collection_select :carrier_id, Carrier.all, :id, :name
-          td.text-right width="100" = shipment_form.number_field :weight, class: "text-right"
-          td.text-right width="30" = shipment_form.link_to_remove icon("clear", align: "right")
+          td.text-right = shipment_form.number_field :weight, class: "text-right"
+          td.text-right = shipment_form.link_to_remove icon("clear", align: "right")
     tfooter
       tr
         td colspan=4 = f.link_to_add "Paket hinzufügen", :shipments, class: "link", data: { target: "#shipments" }

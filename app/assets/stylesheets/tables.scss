@@ -54,8 +54,8 @@ table.table--bordered td {
   }
 }
 
-td:first-child,
-th:first-child {
+table td:first-child,
+table th:first-child {
   padding-left: 0;
 }
 
