@@ -224,6 +224,8 @@ class OrdersController < ApplicationController
       :marked,
       :paid_on,
       :payment_method,
+      :use_dzb,
+      :dzb_account_number,
       :shipping_cost,
       shipments_attributes: [
         :id,

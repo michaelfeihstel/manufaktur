@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729085525) do
+ActiveRecord::Schema.define(version: 20160809072747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,14 +133,17 @@ ActiveRecord::Schema.define(version: 20160729085525) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "name",            limit: 255
+    t.string   "name",               limit: 255
     t.integer  "fmid"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "contact_role_id"
     t.hstore   "additional_data"
+    t.boolean  "use_dzb",                        default: false
+    t.string   "dzb_account_number"
     t.index ["additional_data"], name: "index_contacts_on_additional_data", using: :btree
     t.index ["contact_role_id"], name: "index_contacts_on_contact_role_id", using: :btree
+    t.index ["use_dzb"], name: "index_contacts_on_use_dzb", using: :btree
   end
 
   create_table "defects", force: :cascade do |t|
@@ -290,12 +293,15 @@ ActiveRecord::Schema.define(version: 20160729085525) do
     t.integer  "tax_id"
     t.decimal  "shipping_cost",                     precision: 8, scale: 2, default: "0.0"
     t.string   "payment_method"
+    t.boolean  "use_dzb",                                                   default: false
+    t.string   "dzb_account_number"
     t.index ["billing_address_id"], name: "index_orders_on_billing_address_id", using: :btree
     t.index ["completed_at"], name: "index_orders_on_completed_at", using: :btree
     t.index ["contact_id"], name: "index_orders_on_contact_id", using: :btree
     t.index ["created_at"], name: "index_orders_on_created_at", using: :btree
     t.index ["delivery_address_id"], name: "index_orders_on_delivery_address_id", using: :btree
     t.index ["tax_id"], name: "index_orders_on_tax_id", using: :btree
+    t.index ["use_dzb"], name: "index_orders_on_use_dzb", using: :btree
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

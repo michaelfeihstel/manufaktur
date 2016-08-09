@@ -2,18 +2,21 @@
 #
 # Table name: contacts
 #
-#  id              :integer          not null, primary key
-#  name            :string(255)
-#  fmid            :integer
-#  created_at      :datetime
-#  updated_at      :datetime
-#  contact_role_id :integer
-#  additional_data :hstore
+#  id                 :integer          not null, primary key
+#  name               :string(255)
+#  fmid               :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  contact_role_id    :integer
+#  additional_data    :hstore
+#  use_dzb            :boolean          default(FALSE)
+#  dzb_account_number :string
 #
 # Indexes
 #
 #  index_contacts_on_additional_data  (additional_data)
 #  index_contacts_on_contact_role_id  (contact_role_id)
+#  index_contacts_on_use_dzb          (use_dzb)
 #
 
 class Contact < ApplicationRecord

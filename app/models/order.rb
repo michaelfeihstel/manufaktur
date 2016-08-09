@@ -38,6 +38,8 @@
 #  tax_id                :integer
 #  shipping_cost         :decimal(8, 2)    default(0.0)
 #  payment_method        :string
+#  use_dzb               :boolean          default(FALSE)
+#  dzb_account_number    :string
 #
 # Indexes
 #
@@ -47,6 +49,7 @@
 #  index_orders_on_created_at           (created_at)
 #  index_orders_on_delivery_address_id  (delivery_address_id)
 #  index_orders_on_tax_id               (tax_id)
+#  index_orders_on_use_dzb              (use_dzb)
 #
 
 class Order < ApplicationRecord

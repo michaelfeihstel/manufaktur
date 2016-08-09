@@ -90,6 +90,8 @@ class Api::OrdersController < Api::ApplicationController
       :paid_amount,
       :paid_on,
       :payment_method,
+      :use_dzb,
+      :dzb_account_number,
       :shipping_cost,
       :tax_id,
       line_items_attributes: [

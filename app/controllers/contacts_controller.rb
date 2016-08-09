@@ -131,6 +131,8 @@ class ContactsController < ApplicationController
       :name,
       :contact_role_id,
       :test,
+      :use_dzb,
+      :dzb_account_number,
       addresses_attributes: [
         :id,
         :contact_id,

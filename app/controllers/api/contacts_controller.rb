@@ -50,6 +50,8 @@ class Api::ContactsController < Api::ApplicationController
       :created_at,
       :updated_at,
       :name,
+      :use_dzb,
+      :dzb_account_number,
       addresses_attributes: [
         :id,
         :description,

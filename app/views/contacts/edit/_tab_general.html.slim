@@ -1,4 +1,4 @@
-.tab.active#tab_general
+.tab.active data-tab="general"
   .row
     .span-small-12.span-large-6
       - if @contact.errors.any?
@@ -11,7 +11,7 @@
   section
     .row
       .span-small-12.span-large-6
-        h5.section-header Kontakt
+        h5 Kontakt
         .fields
           = f.label :name
           = f.text_field :name
@@ -21,16 +21,15 @@
           = f.collection_select :contact_role_id, ContactRole.all, :id, :human_readable_name, { prompt: "Bitte auswählen..." }
 
   section
-    h5.section-header Adressen
+    h5 Adressen
     ul.small-block-1.large-block-2
       li = f.fields_for :addresses
-    = f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "button tiny"
+    = f.link_to_add icon("add", text: "Adresse hinzufügen"), :addresses, class: "link"
 
   .row
     .span-small-12.span-large-6
       section
-        h5.section-header Kontaktdaten
-        label eMail
+        h5 eMail
         table.table--borderless.table--compact
           thead
             tr
@@ -45,7 +44,7 @@
               td colspan=3 = f.link_to_add "eMail hinzufügen", :emails, class: "link", data:  { target: "#emails" }
 
       section
-        label Telefon & Fax
+        h5 Telefon & Fax
         table.table--borderless.table--compact
           thead
             tr
@@ -58,3 +57,16 @@
           tfooter
             tr.borderless
               td colspan=3 = f.link_to_add "Nummer hinzufügen", :phones, class: "link", data:  { target: "#phones" }
+
+      section
+        h5 Zahlung & Konditionen
+        .row
+          .span-small-12.span-medium-6
+            .fields
+              = f.label :use_dzb, "Zentralregulierung verwenden?"
+              = f.select :use_dzb, [['Ja', true], ['Nein', false]]
+          .span-small-12.span-medium-6
+            .fields
+              = f.label :dzb_account_number, "DZB Kundennummer"
+              = f.text_field :dzb_account_number
+

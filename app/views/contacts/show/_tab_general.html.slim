@@ -10,7 +10,7 @@
       label Kategorie
       = @contact&.contact_role&.human_readable_name
   section
-    h5.section-header Adressen & Filialen
+    h5 Adressen & Filialen
     ul.small-block-1.medium-block-2.large-block-4
       - @contact.addresses.each do |address|
         li.panel
@@ -29,7 +29,7 @@
 
 
   section
-    h5.section-header Telefon & Fax
+    h5 Telefon & Fax
     table
       thead
         tr
@@ -42,7 +42,7 @@
             td width="50%" = contact_information.name
             
   section
-    h5.section-header E-Mail
+    h5 E-Mail
     table
       thead
         tr
@@ -55,7 +55,7 @@
             td width="50%" = contact_information.name
 
   section
-    h5.section-header Personen
+    h5 Personen
     table
       thead
         tr
@@ -66,3 +66,15 @@
           tr
             td width="50%" = contact_information.value
             td width="50%" = "#{contact_information.name} "
+
+  section
+    h5 Zahlung & Konditionen
+    .row
+      .span-small-12.span-medium-3
+        .fields
+          label Zentralregulierung verwenden?
+          = @contact.use_dzb? ? 'Ja' : 'Nein'
+      .span-small-12.span-medium-3
+        .fields
+          label DZB-Kundennummer
+          = @contact.dzb_account_number
