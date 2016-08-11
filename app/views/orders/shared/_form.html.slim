@@ -8,16 +8,25 @@
             li= msg
 
   section
-    .row
-      .span-small-12.span-medium-9
-        h5.section-header Kunde
-        = render "orders/shared/select_addresses", f: f
+    h5 Kunde
+    .fields
+      = f.label :billing_address_id, "Rechnungsanschrift"
+      = f.select(:billing_address_id, [f.object&.billing_address&.full_address_with_name])
+    .fields
+      = f.label :delivery_address_id, "Lieferanschrift"
+      = f.select(:delivery_address_id, [f.object&.billing_address&.full_address_with_name])
 
+    h5 Status
+    .row
       .span-small-12.span-medium-3
-        h5.section-header Status
         .fields
           = f.label :delivered_on, "Liefertermin"
           = f.date_field :delivered_on
+        .fields
+          = f.check_box :is_scheduled_delivery
+          = f.label :is_scheduled_delivery, "Terminlieferung", class: "label--inline"
+    .row
+      .span-small-12.span-medium-3
         .fields
           = f.label :completed_at, "Abgeschlossen am"
           = f.date_field :completed_at
