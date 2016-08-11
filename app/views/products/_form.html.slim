@@ -11,7 +11,7 @@
   .row
     .span-small-12.span-medium-6
       section
-        h5.section-header Allgemein
+        h5 Allgemein
         .fields
           = f.label :name, "Bezeichnung"
           = f.text_field :name, :placeholder => "z.B. Adagio W"
@@ -31,12 +31,13 @@
         .fields
           = f.label :product_family_id, "Produktgruppe"
           = f.collection_select(:product_family_id, ProductFamily.all, :id, :name)
+          hr
           label.small Oder erstelle eine neue Produktgruppe:
           = f.text_field :new_product_family_name
 
 
       section
-        h5.section-header Preis
+        h5 Preis
         .fields
           = f.label :price, "Preis zzgl. MwSt."
           = f.text_field :price, :placeholder => "z.B. 200", :step => "10"
@@ -68,7 +69,7 @@
 
     .span-small-12.span-medium-6
       section
-        h5.section-header Bilder
+        h5 Bilder
         .fields
           = f.fields_for :product_images
           = f.link_to_add "Bild hinzufügen", :product_images, class: "tiny button"
