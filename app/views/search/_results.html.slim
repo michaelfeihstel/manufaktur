@@ -45,7 +45,7 @@
               - results.each do |result|
                 tr
                   td width=120
-                    span.product-label.product-label--fixed style=(product_label_style(result.searchable)) = result.searchable.sku
+                    = product_label(result.searchable)
                   td 
                     span = link_to result.searchable.name, result.searchable, class: "link"
                     br
