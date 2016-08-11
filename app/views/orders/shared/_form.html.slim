@@ -34,12 +34,12 @@
   section
     ul.tabs data-tab=""
       li.tab-title.active = link_to "Artikel", "products"
-      li.tab-title = link_to "Rechnung & Zahlung", "invoice"
+      li.tab-title = link_to "Rechnung & Zahlung", "billing"
       li.tab-title = link_to "Versand", "shipping"
     .tabs-content
       .tab.active data-tab="products"
         = render "orders/edit/tab_products", f: f
-      .tab data-tab="invoice"
-        = render "orders/edit/tab_invoice", f: f
+      .tab data-tab="billing"
+        = render "orders/edit/tab_billing", f: f
       .tab data-tab="shipping"
         = render "orders/edit/tab_shipping", f: f

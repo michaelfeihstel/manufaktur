@@ -63,10 +63,7 @@
         .row
           .span-small-12.span-medium-6
             .fields
-              = f.label :use_dzb, "Zentralregulierung verwenden?"
-              = f.select :use_dzb, [['Ja', true], ['Nein', false]]
-          .span-small-12.span-medium-6
-            .fields
               = f.label :dzb_account_number, "DZB Kundennummer"
               = f.text_field :dzb_account_number
+              span.small.light Durch Eintragen der Kundennummer wird für zukünftige Aufträge die Zentralregulierung aktiviert.
 

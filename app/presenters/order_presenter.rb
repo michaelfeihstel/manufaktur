@@ -66,6 +66,14 @@ class OrderPresenter
     end
   end
 
+  def dzb_account_number
+    if order.dzb_account_number.present?
+      order.dzb_account_number
+    else
+      'Nicht verwendet'
+    end
+  end
+
 
 
   private

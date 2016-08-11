@@ -57,7 +57,7 @@ section
   ul.tabs data-tab=""
     li.tab-title.active = link_to "Artikel", "products"
     li.tab-title = link_to "Rückstände", "backorders"
-    li.tab-title = link_to "Rechnung & Zahlung", "invoice"
+    li.tab-title = link_to "Rechnung & Zahlung", "billing"
     li.tab-title = link_to "Versand", "shipping"
 
   .tabs-content
@@ -94,12 +94,19 @@ section
             = render "orders/show/backorder", backorder: backorder
         - else
           p.light.text-center Keine Rückstände vorhanden
-    .tab data-tab="invoice"
+    .tab data-tab="billing"
       section
         h5 Optionen
         = check_box_tag "Ohne Berechnung", @order.is_free
         label Mehrwertsteuersatz
         = @order.tax.name
+      section
+        h5 Zentralregulierung
+        .row
+          .span-small-12.span.medium-3
+            .fields
+              label DZB-Kundennummer
+              = @order_presenter.dzb_account_number
       section
         h5 Rechnung
         .row
@@ -128,18 +135,19 @@ section
               = number_to_currency @order.price_cashback
       section
         h5 Zahlung
-        .span-small-12.span-medium-3
-          .fields
-            label Status
-            = @order_presenter.payment_status
-        .span-small-12.span-medium-3
-          .fields
-            label Zahlungseingang
-            = @order_presenter.payment_date
-        .span-small-12.span-medium-3
-          .fields
-            label Zahlungsmethode
-            = @order.payment_method
+        .row
+          .span-small-12.span-medium-3
+            .fields
+              label Status
+              = @order_presenter.payment_status
+          .span-small-12.span-medium-3
+            .fields
+              label Zahlungseingang
+              = @order_presenter.payment_date
+          .span-small-12.span-medium-3
+            .fields
+              label Zahlungsmethode
+              = @order.payment_method
 
 
     .tab data-tab="shipping"
