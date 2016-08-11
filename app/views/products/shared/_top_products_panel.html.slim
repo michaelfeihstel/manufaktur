@@ -1,7 +1,7 @@
 .panel
   .panel__bar.panel__bar--top
     h5.panel__title Beliebteste Schuhe
-  .panel__bar.panel__bar--top
+  .panel__section
     ul.inline-list.small
       li = link_to Date.today.year, set_products_period_path(from: Date.today.beginning_of_year, to: Date.today), class: "link", remote: true
       li = link_to Date.today.prev_year.year, set_products_period_path(from: Date.today.prev_year.beginning_of_year, to: Date.today.prev_year.end_of_year), class: "link", remote: true
@@ -9,18 +9,6 @@
       li = link_to "90 Tage", set_products_period_path(from: 90.days.ago.to_date, to: Date.today), class: "link", remote: true
       li = link_to "1 Jahr", set_products_period_path(from: 1.year.ago.to_date, to: Date.today), class: "link", remote: true
   .panel__body style="max-height: 500px"
-    = form_tag "dashboard/set_period", method: :get, remote: true do
-      .flex__list
-        .flex__list__item.flex__list__item--expand
-          .fields
-            = label_tag :from, "Von"
-            = date_field_tag :from, @filter[:from]
-        .flex__list__item.flex__list__item--expand
-          .fields
-            = label_tag :to, "Bis"
-            = date_field_tag :to, @filter[:to]
-        .flex__list__item.flex__list__item--fixed
-          = submit_tag "OK", class: "button button--no-margin tiny"
     table
       thead
         tr
@@ -36,5 +24,5 @@
               span.small.light = product.color_text
             td.text-right = product.quantity
 
-  .panel__bar
+  .panel__bar.panel__bar--bottom
     = link_to "Alle Artikel anzeigen...", products_path, class: "link"
