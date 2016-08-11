@@ -109,6 +109,7 @@ class OrdersController < ApplicationController
   def new
     @search = Order.search(params[:q])
     @order = Order.new
+    @order_presenter = OrderPresenter.new(@order, view_context)
     authorize @order
     @order.line_items.build
     @addresses = Address.all
