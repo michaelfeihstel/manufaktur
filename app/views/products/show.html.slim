@@ -4,10 +4,12 @@
 
 - content_for :header
   .header__title
-    h1
-      span = "#{@product.name} " 
-      span.thin = @product.color_text
-    h3 = @product.sku
+    .flex-list
+      .flex-list__item
+        h1 = @product.name
+      .flex-list__item
+        = product_label(@product)
+    span = @product.color_text
   .header__actions
     = link_to "Bearbeiten", edit_product_path(@product), class: "button"
 
