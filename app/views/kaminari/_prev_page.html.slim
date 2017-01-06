@@ -6,5 +6,4 @@
     per_page     : number of items to fetch per page
     remote       : data-remote
 span.page.page--prev
-  == link_to_unless current_page.first?, icon("chevron_left", size: "md-24"), url, :rel => 'prev', :remote => remote
-'
+  = link_to_unless current_page.first?, icon("chevron_left", size: "md-24"), url, :rel => 'prev', :remote => remote
