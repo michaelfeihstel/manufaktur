@@ -479,6 +479,32 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/assets/stylesheets/typography.scss",
+			"settings":
+			{
+				"buffer_size": 3303,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/variables.scss",
+			"settings":
+			{
+				"buffer_size": 1835,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/layouts/application.html.slim",
+			"settings":
+			{
+				"buffer_size": 1789,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -602,8 +628,7 @@
 	"expanded_folders":
 	[
 		"/Users/ulflunge/projects/manufaktur",
-		"/Users/ulflunge/projects/manufaktur/app",
-		"/Users/ulflunge/projects/manufaktur/app/policies"
+		"/Users/ulflunge/projects/manufaktur/app"
 	],
 	"file_history":
 	[
@@ -753,6 +778,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Roboto",
 			"load_product_family_share_chart",
 			"contact",
 			"li",
@@ -879,8 +905,7 @@
 			":retailers",
 			"@retailer",
 			"retailer",
-			"retailer:",
-			"@retailer"
+			"retailer:"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -906,8 +931,99 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/assets/stylesheets/typography.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/assets/stylesheets/variables.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								333,
+								333
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 66.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/layouts/application.html.slim",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1789,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								310,
+								310
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -964,6 +1080,18 @@
 		"selected_items":
 		[
 			[
+				"applicahtm",
+				"app/views/layouts/application.html.slim"
+			],
+			[
+				"variabl",
+				"app/assets/stylesheets/variables.scss"
+			],
+			[
+				"typo",
+				"app/assets/stylesheets/typography.scss"
+			],
+			[
 				"gemfile",
 				"Gemfile"
 			],
@@ -982,10 +1110,6 @@
 			[
 				"applicationhtml",
 				"app/views/layouts/application.html.slim"
-			],
-			[
-				"typo",
-				"app/assets/stylesheets/typography.scss"
 			],
 			[
 				"layout",
@@ -1466,14 +1590,6 @@
 			[
 				"contactschart",
 				"app/views/contacts/charts/_order_chart.html.slim"
-			],
-			[
-				"assets",
-				"config/initializers/assets.rb"
-			],
-			[
-				"stock",
-				"app/views/products/shared/_chart_stock.html.slim"
 			]
 		],
 		"width": 0.0
