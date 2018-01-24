@@ -30,9 +30,9 @@ class Contact < ApplicationRecord
   has_many :emails, -> { where(info_type: 'E-Mail') },
            class_name: 'ContactInformation'
   has_many :letters, through: :addresses
+  has_many :orders
   has_many :line_items, through: :orders
   has_many :materials, dependent: :nullify
-  has_many :orders
   has_many :phones, -> { where(info_type: 'Telefon') },
            class_name: 'ContactInformation'
   has_many :product_inventory_items, dependent: :nullify

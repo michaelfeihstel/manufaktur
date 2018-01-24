@@ -1,4 +1,4 @@
-Manufaktur::Application.routes.draw do
+Rails.application.routes.draw do
 
   # root
   root to: "dashboard#show"
