@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '2.6.1'
 
 gem 'rails', '~> 5.2'
 gem 'pg', '~> 0.21'
@@ -20,7 +20,7 @@ gem 'geocoder'
 gem 'draper', '>= 3.0.0.pre1'
 
 # views and presentation
-gem 'sass-rails', '~> 5.0.0'
+gem 'sassc-rails'
 gem 'bourbon', '~> 4.2'
 gem 'neat'
 gem 'susy', '~> 2.2'

@@ -57,9 +57,9 @@ class ContactsController < ApplicationController
     render "index"
   end
 
-  def filter
+  def filter_by_type
     @filter = params[:filter]
-    @contacts = Contact.filter(@filter).includes(:addresses, :contact_role).order(:name).page(params[:page]).per(50)
+    @contacts = Contact.filter_by_type(@filter).includes(:addresses, :contact_role).order(:name).page(params[:page]).per(50)
     authorize @contacts
     render "index"
   end

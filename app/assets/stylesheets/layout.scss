@@ -108,7 +108,7 @@ header {
   margin-top: 3rem;
   margin-bottom: 2rem;
 
-  @media (screen and max-width: $end-tablet-portrait) {
+  @media screen and (max-width: $end-tablet-portrait) {
     @include flex-direction(column);
   }
 }
