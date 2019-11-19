@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.1'
+ruby '2.6.5'
 
 gem 'rails', '~> 5.2'
 gem 'pg', '~> 0.21'
@@ -33,6 +33,7 @@ gem 'compass'
 gem 'jquery-rails'
 gem 'nested_form'
 gem 'pg_search'
+gem 'loofah', '>= 2.3.1' 
 
 group :production do
   gem 'rails_12factor'
